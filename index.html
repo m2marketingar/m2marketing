@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+    
     <script>
         tailwind.config = {
             theme: {
@@ -45,29 +45,24 @@
             }
         }
     </script>
-
     <style>
         .text-gradient {
             background: linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #f59e0b 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
         .reveal {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.5s ease, transform 0.5s ease;
         }
-
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
-
         .meet-badge {
             background: linear-gradient(135deg, #00832d 0%, #00ac47 50%, #0066da 100%);
         }
-
         .hover-lift {
             transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
@@ -75,12 +70,17 @@
             transform: translateY(-2px);
             box-shadow: 0 16px 32px -8px rgba(15, 23, 42, 0.08);
         }
-
         .nav-link.active {
             color: #2563eb;
             background-color: #eff6ff;
         }
-
+        /* Glassmorphism Styling Style Apple */
+        .glass-pill {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
         .glass-card-dark {
             background: linear-gradient(145deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 100%);
             backdrop-filter: blur(20px);
@@ -88,21 +88,19 @@
         }
     </style>
 </head>
-
 <body class="bg-slate-50 text-brand-slateDark font-sans antialiased selection:bg-blue-100 selection:text-brand-blue overflow-x-hidden">
-
+    
     <nav id="navbar" class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-brand-border/80 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-14 sm:h-16" id="nav-container">
-                
                 <!-- Logo Oficial M2Marketing con bordes suaves -->
                 <a href="#inicio" class="flex items-center gap-2 group py-1 flex-shrink-0">
                     <img src="https://lh3.googleusercontent.com/d/1Yq4YcFxytCooor28U_NwUU3iPFkzw1EV" 
                          alt="M2Marketing Logo" 
                          class="h-8 sm:h-10 w-auto object-contain rounded-2xl group-hover:scale-105 transition-transform duration-300"
-                         onerror="this.onerror=null; this.src='https://drive.google.com/uc?export=view&id=1Yq4YcFxytCooor28U_NwUU3iPFkzw1EV';">
+                         onerror="this.onerror=null; this.src='https://placehold.co/150x50/2563eb/ffffff?text=M2Marketing';">
                 </a>
-
+                
                 <!-- Desktop Navigation Links -->
                 <div class="hidden md:flex items-center gap-2 text-xs font-bold text-brand-slateMuted">
                     <a href="#inicio" class="nav-link px-3.5 py-2 rounded-full hover:text-brand-blue transition-colors">Inicio</a>
@@ -111,10 +109,9 @@
                     <a href="#servicios" class="nav-link px-3.5 py-2 rounded-full hover:text-brand-blue transition-colors">Servicios Extras</a>
                     <a href="#faq" class="nav-link px-3.5 py-2 rounded-full hover:text-brand-blue transition-colors">FAQ</a>
                 </div>
-
             </div>
         </div>
-
+        
         <!-- Horizontal Scrollable Navigation for Mobile -->
         <div class="md:hidden border-t border-slate-100 bg-white/95 backdrop-blur-md px-3 py-1.5 overflow-x-auto whitespace-nowrap [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" id="mobile-nav-scroll">
             <div class="flex items-center gap-1.5 text-xs font-bold text-brand-slateMuted">
@@ -128,34 +125,32 @@
     </nav>
 
     <main class="pt-14 sm:pt-16">
-
         <section id="inicio" class="py-6 sm:py-10 relative overflow-hidden bg-white">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-                
                 <!-- Logo M2M Grande en Hero con espacio ajustado -->
                 <div class="flex justify-center mb-3 sm:mb-4">
                     <img src="https://lh3.googleusercontent.com/d/1Yq4YcFxytCooor28U_NwUU3iPFkzw1EV" 
                          alt="M2Marketing" 
                          class="h-64 sm:h-[28rem] w-auto object-contain"
-                         onerror="this.onerror=null; this.src='https://drive.google.com/uc?export=view&id=1Yq4YcFxytCooor28U_NwUU3iPFkzw1EV';">
+                         onerror="this.onerror=null; this.src='https://placehold.co/400x300/2563eb/ffffff?text=M2Marketing';">
                 </div>
-
+                
                 <!-- Badge Pre-title -->
                 <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-800 text-[11px] sm:text-xs font-bold uppercase tracking-wide mb-5">
                     <i class="ph-fill ph-check-circle text-emerald-500 text-sm"></i>
                     <span>Sin humo viral. Solo negocios y ventas.</span>
                 </div>
-
+                
                 <!-- Main Headline -->
                 <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-brand-slateDark tracking-tight leading-tight mb-4 max-w-3xl mx-auto">
                     Tu ecosistema de <br>
                     <span class="text-gradient">marketing inmobiliario</span>
                 </h1>
-
+                
                 <p class="text-sm sm:text-lg text-brand-slateMuted max-w-xl mx-auto font-medium mb-6 leading-relaxed">
                     Sistematizamos tu estrategia digital enfocados exclusivamente en dos metas clave:
                 </p>
-
+                
                 <!-- Core Goals Stacked Cleanly on Mobile -->
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-xl mx-auto mb-8">
                     <div class="w-full sm:w-1/2 p-4 rounded-2xl bg-white border border-slate-200/90 flex items-center gap-3.5 text-left shadow-sm hover-lift">
@@ -167,7 +162,6 @@
                             <span class="text-xs sm:text-sm font-bold text-slate-800">Captar propiedades en exclusiva</span>
                         </div>
                     </div>
-
                     <div class="w-full sm:w-1/2 p-4 rounded-2xl bg-white border border-slate-200/90 flex items-center gap-3.5 text-left shadow-sm hover-lift">
                         <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center text-xl flex-shrink-0">
                             <i class="ph-duotone ph-user-check"></i>
@@ -178,24 +172,22 @@
                         </div>
                     </div>
                 </div>
-
+                
+                <!-- CTA Action -->
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
                     <a href="https://wa.me/?text=Hola!%20Quiero%20agendar%20mi%20Sesión%20Estratégica%20de%20Diagnóstico%20en%20M2Marketing" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto py-3.5 px-8 rounded-full font-bold text-white bg-slate-900 hover:bg-slate-800 transition-all shadow-md text-sm flex items-center justify-center gap-2.5 border border-slate-700/50 hover:scale-[1.02]">
                         <i class="ph-bold ph-whatsapp-logo text-emerald-400 text-lg"></i>
                         <span>Agendá tu Sesión por WhatsApp</span>
                     </a>
                 </div>
-
                 <p class="mt-3 text-[11px] font-semibold text-slate-400">
                     Cupos reducidos por Promo Lanzamiento • Cero permanencia
                 </p>
-
             </div>
         </section>
 
         <section id="nosotros" class="py-12 bg-brand-surfaceAlt border-t border-b border-brand-border">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                
                 <div class="text-center max-w-2xl mx-auto mb-8 reveal">
                     <span class="text-[10px] font-bold uppercase tracking-wider text-brand-blue bg-blue-50 px-3 py-1 rounded-full border border-blue-100 inline-block mb-2">
                         Quiénes Somos
@@ -204,15 +196,13 @@
                         De la producción audiovisual al <span class="text-gradient">Hall of Fame</span>
                     </h2>
                 </div>
-
+                
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                    
                     <!-- Text Story Side -->
                     <div class="lg:col-span-7 space-y-4 text-center lg:text-left reveal">
                         <p class="text-brand-slateMuted text-sm sm:text-base leading-relaxed">
                             Tras 20 años dirigiendo producciones audiovisuales y más de 6 años como agente inmobiliario galardonado, creé <strong>M2Marketing</strong> para aportar la tecnología y pauta estratégica que las inmobiliarias necesitan para escalar sin perder tiempo jugando a ser influencers.
                         </p>
-
                         <div class="p-4 rounded-2xl bg-white border border-brand-border shadow-sm flex items-center gap-3.5 text-left">
                             <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl flex-shrink-0 font-bold">
                                 <i class="ph-fill ph-trophy"></i>
@@ -223,10 +213,9 @@
                             </div>
                         </div>
                     </div>
-
+                    
                     <!-- Visual Assets Side -->
                     <div class="lg:col-span-5 flex flex-col sm:flex-row lg:flex-row gap-4 justify-center items-center reveal">
-                        
                         <!-- Video Reel Vertical (9:16) -->
                         <div class="bg-slate-900 p-2 rounded-[1.5rem] shadow-md border border-slate-800 w-full max-w-[180px]">
                             <div class="aspect-[9/16] bg-slate-800 rounded-[1.2rem] relative overflow-hidden flex flex-col justify-between p-3 group cursor-pointer">
@@ -242,7 +231,7 @@
                                 </div>
                             </div>
                         </div>
-
+                        
                         <!-- Photo Trophy Hall of Fame (9:16) -->
                         <div class="bg-white p-2 rounded-[1.5rem] shadow-md border border-brand-border w-full max-w-[180px]">
                             <div class="aspect-[9/16] bg-slate-100 rounded-[1.2rem] relative overflow-hidden flex flex-col justify-between p-3">
@@ -253,16 +242,13 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
                 </div>
             </div>
         </section>
 
         <section id="planes" class="py-14 bg-white relative overflow-hidden">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                
                 <div class="text-center max-w-2xl mx-auto mb-10 reveal">
                     <span class="inline-block py-1 px-3.5 rounded-full bg-amber-50 text-amber-700 font-bold text-[10px] uppercase mb-2 border border-amber-200">
                         <i class="ph-bold ph-sparkle mr-1"></i> Promo Lanzamiento Exclusiva
@@ -274,11 +260,10 @@
                         Evaluamos tus campañas, redes y portales para optimizar tu presupuesto desde el primer día.
                     </p>
                 </div>
-
+                
                 <!-- Main Pricing Card -->
                 <div class="bg-white rounded-3xl shadow-glass-lux border border-slate-200/80 overflow-hidden reveal">
                     <div class="flex flex-col lg:flex-row">
-                        
                         <!-- Left Side: Included Features -->
                         <div class="w-full lg:w-7/12 p-6 sm:p-8 border-b lg:border-b-0 lg:border-r border-slate-200/80 space-y-6">
                             <h3 class="text-lg font-extrabold text-brand-slateDark">
@@ -294,15 +279,12 @@
                                     </div>
                                     <span class="text-[10px] font-bold text-amber-400 uppercase tracking-wider">Punto Estrella</span>
                                 </div>
-                                
                                 <h4 class="text-base font-extrabold mb-1">
                                     Mastermind M2M <span class="text-xs bg-white/10 px-2 py-0.5 rounded-full font-normal text-slate-300">(4 encuentros/mes)</span>
                                 </h4>
-                                
                                 <p class="text-slate-300 text-xs leading-relaxed mb-3">
                                     <strong>4 encuentros mensuales en vivo</strong> (1 por semana) orientados a potenciar tu negocio inmobiliario:
                                 </p>
-
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-slate-200">
                                     <div class="bg-white/5 p-2 rounded-xl border border-white/10 flex items-center gap-2">
                                         <i class="ph-bold ph-target text-amber-400"></i>
@@ -322,14 +304,13 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- HIGHLIGHT #2: DIAGNOSTIC PACKAGE (Reordered as requested) -->
+                            
+                            <!-- HIGHLIGHT #2: DIAGNOSTIC PACKAGE -->
                             <div class="bg-brand-surfaceAlt p-5 rounded-2xl border border-slate-200/80 space-y-3 text-xs">
                                 <h4 class="font-bold text-brand-slateDark text-sm flex items-center gap-2">
                                     <i class="ph-duotone ph-chart-line-up text-brand-blue text-lg"></i>
                                     Diagnóstico & Feedback 1 a 1
                                 </h4>
-                                
                                 <ul class="space-y-2.5 text-brand-slateMuted">
                                     <li class="flex items-start gap-2.5">
                                         <i class="ph-bold ph-check-circle text-brand-blue text-sm flex-shrink-0 mt-0.5"></i>
@@ -345,7 +326,7 @@
                                     </li>
                                 </ul>
                             </div>
-
+                            
                             <!-- Distinction Box -->
                             <div class="bg-amber-50/70 border border-amber-200/80 p-4 rounded-2xl text-xs text-brand-slateDark">
                                 <strong class="text-amber-800 block mb-1">Oportunidad de Lanzamiento:</strong>
@@ -354,35 +335,31 @@
                                 </p>
                             </div>
                         </div>
-
+                        
                         <!-- Right Side: Price & Glass CTA -->
                         <div class="w-full lg:w-5/12 glass-card-dark text-white p-6 sm:p-8 flex flex-col justify-center items-center text-center relative border-l border-slate-800">
-                            
                             <span class="inline-block px-3.5 py-1 rounded-full bg-amber-400/20 text-[10px] font-extrabold uppercase tracking-wider mb-4 text-amber-300 border border-amber-400/30">
                                 Promo Única de Lanzamiento
                             </span>
-                            
                             <div class="flex items-baseline justify-center mb-1">
                                 <span class="text-5xl font-extrabold tracking-tight text-white">50</span>
                                 <span class="text-lg font-bold text-slate-300 ml-1.5">USD <span class="text-xs font-normal text-slate-400">/ entrada</span></span>
                             </div>
-                            
                             <p class="text-slate-400 text-xs mb-6">
+                                Suscripción mensual. Cero permanencia.<br>
                                 Tarifa de acceso especial por tiempo limitado.
                             </p>
-
+                            
                             <!-- Glass style button inside dark box -->
                             <a href="https://wa.me/?text=Hola!%20Quiero%20agendar%20mi%20Sesión%20Estratégica%20de%20Diagnóstico%20en%20M2Marketing" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-6 rounded-full font-bold text-slate-900 bg-emerald-400 hover:bg-emerald-300 transition-all text-sm shadow-lg flex items-center justify-center gap-2 hover:scale-[1.02]">
                                 <i class="ph-bold ph-whatsapp-logo text-lg"></i>
                                 <span>Agendá directo por WhatsApp ($50 USD)</span>
                             </a>
-                            
                             <p class="mt-4 text-[10px] text-slate-400 flex items-center justify-center gap-1.5">
                                 <i class="ph-bold ph-shield-check text-amber-400"></i>
                                 Cupos reducidos exclusivamente por etapa de lanzamiento
                             </p>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -390,7 +367,6 @@
 
         <section id="servicios" class="py-14 bg-brand-surfaceAlt border-t border-brand-border">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                
                 <div class="text-center max-w-2xl mx-auto mb-10 reveal">
                     <span class="text-[10px] font-bold uppercase tracking-wider text-brand-blue bg-blue-50 px-3 py-1 rounded-full border border-blue-100 inline-block mb-2">
                         Servicios Adicionales
@@ -402,10 +378,8 @@
                         Módulos de ejecución completa que podés contratar a medida que escalemos.
                     </p>
                 </div>
-
-                <!-- Vertical Stack for Mobile & Desktop -->
+                
                 <div class="space-y-3 reveal">
-                    
                     <!-- Service 1 -->
                     <div class="bg-white border border-brand-border rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 hover-lift">
                         <div class="flex items-center gap-3.5">
@@ -421,7 +395,7 @@
                             </div>
                         </div>
                     </div>
-
+                    
                     <!-- Service 2 -->
                     <div class="bg-white border border-brand-border rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 hover-lift">
                         <div class="flex items-center gap-3.5">
@@ -437,7 +411,7 @@
                             </div>
                         </div>
                     </div>
-
+                    
                     <!-- Service 3 -->
                     <div class="bg-white border border-brand-border rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 hover-lift">
                         <div class="flex items-center gap-3.5">
@@ -453,7 +427,7 @@
                             </div>
                         </div>
                     </div>
-
+                    
                     <!-- Service 4 -->
                     <div class="bg-white border border-brand-border rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 hover-lift">
                         <div class="flex items-center gap-3.5">
@@ -469,7 +443,7 @@
                             </div>
                         </div>
                     </div>
-
+                    
                     <!-- Service 5 -->
                     <div class="bg-white border border-brand-border rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 hover-lift">
                         <div class="flex items-center gap-3.5">
@@ -485,7 +459,7 @@
                             </div>
                         </div>
                     </div>
-
+                    
                     <!-- Service 6 -->
                     <div class="bg-white border border-brand-border rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 hover-lift">
                         <div class="flex items-center gap-3.5">
@@ -501,15 +475,12 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </section>
 
         <section id="faq" class="py-14 bg-white border-t border-brand-border">
             <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-                
                 <div class="text-center mb-8 reveal">
                     <span class="text-[10px] font-bold uppercase tracking-wider text-brand-blue bg-blue-50 px-3 py-1 rounded-full border border-blue-100 inline-block mb-2">
                         Claridad Absoluta
@@ -518,9 +489,8 @@
                         Preguntas <span class="text-gradient">Frecuentes</span>
                     </h2>
                 </div>
-
+                
                 <div class="space-y-3 reveal">
-                    
                     <!-- FAQ 1 -->
                     <div class="border border-brand-border rounded-2xl bg-slate-50 overflow-hidden">
                         <button class="faq-btn w-full px-5 py-4 text-left font-bold text-slate-900 text-xs sm:text-sm flex items-center justify-between gap-3">
@@ -531,7 +501,7 @@
                             No cobramos abonos mensuales fijos de 300 a 600 USD. Te damos un punto de entrada accesible ($50) para auditar y diagnosticar, escalando a servicios completos solo cuando lo necesites.
                         </div>
                     </div>
-
+                    
                     <!-- FAQ 2 -->
                     <div class="border border-brand-border rounded-2xl bg-slate-50 overflow-hidden">
                         <button class="faq-btn w-full px-5 py-4 text-left font-bold text-slate-900 text-xs sm:text-sm flex items-center justify-between gap-3">
@@ -542,7 +512,7 @@
                             Totalmente. El 90% de los agentes con más ventas opera así. No buscamos fama ni bailes, sino campañas publicitarias directas a tu WhatsApp.
                         </div>
                     </div>
-
+                    
                     <!-- FAQ 3 -->
                     <div class="border border-brand-border rounded-2xl bg-slate-50 overflow-hidden">
                         <button class="faq-btn w-full px-5 py-4 text-left font-bold text-slate-900 text-xs sm:text-sm flex items-center justify-between gap-3">
@@ -553,7 +523,7 @@
                             Sí, 100% digital vía Google Meet. Nos enfoca auditar datos en pantalla en tiempo real sin pérdidas de tiempo en traslados.
                         </div>
                     </div>
-
+                    
                     <!-- FAQ 4 -->
                     <div class="border border-brand-border rounded-2xl bg-slate-50 overflow-hidden">
                         <button class="faq-btn w-full px-5 py-4 text-left font-bold text-slate-900 text-xs sm:text-sm flex items-center justify-between gap-3">
@@ -564,9 +534,7 @@
                             Ninguno. Podés pausar o cancelar cuando quieras.
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </section>
 
@@ -584,7 +552,6 @@
                 </a>
             </div>
         </section>
-
     </main>
 
     <!-- Botón Flotante Fijo Minimalista Estilo Plata / Cristal Esfumado -->
@@ -595,7 +562,8 @@
        title="Hablar por WhatsApp">
         <i class="ph-bold ph-whatsapp-logo text-2xl"></i>
     </a>
-
+    
+    <!-- FOOTER -->
     <footer class="bg-slate-950 text-slate-500 py-8 border-t border-slate-800 text-[11px] text-center">
         <div class="max-w-5xl mx-auto px-4">
             <p>© 2026 M2Marketing. Todos los derechos reservados.</p>
@@ -604,7 +572,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            
             // 1. FAQ Accordion Logic
             const faqBtns = document.querySelectorAll('.faq-btn');
             faqBtns.forEach(btn => {
@@ -612,17 +579,17 @@
                     const content = btn.nextElementSibling;
                     const icon = btn.querySelector('i');
                     const isHidden = content.classList.contains('hidden');
-
+                    
                     document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
                     document.querySelectorAll('.faq-btn i').forEach(i => i.classList.remove('rotate-180'));
-
+                    
                     if (isHidden) {
                         content.classList.remove('hidden');
                         if (icon) icon.classList.add('rotate-180');
                     }
                 });
             });
-
+            
             // 2. Scroll Reveal Animation
             const reveals = document.querySelectorAll('.reveal');
             function checkScroll() {
@@ -634,18 +601,18 @@
                     }
                 });
             }
-
+            
             // 3. Mobile & Desktop ScrollSpy Indicator with Auto-Scroll to Active Tab
             const sections = document.querySelectorAll('section[id]');
             const navLinks = document.querySelectorAll('.nav-link');
-
+            
             function highlightNavOnScroll() {
                 let scrollY = window.pageYOffset;
                 sections.forEach(current => {
                     const sectionHeight = current.offsetHeight;
                     const sectionTop = current.offsetTop - 120;
                     const sectionId = current.getAttribute('id');
-
+                    
                     if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
                         navLinks.forEach(link => {
                             link.classList.remove('active');
@@ -659,11 +626,13 @@
                     }
                 });
             }
-
+            
             window.addEventListener('scroll', () => {
                 checkScroll();
                 highlightNavOnScroll();
             });
+            
+            // Inicializar al cargar
             checkScroll();
         });
     </script>
