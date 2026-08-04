@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M2Marketing | Ecosistema de Marketing Inmobiliario</title>
-    
+    <title>M2Marketing | Ecosistema de Ingeniería de Ventas e Imagen Inmobiliaria</title>
+
     <!-- Microsoft Clarity Tracking Code -->
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
@@ -13,14 +13,14 @@
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         })(window, document, "clarity", "script", "xv4bixoif5");
     </script>
-    
-    <!-- Favicon Oficial para Vercel y Navegadores (Elimina el ícono del planeta) -->
+
+    <!-- Favicon Oficial -->
     <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/d/1Yq4YcFxytCooor28U_NwUU3iPFkzw1EV">
     <link rel="apple-touch-icon" href="https://lh3.googleusercontent.com/d/1Yq4YcFxytCooor28U_NwUU3iPFkzw1EV">
-    
-    <!-- Open Graph Meta Tags para Previsualización en WhatsApp / Web -->
-    <meta property="og:title" content="M2Marketing | Ecosistema de Marketing Inmobiliario">
-    <meta property="og:description" content="Sistematizamos tu estrategia digital inmobiliaria: captación en exclusiva y conexión con compradores ideales.">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="M2Marketing | Ecosistema de Ingeniería de Ventas Inmobiliarias">
+    <meta property="og:description" content="Infraestructura estratégica para inmobiliarias y Top Producers. Aumentá captaciones en exclusiva y acelerá ventas.">
     <meta property="og:image" content="https://lh3.googleusercontent.com/d/1Yq4YcFxytCooor28U_NwUU3iPFkzw1EV">
     <meta property="og:type" content="website">
 
@@ -33,8 +33,8 @@
     <!-- Google Fonts: Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
     <script>
         tailwind.config = {
             theme: {
@@ -52,896 +52,729 @@
                             border: '#e2e8f0',
                             accentAmber: '#f59e0b',
                             red: '#ef4444',
-                            green: '#10b981'
+                            emerald: '#10b981'
                         }
                     },
                     boxShadow: {
                         'soft-xl': '0 20px 40px -15px rgba(15, 23, 42, 0.05)',
                         'glow-subtle': '0 10px 25px -5px rgba(37, 99, 235, 0.15)',
-                        'glass-lux': '0 20px 50px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+                        'glow-emerald': '0 10px 30px -5px rgba(16, 185, 129, 0.2)'
                     }
                 }
             }
         }
     </script>
+
     <style>
         .text-gradient {
             background: linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #f59e0b 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .reveal {
+
+        /* Animación de Revelado al Scroll */
+        .reveal-card {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
+            transform: translateY(25px);
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .reveal.active {
+        .reveal-card.active {
             opacity: 1;
             transform: translateY(0);
         }
-        .meet-badge {
-            background: linear-gradient(135deg, #00832d 0%, #00ac47 50%, #0066da 100%);
+
+        /* Hover Elevación Sofisticado en PC */
+        .hover-wow {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
         }
-        .hover-lift {
-            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        .hover-wow:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08);
+            border-color: #10b981;
         }
-        .hover-lift:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 16px 32px -8px rgba(15, 23, 42, 0.08);
+
+        .hover-wow:hover .icon-float {
+            transform: scale(1.22) translateY(-2px) rotate(5deg);
+            color: #10b981;
         }
-        .nav-link.active {
-            color: #2563eb;
-            background-color: #eff6ff;
+
+        .icon-float {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+            transform-origin: center center;
         }
-        .glass-card-dark {
-            background: linear-gradient(145deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 100%);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+
+        /* Switcher de vistas */
+        .path-view {
+            transition: opacity 0.35s ease-in-out, transform 0.35s ease-in-out;
+        }
+        .path-view.hidden-path {
+            display: none !important;
+            opacity: 0;
+            transform: translateY(10px);
         }
     </style>
 </head>
-<body class="bg-slate-50 text-brand-slateDark font-sans antialiased selection:bg-blue-100 selection:text-brand-blue overflow-x-hidden">
-    
-    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-brand-border/80 transition-all duration-300">
+<body class="bg-slate-50 text-slate-900 font-sans antialiased selection:bg-emerald-100 selection:text-emerald-700 overflow-x-hidden">
+
+    <!-- Header Fijo Modo Blanco con Desenfoque de Fondo (Glassmorphism Light) -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/80 text-slate-900 shadow-sm transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-14 sm:h-16" id="nav-container">
-                <!-- Logo Oficial M2Marketing -->
-                <a href="#inicio" class="flex items-center gap-2 group py-1 flex-shrink-0">
+            <div class="flex items-center justify-between h-16 sm:h-20 gap-3">
+                
+                <!-- Logo M2Marketing -->
+                <a href="#top" class="flex items-center gap-2 group flex-shrink-0">
                     <img src="https://lh3.googleusercontent.com/d/1Yq4YcFxytCooor28U_NwUU3iPFkzw1EV" 
                          alt="M2Marketing Logo" 
-                         class="h-8 sm:h-10 w-auto object-contain rounded-2xl group-hover:scale-105 transition-transform duration-300"
-                         onerror="this.onerror=null; this.src='https://placehold.co/150x50/2563eb/ffffff?text=M2Marketing';">
+                         class="h-9 sm:h-11 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
+                         onerror="this.onerror=null; this.src='https://placehold.co/160x50/2563eb/ffffff?text=M2Marketing';">
                 </a>
-                
-                <!-- Desktop Navigation Links -->
-                <div class="hidden md:flex items-center gap-2 text-xs font-bold text-brand-slateMuted">
-                    <a href="#inicio" class="nav-link px-3.5 py-2 rounded-full hover:text-brand-blue transition-colors">Inicio</a>
-                    <a href="#nosotros" class="nav-link px-3.5 py-2 rounded-full hover:text-brand-blue transition-colors">Quiénes Somos</a>
-                    <a href="#planes" class="nav-link px-3.5 py-2 rounded-full hover:text-brand-blue transition-colors">Plan Inicial</a>
-                    <a href="#servicios" class="nav-link px-3.5 py-2 rounded-full hover:text-brand-blue transition-colors">Servicios Extras</a>
-                    <a href="#faq" class="nav-link px-3.5 py-2 rounded-full hover:text-brand-blue transition-colors">FAQ</a>
+
+                <!-- SWITCHER DE MODO EN HEADER: INMOBILIARIAS (METÁLICO) vs COMUNIDAD -->
+                <div class="flex items-center justify-center">
+                    <div class="bg-slate-100/90 p-1 rounded-full border border-slate-200/90 shadow-inner flex items-center gap-1">
+                        
+                        <!-- Opción 1: Inmobiliarias (Tono Metálico/Slate) -->
+                        <button onclick="setPathMode('b2b')" id="switch-btn-b2b" 
+                                class="px-3 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-extrabold transition-all duration-300 flex items-center gap-1.5 sm:gap-2 bg-gradient-to-r from-slate-800 via-slate-900 to-slate-800 text-slate-100 shadow-sm border border-slate-700">
+                            <i class="ph-bold ph-buildings text-sm sm:text-base text-slate-300"></i>
+                            <span>Inmobiliarias</span>
+                        </button>
+
+                        <!-- Opción 2: Comunidad -->
+                        <button onclick="setPathMode('comunidad')" id="switch-btn-comunidad" 
+                                class="px-3 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 flex items-center gap-1.5 sm:gap-2 text-slate-600 hover:text-slate-900">
+                            <i class="ph-bold ph-sparkle text-amber-500 text-sm sm:text-base"></i>
+                            <span>Comunidad</span>
+                        </button>
+
+                    </div>
                 </div>
+
             </div>
         </div>
-        
-        <!-- Horizontal Scrollable Navigation for Mobile -->
-        <div class="md:hidden border-t border-slate-100 bg-white/95 backdrop-blur-md px-3 py-1.5 overflow-x-auto whitespace-nowrap [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" id="mobile-nav-scroll">
-            <div class="flex items-center gap-1.5 text-xs font-bold text-brand-slateMuted">
-                <a href="#inicio" class="nav-link px-3 py-1 rounded-full hover:text-brand-blue transition-colors inline-block flex-shrink-0">Inicio</a>
-                <a href="#nosotros" class="nav-link px-3 py-1 rounded-full hover:text-brand-blue transition-colors inline-block flex-shrink-0">Quiénes Somos</a>
-                <a href="#planes" class="nav-link px-3 py-1 rounded-full hover:text-brand-blue transition-colors inline-block flex-shrink-0">Plan Inicial</a>
-                <a href="#servicios" class="nav-link px-3 py-1 rounded-full hover:text-brand-blue transition-colors inline-block flex-shrink-0">Servicios Extras</a>
-                <a href="#faq" class="nav-link px-3 py-1 rounded-full hover:text-brand-blue transition-colors inline-block flex-shrink-0">FAQ</a>
-            </div>
-        </div>
-    </nav>
+    </header>
 
-    <main class="pt-14 sm:pt-16">
-        <section id="inicio" class="py-6 sm:py-10 relative overflow-hidden bg-white">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-                <!-- Logo M2M Grande en Hero -->
-                <div class="flex justify-center mb-3 sm:mb-4">
-                    <img src="https://lh3.googleusercontent.com/d/1Yq4YcFxytCooor28U_NwUU3iPFkzw1EV" 
-                         alt="M2Marketing" 
-                         class="h-64 sm:h-[28rem] w-auto object-contain"
-                         onerror="this.onerror=null; this.src='https://placehold.co/400x300/2563eb/ffffff?text=M2Marketing';">
-                </div>
-                
-                <!-- Badges Pre-title -->
-                <div class="flex flex-wrap items-center justify-center gap-2 mb-5">
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-800 text-[11px] sm:text-xs font-bold uppercase tracking-wide">
-                        <i class="ph-fill ph-check-circle text-emerald-500 text-sm"></i>
-                        <span>Sin humo viral. Solo negocios y ventas.</span>
-                    </div>
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-900 text-[11px] sm:text-xs font-bold uppercase tracking-wide">
-                        <i class="ph-bold ph-trophy text-amber-600 text-sm"></i>
-                        <span>Buscamos Casos de Éxito • Próximo Inicio: Lunes 3 de Agosto</span>
-                    </div>
-                </div>
-                
-                <!-- Main Headline -->
-                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-brand-slateDark tracking-tight leading-tight mb-4 max-w-3xl mx-auto">
-                    Tu ecosistema de <br>
-                    <span class="text-gradient">marketing inmobiliario</span>
-                </h1>
-                
-                <p class="text-sm sm:text-lg text-brand-slateMuted max-w-xl mx-auto font-medium mb-6 leading-relaxed">
-                    Sistematizamos tu estrategia digital enfocados exclusivamente en dos metas clave:
-                </p>
-                
-                <!-- Core Goals -->
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-xl mx-auto mb-8">
-                    <div class="w-full sm:w-1/2 p-4 rounded-2xl bg-white border border-slate-200/90 flex items-center gap-3.5 text-left shadow-sm hover-lift">
-                        <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-brand-blue flex items-center justify-center text-xl flex-shrink-0">
-                            <i class="ph-duotone ph-house-line"></i>
-                        </div>
-                        <div>
-                            <span class="text-[10px] font-extrabold uppercase text-brand-blue tracking-wider block">Meta #1</span>
-                            <span class="text-xs sm:text-sm font-bold text-slate-800">Captar propiedades en exclusiva</span>
-                        </div>
-                    </div>
-                    <div class="w-full sm:w-1/2 p-4 rounded-2xl bg-white border border-slate-200/90 flex items-center gap-3.5 text-left shadow-sm hover-lift">
-                        <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center text-xl flex-shrink-0">
-                            <i class="ph-duotone ph-user-check"></i>
-                        </div>
-                        <div>
-                            <span class="text-[10px] font-extrabold uppercase text-amber-600 tracking-wider block">Meta #2</span>
-                            <span class="text-xs sm:text-sm font-bold text-slate-800">Conectar con el comprador ideal</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- CTA Action -->
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
-                    <a href="https://wa.me/5491135678024?text=Hola!%20Quisiera%20agendar%20una%20Sesi%C3%B3n%20Estrat%C3%A9gica%20de%20Diagn%C3%B3stico%20para%20mi%20inmobiliaria" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto py-3.5 px-8 rounded-full font-bold text-white bg-slate-900 hover:bg-slate-800 transition-all shadow-md text-sm flex items-center justify-center gap-2.5 border border-slate-700/50 hover:scale-[1.02]">
-                        <i class="ph-bold ph-whatsapp-logo text-emerald-400 text-lg"></i>
-                        <span>Agendá tu Sesión por WhatsApp</span>
-                    </a>
-                </div>
-                <p class="mt-3 text-[11px] font-semibold text-slate-400">
-                    Cupos reducidos por Convocatoria de Casos de Éxito • Cero permanencia
-                </p>
-            </div>
-        </section>
+    <main class="pt-20 sm:pt-24" id="top">
 
-        <section id="nosotros" class="py-12 bg-brand-surfaceAlt border-t border-b border-brand-border">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-8 reveal">
-                    <span class="text-[10px] font-bold uppercase tracking-wider text-brand-blue bg-blue-50 px-3 py-1 rounded-full border border-blue-100 inline-block mb-2">
-                        Quiénes Somos
-                    </span>
-                    <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-brand-slateDark">
-                        De la producción audiovisual al <span class="text-gradient">Hall of Fame</span>
-                    </h2>
+        <!-- ========================================================================= -->
+        <!-- VISTA 1: INMOBILIARIAS & TOP PRODUCERS (B2B ECOSISTEMA GUARDPERF)        -->
+        <!-- ========================================================================= -->
+        <div id="path-b2b-view" class="path-view">
+
+            <section class="py-10 sm:py-16 relative overflow-hidden bg-white border-b border-slate-100">
+                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                    
+                    <!-- Insignias Superiores Pequeñas (Apiladas en móvil, línea en PC) -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-2 mb-6">
+                        <span class="px-3 py-1 rounded-full bg-slate-900 text-white text-[11px] font-extrabold flex items-center gap-1.5 border border-slate-800 shadow-sm">
+                            <svg viewBox="0 0 100 100" class="w-3.5 h-3.5 text-emerald-400 fill-current">
+                                <rect x="12" y="12" width="76" height="76" rx="22" fill="none" stroke="currentColor" stroke-width="12"/>
+                                <path d="M 20 80 L 68 32 M 45 32 L 68 32 L 68 55" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                            </svg>
+                            <span>Guard<strong class="text-emerald-400">Perf</strong></span>
+                        </span>
+                        <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-[11px] font-bold border border-emerald-200">
+                            Guardia Virtual de Alta Performance
+                        </span>
+                        <span class="px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-[11px] font-bold border border-blue-200">
+                            Servicio 100% Remoto
+                        </span>
+                    </div>
+
+                    <!-- ISOLOGO M2MARKETING - AMPLIO Y LIMPIO -->
+                    <div class="flex justify-center mb-6">
+                        <img src="https://lh3.googleusercontent.com/d/1Yq4YcFxytCooor28U_NwUU3iPFkzw1EV" 
+                             alt="M2Marketing Logo" 
+                             class="h-64 sm:h-96 lg:h-[420px] w-auto object-contain max-w-full"
+                             onerror="this.onerror=null; this.src='https://placehold.co/500x220/2563eb/ffffff?text=M2Marketing';">
+                    </div>
+                    
+                    <!-- TITULAR PRINCIPAL H1 ORIGINAL CON DEGRADADO TRICOLOR VIBRANTE -->
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6 max-w-4xl mx-auto">
+                        Tu ecosistema de <br class="hidden sm:block">
+                        <span class="text-gradient">ingeniería de ventas e imagen inmobiliaria</span>
+                    </h1>
+
+                    <!-- Subtitular y Promesa -->
+                    <p class="text-base sm:text-xl text-slate-600 font-medium max-w-3xl mx-auto leading-relaxed mb-8">
+                        Escalá la facturación y retención de agentes de tu oficina con la infraestructura de guardia virtual respaldada por equipos humanos y tecnología, diseñada para generar un volumen constante de pre-listings en tu zona.
+                    </p>
+
+                    <!-- CUADRO DE PROMESA CON ÍCONO Y TEXTO DIRECTO (SIN ETIQUETA FRÍA) -->
+                    <div class="max-w-2xl mx-auto bg-slate-900 text-white p-5 sm:p-6 rounded-2xl shadow-xl mb-10 border border-slate-800 text-left relative overflow-hidden">
+                        <div class="flex items-center gap-4">
+                            <i class="ph-bold ph-shield-check text-emerald-400 text-3xl sm:text-4xl flex-shrink-0"></i>
+                            <p class="text-sm sm:text-base text-slate-100 leading-relaxed font-semibold">
+                                "Nuestra meta es que tu única carga administrativa extra sea producto de tener más negocios, autorizaciones y escrituras para gestionar."
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left max-w-4xl mx-auto mb-6">
+                        
+                        <div class="bg-white border border-slate-200 rounded-2xl p-5 hover-wow reveal-card">
+                            <div class="flex items-center gap-3 mb-2">
+                                <i class="ph-bold ph-target text-2xl text-emerald-600 icon-float"></i>
+                                <h3 class="font-extrabold text-slate-900 text-base">1. Captación Fuera de la Red Relacional</h3>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                Generación constante de solicitudes de tasación y ACMs de propietarios motivados a metros de tu oficina que no pertenecen al círculo personal de tus agentes.
+                            </p>
+                        </div>
+
+                        <div class="bg-white border border-slate-200 rounded-2xl p-5 hover-wow reveal-card">
+                            <div class="flex items-center gap-3 mb-2">
+                                <i class="ph-bold ph-user-plus text-2xl text-blue-600 icon-float"></i>
+                                <h3 class="font-extrabold text-slate-900 text-base">2. Imán de Reclutamiento & Retención</h3>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                Tu equipo podrá escalar su negocio a $0 gasto extra inicial de producción, sin experimentos publicitarios de su bolsillo ni fuga de dinero personal.
+                            </p>
+                        </div>
+
+                        <div class="bg-white border border-slate-200 rounded-2xl p-5 hover-wow reveal-card">
+                            <div class="flex items-center gap-3 mb-2">
+                                <i class="ph-bold ph-trend-down text-2xl text-indigo-600 icon-float"></i>
+                                <h3 class="font-extrabold text-slate-900 text-base">3. Reducción del Costo Publicitario</h3>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                Promoción hiperlocal avanzada y estratégica a la redonda de tu zona para maximizar cada dólar invertido en Meta Ads.
+                            </p>
+                        </div>
+
+                        <div class="bg-white border border-slate-200 rounded-2xl p-5 hover-wow reveal-card">
+                            <div class="flex items-center gap-3 mb-2">
+                                <i class="ph-bold ph-arrows-left-right text-2xl text-amber-500 icon-float"></i>
+                                <h3 class="font-extrabold text-slate-900 text-base">4. Doble Vía de Negocio</h3>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                Estrategia dual para cierres de Doble Punta (Venta Directa) y Captación de Propiedades cercanas (Vender para Comprar).
+                            </p>
+                        </div>
+
+                    </div>
+
                 </div>
-                
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                    <!-- Text Story Side -->
-                    <div class="lg:col-span-7 space-y-4 text-center lg:text-left reveal">
-                        <p class="text-brand-slateMuted text-sm sm:text-base leading-relaxed">
-                            Tras 20 años dirigiendo producciones audiovisuales y más de 6 años de experiencia como agente inmobiliario, junto a un equipo especializado creamos <strong>M2Marketing</strong> para aportar la tecnología, la pauta estratégica y la ejecución estandarizada que las inmobiliarias necesitan para escalar sin perder tiempo jugando a ser influencers.
+            </section>
+
+            <section id="nosotros" class="py-14 bg-slate-100/70 border-b border-slate-200">
+                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                    
+                    <div class="text-center max-w-2xl mx-auto mb-10">
+                        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900">
+                            Diseñado por una ex agente <span class="text-gradient">Top Producer</span>
+                        </h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        
+                        <div class="lg:col-span-7 text-left">
+                            <p class="text-slate-700 text-base sm:text-lg leading-relaxed font-medium">
+                                Con experiencia real de más de 5 años en el sector inmobiliario y habiendo alcanzado el prestigioso reconocimiento <strong>Hall of Fame</strong>, creé la infraestructura <strong>GuardPerf</strong> desde el conocimiento profundo de las fricciones reales de la prospección.
+                            </p>
+                        </div>
+
+                        <div class="lg:col-span-5 flex justify-center">
+                            <div class="bg-white p-2.5 rounded-3xl shadow-md border border-slate-200 max-w-[200px] hover-wow">
+                                <div class="aspect-[9/16] bg-slate-900 rounded-2xl relative overflow-hidden flex flex-col justify-end p-3">
+                                    <img src="https://lh3.googleusercontent.com/d/1I5_hlmtZbP-ymujCBYGXWdmJh8N_n4wN" 
+                                         alt="Premio Hall of Fame" 
+                                         class="absolute inset-0 w-full h-full object-cover"
+                                         onerror="this.onerror=null; this.src='https://placehold.co/200x350/0f172a/ffffff?text=Hall+of+Fame';">
+                                    <div class="relative z-10 self-start bg-slate-950/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold text-amber-400 border border-amber-500/30 flex items-center gap-1.5 shadow-md">
+                                        <i class="ph-fill ph-trophy text-amber-400 text-xs"></i>
+                                        <span>Hall of Fame</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="diagnostico" class="py-14 bg-white border-b border-slate-200">
+                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                    
+                    <div class="text-center max-w-3xl mx-auto mb-10">
+                        <span class="text-xs font-extrabold uppercase tracking-widest text-rose-700 bg-rose-50 px-3 py-1 rounded-full border border-rose-200 inline-block mb-2">
+                            Diagnóstico de Mercado
+                        </span>
+                        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 leading-tight">
+                            El círculo cercano de tus agentes tiene un límite. Intentar captar afuera sin sistema <span class="text-rose-600">los agota y los lleva a abandonar.</span>
+                        </h2>
+                        <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed">
+                            En zonas de alta densidad como CABA (con más de 3 agentes por manzana más el flujo del Conurbano), depender solo de conocidos genera un techo muy bajo de facturación.
                         </p>
                     </div>
+
+                    <!-- Tarjetas de Puntos de Dolor Confrontados -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        
+                        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 hover-wow reveal-card">
+                            <div class="flex items-center gap-3 mb-3">
+                                <i class="ph-bold ph-user-minus text-2xl text-rose-500 icon-float"></i>
+                                <h3 class="font-extrabold text-slate-900 text-base sm:text-lg">1. El Techo de la Red Relacional</h3>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                Los agentes agotan rápidamente a sus amigos y familiares. Al intentar salir a buscar clientes desconocidos "a mano", chocan contra un muro de rechazo y falta total de previsibilidad.
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 hover-wow reveal-card">
+                            <div class="flex items-center gap-3 mb-3">
+                                <i class="ph-bold ph-currency-dollar-simple text-2xl text-rose-500 icon-float"></i>
+                                <h3 class="font-extrabold text-slate-900 text-base sm:text-lg">2. La Farsa de los Experimentos Publicitarios</h3>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                Los agentes terminan gastando plata de su propio bolsillo contratando agencias sueltas o chatbots para publicar *"hago tasaciones"*. Experimentos caros que solo traen chats infinitos pero **$0 en la escribanía**.
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 hover-wow reveal-card">
+                            <div class="flex items-center gap-3 mb-3">
+                                <i class="ph-bold ph-warning-circle text-2xl text-rose-500 icon-float"></i>
+                                <h3 class="font-extrabold text-slate-900 text-base sm:text-lg">3. Ciclo de Frustración y Fuga de Talento</h3>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                Al agotar su dinero personal en pauta sin retorno ni método, el agente se desgasta financieramente, pierde la fe y termina renunciando o migrando a otra oficina.
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 hover-wow reveal-card">
+                            <div class="flex items-center gap-3 mb-3">
+                                <i class="ph-bold ph-buildings text-2xl text-rose-500 icon-float"></i>
+                                <h3 class="font-extrabold text-slate-900 text-base sm:text-lg">4. Falta de Propuesta Institucional Real</h3>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                Si la oficina no les provee un sistema real para captar propietarios desconocidos en la zona, el agente siente que solo está pagando una silla de escritorio sin soporte estratégico.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="retencion" class="py-14 bg-slate-900 text-white border-b border-slate-800">
+                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                     
-                    <!-- Visual Assets Side (En PC: Foto a un lado y Video al otro | En Teléfono: Uno debajo del otro) -->
-                    <div class="lg:col-span-5 flex flex-col md:flex-row gap-4 justify-center items-center reveal">
+                    <div class="text-center max-w-3xl mx-auto mb-10">
+                        <h2 class="text-2xl sm:text-4xl font-extrabold text-white">
+                            Dale a tus agentes un motor para captar fuera de su círculo <span class="text-emerald-400">a $0 gasto extra inicial de producción.</span>
+                        </h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                         
-                        <!-- Photo Trophy Hall of Fame (9:16) -->
-                        <div class="bg-white p-2 rounded-[1.5rem] shadow-md border border-brand-border w-full max-w-[180px]">
-                            <div class="aspect-[9/16] bg-slate-100 rounded-[1.2rem] relative overflow-hidden flex flex-col justify-end p-3">
-                                <img src="https://lh3.googleusercontent.com/d/1I5_hlmtZbP-ymujCBYGXWdmJh8N_n4wN" 
-                                     alt="Premio Hall of Fame" 
-                                     class="absolute inset-0 w-full h-full object-cover"
-                                     onerror="this.onerror=null; this.src='https://drive.google.com/uc?export=view&id=1I5_hlmtZbP-ymujCBYGXWdmJh8N_n4wN';">
-                                <div class="relative z-10 self-start bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-bold text-slate-800 border border-slate-200 shadow-sm flex items-center gap-1.5">
-                                    <i class="ph-fill ph-trophy text-amber-500 text-xs"></i>
-                                    <span>Hall of Fame</span>
-                                </div>
-                            </div>
+                        <div class="bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 p-6 rounded-2xl border border-slate-700/60 shadow-md space-y-3 hover-wow reveal-card">
+                            <i class="ph-bold ph-arrows-clockwise text-3xl text-emerald-400 icon-float"></i>
+                            <h3 class="text-base font-extrabold text-white">Efecto Residual Multiplicador</h3>
+                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                Cada cliente contactado fuera de la red habitual expande masivamente su base relacional y red de referidos con un impacto comercial que perdura por años.
+                            </p>
                         </div>
 
-                        <!-- Video Reel Vertical (9:16) con YouTube Shorts Integrado -->
-                        <div class="bg-slate-900 p-2 rounded-[1.5rem] shadow-md border border-slate-800 w-full max-w-[180px]">
-                            <div class="aspect-[9/16] bg-slate-800 rounded-[1.2rem] relative overflow-hidden flex flex-col justify-end group">
-                                <iframe src="https://www.youtube-nocookie.com/embed/kxdc2YPYELc?autoplay=0&rel=0&modestbranding=1" 
-                                        title="M2Marketing Reel Historia" 
-                                        class="absolute inset-0 w-full h-full object-cover rounded-[1.2rem]" 
-                                        frameborder="0" 
-                                        referrerpolicy="strict-origin-when-cross-origin"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                                        allowfullscreen></iframe>
-                            </div>
+                        <div class="bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 p-6 rounded-2xl border border-slate-700/60 shadow-md space-y-3 hover-wow reveal-card">
+                            <i class="ph-bold ph-shield-checkered text-3xl text-emerald-400 icon-float"></i>
+                            <h3 class="text-base font-extrabold text-white">Blindaje contra la Rotación</h3>
+                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                Erradicás la frustración económica al eliminar los gastos de su bolsillo en agencias o pruebas sin retorno, aumentando radicalmente la lealtad al equipo.
+                            </p>
+                        </div>
+
+                        <div class="bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 p-6 rounded-2xl border border-slate-700/60 shadow-md space-y-3 hover-wow reveal-card">
+                            <i class="ph-bold ph-crown text-3xl text-amber-400 icon-float"></i>
+                            <h3 class="text-base font-extrabold text-white">Propuesta de Reclutamiento Imbatible</h3>
+                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                Mientras la competencia solo ofrece "capacitación y escritorio", tu oficina entrega la infraestructura corporativa real para generar pre-listings.
+                            </p>
                         </div>
 
                     </div>
-                </div>
-            </div>
-        </section>
 
-        <section id="planes" class="py-14 bg-white relative overflow-hidden">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="text-center max-w-2xl mx-auto mb-8 reveal">
-                    <span class="inline-block py-1 px-3.5 rounded-full bg-amber-50 text-amber-800 font-bold text-[10px] uppercase mb-2 border border-amber-200">
-                        <i class="ph-bold ph-trophy mr-1 text-amber-600"></i> Buscamos nuestros primeros Casos de Éxito
+                </div>
+            </section>
+
+            <section id="sinergia" class="py-14 bg-white border-b border-slate-200">
+                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                    
+                    <div class="text-center max-w-3xl mx-auto mb-10">
+                        <span class="text-[10px] font-extrabold uppercase tracking-widest text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200 inline-block mb-2">
+                            La Sinergia GuardPerf
+                        </span>
+                        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900">
+                            Tecnología de Vanguardia, Backstage & <span class="text-gradient">Field Coaching</span>
+                        </h2>
+                        <p class="text-xs sm:text-sm text-slate-600 mt-2">
+                            Tres fuerzas estratégicas sincronizadas para producir resultados comerciales extraordinarios:
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        
+                        <div class="bg-slate-50 border border-slate-200 p-6 rounded-2xl text-left space-y-3 hover-wow reveal-card">
+                            <span class="w-8 h-8 rounded-lg bg-emerald-500 text-slate-950 font-black flex items-center justify-center text-xs">01</span>
+                            <h3 class="font-extrabold text-slate-900 text-base">Tecnología, IA & Guardia Humana 24/7</h3>
+                            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                CRM personalizado con Inteligencia Artificial para auditar qué se hace con cada lead que ingresa, junto a un equipo de guardia humana que asegura una respuesta inmediata y real a cada propietario de tu zona.
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-50 border border-slate-200 p-6 rounded-2xl text-left space-y-3 hover-wow reveal-card">
+                            <span class="w-8 h-8 rounded-lg bg-blue-600 text-white font-black flex items-center justify-center text-xs">02</span>
+                            <h3 class="font-extrabold text-slate-900 text-base">Equipo Técnico Back-Office</h3>
+                            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                Especialistas web y traffickers trabajando detrás de escena para resolver toda la pauta e infraestructura sin recargar a tu personal ni a tu administración.
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-50 border border-slate-200 p-6 rounded-2xl text-left space-y-3 hover-wow reveal-card">
+                            <span class="w-8 h-8 rounded-lg bg-indigo-600 text-white font-black flex items-center justify-center text-xs">03</span>
+                            <h3 class="font-extrabold text-slate-900 text-base">Coaches Senior (Ex-Agentes)</h3>
+                            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                Profesionales con voz de mando que conocen el frente de batalla, guían a tus agentes y los ayudan a convertir contactos en exclusivas.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="pioneras" class="py-14 bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white border-b border-slate-800">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    
+                    <span class="px-3.5 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-400/30 text-xs font-extrabold uppercase tracking-widest inline-block mb-4">
+                        Oportunidad Exclusiva de Lanzamiento
                     </span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-brand-slateDark mb-2">
-                        Sesión Estratégica de <span class="text-gradient">Diagnóstico</span>
+
+                    <h2 class="text-2xl sm:text-4xl font-extrabold text-white mb-4">
+                        Programa de <span class="text-amber-400">Oficinas Pioneras (Early Adopters)</span>
                     </h2>
-                    <p class="text-brand-slateMuted text-xs sm:text-sm">
-                        Evaluamos tus campañas, redes y portales para optimizar tu presupuesto desde el primer día.
+
+                    <p class="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed mb-8 font-medium">
+                        Estamos seleccionando un número acotado de inmobiliarias para desplegar la infraestructura GuardPerf con el involucramiento directo del creador e inventor de la metodología de lunes a lunes, supervisando personalmente cada detalle.
                     </p>
-                </div>
-                
-                <!-- Single Unified Pricing Block Card -->
-                <div class="bg-white rounded-3xl shadow-glass-lux border-2 border-slate-900/10 overflow-hidden reveal max-w-4xl mx-auto">
-                    <!-- Master Header Bar linking the whole package -->
-                    <div class="bg-slate-900 text-white px-6 py-3.5 flex flex-col sm:flex-row items-center justify-between gap-2 border-b border-slate-800">
-                        <div class="flex items-center gap-2.5">
-                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                            <span class="text-xs font-extrabold uppercase tracking-wider text-slate-200">
-                                Paquete Integral: Diagnóstico + Acompañamiento
-                            </span>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left max-w-3xl mx-auto">
+                        <div class="bg-slate-900/90 p-5 rounded-xl border border-slate-800">
+                            <i class="ph-bold ph-user-check text-amber-400 text-2xl mb-2"></i>
+                            <h4 class="text-sm sm:text-base font-extrabold text-white">Acompañamiento del Creador</h4>
+                            <p class="text-xs sm:text-sm text-slate-400 mt-1">Supervisión directa de lunes a lunes.</p>
                         </div>
-                        <div class="flex items-center gap-2">
-                            <span class="text-xs font-bold text-amber-400">Arranque Lunes 3 de Agosto</span>
-                            <span class="text-xs text-slate-400">• Cupos de Lanzamiento</span>
+                        <div class="bg-slate-900/90 p-5 rounded-xl border border-slate-800">
+                            <i class="ph-bold ph-chart-line-up text-amber-400 text-2xl mb-2"></i>
+                            <h4 class="text-sm sm:text-base font-extrabold text-white">Impacto en Facturación</h4>
+                            <p class="text-xs sm:text-sm text-slate-400 mt-1">Consolidación rápida del equipo.</p>
+                        </div>
+                        <div class="bg-slate-900/90 p-5 rounded-xl border border-slate-800">
+                            <i class="ph-bold ph-star text-amber-400 text-2xl mb-2"></i>
+                            <h4 class="text-sm sm:text-base font-extrabold text-white">Modelo Referente</h4>
+                            <p class="text-xs sm:text-sm text-slate-400 mt-1">Casos de éxito de la industria.</p>
                         </div>
                     </div>
 
-                    <div class="flex flex-col lg:flex-row">
-                        <!-- Left Side: Included Features -->
-                        <div class="w-full lg:w-7/12 p-6 sm:p-8 border-b lg:border-b-0 lg:border-r border-slate-200/80 space-y-6">
-                            <h3 class="text-lg font-extrabold text-brand-slateDark flex items-center gap-2">
-                                <i class="ph-bold ph-package text-brand-blue"></i>
-                                ¿Qué incluye este bloque inicial?
-                            </h3>
-                            
-                            <!-- HIGHLIGHT #1: MASTERMIND M2M -->
-                            <div class="bg-slate-900 text-white p-5 rounded-2xl border border-slate-800 shadow-md">
-                                <div class="flex items-center gap-2 mb-2">
-                                    <div class="meet-badge px-2.5 py-0.5 rounded-full text-[10px] font-extrabold flex items-center gap-1 text-white">
-                                        <i class="ph-bold ph-video-camera"></i>
-                                        <span>Google Meet</span>
-                                    </div>
-                                    <span class="text-[10px] font-bold text-amber-400 uppercase tracking-wider">Punto Estrella</span>
-                                </div>
-                                <h4 class="text-base font-extrabold mb-1">
-                                    Mastermind M2M <span class="text-xs text-amber-300 font-semibold">(Encuentros Grupales en Vivo)</span>
-                                </h4>
-                                <p class="text-slate-300 text-xs leading-relaxed mb-3">
-                                    <strong>4 encuentros grupales mensuales en vivo</strong> (1 por semana) orientados a potenciar tu negocio inmobiliario:
-                                </p>
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-slate-200">
-                                    <div class="bg-white/5 p-2 rounded-xl border border-white/10 flex items-center gap-2">
-                                        <i class="ph-bold ph-target text-amber-400"></i>
-                                        <span><strong>Meta para Inmobiliarias:</strong> Estrategias y pauta.</span>
-                                    </div>
-                                    <div class="bg-white/5 p-2 rounded-xl border border-white/10 flex items-center gap-2">
-                                        <i class="ph-bold ph-video-camera text-pink-400"></i>
-                                        <span><strong>Cámara y Comunicación:</strong> Confianza visual.</span>
-                                    </div>
-                                    <div class="bg-white/5 p-2 rounded-xl border border-white/10 flex items-center gap-2">
-                                        <i class="ph-bold ph-users-three text-emerald-400"></i>
-                                        <span><strong>Formas de Prospección:</strong> Captación real.</span>
-                                    </div>
-                                    <div class="bg-white/5 p-2 rounded-xl border border-white/10 flex items-center gap-2">
-                                        <i class="ph-bold ph-cpu text-blue-400"></i>
-                                        <span><strong>Casos Reales & Tech:</strong> Optimización en equipo.</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- HIGHLIGHT #2: DIAGNOSTIC PACKAGE -->
-                            <div class="bg-brand-surfaceAlt p-5 rounded-2xl border border-slate-200/80 space-y-3 text-xs">
-                                <h4 class="font-bold text-brand-slateDark text-sm flex items-center gap-2">
-                                    <i class="ph-duotone ph-chart-line-up text-brand-blue text-lg"></i>
-                                    Diagnóstico & Feedback 1 a 1
-                                </h4>
-                                <ul class="space-y-2.5 text-brand-slateMuted">
-                                    <li class="flex items-start gap-2.5">
-                                        <i class="ph-bold ph-check-circle text-brand-blue text-sm flex-shrink-0 mt-0.5"></i>
-                                        <span><strong>1. Métricas de Portales:</strong> Revisión de portales (Zonaprop, etc.) para aumentar consultas.</span>
-                                    </li>
-                                    <li class="flex items-start gap-2.5">
-                                        <i class="ph-bold ph-check-circle text-amber-500 text-sm flex-shrink-0 mt-0.5"></i>
-                                        <span><strong>2. Instagram & Redes:</strong> Auditoría de presencia digital y perfil enfocado a negocios.</span>
-                                    </li>
-                                    <li class="flex items-start gap-2.5">
-                                        <i class="ph-bold ph-check-circle text-emerald-500 text-sm flex-shrink-0 mt-0.5"></i>
-                                        <span><strong>3. Auditoría Meta Ads:</strong> Detección de fugas de dinero en campañas publicitarias.</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            
-                            <!-- Win-Win Explanation Note -->
-                            <div class="bg-amber-50/80 border border-amber-200/90 p-4 rounded-2xl text-xs text-brand-slateDark">
-                                <strong class="text-amber-900 block font-extrabold mb-1 flex items-center gap-1.5">
-                                    <i class="ph-bold ph-handshake text-amber-600 text-sm"></i> Convocatoria para Casos de Éxito (Ganancia Mutua)
-                                </strong>
-                                <p class="text-slate-700 text-[11px] leading-relaxed">
-                                    Buscamos construir nuestros primeros casos de éxito emblemáticos en la industria. Vos impulsás tu negocio con diagnóstico experto y nosotros demostramos resultados en el mercado.
-                                </p>
+                </div>
+            </section>
+
+            <section id="informes" class="py-14 bg-slate-50 border-b border-slate-200">
+                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                    
+                    <div class="text-center max-w-2xl mx-auto mb-10">
+                        <span class="text-xs font-extrabold uppercase tracking-widest text-slate-700 bg-slate-200 px-3.5 py-1.5 rounded-full inline-block mb-3">
+                            Medición de Principio a Fin
+                        </span>
+                        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900">
+                            Todo medido y auditado semana a semana. <span class="text-emerald-600">Transparencia total.</span>
+                        </h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                        
+                        <div class="bg-white p-5 rounded-2xl border border-slate-200 hover-wow text-center shadow-sm">
+                            <i class="ph-bold ph-chart-bar text-3xl text-blue-600 mb-2"></i>
+                            <h4 class="text-sm sm:text-base font-extrabold text-slate-900 mb-1">Pauta & Eficiencia</h4>
+                            <p class="text-xs sm:text-sm text-slate-600">CPL, CTR, Conversión por Píxel.</p>
+                        </div>
+
+                        <div class="bg-white p-5 rounded-2xl border border-slate-200 hover-wow text-center shadow-sm">
+                            <i class="ph-bold ph-clock text-3xl text-emerald-600 mb-2"></i>
+                            <h4 class="text-sm sm:text-base font-extrabold text-slate-900 mb-1">Respuesta (SLA)</h4>
+                            <p class="text-xs sm:text-sm text-slate-600">&lt;15 min de contacto inicial.</p>
+                        </div>
+
+                        <div class="bg-white p-5 rounded-2xl border border-slate-200 hover-wow text-center shadow-sm">
+                            <i class="ph-bold ph-file-text text-3xl text-indigo-600 mb-2"></i>
+                            <h4 class="text-sm sm:text-base font-extrabold text-slate-900 mb-1">Pre-listings</h4>
+                            <p class="text-xs sm:text-sm text-slate-600">Volumen de solicitudes de ACM.</p>
+                        </div>
+
+                        <div class="bg-white p-5 rounded-2xl border border-slate-200 hover-wow text-center shadow-sm">
+                            <i class="ph-bold ph-brain text-3xl text-purple-600 mb-2"></i>
+                            <h4 class="text-sm sm:text-base font-extrabold text-slate-900 mb-1">Calidad por IA</h4>
+                            <p class="text-xs sm:text-sm text-slate-600">Scoring de precisión técnica.</p>
+                        </div>
+
+                        <div class="bg-white p-5 rounded-2xl border border-slate-200 hover-wow text-center shadow-sm">
+                            <i class="ph-bold ph-seal-check text-3xl text-amber-500 mb-2"></i>
+                            <h4 class="text-sm sm:text-base font-extrabold text-slate-900 mb-1">Negocio Real</h4>
+                            <p class="text-xs sm:text-sm text-slate-600">Cierres y retorno financiero.</p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="faq" class="py-14 bg-white border-b border-slate-200">
+                <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                    
+                    <div class="text-center mb-10">
+                        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900">
+                            Preguntas <span class="text-gradient">Frecuentes</span>
+                        </h2>
+                    </div>
+
+                    <div class="space-y-3">
+                        
+                        <div class="border border-slate-200 rounded-2xl bg-slate-50 overflow-hidden">
+                            <button class="faq-btn w-full px-5 py-4 text-left font-bold text-slate-900 text-xs sm:text-sm flex items-center justify-between gap-3 cursor-pointer">
+                                <span>1. ¿El servicio sirve fuera de CABA?</span>
+                                <i class="ph-bold ph-caret-down text-blue-600 transition-transform"></i>
+                            </button>
+                            <div class="faq-content hidden px-5 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                <strong>Sí, absolutamente.</strong> GuardPerf es un servicio 100% remoto disponible para cualquier inmobiliaria o equipo comercial en todo el mundo hispanohablante.
                             </div>
                         </div>
-                        
-                        <!-- Right Side: Price & Glass CTA -->
-                        <div class="w-full lg:w-5/12 glass-card-dark text-white p-6 sm:p-8 flex flex-col justify-between items-center text-center relative border-t lg:border-t-0 border-slate-800">
-                            <div>
-                                <span class="inline-block px-3.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px] font-extrabold uppercase tracking-wider mb-4">
-                                    Convocatoria Casos de Éxito
-                                </span>
-                                <div class="flex items-baseline justify-center mb-1">
-                                    <span class="text-5xl font-extrabold tracking-tight text-white">50</span>
-                                    <span class="text-lg font-bold text-slate-300 ml-1.5">USD <span class="text-xs font-normal text-slate-400">/ mes</span></span>
-                                </div>
-                                <p class="text-slate-300 text-xs font-medium mb-4">
-                                    Acceso completo a Diagnóstico + Mastermind de Encuentros Grupales.
-                                </p>
-                                
-                                <div class="bg-white/5 rounded-xl p-3 border border-white/10 text-[11px] text-slate-300 text-left space-y-1.5 mb-6">
-                                    <div class="flex items-center gap-2">
-                                        <i class="ph-bold ph-calendar text-amber-400"></i>
-                                        <span><strong>Inicio:</strong> Lunes 3 de Agosto</span>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <i class="ph-bold ph-check text-emerald-400"></i>
-                                        <span>Sin contrato de permanencia</span>
-                                    </div>
-                                </div>
+
+                        <div class="border border-slate-200 rounded-2xl bg-slate-50 overflow-hidden">
+                            <button class="faq-btn w-full px-5 py-4 text-left font-bold text-slate-900 text-xs sm:text-sm flex items-center justify-between gap-3 cursor-pointer">
+                                <span>2. ¿Para quiénes aplica este servicio y cuál es la escala?</span>
+                                <i class="ph-bold ph-caret-down text-blue-600 transition-transform"></i>
+                            </button>
+                            <div class="faq-content hidden px-5 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                GuardPerf está diseñado a partir de <strong>3 agentes activos en adelante</strong> (sin límite de tamaño). Se compone de una cuota base de mantenimiento más costos variables adaptables a la escala de la oficina.
                             </div>
-                            
-                            <div class="w-full">
-                                <a href="https://wa.me/5491135678024?text=Hola!%20Me%20interesa%20sumarme%20a%20la%20convocatoria%20de%20Casos%20de%20%C3%89xito%20($50%20USD/mes)" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-6 rounded-full font-bold text-slate-900 bg-emerald-400 hover:bg-emerald-300 transition-all text-sm shadow-lg flex items-center justify-center gap-2 hover:scale-[1.02]">
-                                    <i class="ph-bold ph-whatsapp-logo text-lg"></i>
-                                    <span>Sumarme por WhatsApp ($50 USD)</span>
+                        </div>
+
+                        <div class="border border-slate-200 rounded-2xl bg-slate-50 overflow-hidden">
+                            <button class="faq-btn w-full px-5 py-4 text-left font-bold text-slate-900 text-xs sm:text-sm flex items-center justify-between gap-3 cursor-pointer">
+                                <span>3. ¿Cómo conocemos en detalle el funcionamiento adaptado a nuestra oficina?</span>
+                                <i class="ph-bold ph-caret-down text-blue-600 transition-transform"></i>
+                            </button>
+                            <div class="faq-content hidden px-5 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                Al escribirnos por WhatsApp coordinamos una conversación donde analizamos tu territorio, la estructura de tu equipo y te mostramos el despliegue paso a paso.
+                            </div>
+                        </div>
+
+                        <div class="border border-slate-200 rounded-2xl bg-slate-50 overflow-hidden">
+                            <button class="faq-btn w-full px-5 py-4 text-left font-bold text-slate-900 text-xs sm:text-sm flex items-center justify-between gap-3 cursor-pointer">
+                                <span>4. ¿Recarga el trabajo de mi personal administrativo?</span>
+                                <i class="ph-bold ph-caret-down text-blue-600 transition-transform"></i>
+                            </button>
+                            <div class="faq-content hidden px-5 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                <strong>No.</strong> Toda la carga técnica, pauta y análisis es realizada por el equipo de backstage de Metro Cuadrado Marketing. Tu única carga extra será gestionar los nuevos cierres.
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="py-16 bg-slate-950 text-white text-center relative overflow-hidden">
+                <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
+                    <h2 class="text-2xl sm:text-4xl font-extrabold leading-tight">
+                        "Las mejores propiedades y los mejores agentes no se consiguen por suerte, <span class="text-gradient">se atraen con ingeniería comercial</span>."
+                    </h2>
+                    <p class="text-xs sm:text-base text-slate-300 max-w-xl mx-auto font-medium">
+                        Sumate como una de nuestras Oficinas Pioneras. Escribinos directamente por WhatsApp para evaluar la factibilidad de tu zona.
+                    </p>
+                    <div class="pt-4 flex flex-col items-center justify-center gap-2">
+                        <a href="https://wa.me/5491135678024?text=Hola!%20Quiero%20evaluar%20la%20factibilidad%20de%20mi%20zona%20para%20GuardPerf" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="inline-flex items-center gap-3 py-4 px-8 rounded-full font-bold text-slate-950 bg-emerald-400 hover:bg-emerald-300 transition-all text-sm shadow-xl hover:scale-105 active:scale-95">
+                            <i class="ph-bold ph-whatsapp-logo text-xl"></i>
+                            <span>Hablar por WhatsApp (+54 9 11 3567-8024)</span>
+                        </a>
+                        <span class="text-xs text-slate-400 mt-2 font-medium">O podés llamarnos directamente al <strong>+54 9 11 3567-8024</strong></span>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- ========================================================================= -->
+        <!-- VISTA 2: COMUNIDAD M2M & AGENTES (RECURSOS GRATUITOS E IA) - ESTÉTICA CLARA -->
+        <!-- ========================================================================= -->
+        <div id="path-comunidad-view" class="path-view hidden-path">
+            
+            <section class="py-12 sm:py-16 bg-white text-slate-900 relative overflow-hidden border-b border-slate-200">
+                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                    
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200 text-xs font-extrabold uppercase tracking-wider mb-6 shadow-sm">
+                        <i class="ph-bold ph-sparkle text-amber-500"></i>
+                        <span>100% Gratis a Costo Cero • Para Siempre</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4 max-w-4xl mx-auto">
+                        Súmate a nuestra <br class="hidden sm:block">
+                        <span class="text-gradient">Comunidad de IA Inmobiliaria</span>
+                    </h1>
+
+                    <p class="text-sm sm:text-lg text-slate-600 max-w-3xl mx-auto font-medium mb-8 leading-relaxed">
+                        Accedé a herramientas sencillas, prompts listos para copiar y pegar en Gemini Spark, software en desarrollo (CRM inmobiliario, valuaciones y creador de presentaciones para propiedades) y encuentros grupales en vivo por Google Meet <strong class="text-amber-600">totalmente gratis</strong>.
+                    </p>
+
+                    <div class="flex flex-col items-center justify-center gap-3">
+                        <a href="https://wa.me/5491135678024?text=Hola!%20Quiero%20sumarme%20a%20la%20Comunidad%20de%20IA%20Inmobiliaria%20M2M" 
+                           target="_blank" 
+                           class="w-full sm:w-auto py-4 px-8 rounded-full font-extrabold text-slate-950 bg-amber-400 hover:bg-amber-300 transition-all text-sm shadow-xl flex items-center justify-center gap-3 hover:scale-105 active:scale-95">
+                            <i class="ph-bold ph-whatsapp-logo text-xl"></i>
+                            <span>Unirme Gratis a la Comunidad en WhatsApp</span>
+                        </a>
+                        <span class="text-xs text-slate-500 font-medium">Unite gratis al grupo y accedé a toda la información de por vida.</span>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="py-16 bg-slate-50 text-slate-900 relative overflow-hidden border-b border-slate-200">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div class="text-center max-w-3xl mx-auto mb-12">
+                        <span class="text-[10px] font-extrabold uppercase tracking-wider text-amber-700 bg-amber-50 px-3.5 py-1 rounded-full border border-amber-200 inline-block mb-3">
+                            Aumento de Productividad • Costo $0
+                        </span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mb-3">
+                            Recursos Gratis en el <span class="text-gradient">Grupo de la Comunidad</span>
+                        </h2>
+                        <p class="text-slate-600 text-xs sm:text-sm max-w-xl mx-auto font-medium">
+                            Sumate al grupo de WhatsApp. Desde ahí vas a tener acceso inmediato a todo este material sin pagar nada de por vida.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        
+                        <!-- Tarjeta 1: Prompts -->
+                        <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm hover-wow flex flex-col justify-between">
+                            <div class="mb-6 space-y-3">
+                                <i class="ph-bold ph-cpu text-3xl text-amber-500 icon-float"></i>
+                                <span class="px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200 text-[10px] font-extrabold uppercase tracking-wider inline-block">
+                                    Gemini Spark IA
+                                </span>
+                                <h3 class="text-lg font-extrabold text-slate-900">Comandos y Prompts Listos</h3>
+                                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
+                                    Comandos para copiar y pegar en la IA. Creá fichas vendedoras, redactá textos para portales y manejá objeciones al toque sin marearte.
+                                </p>
+                            </div>
+                            <div class="pt-4 border-t border-slate-100">
+                                <a href="https://wa.me/5491135678024?text=Hola!%20Quiero%20sumarme%20a%20la%20Comunidad%20para%20recibir%20los%20Prompts%20de%20Gemini%20Spark" 
+                                   target="_blank" 
+                                   class="w-full py-3 px-4 rounded-full bg-amber-400 hover:bg-amber-300 text-slate-950 text-xs font-extrabold transition-all text-center flex items-center justify-center gap-2 shadow-sm active:scale-95">
+                                    <i class="ph-bold ph-whatsapp-logo text-base"></i>
+                                    <span>Unirme Gratis a la Comunidad</span>
                                 </a>
-                                <p class="mt-3 text-[10px] text-slate-400 flex items-center justify-center gap-1.5">
-                                    <i class="ph-bold ph-shield-check text-amber-400"></i>
-                                    Suscripción mensual libre • Cero compromiso
+                            </div>
+                        </div>
+
+                        <!-- Tarjeta 2: Software / CRM -->
+                        <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm hover-wow flex flex-col justify-between">
+                            <div class="mb-6 space-y-3">
+                                <i class="ph-bold ph-presentation-chart text-3xl text-blue-600 icon-float"></i>
+                                <span class="px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 text-[10px] font-extrabold uppercase tracking-wider inline-block">
+                                    Tech Inmobiliaria
+                                </span>
+                                <h3 class="text-lg font-extrabold text-slate-900">CRM & Generador de PPTs</h3>
+                                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
+                                    Acceso a herramientas de análisis de mercado y a nuestro creador de diapositivas para armar carpetas y PowerPoints de venta en minutos.
                                 </p>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="servicios" class="py-16 bg-slate-50 border-t border-brand-border relative overflow-hidden">
-            <!-- Decorative Background Grid -->
-            <div class="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-40 pointer-events-none"></div>
-
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                
-                <!-- Section Header -->
-                <div class="text-center max-w-3xl mx-auto mb-10 reveal">
-                    <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white border border-slate-200 shadow-sm mb-3">
-                        <span class="w-2 h-2 rounded-full bg-[#4285F4]"></span>
-                        <span class="w-2 h-2 rounded-full bg-[#EA4335]"></span>
-                        <span class="w-2 h-2 rounded-full bg-[#FBBC05]"></span>
-                        <span class="w-2 h-2 rounded-full bg-[#34A853]"></span>
-                        <span class="text-[11px] font-bold text-slate-700 uppercase tracking-wider ml-1">Catálogo de Servicios Adicionales</span>
-                    </div>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-brand-slateDark mb-3">
-                        Ecosistema M2M <span class="text-gradient">Servicios Extras</span>
-                    </h2>
-                    <p class="text-brand-slateMuted text-xs sm:text-sm max-w-xl mx-auto">
-                        Módulos de ejecución a la carta. Contratación flexible según la etapa de crecimiento de tu inmobiliaria.
-                    </p>
-                </div>
-
-                <!-- Google Interactive Category Filter Pills -->
-                <div class="flex items-center justify-center gap-1.5 sm:gap-2 mb-10 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden reveal">
-                    <button onclick="filterCategory('all')" class="cat-filter-btn active px-4 py-2 rounded-full text-xs font-bold transition-all bg-slate-900 text-white shadow-md cursor-pointer flex-shrink-0" data-cat="all">
-                        Todos (12)
-                    </button>
-                    <button onclick="filterCategory('cat-1')" class="cat-filter-btn px-4 py-2 rounded-full text-xs font-semibold text-slate-600 bg-white border border-slate-200 hover:bg-slate-100 transition-all cursor-pointer flex-shrink-0 flex items-center gap-1.5" data-cat="cat-1">
-                        <i class="ph-bold ph-camera text-[#4285F4]"></i>
-                        <span>1. Imagen & Foto</span>
-                    </button>
-                    <button onclick="filterCategory('cat-2')" class="cat-filter-btn px-4 py-2 rounded-full text-xs font-semibold text-slate-600 bg-white border border-slate-200 hover:bg-slate-100 transition-all cursor-pointer flex-shrink-0 flex items-center gap-1.5" data-cat="cat-2">
-                        <i class="ph-bold ph-video-camera text-[#EA4335]"></i>
-                        <span>2. Video & IA</span>
-                    </button>
-                    <button onclick="filterCategory('cat-3')" class="cat-filter-btn px-4 py-2 rounded-full text-xs font-semibold text-slate-600 bg-white border border-slate-200 hover:bg-slate-100 transition-all cursor-pointer flex-shrink-0 flex items-center gap-1.5" data-cat="cat-3">
-                        <i class="ph-bold ph-megaphone text-[#FBBC05]"></i>
-                        <span>3. Meta Ads</span>
-                    </button>
-                    <button onclick="filterCategory('cat-4')" class="cat-filter-btn px-4 py-2 rounded-full text-xs font-semibold text-slate-600 bg-white border border-slate-200 hover:bg-slate-100 transition-all cursor-pointer flex-shrink-0 flex items-center gap-1.5" data-cat="cat-4">
-                        <i class="ph-bold ph-browser text-[#34A853]"></i>
-                        <span>4. Web & Conversión</span>
-                    </button>
-                    <button onclick="filterCategory('cat-5')" class="cat-filter-btn px-4 py-2 rounded-full text-xs font-semibold text-slate-600 bg-white border border-slate-200 hover:bg-slate-100 transition-all cursor-pointer flex-shrink-0 flex items-center gap-1.5" data-cat="cat-5">
-                        <i class="ph-bold ph-palette text-purple-600"></i>
-                        <span>5. Diseño & Marca</span>
-                    </button>
-                </div>
-
-                <div class="space-y-10 reveal" id="catalog-container">
-                    
-                    <!-- CATEGORY 1: IMAGEN & FOTOGRAFÍA -->
-                    <div class="cat-group" data-group="cat-1">
-                        <div class="flex items-center gap-2 mb-4 pb-2 border-b border-slate-200">
-                            <span class="w-3 h-3 rounded-md bg-[#4285F4]"></span>
-                            <h3 class="text-xs font-extrabold uppercase tracking-wider text-slate-800">Categoría 1: Imagen & Fotografía</h3>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            
-                            <!-- Item 1 -->
-                            <div class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-sm hover-lift flex flex-col justify-between transition-all">
-                                <div>
-                                    <div class="flex items-start justify-between gap-3 mb-3">
-                                        <div class="flex items-center gap-3">
-                                            <div class="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#4285F4] text-xl flex-shrink-0 font-bold">
-                                                <i class="ph-duotone ph-image"></i>
-                                            </div>
-                                            <div>
-                                                <span class="text-[10px] font-extrabold text-[#4285F4] tracking-wide uppercase block">#01</span>
-                                                <h4 class="font-extrabold text-slate-900 text-sm leading-tight">Retoque Fotográfico Profesional</h4>
-                                                <span class="text-[10px] text-slate-400 font-medium">(Smartphone to Pro)</span>
-                                            </div>
-                                        </div>
-                                        <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200/80 flex items-center gap-1 flex-shrink-0">
-                                            <i class="ph-fill ph-plus-circle text-[#4285F4]"></i> Adicional
-                                        </span>
-                                    </div>
-                                    <p class="text-xs text-brand-slateMuted leading-relaxed mb-3">
-                                        Convertimos fotos tomadas con cualquier celular en imágenes que lucen como si hubieran sido tomadas por la cámara más costosa del mercado. Ajustamos iluminación, balance de blancos, perspectiva y nitidez para transformar fotos normales en imágenes súper pro y deslumbrantes.
-                                    </p>
-                                </div>
-                                <div class="bg-blue-50/70 border border-blue-200/80 rounded-xl p-2.5 text-[11px] text-blue-900 font-medium flex items-start gap-2 mt-2">
-                                    <i class="ph-fill ph-gift text-[#4285F4] text-base flex-shrink-0 mt-0.5"></i>
-                                    <span><strong>Incluye de regalo:</strong> Guía y pautas clave para que tus agentes sepan qué ángulos y luz aprovechar antes de tomar las fotos con su teléfono.</span>
-                                </div>
+                            <div class="pt-4 border-t border-slate-100">
+                                <a href="https://wa.me/5491135678024?text=Hola!%20Quiero%20sumarme%20a%20la%20Comunidad%20para%20probar%20las%20herramientas%20de%20CRM%20y%20PPTs" 
+                                   target="_blank" 
+                                   class="w-full py-3 px-4 rounded-full bg-blue-600 hover:bg-blue-500 text-white text-xs font-extrabold transition-all text-center flex items-center justify-center gap-2 shadow-sm active:scale-95">
+                                    <i class="ph-bold ph-whatsapp-logo text-base"></i>
+                                    <span>Unirme Gratis a la Comunidad</span>
+                                </a>
                             </div>
-
-                            <!-- Item 2 -->
-                            <div class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-sm hover-lift flex flex-col justify-between transition-all">
-                                <div>
-                                    <div class="flex items-start justify-between gap-3 mb-3">
-                                        <div class="flex items-center gap-3">
-                                            <div class="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#4285F4] text-xl flex-shrink-0 font-bold">
-                                                <i class="ph-duotone ph-couch"></i>
-                                            </div>
-                                            <div>
-                                                <span class="text-[10px] font-extrabold text-[#4285F4] tracking-wide uppercase block">#02</span>
-                                                <h4 class="font-extrabold text-slate-900 text-sm leading-tight">Virtual Staging con IA</h4>
-                                                <span class="text-[10px] text-slate-400 font-medium">(Amoblamiento Virtual)</span>
-                                            </div>
-                                        </div>
-                                        <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200/80 flex items-center gap-1 flex-shrink-0">
-                                            <i class="ph-fill ph-plus-circle text-[#4285F4]"></i> Adicional
-                                        </span>
-                                    </div>
-                                    <p class="text-xs text-brand-slateMuted leading-relaxed">
-                                        Amoblamiento y decoración digital hiperrealista sobre fotografías de ambientes vacíos o a remodelar. Permite mostrar todo el potencial de la propiedad y acelerar la toma de decisión del comprador.
-                                    </p>
-                                </div>
-                            </div>
-
                         </div>
 
-                        <!-- SLIDER INTERACTIVO ANTES Y DESPUÉS -->
-                        <div class="mt-6 bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-sm">
-                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
-                                <div class="flex items-center gap-2">
-                                    <i class="ph-bold ph-sliders-horizontal text-[#4285F4] text-lg"></i>
-                                    <h4 class="font-extrabold text-slate-900 text-xs sm:text-sm">Demostración en Vivo: Deslizá para comparar el Antes y Después</h4>
-                                </div>
-                                <span class="text-[10px] font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full self-start sm:self-auto border border-slate-200">
-                                    <i class="ph-bold ph-hand-swipe-left text-[#4285F4]"></i> Arrastrá la barra central
+                        <!-- Tarjeta 3: Meet Clases -->
+                        <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm hover-wow flex flex-col justify-between">
+                            <div class="mb-6 space-y-3">
+                                <i class="ph-bold ph-video-camera text-3xl text-amber-500 icon-float"></i>
+                                <span class="px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200 text-[10px] font-extrabold uppercase tracking-wider inline-block">
+                                    Google Meet en Vivo
                                 </span>
+                                <h3 class="text-lg font-extrabold text-slate-900">Clases en Vivo por Meet</h3>
+                                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
+                                    Sesiones en vivo para aprender paso a paso a usar Gemini Spark, resolver dudas de tu día a día y ver cómo otros agentes usan la tecnología.
+                                </p>
                             </div>
-
-                            <div class="relative w-full aspect-[16/10] sm:aspect-[21/9] rounded-xl overflow-hidden shadow-inner border border-slate-200 select-none bg-slate-900" id="before-after-container">
-                                <!-- Image 1: DESPUÉS (Base layer) -->
-                                <img src="https://lh3.googleusercontent.com/d/1-6xCbjNFuA0Vlu1pfCTvPHFb1vFl4uq0" 
-                                     alt="Después - Retoque Cámara Pro" 
-                                     class="absolute inset-0 w-full h-full object-cover"
-                                     onerror="this.onerror=null; this.src='https://drive.google.com/uc?export=view&id=1-6xCbjNFuA0Vlu1pfCTvPHFb1vFl4uq0';">
-                                
-                                <div class="absolute top-3 right-3 bg-emerald-600/90 text-white font-extrabold text-[10px] px-3 py-1 rounded-full backdrop-blur-md shadow-md z-10 flex items-center gap-1.5 border border-emerald-400/30">
-                                    <i class="ph-bold ph-sparkle text-amber-300"></i>
-                                    <span>DESPUÉS: Retoque Cámara Pro</span>
-                                </div>
-
-                                <!-- Image 2: ANTES (Clipped top layer) -->
-                                <div id="before-overlay" class="absolute inset-0 w-full h-full overflow-hidden z-10" style="clip-path: inset(0 50% 0 0);">
-                                    <img src="https://lh3.googleusercontent.com/d/1UbuCBagwH3ZnsfyItECJIj2-nmr46j_U" 
-                                         alt="Antes - Foto de Celular" 
-                                         class="absolute inset-0 w-full h-full object-cover"
-                                         onerror="this.onerror=null; this.src='https://drive.google.com/uc?export=view&id=1UbuCBagwH3ZnsfyItECJIj2-nmr46j_U';">
-                                    
-                                    <div class="absolute top-3 left-3 bg-slate-900/85 text-white font-extrabold text-[10px] px-3 py-1 rounded-full backdrop-blur-md border border-white/20 shadow-md z-10 flex items-center gap-1.5">
-                                        <i class="ph-bold ph-camera text-slate-300"></i>
-                                        <span>ANTES: Foto de Celular</span>
-                                    </div>
-                                </div>
-
-                                <!-- Vertical Slider Line and Control Knob -->
-                                <div id="slider-handle" class="absolute top-0 bottom-0 w-0.5 bg-white z-20 pointer-events-none shadow-[0_0_12px_rgba(0,0,0,0.8)]" style="left: 50%;">
-                                    <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white text-slate-900 border-2 border-slate-900 shadow-2xl flex items-center justify-center text-xs sm:text-sm font-bold">
-                                        <i class="ph-bold ph-arrows-left-right text-brand-blue"></i>
-                                    </div>
-                                </div>
-
-                                <!-- Hidden Range Input for smooth interaction -->
-                                <input type="range" min="0" max="100" value="50" class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-30" oninput="updateBeforeAfter(this.value)">
+                            <div class="pt-4 border-t border-slate-100">
+                                <a href="https://wa.me/5491135678024?text=Hola!%20Quiero%20sumarme%20a%20la%20Comunidad%20para%20participar%20de%20los%20encuentros%20gratuitos%20por%20Meet" 
+                                   target="_blank" 
+                                   class="w-full py-3 px-4 rounded-full bg-amber-400 hover:bg-amber-300 text-slate-950 text-xs font-extrabold transition-all text-center flex items-center justify-center gap-2 shadow-sm active:scale-95">
+                                    <i class="ph-bold ph-whatsapp-logo text-base"></i>
+                                    <span>Unirme Gratis a la Comunidad</span>
+                                </a>
                             </div>
                         </div>
 
-                    </div>
-
-                    <!-- CATEGORY 2: VIDEO & INTELIGENCIA ARTIFICIAL -->
-                    <div class="cat-group" data-group="cat-2">
-                        <div class="flex items-center gap-2 mb-4 pb-2 border-b border-slate-200">
-                            <span class="w-3 h-3 rounded-md bg-[#EA4335]"></span>
-                            <h3 class="text-xs font-extrabold uppercase tracking-wider text-slate-800">Categoría 2: Video & Inteligencia Artificial</h3>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            
-                            <!-- Item 3 -->
-                            <div class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-sm hover-lift flex flex-col justify-between transition-all">
-                                <div>
-                                    <div class="flex items-start justify-between gap-3 mb-3">
-                                        <div class="flex items-center gap-3">
-                                            <div class="w-10 h-10 rounded-xl bg-red-50 border border-red-100 flex items-center justify-center text-[#EA4335] text-xl flex-shrink-0 font-bold">
-                                                <i class="ph-duotone ph-sparkle"></i>
-                                            </div>
-                                            <div>
-                                                <span class="text-[10px] font-extrabold text-[#EA4335] tracking-wide uppercase block">#03</span>
-                                                <h4 class="font-extrabold text-slate-900 text-sm leading-tight">Generación de Video con IA a partir de Fotos</h4>
-                                            </div>
-                                        </div>
-                                        <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200/80 flex items-center gap-1 flex-shrink-0">
-                                            <i class="ph-fill ph-plus-circle text-[#EA4335]"></i> Adicional
-                                        </span>
-                                    </div>
-                                    <p class="text-xs text-brand-slateMuted leading-relaxed">
-                                        Transformación de fotografías estáticas en recorridos de video fluidos, dinámicos e impactantes mediante herramientas de Inteligencia Artificial de última generación.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Item 4 -->
-                            <div class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-sm hover-lift flex flex-col justify-between transition-all">
-                                <div>
-                                    <div class="flex items-start justify-between gap-3 mb-3">
-                                        <div class="flex items-center gap-3">
-                                            <div class="w-10 h-10 rounded-xl bg-red-50 border border-red-100 flex items-center justify-center text-[#EA4335] text-xl flex-shrink-0 font-bold">
-                                                <i class="ph-duotone ph-film-strip"></i>
-                                            </div>
-                                            <div>
-                                                <span class="text-[10px] font-extrabold text-[#EA4335] tracking-wide uppercase block">#04</span>
-                                                <h4 class="font-extrabold text-slate-900 text-sm leading-tight">Edición Dinámica de Reels, TikToks y Videos</h4>
-                                            </div>
-                                        </div>
-                                        <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200/80 flex items-center gap-1 flex-shrink-0">
-                                            <i class="ph-fill ph-plus-circle text-[#EA4335]"></i> Adicional
-                                        </span>
-                                    </div>
-                                    <p class="text-xs text-brand-slateMuted leading-relaxed">
-                                        Montaje ágil a partir de los clips de video grabados por tus agentes durante la visita. Incluye ritmo comercial, música en tendencia, subtítulos animados y transiciones profesionales.
-                                    </p>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- CATEGORY 3: PUBLICIDAD DIGITAL & TRÁFICO PAGO (META ADS) -->
-                    <div class="cat-group" data-group="cat-3">
-                        <div class="flex items-center gap-2 mb-4 pb-2 border-b border-slate-200">
-                            <span class="w-3 h-3 rounded-md bg-[#FBBC05]"></span>
-                            <h3 class="text-xs font-extrabold uppercase tracking-wider text-slate-800">Categoría 3: Publicidad Digital & Tráfico Pago (Meta Ads)</h3>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            
-                            <!-- Item 5 -->
-                            <div class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-sm hover-lift flex flex-col justify-between transition-all">
-                                <div>
-                                    <div class="flex items-start justify-between gap-2 mb-3">
-                                        <div class="flex items-center gap-2.5">
-                                            <div class="w-10 h-10 rounded-xl bg-amber-50 border border-amber-100 flex items-center justify-center text-amber-600 text-xl flex-shrink-0 font-bold">
-                                                <i class="ph-duotone ph-house-line"></i>
-                                            </div>
-                                            <div>
-                                                <span class="text-[10px] font-extrabold text-amber-600 tracking-wide uppercase block">#05</span>
-                                                <h4 class="font-extrabold text-slate-900 text-xs sm:text-sm leading-tight">Meta Ads Full: Captación</h4>
-                                            </div>
-                                        </div>
-                                        <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200/80 flex items-center gap-1 flex-shrink-0">
-                                            <i class="ph-fill ph-plus-circle text-amber-500"></i> Adicional
-                                        </span>
-                                    </div>
-                                    <p class="text-xs text-brand-slateMuted leading-relaxed">
-                                        Configuración y gestión técnica de campañas publicitarias en Instagram y Facebook segmentadas geográficamente para atraer a propietarios calificados que buscan vender o tasar su inmueble.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Item 6 -->
-                            <div class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-sm hover-lift flex flex-col justify-between transition-all">
-                                <div>
-                                    <div class="flex items-start justify-between gap-2 mb-3">
-                                        <div class="flex items-center gap-2.5">
-                                            <div class="w-10 h-10 rounded-xl bg-amber-50 border border-amber-100 flex items-center justify-center text-amber-600 text-xl flex-shrink-0 font-bold">
-                                                <i class="ph-duotone ph-currency-dollar-simple"></i>
-                                            </div>
-                                            <div>
-                                                <span class="text-[10px] font-extrabold text-amber-600 tracking-wide uppercase block">#06</span>
-                                                <h4 class="font-extrabold text-slate-900 text-xs sm:text-sm leading-tight">Meta Ads Full: Venta</h4>
-                                            </div>
-                                        </div>
-                                        <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200/80 flex items-center gap-1 flex-shrink-0">
-                                            <i class="ph-fill ph-plus-circle text-amber-500"></i> Adicional
-                                        </span>
-                                    </div>
-                                    <p class="text-xs text-brand-slateMuted leading-relaxed">
-                                        Campañas orientadas a acelerar la venta de inmuebles específicos, impactando directamente a compradores e inversores potenciales según la zona y el perfil del inmueble.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Item 7 -->
-                            <div class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-sm hover-lift flex flex-col justify-between transition-all">
-                                <div>
-                                    <div class="flex items-start justify-between gap-2 mb-3">
-                                        <div class="flex items-center gap-2.5">
-                                            <div class="w-10 h-10 rounded-xl bg-amber-50 border border-amber-100 flex items-center justify-center text-amber-600 text-xl flex-shrink-0 font-bold">
-                                                <i class="ph-duotone ph-arrows-clockwise"></i>
-                                            </div>
-                                            <div>
-                                                <span class="text-[10px] font-extrabold text-amber-600 tracking-wide uppercase block">#07</span>
-                                                <h4 class="font-extrabold text-slate-900 text-xs sm:text-sm leading-tight">Campañas de Retargeting</h4>
-                                            </div>
-                                        </div>
-                                        <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200/80 flex items-center gap-1 flex-shrink-0">
-                                            <i class="ph-fill ph-plus-circle text-amber-500"></i> Adicional
-                                        </span>
-                                    </div>
-                                    <p class="text-xs text-brand-slateMuted leading-relaxed">
-                                        Anuncios estratégicos dirigidos exclusivamente a las personas que ya interactuaron con tus publicaciones, visitaron tu web o preguntaron por una propiedad, manteniéndote en su mente hasta cerrar la consulta.
-                                    </p>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- CATEGORY 4: DESARROLLO WEB & CONVERSIÓN -->
-                    <div class="cat-group" data-group="cat-4">
-                        <div class="flex items-center gap-2 mb-4 pb-2 border-b border-slate-200">
-                            <span class="w-3 h-3 rounded-md bg-[#34A853]"></span>
-                            <h3 class="text-xs font-extrabold uppercase tracking-wider text-slate-800">Categoría 4: Desarrollo Web & Conversión</h3>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            
-                            <!-- Item 8 -->
-                            <div class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-sm hover-lift flex flex-col justify-between transition-all">
-                                <div>
-                                    <div class="flex items-start justify-between gap-2 mb-3">
-                                        <div class="flex items-center gap-2.5">
-                                            <div class="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-[#34A853] text-xl flex-shrink-0 font-bold">
-                                                <i class="ph-duotone ph-browser"></i>
-                                            </div>
-                                            <div>
-                                                <span class="text-[10px] font-extrabold text-[#34A853] tracking-wide uppercase block">#08</span>
-                                                <h4 class="font-extrabold text-slate-900 text-xs sm:text-sm leading-tight">Landing Pages de Alto Impacto</h4>
-                                            </div>
-                                        </div>
-                                        <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200/80 flex items-center gap-1 flex-shrink-0">
-                                            <i class="ph-fill ph-plus-circle text-[#34A853]"></i> Adicional
-                                        </span>
-                                    </div>
-                                    <p class="text-xs text-brand-slateMuted leading-relaxed">
-                                        Páginas web de aterrizaje diseñadas exclusivamente para convertir visitantes en solicitudes de tasación y consultas directas al WhatsApp del agente.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Item 9 -->
-                            <div class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-sm hover-lift flex flex-col justify-between transition-all">
-                                <div>
-                                    <div class="flex items-start justify-between gap-2 mb-3">
-                                        <div class="flex items-center gap-2.5">
-                                            <div class="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-[#34A853] text-xl flex-shrink-0 font-bold">
-                                                <i class="ph-duotone ph-pen-nib"></i>
-                                            </div>
-                                            <div>
-                                                <span class="text-[10px] font-extrabold text-[#34A853] tracking-wide uppercase block">#09</span>
-                                                <h4 class="font-extrabold text-slate-900 text-xs sm:text-sm leading-tight">Copywriting Inmobiliario</h4>
-                                            </div>
-                                        </div>
-                                        <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200/80 flex items-center gap-1 flex-shrink-0">
-                                            <i class="ph-fill ph-plus-circle text-[#34A853]"></i> Adicional
-                                        </span>
-                                    </div>
-                                    <p class="text-xs text-brand-slateMuted leading-relaxed">
-                                        Redacción estratégica de descripciones comerciales con enfoque emocional y de ventas para fichas web, portales inmobiliarios y publicaciones en redes.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Item 10 -->
-                            <div class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-sm hover-lift flex flex-col justify-between transition-all">
-                                <div>
-                                    <div class="flex items-start justify-between gap-2 mb-3">
-                                        <div class="flex items-center gap-2.5">
-                                            <div class="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-[#34A853] text-xl flex-shrink-0 font-bold">
-                                                <i class="ph-duotone ph-file-pdf"></i>
-                                            </div>
-                                            <div>
-                                                <span class="text-[10px] font-extrabold text-[#34A853] tracking-wide uppercase block">#10</span>
-                                                <h4 class="font-extrabold text-slate-900 text-xs sm:text-sm leading-tight">Dossier y Ficha Digital</h4>
-                                            </div>
-                                        </div>
-                                        <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200/80 flex items-center gap-1 flex-shrink-0">
-                                            <i class="ph-fill ph-plus-circle text-[#34A853]"></i> Adicional
-                                        </span>
-                                    </div>
-                                    <p class="text-xs text-brand-slateMuted leading-relaxed">
-                                        Presentaciones ejecutivas e interactivas en alta calidad para propiedades premium, incluyendo galerías de fotos, distribución y botones directos de contacto.
-                                    </p>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- CATEGORY 5: DISEÑO GRÁFICO & MARCA PERSONAL -->
-                    <div class="cat-group" data-group="cat-5">
-                        <div class="flex items-center gap-2 mb-4 pb-2 border-b border-slate-200">
-                            <span class="w-3 h-3 rounded-md bg-purple-600"></span>
-                            <h3 class="text-xs font-extrabold uppercase tracking-wider text-slate-800">Categoría 5: Diseño Gráfico & Marca Personal</h3>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            
-                            <!-- Item 11 -->
-                            <div class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-sm hover-lift flex flex-col justify-between transition-all">
-                                <div>
-                                    <div class="flex items-start justify-between gap-3 mb-3">
-                                        <div class="flex items-center gap-3">
-                                            <div class="w-10 h-10 rounded-xl bg-purple-50 border border-purple-100 flex items-center justify-center text-purple-600 text-xl flex-shrink-0 font-bold">
-                                                <i class="ph-duotone ph-palette"></i>
-                                            </div>
-                                            <div>
-                                                <span class="text-[10px] font-extrabold text-purple-600 tracking-wide uppercase block">#11</span>
-                                                <h4 class="font-extrabold text-slate-900 text-sm leading-tight">Diseño de Flyers y Piezas Promocionales</h4>
-                                            </div>
-                                        </div>
-                                        <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200/80 flex items-center gap-1 flex-shrink-0">
-                                            <i class="ph-fill ph-plus-circle text-purple-600"></i> Adicional
-                                        </span>
-                                    </div>
-                                    <p class="text-xs text-brand-slateMuted leading-relaxed">
-                                        Creación de piezas gráficas atractivas para promocionar propiedades destacadas, oportunidades de inversión, búsquedas activas o novedades de la oficina.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Item 12 -->
-                            <div class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-sm hover-lift flex flex-col justify-between transition-all">
-                                <div>
-                                    <div class="flex items-start justify-between gap-3 mb-3">
-                                        <div class="flex items-center gap-3">
-                                            <div class="w-10 h-10 rounded-xl bg-purple-50 border border-purple-100 flex items-center justify-center text-purple-600 text-xl flex-shrink-0 font-bold">
-                                                <i class="ph-duotone ph-user-focus"></i>
-                                            </div>
-                                            <div>
-                                                <span class="text-[10px] font-extrabold text-purple-600 tracking-wide uppercase block">#12</span>
-                                                <h4 class="font-extrabold text-slate-900 text-sm leading-tight">Optimización y Branding de Perfiles Sociales</h4>
-                                            </div>
-                                        </div>
-                                        <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200/80 flex items-center gap-1 flex-shrink-0">
-                                            <i class="ph-fill ph-plus-circle text-purple-600"></i> Adicional
-                                        </span>
-                                    </div>
-                                    <p class="text-xs text-brand-slateMuted leading-relaxed">
-                                        Auditoría y rediseño estético de perfiles institucionales o de agentes (Instagram/TikTok/LinkedIn): biografía vendedora, destacados visuales y enlace multipropósito.
-                                    </p>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <section id="faq" class="py-14 bg-white border-t border-brand-border">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-8 reveal">
-                    <span class="text-[10px] font-bold uppercase tracking-wider text-brand-blue bg-blue-50 px-3 py-1 rounded-full border border-blue-100 inline-block mb-2">
-                        Claridad Absoluta
-                    </span>
-                    <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-brand-slateDark">
-                        Preguntas <span class="text-gradient">Frecuentes</span>
-                    </h2>
-                </div>
-                
-                <div class="space-y-3 reveal">
-                    <!-- FAQ 1 -->
-                    <div class="border border-brand-border rounded-2xl bg-slate-50 overflow-hidden">
-                        <button class="faq-btn w-full px-5 py-4 text-left font-bold text-slate-900 text-xs sm:text-sm flex items-center justify-between gap-3">
-                            <span>¿Cuál es la diferencia con agencias tradicionales?</span>
-                            <i class="ph-bold ph-caret-down text-brand-blue transition-transform"></i>
-                        </button>
-                        <div class="faq-content hidden px-5 pb-4 text-xs text-brand-slateMuted leading-relaxed">
-                            No cobramos abonos mensuales fijos de 300 a 600 USD. Te damos un punto de entrada accesible ($50) para auditar y diagnosticar, escalando a servicios completos solo cuando lo necesites.
-                        </div>
-                    </div>
-                    
-                    <!-- FAQ 2 -->
-                    <div class="border border-brand-border rounded-2xl bg-slate-50 overflow-hidden">
-                        <button class="faq-btn w-full px-5 py-4 text-left font-bold text-slate-900 text-xs sm:text-sm flex items-center justify-between gap-3">
-                            <span>No soy influencer y tengo pocos likes. ¿Me sirve igual?</span>
-                            <i class="ph-bold ph-caret-down text-brand-blue transition-transform"></i>
-                        </button>
-                        <div class="faq-content hidden px-5 pb-4 text-xs text-brand-slateMuted leading-relaxed">
-                            Totalmente. El 99% de los agentes e inmobiliarias de mayor facturación no son influencers famosos y suelen tener entre 5 y 50 likes por publicación. Nos enfocamos exactamente en ese 99%: agentes reales que buscan captar propiedades, cerrar operaciones y hacer negocios, sin perder tiempo en métricas de vanidad o bailes.
-                        </div>
-                    </div>
-                    
-                    <!-- FAQ 3 -->
-                    <div class="border border-brand-border rounded-2xl bg-slate-50 overflow-hidden">
-                        <button class="faq-btn w-full px-5 py-4 text-left font-bold text-slate-900 text-xs sm:text-sm flex items-center justify-between gap-3">
-                            <span>¿Cómo trabaja el equipo? ¿Es remoto o presencial?</span>
-                            <i class="ph-bold ph-caret-down text-brand-blue transition-transform"></i>
-                        </button>
-                        <div class="faq-content hidden px-5 pb-4 text-xs text-brand-slateMuted leading-relaxed">
-                            El equipo estratégico opera 100% de manera remota vía Google Meet para maximizar eficiencia sin pérdidas de tiempo. En caso de requerir cobertura técnica presencial en el futuro, coordinamos con equipos audiovisuales locales cercanos a la ubicación de tu inmobiliaria.
-                        </div>
-                    </div>
-                    
-                    <!-- FAQ 4 -->
-                    <div class="border border-brand-border rounded-2xl bg-slate-50 overflow-hidden">
-                        <button class="faq-btn w-full px-5 py-4 text-left font-bold text-slate-900 text-xs sm:text-sm flex items-center justify-between gap-3">
-                            <span>¿Hay contrato de permanencia?</span>
-                            <i class="ph-bold ph-caret-down text-brand-blue transition-transform"></i>
-                        </button>
-                        <div class="faq-content hidden px-5 pb-4 text-xs text-brand-slateMuted leading-relaxed">
-                            <p><strong>Ninguno.</strong> Ingresás con total libertad para probar la convocatoria de casos de éxito. Buscamos clientes constantes con visión de largo plazo que entiendan que los resultados reales en bienes raíces se construyen mes a mes con sistemas estables.</p>
-                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="py-14 bg-slate-900 text-white relative overflow-hidden">
-            <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
-                <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight mb-4 leading-tight">
-                    El mercado premia a quienes tienen <span class="text-gradient">sistemas</span>, no a quienes improvisan.
-                </h2>
-                <p class="text-slate-400 text-xs sm:text-base max-w-xl mx-auto mb-8">
-                    Aprovechá la tarifa especial de convocatoria antes de agotar los cupos para casos de éxito.
-                </p>
-                <a href="https://wa.me/5491135678024?text=Hola!%20Quiero%20consultar%20detalles%20para%20sumar%20mi%20negocio%20a%20M2Marketing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 py-3.5 px-8 rounded-full font-bold text-slate-900 bg-emerald-400 hover:bg-emerald-300 transition-all text-sm shadow-md hover:scale-[1.02]">
-                    <i class="ph-bold ph-whatsapp-logo text-xl"></i>
-                    <span>Sumarme como Caso de Éxito ($50 USD)</span>
-                </a>
-            </div>
-        </section>
+        </div>
+
     </main>
 
-    <!-- Botón Flotante Fijo Minimalista -->
-    <a href="https://wa.me/5491135678024?text=Hola!%20Tengo%20una%20consulta%20sobre%20el%20ecosistema%20M2Marketing" 
+    <!-- Botón Flotante Fijo WhatsApp -->
+    <a href="https://wa.me/5491135678024?text=Hola!%20Quiero%20consultar%20sobre%20el%20ecosistema%20GuardPerf" 
        target="_blank" 
        rel="noopener noreferrer" 
-       class="fixed bottom-5 right-5 z-50 w-12 h-12 rounded-full bg-slate-900/40 backdrop-blur-xl backdrop-saturate-150 border border-white/20 shadow-2xl flex items-center justify-center text-slate-200 hover:text-white hover:bg-slate-900/70 hover:scale-110 transition-all duration-300" 
+       class="fixed bottom-5 right-5 z-40 w-12 h-12 rounded-full bg-slate-900/90 border border-slate-700 shadow-2xl flex items-center justify-center text-emerald-400 hover:text-emerald-300 hover:scale-110 active:scale-95 transition-all duration-300" 
        title="Hablar por WhatsApp">
         <i class="ph-bold ph-whatsapp-logo text-2xl"></i>
     </a>
     
-    <footer class="bg-slate-950 text-slate-500 py-8 border-t border-slate-800 text-[11px] text-center">
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-500 py-6 border-t border-slate-800 text-[11px] text-center">
         <div class="max-w-5xl mx-auto px-4">
-            <p>© 2026 M2Marketing. Todos los derechos reservados.</p>
+            <p>© 2026 M2Marketing. Ecosistema GuardPerf™. Todos los derechos reservados.</p>
         </div>
     </footer>
 
     <script>
+        // Lógica para cambiar entre vistas B2B y Comunidad
+        function setPathMode(mode) {
+            const viewB2B = document.getElementById('path-b2b-view');
+            const viewComunidad = document.getElementById('path-comunidad-view');
+            const btnB2B = document.getElementById('switch-btn-b2b');
+            const btnComunidad = document.getElementById('switch-btn-comunidad');
+
+            if (mode === 'b2b') {
+                viewB2B.classList.remove('hidden-path');
+                viewComunidad.classList.add('hidden-path');
+
+                btnB2B.className = 'px-3 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-extrabold transition-all duration-300 flex items-center gap-1.5 sm:gap-2 bg-gradient-to-r from-slate-800 via-slate-900 to-slate-800 text-slate-100 shadow-sm border border-slate-700';
+                btnComunidad.className = 'px-3 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 flex items-center gap-1.5 sm:gap-2 text-slate-600 hover:text-slate-900';
+            } else {
+                viewB2B.classList.add('hidden-path');
+                viewComunidad.classList.remove('hidden-path');
+
+                btnB2B.className = 'px-3 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 flex items-center gap-1.5 sm:gap-2 text-slate-600 hover:text-slate-900';
+                btnComunidad.className = 'px-3 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-extrabold transition-all duration-300 flex items-center gap-1.5 sm:gap-2 bg-amber-400 text-slate-950 shadow-sm';
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
-            // 1. FAQ Accordion Logic
+            // FAQ Accordion Toggle
             const faqBtns = document.querySelectorAll('.faq-btn');
             faqBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
@@ -958,85 +791,21 @@
                     }
                 });
             });
-            
-            // 2. Scroll Reveal Animation
-            const reveals = document.querySelectorAll('.reveal');
-            function checkScroll() {
-                const windowHeight = window.innerHeight;
-                reveals.forEach(el => {
-                    const elementTop = el.getBoundingClientRect().top;
-                    if (elementTop < windowHeight - 60) {
-                        el.classList.add('active');
+
+            // Intersection Observer para animación de entrada en scroll
+            const revealElements = document.querySelectorAll('.reveal-card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
                     }
                 });
-            }
-            
-            // 3. Mobile & Desktop ScrollSpy Indicator
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.nav-link');
-            
-            function highlightNavOnScroll() {
-                let scrollY = window.pageYOffset;
-                sections.forEach(current => {
-                    const sectionHeight = current.offsetHeight;
-                    const sectionTop = current.offsetTop - 120;
-                    const sectionId = current.getAttribute('id');
-                    
-                    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                        navLinks.forEach(link => {
-                            link.classList.remove('active');
-                            if (link.getAttribute('href') === '#' + sectionId) {
-                                link.classList.add('active');
-                                if (window.innerWidth < 768) {
-                                    link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-                                }
-                            }
-                        });
-                    }
-                });
-            }
-            
-            window.addEventListener('scroll', () => {
-                checkScroll();
-                highlightNavOnScroll();
+            }, {
+                threshold: 0.15
             });
-            
-            checkScroll();
+
+            revealElements.forEach(el => observer.observe(el));
         });
-
-        // Interactive Before/After Slider Function
-        function updateBeforeAfter(val) {
-            const overlay = document.getElementById('before-overlay');
-            const handle = document.getElementById('slider-handle');
-            if (overlay && handle) {
-                overlay.style.clipPath = `inset(0 ${100 - val}% 0 0)`;
-                handle.style.left = `${val}%`;
-            }
-        }
-
-        // Category Filter Function
-        function filterCategory(cat) {
-            const filterBtns = document.querySelectorAll('.cat-filter-btn');
-            const catGroups = document.querySelectorAll('.cat-group');
-            
-            filterBtns.forEach(btn => {
-                if (btn.getAttribute('data-cat') === cat) {
-                    btn.classList.add('bg-slate-900', 'text-white', 'shadow-md', 'active');
-                    btn.classList.remove('bg-white', 'text-slate-600', 'border-slate-200');
-                } else {
-                    btn.classList.remove('bg-slate-900', 'text-white', 'shadow-md', 'active');
-                    btn.classList.add('bg-white', 'text-slate-600', 'border-slate-200');
-                }
-            });
-
-            catGroups.forEach(group => {
-                if (cat === 'all' || group.getAttribute('data-group') === cat) {
-                    group.style.display = 'block';
-                } else {
-                    group.style.display = 'none';
-                }
-            });
-        }
     </script>
 </body>
 </html>
