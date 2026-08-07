@@ -92,7 +92,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Gradientes Flúor estilo Web M2M */
         .text-gradient-fluor {
             background: linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #f59e0b 100%);
             -webkit-background-clip: text;
@@ -101,24 +100,6 @@
 
         .text-gradient-emerald {
             background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .text-gradient-rose {
-            background: linear-gradient(135deg, #ef4444 0%, #be123c 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .text-gradient-amber {
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .text-gradient-gold {
-            background: linear-gradient(135deg, #d97706 0%, #f59e0b 50%, #ca8a04 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -142,10 +123,12 @@
 <body class="text-slate-900 font-sans antialiased selection:bg-emerald-100 selection:text-emerald-700">
 
     <header id="headerLogo" class="absolute top-5 left-6 md:left-10 z-50 transition-opacity duration-300 pointer-events-none opacity-0">
-        <img src="https://lh3.googleusercontent.com/d/1Yq4YcFxytCooor28U_NwUU3iPFkzw1EV" 
-             alt="M2Marketing Logo" 
-             class="h-7 md:h-9 w-auto object-contain drop-shadow-sm"
-             onerror="this.onerror=null; this.src='https://placehold.co/160x50/2563eb/ffffff?text=M2Marketing';">
+        <div class="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden bg-white flex items-center justify-center border border-slate-100 shadow-sm">
+            <img src="https://lh3.googleusercontent.com/d/1Yq4YcFxytCooor28U_NwUU3iPFkzw1EV" 
+                 alt="M2Marketing Logo" 
+                 class="w-full h-full object-cover"
+                 onerror="this.onerror=null; this.src='https://placehold.co/100x100/2563eb/ffffff?text=M2M';">
+        </div>
     </header>
 
     <div class="absolute bottom-3 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-1.5 w-full max-w-xs px-4">
@@ -155,7 +138,7 @@
             </button>
             
             <span class="text-[11px] font-extrabold text-slate-700 tracking-wider">
-                <span id="currentSlideNum">1</span> / <span id="totalSlidesNum">32</span>
+                <span id="currentSlideNum">1</span> / <span id="totalSlidesNum">9</span>
             </span>
 
             <button id="nextBtn" onclick="nextSlide()" class="p-1 rounded-full text-slate-500 hover:text-slate-900 hover:bg-slate-100 disabled:opacity-30 disabled:hover:bg-transparent transition-all">
@@ -164,7 +147,7 @@
         </div>
 
         <div class="w-full bg-slate-200/80 h-1 rounded-full overflow-hidden shadow-inner">
-            <div id="progressBar" class="bg-blue-600 h-full transition-all duration-300 w-[3%]"></div>
+            <div id="progressBar" class="bg-blue-600 h-full transition-all duration-300 w-[11.1%]"></div>
         </div>
     </div>
 
@@ -173,21 +156,21 @@
         <!-- DIAPOSITIVA 1: PORTADA PURA M2MARKETING -->
         <section class="slide active">
             <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-12 md:p-14 shadow-2xl border border-slate-200/90 flex flex-col justify-center items-center text-center min-h-[520px] sm:min-h-[560px] relative overflow-hidden">
-                <div class="anim-1 mb-8">
+                <div class="anim-1 mb-6 sm:mb-8">
                     <img src="https://lh3.googleusercontent.com/d/1Yq4YcFxytCooor28U_NwUU3iPFkzw1EV" 
                          alt="M2Marketing Logo" 
-                         class="h-28 sm:h-40 md:h-48 w-auto object-contain mx-auto drop-shadow-sm hover-wow"
-                         onerror="this.onerror=null; this.src='https://placehold.co/400x150/2563eb/ffffff?text=M2Marketing';">
+                         class="h-36 sm:h-52 md:h-64 w-auto object-contain mx-auto transition-transform duration-300 hover:scale-105"
+                         onerror="this.onerror=null; this.src='https://placehold.co/500x200/2563eb/ffffff?text=M2Marketing';">
                 </div>
                 <div class="anim-2 max-w-2xl mx-auto space-y-3">
                     <h1 class="text-2xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight">
                         Ecosistema de <span class="text-gradient-fluor">Ingeniería de Ventas</span>
                     </h1>
-                    <p class="text-sm sm:text-lg text-slate-500 font-semibold tracking-wide">
-                        Infraestructura Operativa e Imagen Inmobiliaria
+                    <p class="text-sm sm:text-lg text-slate-600 font-bold tracking-wide">
+                        Infraestructura Operativa Especializada en Prospección Inmobiliaria
                     </p>
                 </div>
-                <div class="anim-3 mt-10">
+                <div class="anim-3 mt-8 sm:mt-10">
                     <span class="px-4 py-1.5 rounded-full bg-slate-100 text-slate-700 text-xs font-extrabold border border-slate-200 inline-flex items-center gap-2 shadow-sm">
                         <i class="ph-bold ph-presentation-chart text-blue-600"></i>
                         <span>Powertalk M2M • Presentación Ejecutiva</span>
@@ -212,208 +195,60 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="md:col-span-7 space-y-4 text-left">
+                    <div class="md:col-span-7 space-y-6 text-left">
                         <h2 class="anim-1 text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 leading-tight">
-                            El esfuerzo rinde frutos, pero la <span class="text-gradient-fluor">red de contactos</span> tiene un techo.
+                            Pablo Reina, <span class="text-gradient-fluor">más de 5 años</span> dentro del sector inmobiliario.
                         </h2>
                         
-                        <div class="anim-2 space-y-3 text-slate-700 text-xs sm:text-sm font-semibold">
-                            <div class="flex items-start gap-3 bg-slate-50 p-3 rounded-2xl border border-slate-100 hover-wow">
-                                <i class="ph-bold ph-medal text-emerald-500 text-xl flex-shrink-0 mt-0.5 icon-float"></i>
-                                <span>Años en el barro inmobiliario confirman que el buen servicio genera reconocimiento.</span>
-                            </div>
-                            <div class="flex items-start gap-3 bg-slate-50 p-3 rounded-2xl border border-slate-100 hover-wow">
-                                <i class="ph-bold ph-users text-blue-500 text-xl flex-shrink-0 mt-0.5 icon-float"></i>
-                                <span>Sin embargo, basarse únicamente en referidos limita la escala constante.</span>
-                            </div>
-                            <div class="flex items-start gap-3 bg-rose-50 p-3 rounded-2xl border border-rose-100 hover-wow">
-                                <i class="ph-bold ph-warning-octagon text-rose-500 text-xl flex-shrink-0 mt-0.5 icon-float"></i>
-                                <span class="text-rose-900">Sin una infraestructura de captación, la dependencia del círculo cercano causa estancamiento.</span>
+                        <div class="anim-2 space-y-3 text-slate-700 text-xs sm:text-sm font-semibold flex flex-col justify-start">
+                            <div class="flex items-center gap-3 bg-slate-50 p-4 rounded-2xl border border-slate-100 hover-wow">
+                                <i class="ph-bold ph-trophy text-amber-500 text-2xl flex-shrink-0 icon-float"></i>
+                                <span class="text-slate-900 font-bold text-base sm:text-lg">Hall of Fame</span>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="anim-3 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center sm:justify-start gap-2">
-                    <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-extrabold border border-slate-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-user-check text-slate-500"></i> Experiencia Real
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-extrabold border border-blue-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-chart-line-up text-blue-600"></i> Trabajo de Campo
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-rose-50 text-rose-700 text-xs font-extrabold border border-rose-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-prohibit text-rose-600"></i> El Techo Natural
-                    </span>
-                </div>
             </div>
         </section>
 
-        <!-- DIAPOSITIVA 3: SATURACIÓN EN CABA -->
-        <section class="slide">
-            <div class="max-w-5xl w-full bg-rose-50/30 rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-rose-100 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden">
-                <div class="my-auto space-y-6 text-left">
-                    <div class="anim-1 flex items-center gap-2">
-                        <span class="px-3 py-1 rounded-full bg-rose-100 text-rose-800 text-xs font-extrabold border border-rose-200 uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
-                            <i class="ph-bold ph-warning text-rose-600"></i> Diagnóstico I • Densidad de Mercado
-                        </span>
-                    </div>
-
-                    <h2 class="anim-2 text-2xl sm:text-4xl font-black text-slate-900 leading-tight">
-                        CABA: <span class="text-gradient-rose">Hasta 3 agentes por manzana</span> compitiendo por los mismos contactos.
-                    </h2>
-
-                    <div class="anim-3 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="bg-white p-5 rounded-2xl border border-rose-200/80 shadow-sm space-y-2 hover-wow">
-                            <i class="ph-bold ph-buildings text-3xl text-rose-600 icon-float"></i>
-                            <h3 class="font-extrabold text-slate-900 text-base">Saturación Territorial</h3>
-                            <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
-                                A la alta densidad de CABA se suma el flujo constante de agentes de zonas cercanas.
-                            </p>
-                        </div>
-                        <div class="bg-white p-5 rounded-2xl border border-rose-200/80 shadow-sm space-y-2 hover-wow">
-                            <i class="ph-bold ph-users-three text-3xl text-rose-600 icon-float"></i>
-                            <h3 class="font-extrabold text-slate-900 text-base">Redes Compartidas</h3>
-                            <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
-                                Los círculos sociales hoy tienen 2 o 3 agentes compitiendo en el mismo grupo.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="anim-4 pt-4 border-t border-rose-100 flex flex-wrap items-center justify-start gap-2">
-                    <span class="px-3 py-1 rounded-full bg-white text-rose-700 text-xs font-extrabold border border-rose-200 shadow-sm flex items-center gap-1.5">
-                        <i class="ph-bold ph-map-pin text-rose-600"></i> Entorno CABA
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-white text-slate-700 text-xs font-extrabold border border-slate-200 shadow-sm flex items-center gap-1.5">
-                        <i class="ph-bold ph-chart-pie text-slate-600"></i> Competencia Directa
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-rose-100 text-rose-800 text-xs font-extrabold border border-rose-300 flex items-center gap-1.5">
-                        <i class="ph-bold ph-arrows-split text-rose-600"></i> Red Fragmentada
-                    </span>
-                </div>
-            </div>
-        </section>
-
-        <!-- DIAPOSITIVA 4: PROSPECCIÓN FRÍA Y BLOQUEOS -->
-        <section class="slide">
-            <div class="max-w-5xl w-full bg-rose-50/40 rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-rose-200/80 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden">
-                <div class="my-auto space-y-6 text-left">
-                    <div class="anim-1 flex items-center gap-2">
-                        <span class="px-3 py-1 rounded-full bg-rose-100 text-rose-800 text-xs font-extrabold border border-rose-300 uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
-                            <i class="ph-bold ph-phone-slash text-rose-600"></i> Diagnóstico II • Métodos Agotados
-                        </span>
-                    </div>
-
-                    <h2 class="anim-2 text-2xl sm:text-4xl font-black text-slate-900 leading-tight">
-                        La prospección fría tradicional <span class="text-gradient-rose">ha dejado de funcionar.</span>
-                    </h2>
-
-                    <div class="anim-3 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="bg-white p-5 rounded-2xl border border-rose-200 shadow-sm space-y-2 hover-wow">
-                            <i class="ph-bold ph-whatsapp-logo text-3xl text-rose-600 icon-float"></i>
-                            <h3 class="font-extrabold text-slate-900 text-base">Bloqueos Inmediatos</h3>
-                            <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
-                                Los envíos masivos terminan en la suspensión inmediata de cuentas por detecciones de spam.
-                            </p>
-                        </div>
-                        <div class="bg-white p-5 rounded-2xl border border-rose-200 shadow-sm space-y-2 hover-wow">
-                            <i class="ph-bold ph-x-circle text-3xl text-rose-600 icon-float"></i>
-                            <h3 class="font-extrabold text-slate-900 text-base">Rechazo Telefónico</h3>
-                            <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
-                                Las llamadas a desconocidos se perciben invasivas y casi nadie atiende números no agendados.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="anim-4 pt-4 border-t border-rose-200/60 flex flex-wrap items-center justify-start gap-2">
-                    <span class="px-3 py-1 rounded-full bg-white text-rose-800 text-xs font-extrabold border border-rose-200 shadow-sm flex items-center gap-1.5">
-                        <i class="ph-bold ph-lock-key text-rose-600"></i> Cuentas Bloqueadas
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-white text-slate-700 text-xs font-extrabold border border-slate-200 shadow-sm flex items-center gap-1.5">
-                        <i class="ph-bold ph-hand-stop text-slate-600"></i> Rechazo en Frío
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-rose-100 text-rose-900 text-xs font-extrabold border border-rose-300 flex items-center gap-1.5">
-                        <i class="ph-bold ph-trend-down text-rose-600"></i> Caída de Conversión
-                    </span>
-                </div>
-            </div>
-        </section>
-
-        <!-- DIAPOSITIVA 5: EXPERIMENTO DE 170 LLAMADAS -->
-        <section class="slide">
-            <div class="max-w-5xl w-full bg-rose-50/50 rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-rose-200 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden">
-                <div class="my-auto space-y-6 text-left">
-                    <div class="anim-1 flex items-center gap-2">
-                        <span class="px-3 py-1 rounded-full bg-rose-100 text-rose-800 text-xs font-extrabold border border-rose-300 uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
-                            <i class="ph-bold ph-chart-bar-down text-rose-600"></i> Datos Reales • Muestreo Directo
-                        </span>
-                    </div>
-
-                    <h2 class="anim-2 text-2xl sm:text-3xl sm:text-4xl font-black text-slate-900 leading-tight">
-                        Matemática de la llamada en frío: <span class="text-gradient-rose">170 intentos, 0 conversiones.</span>
-                    </h2>
-
-                    <div class="anim-3 grid grid-cols-1 sm:grid-cols-3 gap-3 text-center">
-                        <div class="bg-white p-4 rounded-2xl border border-rose-200 shadow-sm hover-wow">
-                            <i class="ph-bold ph-phone-call text-2xl text-slate-700 icon-float mb-1"></i>
-                            <span class="block text-3xl font-black text-slate-900">170</span>
-                            <p class="text-xs text-slate-500 font-bold uppercase mt-1">Llamadas Realizadas</p>
-                        </div>
-                        <div class="bg-white p-4 rounded-2xl border border-rose-200 shadow-sm hover-wow">
-                            <i class="ph-bold ph-chats text-2xl text-rose-600 icon-float mb-1"></i>
-                            <span class="block text-3xl font-black text-rose-600">15</span>
-                            <p class="text-xs text-slate-500 font-bold uppercase mt-1">Respuestas Obtenidas</p>
-                        </div>
-                        <div class="bg-rose-600 text-white p-4 rounded-2xl shadow-sm hover-wow">
-                            <i class="ph-bold ph-x-circle text-2xl text-rose-200 icon-float mb-1"></i>
-                            <span class="block text-3xl font-black">0</span>
-                            <p class="text-xs text-rose-100 font-bold uppercase mt-1">Captaciones Directas</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="anim-4 pt-4 border-t border-rose-200 flex flex-wrap items-center justify-start gap-2">
-                    <span class="px-3 py-1 rounded-full bg-white text-slate-700 text-xs font-extrabold border border-slate-200 shadow-sm flex items-center gap-1.5">
-                        <i class="ph-bold ph-calculator text-slate-600"></i> Métricas Directas
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-white text-rose-700 text-xs font-extrabold border border-rose-200 shadow-sm flex items-center gap-1.5">
-                        <i class="ph-bold ph-hourglass text-rose-600"></i> Tiempo Invertido
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-rose-100 text-rose-800 text-xs font-extrabold border border-rose-300 flex items-center gap-1.5">
-                        <i class="ph-bold ph-users text-rose-600"></i> Familiar Inmobiliario
-                    </span>
-                </div>
-            </div>
-        </section>
-
-        <!-- DIAPOSITIVA 6: MOMENTO EXACTO -->
+        <!-- DIAPOSITIVA 3: FILOSOFÍA JUST IN TIME INMOBILIARIA -->
         <section class="slide">
             <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden">
-                <div class="my-auto space-y-6 text-left">
-                    <div class="anim-1 flex items-center gap-2">
-                        <span class="px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-extrabold border border-blue-200 uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
-                            <i class="ph-bold ph-clock text-blue-600"></i> Principio Clave de Captación
+                <div class="my-auto space-y-6 text-center">
+                    <div class="anim-1 flex justify-center items-center">
+                        <span class="px-3.5 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-extrabold border border-blue-200 uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
+                            <i class="ph-bold ph-arrows-clockwise text-blue-600"></i> Filosofía Just In Time Inmobiliaria
                         </span>
                     </div>
 
-                    <h2 class="anim-2 text-2xl sm:text-4xl font-black text-slate-900 leading-tight">
-                        No sirve llamar a ciegas. La clave es conectar en el <span class="text-gradient-fluor">momento exacto de decisión.</span>
+                    <h2 class="anim-2 text-2xl sm:text-4xl font-black text-slate-900 leading-tight max-w-3xl mx-auto">
+                        La clave es conectar en el <span class="text-gradient-fluor">momento exacto de decisión.</span>
                     </h2>
 
-                    <div class="anim-3 bg-slate-900 text-white p-6 rounded-2xl shadow-lg border border-slate-800 space-y-3 hover-wow">
-                        <div class="flex items-center gap-3 text-emerald-400 font-extrabold text-sm sm:text-base">
-                            <i class="ph-bold ph-lightning text-2xl icon-float"></i>
-                            <span>Sincronización vs. Prospección a Ciegas</span>
+                    <div class="anim-3 grid grid-cols-1 sm:grid-cols-2 gap-4 text-left max-w-4xl mx-auto">
+                        <div class="bg-rose-50/60 p-5 sm:p-6 rounded-2xl border border-rose-100 space-y-2.5 hover-wow">
+                            <div class="flex items-center gap-2.5 text-rose-700 font-extrabold text-base">
+                                <i class="ph-bold ph-hand-stop text-2xl text-rose-600 icon-float"></i>
+                                <span>Prospección Tradicional (Empujar)</span>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
+                                Intentar captar persiguiendo referidos o contactos que <strong class="text-rose-900 font-bold">no están listos para vender</strong> genera un esfuerzo inmenso y una alta tasa de rechazo.
+                            </p>
                         </div>
-                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-medium">
-                            Estar presente cuando el propietario decide vender cambia la conversación: pasa de ser una interrupción molesta a convertirse en una respuesta profesional oportuna.
-                        </p>
+
+                        <div class="bg-emerald-50/60 p-5 sm:p-6 rounded-2xl border border-emerald-200 space-y-2.5 hover-wow">
+                            <div class="flex items-center gap-2.5 text-emerald-900 font-extrabold text-base">
+                                <i class="ph-bold ph-lightning text-2xl text-emerald-600 icon-float"></i>
+                                <span>Demanda Real (El Cliente Jala)</span>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-700 font-medium leading-relaxed">
+                                La infraestructura capta la intención activa en el microbarrio. El propietario gatilla el proceso y el agente interviene con <strong class="text-emerald-950 font-bold">máxima autoridad técnica</strong>.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-start gap-2">
+                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2">
                     <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-extrabold border border-slate-200 flex items-center gap-1.5">
                         <i class="ph-bold ph-target text-slate-600"></i> Intención Activa
                     </span>
@@ -421,1456 +256,344 @@
                         <i class="ph-bold ph-timer text-blue-600"></i> Timing Comercial
                     </span>
                     <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-extrabold border border-emerald-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-check-circle text-emerald-600"></i> Conexión Oportuna
+                        <i class="ph-bold ph-check-circle text-emerald-600"></i> Cero Desgaste
                     </span>
                 </div>
             </div>
         </section>
 
-        <!-- DIAPOSITIVA 7: EFECTO FLORERO -->
+        <!-- DIAPOSITIVA 4: EL CLIENTE JALA -->
         <section class="slide">
-            <div class="max-w-5xl w-full bg-rose-50/40 rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-rose-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden">
-                <div class="my-auto space-y-6 text-left">
-                    <div class="anim-1 flex items-center gap-2">
-                        <span class="px-3 py-1 rounded-full bg-rose-100 text-rose-800 text-xs font-extrabold border border-rose-300 uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
-                            <i class="ph-bold ph-warning-circle text-rose-600"></i> Diagnóstico III • Trampa Prospección
-                        </span>
-                    </div>
-
-                    <h2 class="anim-2 text-2xl sm:text-4xl font-black text-slate-900 leading-tight">
-                        Promocionar inmuebles de colegas: <span class="text-gradient-rose">El temido "Efecto Florero".</span>
-                    </h2>
-
-                    <div class="anim-3 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="bg-white p-5 rounded-2xl border border-rose-200 shadow-sm space-y-2 hover-wow">
-                            <i class="ph-bold ph-phone text-3xl text-rose-600 icon-float"></i>
-                            <h3 class="font-extrabold text-slate-900 text-base">Atractivo Telefónico Inicial</h3>
-                            <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
-                                Ofrecer propiedades de terceros genera consultas, pero debilita la autoridad en la etapa presencial.
-                            </p>
-                        </div>
-                        <div class="bg-white p-5 rounded-2xl border border-rose-200 shadow-sm space-y-2 hover-wow">
-                            <i class="ph-bold ph-user-minus text-3xl text-rose-600 icon-float"></i>
-                            <h3 class="font-extrabold text-slate-900 text-base">Pérdida de Postura</h3>
-                            <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
-                                En la muestra presencial, el captador toma el control y el intermediario queda relegado sin autoridad técnica.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="anim-4 pt-4 border-t border-rose-200/60 flex flex-wrap items-center justify-start gap-2">
-                    <span class="px-3 py-1 rounded-full bg-white text-slate-700 text-xs font-extrabold border border-slate-200 shadow-sm flex items-center gap-1.5">
-                        <i class="ph-bold ph-door-open text-slate-600"></i> Muestra Presencial
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-white text-rose-700 text-xs font-extrabold border border-rose-200 shadow-sm flex items-center gap-1.5">
-                        <i class="ph-bold ph-shield-warning text-rose-600"></i> Falta de Autoridad
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-rose-100 text-rose-900 text-xs font-extrabold border border-rose-300 flex items-center gap-1.5">
-                        <i class="ph-bold ph-user-focus text-rose-600"></i> Sin Captación Directa
+            <div class="max-w-5xl w-full bg-slate-900 text-white rounded-3xl p-8 sm:p-12 md:p-14 shadow-2xl border border-slate-800 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden text-center">
+                
+                <div class="anim-1 flex justify-center items-center">
+                    <span class="px-4 py-1.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 text-xs font-extrabold uppercase tracking-widest flex items-center gap-2 shadow-sm">
+                        <i class="ph-bold ph-arrows-down-up text-emerald-400 text-sm"></i>
+                        <span>Regla de Oro • Filosofía Pull</span>
                     </span>
                 </div>
-            </div>
-        </section>
 
-        <!-- DIAPOSITIVA 8: FUGA DE CAPITAL -->
-        <section class="slide">
-            <div class="max-w-5xl w-full bg-rose-50/50 rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-rose-200 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden">
-                <div class="my-auto space-y-6 text-left">
-                    <div class="anim-1 flex items-center gap-2">
-                        <span class="px-3 py-1 rounded-full bg-rose-100 text-rose-800 text-xs font-extrabold border border-rose-300 uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
-                            <i class="ph-bold ph-currency-dollar-simple text-rose-600"></i> Diagnóstico IV • Fuga de Capital
-                        </span>
-                    </div>
-
-                    <h2 class="anim-2 text-2xl sm:text-4xl font-black text-slate-900 leading-tight">
-                        Intentar saltar de ticket sin estrategia: <span class="text-gradient-rose">Gasto continuo a fondo perdido.</span>
-                    </h2>
-
-                    <div class="anim-3 bg-white p-6 rounded-2xl border border-rose-200 shadow-sm space-y-4 hover-wow">
-                        <div class="flex items-center gap-4">
-                            <i class="ph-bold ph-trend-down text-4xl text-rose-600 icon-float"></i>
-                            <div>
-                                <h3 class="font-extrabold text-slate-900 text-base">Costo de Probar a Ciegas</h3>
-                                <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
-                                    Gastar presupuestos elevados en anuncios caseros para promover inmuebles de alto valor suele derivar en desgastes económicos para el agente.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="anim-4 pt-4 border-t border-rose-200 flex flex-wrap items-center justify-start gap-2">
-                    <span class="px-3 py-1 rounded-full bg-white text-slate-700 text-xs font-extrabold border border-slate-200 shadow-sm flex items-center gap-1.5">
-                        <i class="ph-bold ph-piggy-bank text-slate-600"></i> Presupuesto Quemado
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-white text-rose-700 text-xs font-extrabold border border-rose-200 shadow-sm flex items-center gap-1.5">
-                        <i class="ph-bold ph-chart-line-down text-rose-600"></i> Sin Retorno Medible
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-rose-100 text-rose-900 text-xs font-extrabold border border-rose-300 flex items-center gap-1.5">
-                        <i class="ph-bold ph-warning-octagon text-rose-600"></i> Desgaste Financiero
-                    </span>
-                </div>
-            </div>
-        </section>
-
-        <!-- DIAPOSITIVA 9: TRAMPA DE CHATBOTS -->
-        <section class="slide">
-            <div class="max-w-5xl w-full bg-rose-50/40 rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-rose-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden">
-                <div class="my-auto space-y-6 text-left">
-                    <div class="anim-1 flex items-center gap-2">
-                        <span class="px-3 py-1 rounded-full bg-rose-100 text-rose-800 text-xs font-extrabold border border-rose-300 uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
-                            <i class="ph-bold ph-robot text-rose-600"></i> Diagnóstico V • Automatización Fallida
-                        </span>
-                    </div>
-
-                    <h2 class="anim-2 text-2xl sm:text-4xl font-black text-slate-900 leading-tight">
-                        La trampa de los chatbots: <span class="text-gradient-rose">Casillas llenas de contactos descalificados.</span>
-                    </h2>
-
-                    <div class="anim-3 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="bg-white p-5 rounded-2xl border border-rose-200 shadow-sm space-y-2 hover-wow">
-                            <i class="ph-bold ph-chat-teardrop-slash text-3xl text-rose-600 icon-float"></i>
-                            <h3 class="font-extrabold text-slate-900 text-base">Conversaciones Irrelevantes</h3>
-                            <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
-                                Los flujos automáticos sin filtro cualitativo generan diálogos interminables con curiosos sin intención real de compra.
-                            </p>
-                        </div>
-                        <div class="bg-white p-5 rounded-2xl border border-rose-200 shadow-sm space-y-2 hover-wow">
-                            <i class="ph-bold ph-ghost text-3xl text-rose-600 icon-float"></i>
-                            <h3 class="font-extrabold text-slate-900 text-base">Ghosting del Cliente</h3>
-                            <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
-                                Al detectar respuestas robóticas, los clientes calificados abandonan la charla y bloquean los canales de contacto.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="anim-4 pt-4 border-t border-rose-200/60 flex flex-wrap items-center justify-start gap-2">
-                    <span class="px-3 py-1 rounded-full bg-white text-slate-700 text-xs font-extrabold border border-slate-200 shadow-sm flex items-center gap-1.5">
-                        <i class="ph-bold ph-cpu text-slate-600"></i> Bots Genéricos
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-white text-rose-700 text-xs font-extrabold border border-rose-200 shadow-sm flex items-center gap-1.5">
-                        <i class="ph-bold ph-chats-teardrop text-rose-600"></i> Ruido Operativo
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-rose-100 text-rose-900 text-xs font-extrabold border border-rose-300 flex items-center gap-1.5">
-                        <i class="ph-bold ph-user-minus text-rose-600"></i> Abandono de Lead
-                    </span>
-                </div>
-            </div>
-        </section>
-
-        <!-- DIAPOSITIVA 10: GUARDIA VIRTUAL ACTIVA -->
-        <section class="slide">
-            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden">
-                <div class="my-auto space-y-6 text-left">
-                    <div class="anim-1 flex items-center gap-2">
-                        <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-extrabold border border-emerald-200 uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
-                            <i class="ph-bold ph-arrows-clockwise text-emerald-600"></i> La Solución de Fondo
-                        </span>
-                    </div>
-
-                    <h2 class="anim-2 text-2xl sm:text-4xl font-black text-slate-900 leading-tight">
-                        De la guardia presencial pasiva a una <span class="text-gradient-fluor">Guardia Virtual Activa</span> a 20 cuadras.
-                    </h2>
-
-                    <div class="anim-3 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-2 hover-wow">
-                            <i class="ph-bold ph-desktop-tower text-3xl text-slate-400 icon-float"></i>
-                            <h3 class="font-extrabold text-slate-700 text-base">Guardia Tradicional</h3>
-                            <p class="text-xs sm:text-sm text-slate-500 font-medium leading-relaxed">
-                                Horas de permanencia en recepción esperando consultas esporádicas de paso.
-                            </p>
-                        </div>
-                        <div class="bg-emerald-50/70 p-5 rounded-2xl border border-emerald-200 space-y-2 hover-wow">
-                            <i class="ph-bold ph-shield-check text-3xl text-emerald-600 icon-float"></i>
-                            <h3 class="font-extrabold text-slate-900 text-base">Guardia Virtual GuardPerf</h3>
-                            <p class="text-xs sm:text-sm text-slate-700 font-medium leading-relaxed">
-                                Cobertura digital constante dentro de un radio de 20 cuadras para captar vecinos interesados.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-start gap-2">
-                    <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-extrabold border border-slate-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-map-pin-line text-slate-600"></i> Cobertura 20 Cuadras
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-extrabold border border-blue-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-lightning text-blue-600"></i> Captación Digital
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 text-xs font-extrabold border border-emerald-300 flex items-center gap-1.5">
-                        <i class="ph-bold ph-check text-emerald-600"></i> Eficiencia Operativa
-                    </span>
-                </div>
-            </div>
-        </section>
-
-        <!-- DIAPOSITIVA 11: EXPERIENCIA DISNEY -->
-        <section class="slide">
-            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden">
-                <div class="my-auto space-y-6 text-left">
-                    <div class="anim-1 flex items-center gap-2">
-                        <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-extrabold border border-emerald-200 uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
-                            <i class="ph-bold ph-sparkle text-emerald-600"></i> Conversión y Postura
-                        </span>
-                    </div>
-
-                    <h2 class="anim-2 text-2xl sm:text-4xl font-black text-slate-900 leading-tight">
-                        La "Experiencia Disney": <span class="text-gradient-fluor">De la alerta al café en la oficina.</span>
-                    </h2>
-
-                    <div class="anim-3 grid grid-cols-1 sm:grid-cols-3 gap-3 text-left">
-                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-2 hover-wow">
-                            <i class="ph-bold ph-bell-ringing text-2xl text-blue-600 icon-float"></i>
-                            <h3 class="font-extrabold text-slate-900 text-sm">1. Alerta Calificada</h3>
-                            <p class="text-xs text-slate-600 font-medium">Notificación directa de un vecino cercano con interés real.</p>
-                        </div>
-                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-2 hover-wow">
-                            <i class="ph-bold ph-key text-2xl text-emerald-600 icon-float"></i>
-                            <h3 class="font-extrabold text-slate-900 text-sm">2. Muestra Técnica</h3>
-                            <p class="text-xs text-slate-600 font-medium">Retiro de llaves en recepción y visita profesional guiada.</p>
-                        </div>
-                        <div class="bg-emerald-50 p-4 rounded-2xl border border-emerald-200 space-y-2 hover-wow">
-                            <i class="ph-bold ph-coffee text-2xl text-amber-600 icon-float"></i>
-                            <h3 class="font-extrabold text-emerald-950 text-sm">3. Cierre en Oficina</h3>
-                            <p class="text-xs text-emerald-800 font-medium">Invitación a la oficina para presentar la propuesta de ACM.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-start gap-2">
-                    <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-extrabold border border-slate-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-key text-slate-600"></i> Retiro de Llaves
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-extrabold border border-blue-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-coffee text-blue-600"></i> Reunión Presencial
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 text-xs font-extrabold border border-emerald-300 flex items-center gap-1.5">
-                        <i class="ph-bold ph-file-text text-emerald-600"></i> Propuesta ACM
-                    </span>
-                </div>
-            </div>
-        </section>
-
-        <!-- DIAPOSITIVA 12: LÓGICA OPERATIVA -->
-        <section class="slide">
-            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden">
-                <div class="my-auto space-y-6 text-left">
-                    <div class="anim-1 flex items-center gap-2">
-                        <span class="px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-extrabold border border-blue-200 uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
-                            <i class="ph-bold ph-cpu text-blue-600"></i> Operatividad Inteligente
-                        </span>
-                    </div>
-
-                    <h2 class="anim-2 text-2xl sm:text-4xl font-black text-slate-900 leading-tight">
-                        Ecosistema 100% gestionado por <span class="text-gradient-fluor">correo y comandos de voz.</span>
-                    </h2>
-
-                    <div class="anim-3 grid grid-cols-1 sm:grid-cols-3 gap-3">
-                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-2 hover-wow">
-                            <i class="ph-bold ph-envelope-simple-open text-3xl text-blue-600 icon-float"></i>
-                            <h3 class="font-extrabold text-slate-900 text-sm">Sin Apps Pesadas</h3>
-                            <p class="text-xs text-slate-600 font-medium">Cero fallos de memoria. Trazabilidad garantizada desde tu email.</p>
-                        </div>
-                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-2 hover-wow">
-                            <i class="ph-bold ph-microphone text-3xl text-emerald-600 icon-float"></i>
-                            <h3 class="font-extrabold text-slate-900 text-sm">Respuesta por Voz</h3>
-                            <p class="text-xs text-slate-600 font-medium">Aceptación de leads en voz alta con Copilot o Spark manejando.</p>
-                        </div>
-                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-2 hover-wow">
-                            <i class="ph-bold ph-sliders-horizontal text-3xl text-amber-500 icon-float"></i>
-                            <h3 class="font-extrabold text-slate-900 text-sm">Portal de Agente</h3>
-                            <p class="text-xs text-slate-600 font-medium">Ajuste personal de horarios (Oficina, Full Time o Personalizado).</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-start gap-2">
-                    <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-extrabold border border-slate-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-check text-slate-600"></i> 100% Email
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-extrabold border border-blue-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-arrows-merge text-blue-600"></i> Rueda Meritocrática
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-extrabold border border-emerald-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-clock-counter-clockwise text-emerald-600"></i> Cadencia de Reportes
-                    </span>
-                </div>
-            </div>
-        </section>
-
-        <!-- DIAPOSITIVA 13: MATRIZ DE BENEFICIOS INTRO -->
-        <section class="slide">
-            <div class="max-w-5xl w-full bg-slate-900 text-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-800 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden">
-                <div class="my-auto space-y-6 text-left">
-                    <div class="anim-1 flex items-center gap-2">
-                        <span class="px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-extrabold border border-blue-400/30 uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
-                            <i class="ph-bold ph-squares-four text-blue-400"></i> Matriz de Impacto Integral
-                        </span>
-                    </div>
-
-                    <h2 class="anim-2 text-2xl sm:text-4xl font-black text-white leading-tight">
-                        Un ecosistema que <span class="text-emerald-400">cuida al agente</span>, potencia la oficina y <span class="text-blue-400">mide todo.</span>
-                    </h2>
-
-                    <div class="anim-3 grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
-                        <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800 space-y-2 hover-wow">
-                            <i class="ph-bold ph-shield-check text-3xl text-emerald-400 icon-float"></i>
-                            <h3 class="font-extrabold text-white text-base">Para el Agente</h3>
-                            <p class="text-xs text-slate-400 font-medium">Ahorro financiero directo, tiempo libre de tareas secundarias y muestras con autoridad.</p>
-                        </div>
-                        <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800 space-y-2 hover-wow">
-                            <i class="ph-bold ph-buildings text-3xl text-blue-400 icon-float"></i>
-                            <h3 class="font-extrabold text-white text-base">Para la Oficina</h3>
-                            <p class="text-xs text-slate-400 font-medium">Imán de reclutamiento Top Producers, cero rotación y dominio de 20 cuadras.</p>
-                        </div>
-                        <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800 space-y-2 hover-wow">
-                            <i class="ph-bold ph-chart-line-up text-3xl text-amber-400 icon-float"></i>
-                            <h3 class="font-extrabold text-white text-base">Tablero de Control</h3>
-                            <p class="text-xs text-slate-400 font-medium">Control quirúrgico en tiempo real de Pre-Listings, SLAs y ROI de pauta.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="anim-4 pt-4 border-t border-slate-800 flex flex-wrap items-center justify-start gap-2">
-                    <span class="px-3 py-1 rounded-full bg-slate-800 text-slate-300 text-xs font-extrabold border border-slate-700 flex items-center gap-1.5">
-                        <i class="ph-bold ph-shield-check text-emerald-400"></i> Protección al Agente
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-slate-800 text-slate-300 text-xs font-extrabold border border-slate-700 flex items-center gap-1.5">
-                        <i class="ph-bold ph-crown text-amber-400"></i> Marca e Inmobiliaria
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-slate-800 text-slate-300 text-xs font-extrabold border border-slate-700 flex items-center gap-1.5">
-                        <i class="ph-bold ph-chart-line-up text-blue-400"></i> Auditoría Transparente
-                    </span>
-                </div>
-            </div>
-        </section>
-
-        <!-- DIAPOSITIVA 14: MINI-BLOQUE 1A (AGENTES - AHORRO FINANCIERO) -->
-        <section class="slide">
-            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden">
-                <div class="my-auto space-y-5 text-center">
-                    <div class="anim-1 flex items-center justify-center gap-2">
-                        <span class="px-3.5 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-extrabold border border-emerald-200 uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
-                            <i class="ph-bold ph-piggy-bank text-emerald-600"></i> Mini-Bloque 1A • Beneficios Agente
-                        </span>
-                    </div>
-
-                    <h2 class="anim-2 text-2xl sm:text-3xl font-black text-slate-900 leading-tight">
-                        Cuidando a tus Agentes: <span class="text-gradient-fluor">Ahorro Financiero</span>
-                    </h2>
-
-                    <div class="anim-3 max-w-2xl mx-auto space-y-2.5 text-left">
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-camera text-emerald-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Foto y Video Bonificado</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-shield-warning text-emerald-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Sin Riesgo Financiero Propio</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-desktop text-emerald-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Cero Gasto Web o CRM</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-whatsapp-logo text-emerald-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Sin Spam ni Envíos</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-prohibit text-emerald-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Sin Agencias ni Experimentos</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2">
-                    <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 text-xs font-extrabold border border-emerald-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-currency-dollar text-emerald-600"></i> Cero Riesgo
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-extrabold border border-slate-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-shield-check text-slate-600"></i> Protección Financiera
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-extrabold border border-blue-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-chart-line-up text-blue-600"></i> Eficiencia Capital
-                    </span>
-                </div>
-            </div>
-        </section>
-
-        <!-- DIAPOSITIVA 15: MINI-BLOQUE 1B (AGENTES - TIEMPO) -->
-        <section class="slide">
-            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden">
-                <div class="my-auto space-y-5 text-center">
-                    <div class="anim-1 flex items-center justify-center gap-2">
-                        <span class="px-3.5 py-1 rounded-full bg-blue-50 text-blue-800 text-xs font-extrabold border border-blue-200 uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
-                            <i class="ph-bold ph-clock text-blue-600"></i> Mini-Bloque 1B • Tiempo Ágil
-                        </span>
-                    </div>
-
-                    <h2 class="anim-2 text-2xl sm:text-3xl font-black text-slate-900 leading-tight">
-                        Cuidando a tus Agentes: <span class="text-gradient-fluor">Operatividad Eficiente</span>
-                    </h2>
-
-                    <div class="anim-3 max-w-2xl mx-auto space-y-2.5 text-left">
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-timer text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">100% Tiempo Comercial Útil</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-envelope text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Gestión 100% por Email</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-sliders-horizontal text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Portal Autogestión de Agente</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-calendar text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Horarios Flexibles a Elección</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-microphone text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Respuesta por Voz Manejando</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2">
-                    <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-900 text-xs font-extrabold border border-blue-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-lightning text-blue-600"></i> Agilidad Total
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-extrabold border border-slate-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-sliders text-slate-600"></i> Portal Agente
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-extrabold border border-emerald-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-microphone text-emerald-600"></i> Manos Libres
-                    </span>
-                </div>
-            </div>
-        </section>
-
-        <!-- DIAPOSITIVA 16: MINI-BLOQUE 2A (PRIORIZACIÓN) -->
-        <section class="slide">
-            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden">
-                <div class="my-auto space-y-5 text-center">
-                    <div class="anim-1 flex items-center justify-center gap-2">
-                        <span class="px-3.5 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-extrabold border border-amber-200 uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
-                            <i class="ph-bold ph-arrows-merge text-amber-600"></i> Mini-Bloque 2A • Priorización
-                        </span>
-                    </div>
-
-                    <h2 class="anim-2 text-2xl sm:text-3xl font-black text-slate-900 leading-tight">
-                        Cuidando a tus Agentes: <span class="text-gradient-amber">Priorización Comercial</span>
-                    </h2>
-
-                    <div class="anim-3 max-w-2xl mx-auto space-y-2.5 text-left">
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-target text-amber-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Consultas Directas al Captador</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-handshake text-amber-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Incentivo Doble Punta Completa</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-trophy text-amber-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Rueda Meritocrática para Permutas</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-whatsapp-logo text-amber-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">WhatsApp Inmediato Pre-armado</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-link text-amber-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Enlace Ficha Técnica Automático</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2">
-                    <span class="px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-extrabold border border-amber-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-target text-amber-600"></i> Doble Punta
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-extrabold border border-slate-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-trophy text-slate-600"></i> Meritocracia
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-extrabold border border-emerald-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-whatsapp-logo text-emerald-600"></i> Respuesta Flash
-                    </span>
-                </div>
-            </div>
-        </section>
-
-        <!-- DIAPOSITIVA 17: MINI-BLOQUE 2B (AUTORIDAD) -->
-        <section class="slide">
-            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden">
-                <div class="my-auto space-y-5 text-center">
-                    <div class="anim-1 flex items-center justify-center gap-2">
-                        <span class="px-3.5 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-extrabold border border-emerald-200 uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
-                            <i class="ph-bold ph-user-focus text-emerald-600"></i> Mini-Bloque 2B • Autoridad
-                        </span>
-                    </div>
-
-                    <h2 class="anim-2 text-2xl sm:text-3xl font-black text-slate-900 leading-tight">
-                        Cuidando a tus Agentes: <span class="text-gradient-fluor">Postura Técnica</span>
-                    </h2>
-
-                    <div class="anim-3 max-w-2xl mx-auto space-y-2.5 text-left">
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-key text-emerald-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Llaves Listas en Recepción</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-shield-check text-emerald-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Postura Técnica Presencial Fuerte</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-user-check text-emerald-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Cero Ghosting Presencial Directo</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-chalkboard-teacher text-emerald-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Coaching Comercial Directo Continuo</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-arrows-clockwise text-emerald-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Reportes Ágiles con Suelta</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2">
-                    <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-extrabold border border-slate-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-key text-slate-600"></i> Retiro de Llaves
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-extrabold border border-blue-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-shield-check text-blue-600"></i> Sin Ghosting
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 text-xs font-extrabold border border-emerald-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-arrows-clockwise text-emerald-600"></i> Reporte Ágil
-                    </span>
-                </div>
-            </div>
-        </section>
-
-        <!-- DIAPOSITIVA 18: MINI-BLOQUE 3A (RECLUTAMIENTO) -->
-        <section class="slide">
-            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden">
-                <div class="my-auto space-y-5 text-center">
-                    <div class="anim-1 flex items-center justify-center gap-2">
-                        <span class="px-3.5 py-1 rounded-full bg-blue-50 text-blue-800 text-xs font-extrabold border border-blue-200 uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
-                            <i class="ph-bold ph-user-plus text-blue-600"></i> Mini-Bloque 3A • Oficina
-                        </span>
-                    </div>
-
-                    <h2 class="anim-2 text-2xl sm:text-3xl font-black text-slate-900 leading-tight">
-                        Estrategia de Oficina: <span class="text-gradient-fluor">Reclutamiento y Retención</span>
-                    </h2>
-
-                    <div class="anim-3 max-w-2xl mx-auto space-y-2.5 text-left">
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-magnet text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Reclutamiento de Top Producers</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-anchor text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Freno Total a Fuga</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-users-three text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Reglas Transparentes y Camaradería</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-handshake text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Adhesión Voluntaria del Equipo</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-user-check text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Creador Presente Lunes-Lunes</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2">
-                    <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-900 text-xs font-extrabold border border-blue-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-magnet text-blue-600"></i> Imán Reclutamiento
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-extrabold border border-slate-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-users-three text-slate-600"></i> Cero Rotación
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-extrabold border border-amber-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-handshake text-amber-600"></i> Voluntario
-                    </span>
-                </div>
-            </div>
-        </section>
-
-        <!-- DIAPOSITIVA 19: MINI-BLOQUE 3B (DOMINIO 20 CUADRAS) -->
-        <section class="slide">
-            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden">
-                <div class="my-auto space-y-5 text-center">
-                    <div class="anim-1 flex items-center justify-center gap-2">
-                        <span class="px-3.5 py-1 rounded-full bg-blue-50 text-blue-800 text-xs font-extrabold border border-blue-200 uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
-                            <i class="ph-bold ph-buildings text-blue-600"></i> Mini-Bloque 3B • Marca
-                        </span>
-                    </div>
-
-                    <h2 class="anim-2 text-2xl sm:text-3xl font-black text-slate-900 leading-tight">
-                        Estrategia de Oficina: <span class="text-gradient-fluor">Dominio Territorial 20 Cuadras</span>
-                    </h2>
-
-                    <div class="anim-3 max-w-2xl mx-auto space-y-2.5 text-left">
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-broadcast text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Pauta Oficial de Marca</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-chart-line-up text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Branding con Retorno Medible</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-piggy-bank text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Reducción de Gastos Inútiles</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-map-pin-line text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Geofencing Estricto 20 Cuadras</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-crown text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Liderazgo Absoluto de Microbarrio</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2">
-                    <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-900 text-xs font-extrabold border border-blue-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-map-pin-line text-blue-600"></i> Cobertura 20 Cuadras
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-extrabold border border-slate-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-broadcast text-slate-600"></i> Pauta Oficial
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-extrabold border border-emerald-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-crown text-emerald-600"></i> Referente Local
-                    </span>
-                </div>
-            </div>
-        </section>
-
-        <!-- DIAPOSITIVA 20: MINI-BLOQUE 4A (TABLERO CAPTACIÓN) -->
-        <section class="slide">
-            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden">
-                <div class="my-auto space-y-5 text-center">
-                    <div class="anim-1 flex items-center justify-center gap-2">
-                        <span class="px-3.5 py-1 rounded-full bg-blue-50 text-blue-800 text-xs font-extrabold border border-blue-200 uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
-                            <i class="ph-bold ph-chart-line-up text-blue-600"></i> Mini-Bloque 4A • Tablero Captación
-                        </span>
-                    </div>
-
-                    <h2 class="anim-2 text-2xl sm:text-3xl font-black text-slate-900 leading-tight">
-                        Tablero Gerencial: <span class="text-gradient-fluor">Métricas de Captación</span>
-                    </h2>
-
-                    <div class="anim-3 max-w-2xl mx-auto space-y-2.5 text-left">
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-list-checks text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Pre-Listings Recibidos en Sucursal</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-file-text text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Análisis Comparativos de Mercado</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-percent text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Conversión Pauta a ACM</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-presentation-chart text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">ACMs Presentados en Persona</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-pen-nib text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Tasa Exclusivas Firmadas Reales</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2">
-                    <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-900 text-xs font-extrabold border border-blue-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-calculator text-blue-600"></i> Pre-Listings Totales
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-extrabold border border-slate-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-presentation-chart text-slate-600"></i> Conversión ACM
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-extrabold border border-emerald-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-file-text text-emerald-600"></i> Exclusivas Firmadas
-                    </span>
-                </div>
-            </div>
-        </section>
-
-        <!-- DIAPOSITIVA 21: MINI-BLOQUE 4B (TABLERO VALOR) -->
-        <section class="slide">
-            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden">
-                <div class="my-auto space-y-5 text-center">
-                    <div class="anim-1 flex items-center justify-center gap-2">
-                        <span class="px-3.5 py-1 rounded-full bg-blue-50 text-blue-800 text-xs font-extrabold border border-blue-200 uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
-                            <i class="ph-bold ph-currency-dollar text-blue-600"></i> Mini-Bloque 4B • Tablero Valor
-                        </span>
-                    </div>
-
-                    <h2 class="anim-2 text-2xl sm:text-3xl font-black text-slate-900 leading-tight">
-                        Tablero Gerencial: <span class="text-gradient-fluor">Valor e Inventario Local</span>
-                    </h2>
-
-                    <div class="anim-3 max-w-2xl mx-auto space-y-2.5 text-left">
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-map-trifold text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Mapeo Microbarrio 20 Cuadras</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-buildings text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Pre-Listings por Tipo Inmueble</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-coins text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Valor Acumulado USD Tasado</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-timer text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Tiempo Entrega ACM Medido</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-trophy text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Ranking Agentes por Captación</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2">
-                    <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-900 text-xs font-extrabold border border-blue-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-map-trifold text-blue-600"></i> Microbarrio
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-extrabold border border-emerald-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-coins text-emerald-600"></i> Valor USD
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-extrabold border border-slate-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-list-numbers text-slate-600"></i> Ranking
-                    </span>
-                </div>
-            </div>
-        </section>
-
-        <!-- DIAPOSITIVA 22: MINI-BLOQUE 5A (SLAs) -->
-        <section class="slide">
-            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden">
-                <div class="my-auto space-y-5 text-center">
-                    <div class="anim-1 flex items-center justify-center gap-2">
-                        <span class="px-3.5 py-1 rounded-full bg-blue-50 text-blue-800 text-xs font-extrabold border border-blue-200 uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
-                            <i class="ph-bold ph-timer text-blue-600"></i> Mini-Bloque 5A • SLAs Respuesta
-                        </span>
-                    </div>
-
-                    <h2 class="anim-2 text-2xl sm:text-3xl font-black text-slate-900 leading-tight">
-                        Tablero Gerencial: <span class="text-gradient-fluor">SLA de Respuesta Minutos</span>
-                    </h2>
-
-                    <div class="anim-3 max-w-2xl mx-auto space-y-2.5 text-left">
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-clock text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Tiempo Respuesta Inicial Minutos</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-check-circle text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">SLA Cumplido 15 Minutos</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-arrows-counter-clockwise text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Reasignación Automática por Vencimiento</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-microphone text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Aceptación Voz o Email</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-lightning text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Muestras Relámpago Cerca Oficina</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2">
-                    <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-900 text-xs font-extrabold border border-blue-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-timer text-blue-600"></i> SLA 15m
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-extrabold border border-slate-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-arrows-clockwise text-slate-600"></i> Reasignación
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-extrabold border border-emerald-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-lightning text-emerald-600"></i> Relámpago
-                    </span>
-                </div>
-            </div>
-        </section>
-
-        <!-- DIAPOSITIVA 23: MINI-BLOQUE 5B (CAMPO) -->
-        <section class="slide">
-            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden">
-                <div class="my-auto space-y-5 text-center">
-                    <div class="anim-1 flex items-center justify-center gap-2">
-                        <span class="px-3.5 py-1 rounded-full bg-blue-50 text-blue-800 text-xs font-extrabold border border-blue-200 uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
-                            <i class="ph-bold ph-user-focus text-blue-600"></i> Mini-Bloque 5B • Campo
-                        </span>
-                    </div>
-
-                    <h2 class="anim-2 text-2xl sm:text-3xl font-black text-slate-900 leading-tight">
-                        Tablero Gerencial: <span class="text-gradient-fluor">Efectividad de Campo</span>
-                    </h2>
-
-                    <div class="anim-3 max-w-2xl mx-auto space-y-2.5 text-left">
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-check-square text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Efectividad Visitas Agendadas Reales</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-coffee text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Conversión Muestra a Café</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-chats text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Registro Interacciones del Agente</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-sliders text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Adopción Portal de Autogestión</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-calendar-check text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Medición Esquemas Disponibilidad Elegidos</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2">
-                    <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-900 text-xs font-extrabold border border-blue-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-coffee text-blue-600"></i> Café Oficina
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-extrabold border border-slate-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-sliders text-slate-600"></i> Portal Autogestión
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-extrabold border border-emerald-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-check text-emerald-600"></i> Visitas
-                    </span>
-                </div>
-            </div>
-        </section>
-
-        <!-- DIAPOSITIVA 24: MINI-BLOQUE 6A (PAUTA) -->
-        <section class="slide">
-            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden">
-                <div class="my-auto space-y-5 text-center">
-                    <div class="anim-1 flex items-center justify-center gap-2">
-                        <span class="px-3.5 py-1 rounded-full bg-blue-50 text-blue-800 text-xs font-extrabold border border-blue-200 uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
-                            <i class="ph-bold ph-broadcast text-blue-600"></i> Mini-Bloque 6A • Pauta Eficiente
-                        </span>
-                    </div>
-
-                    <h2 class="anim-2 text-2xl sm:text-3xl font-black text-slate-900 leading-tight">
-                        Tablero Gerencial: <span class="text-gradient-fluor">Pauta Quirúrgica Geofenced</span>
-                    </h2>
-
-                    <div class="anim-3 max-w-2xl mx-auto space-y-2.5 text-left">
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-calculator text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Costo Prospecto Cualificado CPL</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-cursor-click text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Clics sobre Impresiones CTR</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-currency-dollar-simple text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Costo Clic Único CPC</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-eye text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Frecuencia Exposición Vecino Microbarrio</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-chart-line-up text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Conversión Landing Page Formulario</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2">
-                    <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-900 text-xs font-extrabold border border-blue-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-cursor-click text-blue-600"></i> CPL & CTR
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-extrabold border border-slate-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-map-pin-line text-slate-600"></i> Geofenced 20 Cuadras
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-extrabold border border-emerald-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-check text-emerald-600"></i> Landing Conversión
-                    </span>
-                </div>
-            </div>
-        </section>
-
-        <!-- DIAPOSITIVA 25: MINI-BLOQUE 6B (TRÁFICO) -->
-        <section class="slide">
-            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden">
-                <div class="my-auto space-y-5 text-center">
-                    <div class="anim-1 flex items-center justify-center gap-2">
-                        <span class="px-3.5 py-1 rounded-full bg-blue-50 text-blue-800 text-xs font-extrabold border border-blue-200 uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
-                            <i class="ph-bold ph-funnel text-blue-600"></i> Mini-Bloque 6B • Tráfico
-                        </span>
-                    </div>
-
-                    <h2 class="anim-2 text-2xl sm:text-3xl font-black text-slate-900 leading-tight">
-                        Tablero Gerencial: <span class="text-gradient-fluor">Filtrado y Calidad Pauta</span>
-                    </h2>
-
-                    <div class="anim-3 max-w-2xl mx-auto space-y-2.5 text-left">
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-arrows-split text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Distribución Intención Vender/Comprar</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-funnel text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Filtrado Automático Curiosos Cero</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-cpu text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Optimización Píxel Eventos Reales</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-users-three text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Alcance Único 20 Cuadras</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-image text-blue-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Visualización Fotos y Videos</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2">
-                    <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-900 text-xs font-extrabold border border-blue-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-funnel text-blue-600"></i> Filtro Curiosos
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-extrabold border border-slate-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-cpu text-slate-600"></i> Píxel Optimizado
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-extrabold border border-emerald-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-broadcast text-emerald-600"></i> Alcance Local
-                    </span>
-                </div>
-            </div>
-        </section>
-
-        <!-- DIAPOSITIVA 26: MINI-BLOQUE 7A (AUDITORÍA IA) -->
-        <section class="slide">
-            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden">
-                <div class="my-auto space-y-5 text-center">
-                    <div class="anim-1 flex items-center justify-center gap-2">
-                        <span class="px-3.5 py-1 rounded-full bg-purple-50 text-purple-800 text-xs font-extrabold border border-purple-200 uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
-                            <i class="ph-bold ph-sparkle text-purple-600"></i> Mini-Bloque 7A • Auditoría IA
-                        </span>
-                    </div>
-
-                    <h2 class="anim-2 text-2xl sm:text-3xl font-black text-slate-900 leading-tight">
-                        Auditoría con IA: <span class="text-gradient-fluor">Scoring de Atención y Postura</span>
-                    </h2>
-
-                    <div class="anim-3 max-w-2xl mx-auto space-y-2.5 text-left">
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-robot text-purple-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Respuesta Cadencia Reportes IA</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-gauge text-purple-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Scoring Agilidad Comercial IA</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-brain text-purple-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Scoring Precisión Técnica Natural</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-star text-purple-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Scoring Actitud y Postura</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-warning-octagon text-purple-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Mapeo Objeciones Recurrentes Campo</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2">
-                    <span class="px-3 py-1 rounded-full bg-purple-100 text-purple-900 text-xs font-extrabold border border-purple-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-sparkle text-purple-600"></i> Scoring IA
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-extrabold border border-slate-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-gauge text-slate-600"></i> Agilidad
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-extrabold border border-emerald-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-shield-check text-emerald-600"></i> Postura Técnica
-                    </span>
-                </div>
-            </div>
-        </section>
-
-        <!-- DIAPOSITIVA 27: MINI-BLOQUE 7B (EVALUACIÓN CAMPO) -->
-        <section class="slide">
-            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden">
-                <div class="my-auto space-y-5 text-center">
-                    <div class="anim-1 flex items-center justify-center gap-2">
-                        <span class="px-3.5 py-1 rounded-full bg-purple-50 text-purple-800 text-xs font-extrabold border border-purple-200 uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
-                            <i class="ph-bold ph-chart-bar text-purple-600"></i> Mini-Bloque 7B • Evaluación
-                        </span>
-                    </div>
-
-                    <h2 class="anim-2 text-2xl sm:text-3xl font-black text-slate-900 leading-tight">
-                        Auditoría con IA: <span class="text-gradient-fluor">Evaluación Meritocrática Continua</span>
-                    </h2>
-
-                    <div class="anim-3 max-w-2xl mx-auto space-y-2.5 text-left">
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-trophy text-purple-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Depuración Meritocrática en Rueda</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-text-align-left text-purple-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Detección Patrones Respuesta Resúmenes</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-hand-palm text-purple-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Tasa Suelta Prospectos Inactivos</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-bell-simple text-purple-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Alertas IA por Demoras</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-trend-up text-purple-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Evolución Mensual del Agente</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2">
-                    <span class="px-3 py-1 rounded-full bg-purple-100 text-purple-900 text-xs font-extrabold border border-purple-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-trophy text-purple-600"></i> Meritocracia
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-extrabold border border-slate-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-bell text-slate-600"></i> Alertas
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-extrabold border border-emerald-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-trend-up text-emerald-600"></i> Mejora Continua
-                    </span>
-                </div>
-            </div>
-        </section>
-
-        <!-- DIAPOSITIVA 28: MINI-BLOQUE 8A (CIERRES) -->
-        <section class="slide">
-            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden">
-                <div class="my-auto space-y-5 text-center">
-                    <div class="anim-1 flex items-center justify-center gap-2">
-                        <span class="px-3.5 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-extrabold border border-emerald-200 uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
-                            <i class="ph-bold ph-check-square-offset text-emerald-600"></i> Mini-Bloque 8A • Cierres
-                        </span>
-                    </div>
-
-                    <h2 class="anim-2 text-2xl sm:text-3xl font-black text-slate-900 leading-tight">
-                        Cierres y Resultados: <span class="text-gradient-fluor">Velocidad a Escribanía</span>
-                    </h2>
-
-                    <div class="anim-3 max-w-2xl mx-auto space-y-2.5 text-left">
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-target text-emerald-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Cierre Doble Punta Captador</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-lightning text-emerald-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Tiempo Ingreso a Reserva</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-coins text-emerald-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Comisiones Totales en Escribanía</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-tag text-emerald-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Ticket Promedio Inmuebles Reservados</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-arrows-merge text-emerald-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Cierres Vender Para Comprar</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2">
-                    <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 text-xs font-extrabold border border-emerald-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-coins text-emerald-600"></i> Comisiones
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-extrabold border border-slate-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-lightning text-slate-600"></i> Speed Close
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-extrabold border border-blue-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-target text-blue-600"></i> Doble Punta
-                    </span>
-                </div>
-            </div>
-        </section>
-
-        <!-- DIAPOSITIVA 29: MINI-BLOQUE 8B (ROI) -->
-        <section class="slide">
-            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden">
-                <div class="my-auto space-y-5 text-center">
-                    <div class="anim-1 flex items-center justify-center gap-2">
-                        <span class="px-3.5 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-extrabold border border-emerald-200 uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
-                            <i class="ph-bold ph-chart-line-up text-emerald-600"></i> Mini-Bloque 8B • ROI
-                        </span>
-                    </div>
-
-                    <h2 class="anim-2 text-2xl sm:text-3xl font-black text-slate-900 leading-tight">
-                        Cierres y Resultados: <span class="text-gradient-fluor">ROI Neto y Consolidación</span>
-                    </h2>
-
-                    <div class="anim-3 max-w-2xl mx-auto space-y-2.5 text-left">
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-chart-pie-slice text-emerald-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Retorno Inversión ROI Neto</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-shield-check text-emerald-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Trazabilidad Blindada Sin Bypass</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-crown text-emerald-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Costo Efectivo Exclusiva Captada</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-smiley text-emerald-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Satisfacción y Retención Agentes</span>
-                        </div>
-                        <div class="flex items-center gap-3.5 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 hover-wow">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="ph-bold ph-magnet text-emerald-600 text-xl icon-float"></i>
-                            </div>
-                            <span class="text-sm sm:text-base font-extrabold text-slate-800">Atracción Agentes de Competencia</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2">
-                    <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 text-xs font-extrabold border border-emerald-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-chart-line-up text-emerald-600"></i> ROI Medible
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-extrabold border border-slate-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-shield-check text-slate-600"></i> Blindado
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-extrabold border border-blue-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-magnet text-blue-600"></i> Reclutamiento Top
-                    </span>
-                </div>
-            </div>
-        </section>
-
-        <!-- DIAPOSITIVA 30: ESPECIALIZACIÓN CABA -->
-        <section class="slide">
-            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden">
-                <div class="my-auto space-y-6 text-left">
-                    <div class="anim-1 flex items-center gap-2">
-                        <span class="px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-extrabold border border-amber-200 uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
-                            <i class="ph-bold ph-user-check text-amber-600"></i> Acompañamiento Quirúrgico
-                        </span>
-                    </div>
-
-                    <h2 class="anim-2 text-2xl sm:text-4xl font-black text-slate-900 leading-tight">
-                        Especialización CABA y acompañamiento directo: <span class="text-gradient-fluor">Límite estricto de 3 inmobiliarias.</span>
-                    </h2>
-
-                    <div class="anim-3 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-2 hover-wow">
-                            <i class="ph-bold ph-map-pin text-3xl text-blue-600 icon-float"></i>
-                            <h3 class="font-extrabold text-slate-900 text-base">Especialistas en CABA</h3>
-                            <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
-                                No hacemos publicidad generalista. Respiramos y resolvemos la prospección exclusivamente en el mercado inmobiliario local.
-                            </p>
-                        </div>
-                        <div class="bg-amber-50/60 p-5 rounded-2xl border border-amber-200 space-y-2 hover-wow">
-                            <i class="ph-bold ph-users text-3xl text-amber-600 icon-float"></i>
-                            <h3 class="font-extrabold text-slate-900 text-base">Tope de 3 Sucursales</h3>
-                            <p class="text-xs sm:text-sm text-slate-700 font-medium leading-relaxed">
-                                Debido al involucramiento presencial y diario del creador de lunes a lunes, solo atendemos a 3 oficinas simultáneas.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-start gap-2">
-                    <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-extrabold border border-slate-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-map-pin text-slate-600"></i> Mercado CABA
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-extrabold border border-amber-300 flex items-center gap-1.5">
-                        <i class="ph-bold ph-lock-key text-amber-600"></i> Máximo 3 Oficinas
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-extrabold border border-blue-200 flex items-center gap-1.5">
-                        <i class="ph-bold ph-handshake text-blue-600"></i> Lunes a Lunes
-                    </span>
-                </div>
-            </div>
-        </section>
-
-        <!-- DIAPOSITIVA 31: PROGRAMA OFICINAS PIONERAS (GOLD) -->
-        <section class="slide">
-            <div class="max-w-5xl w-full bg-gradient-to-b from-amber-50/80 via-white to-amber-50/50 rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border-2 border-amber-300 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden">
-                <div class="my-auto space-y-6 text-left">
-                    <div class="anim-1 flex items-center gap-2">
-                        <span class="px-3.5 py-1 rounded-full bg-amber-500 text-slate-950 text-xs font-black uppercase tracking-widest flex items-center gap-1.5 shadow-md">
-                            <i class="ph-fill ph-crown text-slate-950 text-sm"></i>
-                            <span>Programa Oficinas Pioneras (Early Adopters)</span>
-                        </span>
-                    </div>
-
-                    <h2 class="anim-2 text-2xl sm:text-4xl font-black text-slate-900 leading-tight">
-                        Inversión Preferencial: <span class="text-gradient-gold">Hasta 60% OFF para Oficinas Seleccionadas.</span>
-                    </h2>
-
-                    <div class="anim-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-center">
-                        <div class="bg-white p-4 rounded-2xl border border-amber-200 shadow-sm opacity-60 flex flex-col justify-between">
-                            <span class="text-xs text-slate-500 font-extrabold uppercase">Costo Histórico</span>
-                            <span class="block text-2xl sm:text-3xl font-black text-slate-400 line-through my-1">USD 8.000</span>
-                            <p class="text-[10px] text-slate-500 font-medium">Desarrollos tradicionales pasados</p>
-                        </div>
-                        <div class="bg-white p-4 rounded-2xl border border-amber-200 shadow-sm opacity-80 flex flex-col justify-between">
-                            <span class="text-xs text-slate-500 font-extrabold uppercase">Valor Oficial</span>
-                            <span class="block text-2xl sm:text-3xl font-black text-slate-700 my-1">USD 1.250</span>
-                            <p class="text-[10px] text-slate-500 font-medium">Gestión + Hasta 3 propiedades</p>
-                        </div>
-                        <div class="bg-amber-400 text-slate-950 p-4 rounded-2xl shadow-lg border border-amber-500 hover-wow flex flex-col justify-between">
-                            <span class="text-xs font-black uppercase tracking-wider bg-slate-950 text-amber-400 px-2 py-0.5 rounded-full inline-block">Pioneras (60% OFF)</span>
-                            <span class="block text-3xl font-black my-1">USD 500</span>
-                            <p class="text-[11px] font-bold text-slate-900">Incluye gestión + hasta 3 propiedades</p>
-                        </div>
-                        <div class="bg-white p-4 rounded-2xl border-2 border-amber-300 shadow-md hover-wow flex flex-col justify-between">
-                            <span class="text-xs text-amber-800 font-extrabold uppercase bg-amber-100 px-2 py-0.5 rounded-full inline-block">Propiedad Extra (50% OFF)</span>
-                            <span class="block text-3xl font-black text-amber-600 my-1">USD 150</span>
-                            <p class="text-[11px] font-bold text-slate-700">Valor oficial USD 300 / prop extra</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="anim-4 pt-4 border-t border-amber-200 flex flex-wrap items-center justify-start gap-2">
-                    <span class="px-3 py-1 rounded-full bg-white text-slate-900 text-xs font-extrabold border border-amber-300 shadow-sm flex items-center gap-1.5">
-                        <i class="ph-bold ph-tag text-amber-600"></i> Tarifa Fija Congelada
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-amber-100 text-amber-950 text-xs font-extrabold border border-amber-300 flex items-center gap-1.5">
-                        <i class="ph-bold ph-star text-amber-600"></i> Beneficio Exclusivo
-                    </span>
-                    <span class="px-3 py-1 rounded-full bg-white text-slate-700 text-xs font-extrabold border border-slate-200 shadow-sm flex items-center gap-1.5">
-                        <i class="ph-bold ph-broadcast text-slate-600"></i> Pauta Financian por Separado
-                    </span>
-                </div>
-            </div>
-        </section>
-
-        <!-- DIAPOSITIVA 32: CALL TO ACTION -->
-        <section class="slide">
-            <div class="max-w-5xl w-full bg-slate-950 text-white rounded-3xl p-8 sm:p-12 md:p-14 shadow-2xl border border-slate-800 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden text-center">
                 <div class="my-auto space-y-6 max-w-3xl mx-auto">
-                    <div class="anim-1 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-extrabold uppercase tracking-wider shadow-sm">
-                        <i class="ph-bold ph-lightning text-emerald-400"></i>
-                        <span>Evaluación Inmediata de Factibilidad</span>
-                    </div>
-
-                    <h2 class="anim-2 text-2xl sm:text-4xl md:text-5xl font-black text-white leading-tight">
-                        Analicemos la factibilidad de tu microbarrio en <span class="text-gradient-emerald">15 minutos.</span>
+                    <h2 class="anim-2 text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-tight">
+                        El cliente <span class="text-gradient-fluor">jala.</span>
                     </h2>
 
-                    <p class="anim-3 text-xs sm:text-base text-slate-300 font-medium leading-relaxed max-w-xl mx-auto">
-                        Coordinemos una conversación breve para evaluar el radio de 20 cuadras de tu sucursal, la estructura de tu equipo y ver el prototipo en vivo.
+                    <div class="anim-3 bg-slate-950/80 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl max-w-2xl mx-auto space-y-3 hover-wow">
+                        <p class="text-lg sm:text-2xl font-extrabold text-emerald-400 leading-snug">
+                            "Si el cliente no jala, no es por ahí."
+                        </p>
+                        <p class="text-xs sm:text-sm text-slate-400 font-semibold leading-relaxed">
+                            Nuestra meta es captar únicamente la necesidad real en el momento justo. Buscar persuadir a quien no desea vender agota al equipo y destruye la eficiencia.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="anim-4 pt-4 border-t border-slate-800 flex flex-wrap items-center justify-center gap-2.5">
+                    <span class="px-3.5 py-1 rounded-full bg-slate-950 text-white text-xs font-extrabold flex items-center gap-1.5 border border-slate-800 shadow-sm">
+                        <svg viewBox="0 0 100 100" class="w-3.5 h-3.5 text-emerald-400 fill-current">
+                            <rect x="12" y="12" width="76" height="76" rx="22" fill="none" stroke="currentColor" stroke-width="12"/>
+                            <path d="M 20 80 L 68 32 M 45 32 L 68 32 L 68 55" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        </svg>
+                        <span>Guard<strong class="text-emerald-400">Perf</strong></span>
+                    </span>
+
+                    <span class="px-3.5 py-1 rounded-full bg-slate-800 text-slate-300 text-xs font-extrabold border border-slate-700 flex items-center gap-1.5">
+                        <i class="ph-bold ph-user-check text-blue-400"></i> Comprador Real
+                    </span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DIAPOSITIVA 5: DOS METODOLOGÍAS PILAR (GUARDPERF & COMPREAL) -->
+        <section class="slide">
+            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-12 md:p-14 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden text-center">
+                
+                <div class="anim-1 flex justify-center items-center">
+                    <span class="px-4 py-1.5 rounded-full bg-slate-100 text-slate-700 text-xs font-extrabold uppercase tracking-wider flex items-center gap-2 border border-slate-200 shadow-sm">
+                        <i class="ph-bold ph-squares-four text-blue-600"></i>
+                        <span>Estructura Metodológica</span>
+                    </span>
+                </div>
+
+                <div class="my-auto space-y-8 max-w-3xl mx-auto">
+                    <h2 class="anim-2 text-2xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                        Dos metodologías para dominar el <span class="text-gradient-fluor">microbarrio.</span>
+                    </h2>
+
+                    <!-- Logos / Badges Centrados -->
+                    <div class="anim-3 grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto pt-2">
+                        
+                        <!-- METODOLOGÍA 1: GUARDPERF -->
+                        <div class="bg-slate-900 text-white p-6 sm:p-8 rounded-3xl border border-slate-800 shadow-xl hover-wow flex flex-col items-center justify-center space-y-3.5 group">
+                            <div class="px-4 py-2.5 rounded-2xl bg-slate-950 text-white text-base sm:text-lg font-black flex items-center gap-2 border border-slate-800 shadow-md">
+                                <svg viewBox="0 0 100 100" class="w-5 h-5 text-emerald-400 fill-current">
+                                    <rect x="12" y="12" width="76" height="76" rx="22" fill="none" stroke="currentColor" stroke-width="12"/>
+                                    <path d="M 20 80 L 68 32 M 45 32 L 68 32 L 68 55" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                </svg>
+                                <span>Guard<strong class="text-emerald-400">Perf</strong></span>
+                            </div>
+                            <p class="text-xs text-slate-400 font-semibold tracking-wide">
+                                Guardia Virtual de Alta Performance
+                            </p>
+                        </div>
+
+                        <!-- METODOLOGÍA 2: COMPREAL -->
+                        <div class="bg-slate-900 text-white p-6 sm:p-8 rounded-3xl border border-slate-800 shadow-xl hover-wow flex flex-col items-center justify-center space-y-3.5 group">
+                            <div class="px-4 py-2.5 rounded-2xl bg-slate-950 text-white text-base sm:text-lg font-black flex items-center gap-2 border border-rose-500/30 shadow-md">
+                                <svg viewBox="0 0 100 100" class="w-5 h-5 text-rose-400 fill-current">
+                                    <rect x="12" y="12" width="76" height="76" rx="22" fill="none" stroke="currentColor" stroke-width="12"/>
+                                    <circle cx="50" cy="40" r="16" fill="none" stroke="currentColor" stroke-width="10"/>
+                                    <path d="M 22 80 C 22 62, 35 56, 50 56 C 65 56, 78 62, 78 80" stroke="currentColor" stroke-width="10" stroke-linecap="round" fill="none"/>
+                                </svg>
+                                <span>Comp<strong class="text-rose-400">Real</strong></span>
+                            </div>
+                            <p class="text-xs text-slate-400 font-semibold tracking-wide">
+                                Comprador Real Calificado
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2.5">
+                    <span class="px-3.5 py-1 rounded-full bg-slate-900 text-white text-xs font-extrabold flex items-center gap-1.5 border border-slate-800 shadow-sm">
+                        <svg viewBox="0 0 100 100" class="w-3.5 h-3.5 text-emerald-400 fill-current">
+                            <rect x="12" y="12" width="76" height="76" rx="22" fill="none" stroke="currentColor" stroke-width="12"/>
+                            <path d="M 20 80 L 68 32 M 45 32 L 68 32 L 68 55" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        </svg>
+                        <span>Guard<strong class="text-emerald-400">Perf</strong></span>
+                    </span>
+
+                    <span class="px-3.5 py-1 rounded-full bg-slate-900 text-white text-xs font-extrabold flex items-center gap-1.5 border border-rose-500/30 shadow-sm">
+                        <svg viewBox="0 0 100 100" class="w-3.5 h-3.5 text-rose-400 fill-current">
+                            <rect x="12" y="12" width="76" height="76" rx="22" fill="none" stroke="currentColor" stroke-width="12"/>
+                            <circle cx="50" cy="40" r="16" fill="none" stroke="currentColor" stroke-width="10"/>
+                            <path d="M 22 80 C 22 62, 35 56, 50 56 C 65 56, 78 62, 78 80" stroke="currentColor" stroke-width="10" stroke-linecap="round" fill="none"/>
+                        </svg>
+                        <span>Comp<strong class="text-rose-400">Real</strong></span>
+                    </span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DIAPOSITIVA 6: METODOLOGÍA GUARDPERF -->
+        <section class="slide">
+            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden text-center">
+                
+                <div class="anim-1 flex justify-center items-center">
+                    <span class="px-4 py-1.5 rounded-full bg-slate-900 text-white text-xs font-extrabold flex items-center gap-2 border border-slate-800 shadow-sm">
+                        <svg viewBox="0 0 100 100" class="w-4 h-4 text-emerald-400 fill-current">
+                            <rect x="12" y="12" width="76" height="76" rx="22" fill="none" stroke="currentColor" stroke-width="12"/>
+                            <path d="M 20 80 L 68 32 M 45 32 L 68 32 L 68 55" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        </svg>
+                        <span>Metodología Guard<strong class="text-emerald-400">Perf</strong></span>
+                    </span>
+                </div>
+
+                <div class="my-auto space-y-6 max-w-3xl mx-auto">
+                    <h2 class="anim-2 text-2xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                        Guardia Virtual de <span class="text-gradient-emerald">Alta Performance</span>
+                    </h2>
+
+                    <p class="anim-3 text-xs sm:text-base text-slate-600 font-semibold leading-relaxed max-w-xl mx-auto">
+                        Infraestructura de respuesta ágil, captura hiperlocal e Inteligencia Artificial sin sobrecargar a tu equipo.
                     </p>
 
-                    <div class="anim-4 pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
-                        <a href="https://wa.me/5491135678024?text=Hola!%20Quiero%20evaluar%20la%20factibilidad%20de%20mi%20zona%20para%20GuardPerf" 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           class="w-full sm:w-auto py-4 px-8 rounded-full font-black text-slate-950 bg-emerald-400 hover:bg-emerald-300 transition-all text-sm shadow-xl flex items-center justify-center gap-2.5 hover:scale-105 active:scale-95">
-                            <i class="ph-bold ph-whatsapp-logo text-xl"></i>
-                            <span>Hablar por WhatsApp (+54 9 11 3567-8024)</span>
-                        </a>
+                    <div class="anim-3 grid grid-cols-1 sm:grid-cols-3 gap-3 text-center max-w-3xl mx-auto pt-2">
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/90 hover-wow flex flex-col items-center justify-center space-y-1.5">
+                            <i class="ph-bold ph-map-pin-line text-2xl text-blue-600 icon-float"></i>
+                            <span class="text-xs font-extrabold text-slate-900">Cobertura 20 Cuadras</span>
+                            <span class="text-[10px] text-slate-500 font-medium">Dominio de Microbarrio</span>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/90 hover-wow flex flex-col items-center justify-center space-y-1.5">
+                            <i class="ph-bold ph-timer text-2xl text-emerald-600 icon-float"></i>
+                            <span class="text-xs font-extrabold text-slate-900">SLA &lt; 15 Minutos</span>
+                            <span class="text-[10px] text-slate-500 font-medium">Respuesta Inmediata</span>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/90 hover-wow flex flex-col items-center justify-center space-y-1.5">
+                            <i class="ph-bold ph-cpu text-2xl text-purple-600 icon-float"></i>
+                            <span class="text-xs font-extrabold text-slate-900">Auditoría por IA</span>
+                            <span class="text-[10px] text-slate-500 font-medium">Trazabilidad Total</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="pt-4 border-t border-slate-800 flex items-center justify-center">
-                    <span class="text-xs text-slate-400 font-medium flex items-center gap-1.5">
-                        <i class="ph-bold ph-shield-check text-emerald-400"></i> M2Marketing • Ecosistema GuardPerf™
+                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2">
+                    <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-extrabold border border-slate-200 flex items-center gap-1.5">
+                        <i class="ph-bold ph-shield-check text-emerald-600"></i> Guardia Virtual
+                    </span>
+                    <span class="px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-extrabold border border-blue-200 flex items-center gap-1.5">
+                        <i class="ph-bold ph-lightning text-blue-600"></i> Alta Performance
+                    </span>
+                    <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-extrabold border border-emerald-200 flex items-center gap-1.5">
+                        <i class="ph-bold ph-clock text-emerald-600"></i> SLA 15m
                     </span>
                 </div>
+
+            </div>
+        </section>
+
+        <!-- DIAPOSITIVA 7: ¿QUÉ ES Y QUÉ NO ES? (HUMANOS + IA AGÉNTICA) -->
+        <section class="slide">
+            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden text-center">
+                
+                <div class="anim-1 flex justify-center items-center">
+                    <span class="px-4 py-1.5 rounded-full bg-slate-900 text-white text-xs font-extrabold uppercase tracking-wider flex items-center gap-1.5 border border-slate-800 shadow-sm">
+                        <i class="ph-bold ph-cpu text-emerald-400"></i>
+                        <span>Modelo Operativo • Agéntico & Humano</span>
+                    </span>
+                </div>
+
+                <div class="my-auto space-y-6 max-w-4xl mx-auto">
+                    <h2 class="anim-2 text-2xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
+                        No es un software: <span class="text-gradient-fluor">Equipo humano + Arquitectura Agéntica.</span>
+                    </h2>
+
+                    <div class="anim-3 grid grid-cols-1 sm:grid-cols-2 gap-5 text-left max-w-3xl mx-auto">
+                        <div class="bg-rose-50/60 p-5 sm:p-6 rounded-2xl border border-rose-200 space-y-2.5 hover-wow">
+                            <div class="flex items-center gap-2 text-rose-700 font-extrabold text-base">
+                                <i class="ph-bold ph-x-circle text-2xl text-rose-600 icon-float"></i>
+                                <span>NO ES un Software Frío</span>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
+                                Las apps o chatbots no resuelven la venta inmobiliaria. Ningún sistema autogestionable reemplaza el factor y la relación humana real.
+                            </p>
+                        </div>
+
+                        <div class="bg-emerald-50/60 p-5 sm:p-6 rounded-2xl border border-emerald-200 space-y-2.5 hover-wow">
+                            <div class="flex items-center gap-2 text-emerald-950 font-extrabold text-base">
+                                <i class="ph-bold ph-check-circle text-2xl text-emerald-600 icon-float"></i>
+                                <span>SÍ ES Empresa Agéntica + Equipo</span>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-700 font-medium leading-relaxed">
+                                La IA agéntica abarata radicalmente la tecnología para destinar el presupuesto a <strong class="text-emerald-950 font-bold">pauta masiva, marketing real y soporte humano fluido</strong> (M2M - Oficina - Agentes).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2.5">
+                    <span class="px-3.5 py-1 rounded-full bg-slate-900 text-white text-xs font-extrabold flex items-center gap-1.5 border border-slate-800 shadow-sm">
+                        <i class="ph-bold ph-users-three text-blue-400"></i> Equipo Interdisciplinario
+                    </span>
+                    <span class="px-3.5 py-1 rounded-full bg-emerald-50 text-emerald-900 text-xs font-extrabold border border-emerald-200 flex items-center gap-1.5 shadow-sm">
+                        <i class="ph-bold ph-sparkle text-emerald-600"></i> IA Agéntica
+                    </span>
+                    <span class="px-3.5 py-1 rounded-full bg-blue-50 text-blue-800 text-xs font-extrabold border border-blue-200 flex items-center gap-1.5 shadow-sm">
+                        <i class="ph-bold ph-handshake text-blue-600"></i> Relación Humana Fluida
+                    </span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DIAPOSITIVA 8: FEEDBACK HUMANO ACTIVO Y RED -->
+        <section class="slide">
+            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden text-center">
+                
+                <div class="anim-1 flex justify-center items-center">
+                    <span class="px-4 py-1.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 text-xs font-extrabold uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
+                        <i class="ph-bold ph-chats text-blue-600"></i>
+                        <span>Pilar Humano • Feedback Directo</span>
+                    </span>
+                </div>
+
+                <div class="my-auto space-y-6 max-w-3xl mx-auto">
+                    <h2 class="anim-2 text-2xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                        Feedback Humano Activo: <span class="text-gradient-fluor">Retroalimentación inmediata en red.</span>
+                    </h2>
+
+                    <p class="anim-3 text-xs sm:text-base text-slate-600 font-semibold leading-relaxed max-w-2xl mx-auto">
+                        Iniciamos con un grupo seleccionado de inmobiliarias en CABA (con proyección a todo el mercado de habla hispana). Cada nueva innovación de prospección validada en el campo se propone e implementa automáticamente para toda la red.
+                    </p>
+
+                    <div class="anim-3 grid grid-cols-1 sm:grid-cols-3 gap-3 text-center max-w-3xl mx-auto pt-2">
+                        <div class="bg-blue-50/60 p-4 rounded-2xl border border-blue-200/90 hover-wow flex flex-col items-center justify-center space-y-1.5">
+                            <i class="ph-bold ph-headset text-2xl text-blue-600 icon-float"></i>
+                            <span class="text-xs font-extrabold text-slate-900">Feedback Humano Activo</span>
+                            <span class="text-[10px] text-slate-500 font-medium">Relación fluida Agente - Oficina - M2M</span>
+                        </div>
+                        <div class="bg-emerald-50/60 p-4 rounded-2xl border border-emerald-200/90 hover-wow flex flex-col items-center justify-center space-y-1.5">
+                            <i class="ph-bold ph-lightning text-2xl text-emerald-600 icon-float"></i>
+                            <span class="text-xs font-extrabold text-slate-900">Implementación Flash</span>
+                            <span class="text-[10px] text-slate-500 font-medium">Réplica inmediata de lo que funciona</span>
+                        </div>
+                        <div class="bg-purple-50/60 p-4 rounded-2xl border border-purple-200/90 hover-wow flex flex-col items-center justify-center space-y-1.5">
+                            <i class="ph-bold ph-globe-hemisphere-west text-2xl text-purple-600 icon-float"></i>
+                            <span class="text-xs font-extrabold text-slate-900">Nicho CABA + Mercado Hispano</span>
+                            <span class="text-[10px] text-slate-500 font-medium">Comunidad exclusiva en expansión</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2.5">
+                    <span class="px-3.5 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-extrabold border border-blue-200 flex items-center gap-1.5 shadow-sm">
+                        <i class="ph-bold ph-chats text-blue-600"></i> Feedback Humano Directo
+                    </span>
+                    <span class="px-3.5 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-extrabold border border-emerald-200 flex items-center gap-1.5 shadow-sm">
+                        <i class="ph-bold ph-arrows-clockwise text-emerald-600"></i> Evolución Continua
+                    </span>
+                    <span class="px-3.5 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-extrabold border border-slate-200 flex items-center gap-1.5 shadow-sm">
+                        <i class="ph-bold ph-users-three text-slate-600"></i> Red de Aprendizaje
+                    </span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DIAPOSITIVA 9: TABLERO DE CONTROL Y KPIS -->
+        <section class="slide">
+            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden text-center">
+                
+                <div class="anim-1 flex justify-center items-center">
+                    <span class="px-4 py-1.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 text-xs font-extrabold uppercase tracking-wider flex items-center gap-2 shadow-sm">
+                        <i class="ph-bold ph-chart-bar text-blue-600"></i>
+                        <span>Ecosistema Medible • Tablero de Control</span>
+                    </span>
+                </div>
+
+                <div class="my-auto space-y-6 max-w-3xl mx-auto">
+                    <h2 class="anim-2 text-2xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                        Si hay equipo humano, <span class="text-gradient-fluor">medir todo es fundamental.</span>
+                    </h2>
+
+                    <p class="anim-3 text-xs sm:text-base text-slate-600 font-semibold leading-relaxed max-w-2xl mx-auto">
+                        Acompañamos la gestión con analítica y medición automatizada de indicadores. Identificamos los <strong class="text-slate-900 font-bold">KPIs (Indicadores Clave)</strong> de forma adaptativa para garantizar el control gerencial y la conversión.
+                    </p>
+
+                    <div class="anim-3 grid grid-cols-1 sm:grid-cols-3 gap-3 text-center max-w-3xl mx-auto pt-2">
+                        <div class="bg-blue-50/60 p-4 rounded-2xl border border-blue-200/90 hover-wow flex flex-col items-center justify-center space-y-1.5">
+                            <i class="ph-bold ph-list-checks text-2xl text-blue-600 icon-float"></i>
+                            <span class="text-xs font-extrabold text-slate-900">Métricas de Captación</span>
+                            <span class="text-[10px] text-slate-500 font-medium">Pre-Listings, ACMs y Exclusivas</span>
+                        </div>
+                        <div class="bg-amber-50/60 p-4 rounded-2xl border border-amber-200/90 hover-wow flex flex-col items-center justify-center space-y-1.5">
+                            <i class="ph-bold ph-timer text-2xl text-amber-600 icon-float"></i>
+                            <span class="text-xs font-extrabold text-slate-900">SLAs de Respuesta</span>
+                            <span class="text-[10px] text-slate-500 font-medium">Tiempo &lt; 15 min por Agente</span>
+                        </div>
+                        <div class="bg-emerald-50/60 p-4 rounded-2xl border border-emerald-200/90 hover-wow flex flex-col items-center justify-center space-y-1.5">
+                            <i class="ph-bold ph-currency-circle-dollar text-2xl text-emerald-600 icon-float"></i>
+                            <span class="text-xs font-extrabold text-slate-900">ROI y Escrituras</span>
+                            <span class="text-[10px] text-slate-500 font-medium">Volumen USD Cierre Escribanía</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2.5">
+                    <span class="px-3.5 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-extrabold border border-blue-200 flex items-center gap-1.5 shadow-sm">
+                        <i class="ph-bold ph-gauge text-blue-600"></i> KPIs Inmobiliarios
+                    </span>
+                    <span class="px-3.5 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-extrabold border border-emerald-200 flex items-center gap-1.5 shadow-sm">
+                        <i class="ph-bold ph-shield-check text-emerald-600"></i> Trazabilidad Total
+                    </span>
+                    <span class="px-3.5 py-1 rounded-full bg-slate-900 text-white text-xs font-extrabold border border-slate-800 flex items-center gap-1.5 shadow-sm">
+                        <i class="ph-bold ph-desktop text-amber-400"></i> Medición Adaptativa
+                    </span>
+                </div>
+
             </div>
         </section>
 
