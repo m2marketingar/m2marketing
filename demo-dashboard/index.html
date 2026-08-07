@@ -193,18 +193,18 @@
 
                 <!-- Bajas -->
                 <div class="mt-4 pt-4 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div onclick="openDrillDown('ETIQUETA', 'SOLTADO', 'Leads Perdidos (Soltado)')" class="bg-rose-50 border border-rose-100 p-3 rounded-xl flex justify-between items-center cursor-pointer hover:bg-rose-100 transition active:scale-95 group">
-                        <div class="text-[11px] font-bold text-rose-600 uppercase flex items-center gap-1.5"><i class="fa-solid fa-user-slash"></i> Soltados</div>
-                        <div class="flex items-center gap-2">
+                    <div onclick="openDrillDown('ETIQUETA', 'SOLTADO', 'Leads Perdidos (Soltado)')" class="bg-rose-50 border border-rose-100 p-3 rounded-xl flex justify-between items-center cursor-pointer hover:bg-rose-100 transition active:scale-95 group overflow-hidden gap-2">
+                        <div class="text-[11px] font-bold text-rose-600 uppercase flex items-center gap-1.5 whitespace-nowrap"><i class="fa-solid fa-user-slash shrink-0"></i> Soltados</div>
+                        <div class="flex items-center gap-2 shrink-0">
                             <div id="metricSoltado" class="text-lg sm:text-xl font-black text-rose-700">0</div>
-                            <div class="bg-rose-200 text-rose-600 rounded-full w-8 h-8 sm:w-6 sm:h-6 flex items-center justify-center group-hover:scale-110 group-hover:bg-rose-500 group-hover:text-white transition shadow-sm"><i class="fa-solid fa-magnifying-glass text-xs"></i></div>
+                            <div class="bg-rose-200 text-rose-600 rounded-full w-8 h-8 sm:w-6 sm:h-6 shrink-0 flex items-center justify-center group-hover:scale-110 group-hover:bg-rose-500 group-hover:text-white transition shadow-sm"><i class="fa-solid fa-magnifying-glass text-xs sm:text-[10px]"></i></div>
                         </div>
                     </div>
-                    <div onclick="openDrillDown('ETIQUETA', 'SIN INTERES', 'Leads Sin Interés')" class="bg-slate-100 border border-slate-200 p-3 rounded-xl flex justify-between items-center cursor-pointer hover:bg-slate-200 transition active:scale-95 group">
-                        <div class="text-[11px] font-bold text-slate-600 uppercase flex items-center gap-1.5"><i class="fa-solid fa-ban"></i> Sin Interés</div>
-                        <div class="flex items-center gap-2">
+                    <div onclick="openDrillDown('ETIQUETA', 'SIN INTERES', 'Leads Sin Interés')" class="bg-slate-100 border border-slate-200 p-3 rounded-xl flex justify-between items-center cursor-pointer hover:bg-slate-200 transition active:scale-95 group overflow-hidden gap-2">
+                        <div class="text-[11px] font-bold text-slate-600 uppercase flex items-center gap-1.5 whitespace-nowrap"><i class="fa-solid fa-ban shrink-0"></i> Sin Interés</div>
+                        <div class="flex items-center gap-2 shrink-0">
                             <div id="metricSinInteres" class="text-lg sm:text-xl font-black text-slate-700">0</div>
-                            <div class="bg-slate-300 text-slate-600 rounded-full w-8 h-8 sm:w-6 sm:h-6 flex items-center justify-center group-hover:scale-110 group-hover:bg-slate-500 group-hover:text-white transition shadow-sm"><i class="fa-solid fa-magnifying-glass text-xs"></i></div>
+                            <div class="bg-slate-300 text-slate-600 rounded-full w-8 h-8 sm:w-6 sm:h-6 shrink-0 flex items-center justify-center group-hover:scale-110 group-hover:bg-slate-500 group-hover:text-white transition shadow-sm"><i class="fa-solid fa-magnifying-glass text-xs sm:text-[10px]"></i></div>
                         </div>
                     </div>
                 </div>
@@ -213,7 +213,7 @@
             <!-- REPORTE 2: VOLUMEN COMERCIAL -->
             <div class="xl:col-span-5 card-wow p-5 flex flex-col">
                 <div class="flex items-center space-x-3 mb-4">
-                    <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-base">2</div>
+                    <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-base shrink-0">2</div>
                     <div>
                         <h3 class="text-base font-extrabold text-slate-900">Volumen Comercial USD</h3>
                         <p class="text-[11px] text-slate-500">Monto acumulado y ticket promedio por etapa de negocio</p>
@@ -221,62 +221,62 @@
                 </div>
 
                 <div class="space-y-3 flex-grow flex flex-col justify-center">
-                    <div onclick="openDrillDown('ETIQUETA', 'ACM', 'Detalle de Tasaciones (ACM)')" class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-blue-400 cursor-pointer transition active:scale-95 group">
-                        <div class="flex justify-between items-center mb-1">
+                    <div onclick="openDrillDown('ETIQUETA', 'ACM', 'Detalle de Tasaciones (ACM)')" class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-blue-400 cursor-pointer transition active:scale-95 group overflow-hidden">
+                        <div class="flex flex-wrap justify-between items-center mb-1 gap-2">
                             <span class="text-[11px] font-bold text-slate-600 uppercase flex items-center gap-1.5"><i class="fa-solid fa-calculator text-blue-500"></i> ACM Presentados</span>
-                            <div class="flex items-center gap-1.5">
-                                <span id="badgeACMCount" class="text-[10px] font-bold text-blue-700 bg-blue-100 px-2 rounded-full">0 casos</span>
-                                <div class="bg-blue-100 text-blue-500 rounded-full w-8 h-8 sm:w-6 sm:h-6 flex items-center justify-center group-hover:scale-110 group-hover:bg-blue-500 group-hover:text-white transition shadow-sm"><i class="fa-solid fa-magnifying-glass text-xs"></i></div>
+                            <div class="flex items-center gap-1.5 shrink-0">
+                                <span id="badgeACMCount" class="text-[10px] font-bold text-blue-700 bg-blue-100 px-2 py-0.5 rounded-full whitespace-nowrap">0 casos</span>
+                                <div class="bg-blue-100 text-blue-500 rounded-full w-8 h-8 sm:w-6 sm:h-6 flex shrink-0 items-center justify-center group-hover:scale-110 group-hover:bg-blue-500 group-hover:text-white transition shadow-sm"><i class="fa-solid fa-magnifying-glass text-xs sm:text-[10px]"></i></div>
                             </div>
                         </div>
-                        <div class="flex flex-col sm:flex-row sm:justify-between items-start sm:items-end gap-1 mt-1">
-                            <div>
-                                <div class="text-[9px] text-slate-400 font-bold uppercase">Suma Total</div>
-                                <div id="volumenACM" class="text-lg sm:text-xl font-black text-slate-800">$0</div>
+                        <div class="flex flex-col sm:flex-row sm:justify-between items-start sm:items-end gap-2 mt-2">
+                            <div class="w-full sm:w-auto overflow-hidden">
+                                <div class="text-[9px] text-slate-400 font-bold uppercase mb-0.5">Suma Total</div>
+                                <div id="volumenACM" class="text-xl sm:text-2xl lg:text-3xl font-black text-slate-800 tracking-tight truncate">$0</div>
                             </div>
-                            <div class="text-left sm:text-right">
-                                <div class="text-[9px] text-slate-400 font-bold uppercase">Ticket Promedio</div>
+                            <div class="text-left sm:text-right shrink-0 mt-1 sm:mt-0">
+                                <div class="text-[9px] text-slate-400 font-bold uppercase mb-0.5">Ticket Promedio</div>
                                 <div id="ticketACM" class="text-sm font-bold text-blue-600">$0</div>
                             </div>
                         </div>
                     </div>
 
-                    <div onclick="openDrillDown('ETIQUETA', 'RESERVA', 'Detalle de Reservas Firmadas')" class="p-3.5 rounded-xl bg-amber-50/50 border border-amber-200 hover:border-amber-400 cursor-pointer transition active:scale-95 group">
-                        <div class="flex justify-between items-center mb-1">
+                    <div onclick="openDrillDown('ETIQUETA', 'RESERVA', 'Detalle de Reservas Firmadas')" class="p-3.5 rounded-xl bg-amber-50/50 border border-amber-200 hover:border-amber-400 cursor-pointer transition active:scale-95 group overflow-hidden">
+                        <div class="flex flex-wrap justify-between items-center mb-1 gap-2">
                             <span class="text-[11px] font-bold text-amber-800 uppercase flex items-center gap-1.5"><i class="fa-solid fa-file-signature text-amber-500"></i> Reservas Activas</span>
-                            <div class="flex items-center gap-1.5">
-                                <span id="badgeReservaCount" class="text-[10px] font-bold text-amber-800 bg-amber-200/50 px-2 rounded-full">0 casos</span>
-                                <div class="bg-amber-200 text-amber-600 rounded-full w-8 h-8 sm:w-6 sm:h-6 flex items-center justify-center group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-white transition shadow-sm"><i class="fa-solid fa-magnifying-glass text-xs"></i></div>
+                            <div class="flex items-center gap-1.5 shrink-0">
+                                <span id="badgeReservaCount" class="text-[10px] font-bold text-amber-800 bg-amber-200/50 px-2 py-0.5 rounded-full whitespace-nowrap">0 casos</span>
+                                <div class="bg-amber-200 text-amber-600 rounded-full w-8 h-8 sm:w-6 sm:h-6 flex shrink-0 items-center justify-center group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-white transition shadow-sm"><i class="fa-solid fa-magnifying-glass text-xs sm:text-[10px]"></i></div>
                             </div>
                         </div>
-                        <div class="flex flex-col sm:flex-row sm:justify-between items-start sm:items-end gap-1 mt-1">
-                            <div>
-                                <div class="text-[9px] text-amber-700/70 font-bold uppercase">Suma Total</div>
-                                <div id="volumenReserva" class="text-xl sm:text-2xl font-black text-amber-900">$0</div>
+                        <div class="flex flex-col sm:flex-row sm:justify-between items-start sm:items-end gap-2 mt-2">
+                            <div class="w-full sm:w-auto overflow-hidden">
+                                <div class="text-[9px] text-amber-700/70 font-bold uppercase mb-0.5">Suma Total</div>
+                                <div id="volumenReserva" class="text-xl sm:text-2xl lg:text-3xl font-black text-amber-900 tracking-tight truncate">$0</div>
                             </div>
-                            <div class="text-left sm:text-right">
-                                <div class="text-[9px] text-amber-700/70 font-bold uppercase">Ticket Promedio</div>
-                                <div id="ticketReserva" class="text-sm font-bold text-amber-600">$0</div>
+                            <div class="text-left sm:text-right shrink-0 mt-1 sm:mt-0">
+                                <div class="text-[9px] text-amber-700/70 font-bold uppercase mb-0.5">Ticket Promedio</div>
+                                <div id="ticketReserva" class="text-sm sm:text-base font-bold text-amber-600">$0</div>
                             </div>
                         </div>
                     </div>
 
-                    <div onclick="openDrillDown('ETIQUETA', 'ESCRITURA', 'Detalle de Escrituras Cerradas')" class="p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 hover:border-emerald-500 cursor-pointer transition active:scale-95 group">
-                        <div class="flex justify-between items-center mb-1">
+                    <div onclick="openDrillDown('ETIQUETA', 'ESCRITURA', 'Detalle de Escrituras Cerradas')" class="p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 hover:border-emerald-500 cursor-pointer transition active:scale-95 group overflow-hidden">
+                        <div class="flex flex-wrap justify-between items-center mb-1 gap-2">
                             <span class="text-[11px] font-bold text-emerald-800 uppercase flex items-center gap-1.5"><i class="fa-solid fa-key text-emerald-500"></i> Escrituras Cerradas</span>
-                            <div class="flex items-center gap-1.5">
-                                <span id="badgeEscrituraCount" class="text-[10px] font-bold text-emerald-800 bg-emerald-200 px-2 rounded-full">0 casos</span>
-                                <div class="bg-emerald-200 text-emerald-600 rounded-full w-8 h-8 sm:w-6 sm:h-6 flex items-center justify-center group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white transition shadow-sm"><i class="fa-solid fa-magnifying-glass text-xs"></i></div>
+                            <div class="flex items-center gap-1.5 shrink-0">
+                                <span id="badgeEscrituraCount" class="text-[10px] font-bold text-emerald-800 bg-emerald-200 px-2 py-0.5 rounded-full whitespace-nowrap">0 casos</span>
+                                <div class="bg-emerald-200 text-emerald-600 rounded-full w-8 h-8 sm:w-6 sm:h-6 flex shrink-0 items-center justify-center group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white transition shadow-sm"><i class="fa-solid fa-magnifying-glass text-xs sm:text-[10px]"></i></div>
                             </div>
                         </div>
-                        <div class="flex flex-col sm:flex-row sm:justify-between items-start sm:items-end gap-1 mt-1">
-                            <div>
-                                <div class="text-[9px] text-emerald-600 font-bold uppercase">Suma Total</div>
-                                <div id="volumenEscritura" class="text-2xl sm:text-3xl font-black text-emerald-700 truncate max-w-[200px]">$0</div>
+                        <div class="flex flex-col sm:flex-row sm:justify-between items-start sm:items-end gap-2 mt-2">
+                            <div class="w-full sm:w-auto overflow-hidden">
+                                <div class="text-[9px] text-emerald-600 font-bold uppercase mb-0.5">Suma Total</div>
+                                <div id="volumenEscritura" class="text-xl sm:text-2xl lg:text-3xl font-black text-emerald-700 tracking-tight truncate">$0</div>
                             </div>
-                            <div class="text-left sm:text-right">
-                                <div class="text-[9px] text-emerald-600 font-bold uppercase">Ticket Promedio</div>
-                                <div id="ticketEscritura" class="text-base font-extrabold text-emerald-600">$0</div>
+                            <div class="text-left sm:text-right shrink-0 mt-1 sm:mt-0">
+                                <div class="text-[9px] text-emerald-600 font-bold uppercase mb-0.5">Ticket Promedio</div>
+                                <div id="ticketEscritura" class="text-sm sm:text-base font-extrabold text-emerald-600">$0</div>
                             </div>
                         </div>
                     </div>
