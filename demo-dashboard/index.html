@@ -48,7 +48,7 @@
         ::-webkit-scrollbar-track { background: #f1f5f9; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
         ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
-
+        
         /* Ocultar barra de scroll en tablas pero mantener scroll */
         .hide-scroll::-webkit-scrollbar { display: none; }
         .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
@@ -57,15 +57,15 @@
 <body class="min-h-screen flex flex-col antialiased selection:bg-blue-500 selection:text-white">
 
     <!-- TOP HEADER / BRAND BAR -->
-    <header class="sticky top-0 z-40 bg-slate-900 border-b border-slate-800 text-white shadow-xl backdrop-blur-md bg-opacity-95">
+    <header class="relative z-40 bg-slate-900 border-b border-slate-800 text-white shadow-xl bg-opacity-95">
         <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row lg:items-center justify-between py-4 gap-4">
-
+                
                 <!-- Branding -->
                 <div class="flex items-center space-x-4">
-                    <div class="bg-white/5 p-2 rounded-2xl border border-slate-700/50 flex items-center justify-center">
-                        <img src="https://lh3.googleusercontent.com/d/1Yq4YcFxytCooor28U_NwUU3iPFkzw1EV"
-                             alt="GuardPerf Logo" class="h-8 w-auto object-contain"
+                    <div class="bg-white w-12 h-12 rounded-full border-2 border-slate-700/50 flex items-center justify-center overflow-hidden">
+                        <img src="https://lh3.googleusercontent.com/d/1Yq4YcFxytCooor28U_NwUU3iPFkzw1EV" 
+                             alt="GuardPerf Logo" class="h-8 w-8 object-contain"
                              onerror="this.onerror=null; this.src='https://placehold.co/180x50/0f172a/ffffff?text=GuardPerf';">
                     </div>
                     <div>
@@ -169,7 +169,7 @@
 
         <!-- REPORTS SECTION 1 & 2 -->
         <div class="grid grid-cols-1 xl:grid-cols-12 gap-6">
-
+            
             <!-- REPORTE 1: EMBUDO -->
             <div class="xl:col-span-7 card-wow p-5 flex flex-col">
                 <div class="flex items-center justify-between mb-4">
@@ -193,13 +193,19 @@
 
                 <!-- Bajas -->
                 <div class="mt-4 pt-4 border-t border-slate-100 grid grid-cols-2 gap-3">
-                    <div onclick="openDrillDown('ETIQUETA', 'SOLTADO', 'Leads Perdidos (Soltado)')" class="bg-rose-50 border border-rose-100 p-3 rounded-xl flex justify-between items-center cursor-pointer hover:bg-rose-100 transition active:scale-95">
-                        <div class="text-[11px] font-bold text-rose-600 uppercase"><i class="fa-solid fa-user-slash mr-1"></i> Soltados</div>
-                        <div id="metricSoltado" class="text-lg font-black text-rose-700">0</div>
+                    <div onclick="openDrillDown('ETIQUETA', 'SOLTADO', 'Leads Perdidos (Soltado)')" class="bg-rose-50 border border-rose-100 p-3 rounded-xl flex justify-between items-center cursor-pointer hover:bg-rose-100 transition active:scale-95 group">
+                        <div class="text-[11px] font-bold text-rose-600 uppercase flex items-center gap-1.5"><i class="fa-solid fa-user-slash"></i> Soltados</div>
+                        <div class="flex items-center gap-2">
+                            <div id="metricSoltado" class="text-lg font-black text-rose-700">0</div>
+                            <div class="bg-rose-200 text-rose-600 rounded-full w-6 h-6 flex items-center justify-center group-hover:scale-110 group-hover:bg-rose-500 group-hover:text-white transition"><i class="fa-solid fa-magnifying-glass text-xs"></i></div>
+                        </div>
                     </div>
-                    <div onclick="openDrillDown('ETIQUETA', 'SIN INTERES', 'Leads Sin Interés')" class="bg-slate-100 border border-slate-200 p-3 rounded-xl flex justify-between items-center cursor-pointer hover:bg-slate-200 transition active:scale-95">
-                        <div class="text-[11px] font-bold text-slate-600 uppercase"><i class="fa-solid fa-ban mr-1"></i> Sin Interés</div>
-                        <div id="metricSinInteres" class="text-lg font-black text-slate-700">0</div>
+                    <div onclick="openDrillDown('ETIQUETA', 'SIN INTERES', 'Leads Sin Interés')" class="bg-slate-100 border border-slate-200 p-3 rounded-xl flex justify-between items-center cursor-pointer hover:bg-slate-200 transition active:scale-95 group">
+                        <div class="text-[11px] font-bold text-slate-600 uppercase flex items-center gap-1.5"><i class="fa-solid fa-ban"></i> Sin Interés</div>
+                        <div class="flex items-center gap-2">
+                            <div id="metricSinInteres" class="text-lg font-black text-slate-700">0</div>
+                            <div class="bg-slate-300 text-slate-600 rounded-full w-6 h-6 flex items-center justify-center group-hover:scale-110 group-hover:bg-slate-500 group-hover:text-white transition"><i class="fa-solid fa-magnifying-glass text-xs"></i></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -215,10 +221,13 @@
                 </div>
 
                 <div class="space-y-3 flex-grow flex flex-col justify-center">
-                    <div onclick="openDrillDown('ETIQUETA', 'ACM', 'Detalle de Tasaciones (ACM)')" class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-blue-400 cursor-pointer transition active:scale-95">
+                    <div onclick="openDrillDown('ETIQUETA', 'ACM', 'Detalle de Tasaciones (ACM)')" class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-blue-400 cursor-pointer transition active:scale-95 group">
                         <div class="flex justify-between items-center mb-1">
-                            <span class="text-[11px] font-bold text-slate-600 uppercase"><i class="fa-solid fa-calculator text-blue-500 mr-1"></i> ACM Presentados</span>
-                            <span id="badgeACMCount" class="text-[10px] font-bold text-blue-700 bg-blue-100 px-2 rounded-full">0 casos</span>
+                            <span class="text-[11px] font-bold text-slate-600 uppercase flex items-center gap-1.5"><i class="fa-solid fa-calculator text-blue-500"></i> ACM Presentados</span>
+                            <div class="flex items-center gap-1.5">
+                                <span id="badgeACMCount" class="text-[10px] font-bold text-blue-700 bg-blue-100 px-2 rounded-full">0 casos</span>
+                                <div class="bg-blue-100 text-blue-500 rounded-full w-6 h-6 flex items-center justify-center group-hover:scale-110 group-hover:bg-blue-500 group-hover:text-white transition"><i class="fa-solid fa-magnifying-glass text-xs"></i></div>
+                            </div>
                         </div>
                         <div class="flex justify-between items-end">
                             <div>
@@ -232,10 +241,13 @@
                         </div>
                     </div>
 
-                    <div onclick="openDrillDown('ETIQUETA', 'RESERVA', 'Detalle de Reservas Firmadas')" class="p-3.5 rounded-xl bg-amber-50/50 border border-amber-200 hover:border-amber-400 cursor-pointer transition active:scale-95">
+                    <div onclick="openDrillDown('ETIQUETA', 'RESERVA', 'Detalle de Reservas Firmadas')" class="p-3.5 rounded-xl bg-amber-50/50 border border-amber-200 hover:border-amber-400 cursor-pointer transition active:scale-95 group">
                         <div class="flex justify-between items-center mb-1">
-                            <span class="text-[11px] font-bold text-amber-800 uppercase"><i class="fa-solid fa-file-signature text-amber-500 mr-1"></i> Reservas Activas</span>
-                            <span id="badgeReservaCount" class="text-[10px] font-bold text-amber-800 bg-amber-200/50 px-2 rounded-full">0 casos</span>
+                            <span class="text-[11px] font-bold text-amber-800 uppercase flex items-center gap-1.5"><i class="fa-solid fa-file-signature text-amber-500"></i> Reservas Activas</span>
+                            <div class="flex items-center gap-1.5">
+                                <span id="badgeReservaCount" class="text-[10px] font-bold text-amber-800 bg-amber-200/50 px-2 rounded-full">0 casos</span>
+                                <div class="bg-amber-200 text-amber-600 rounded-full w-6 h-6 flex items-center justify-center group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-white transition"><i class="fa-solid fa-magnifying-glass text-xs"></i></div>
+                            </div>
                         </div>
                         <div class="flex justify-between items-end">
                             <div>
@@ -249,10 +261,13 @@
                         </div>
                     </div>
 
-                    <div onclick="openDrillDown('ETIQUETA', 'ESCRITURA', 'Detalle de Escrituras Cerradas')" class="p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 hover:border-emerald-500 cursor-pointer transition active:scale-95">
+                    <div onclick="openDrillDown('ETIQUETA', 'ESCRITURA', 'Detalle de Escrituras Cerradas')" class="p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 hover:border-emerald-500 cursor-pointer transition active:scale-95 group">
                         <div class="flex justify-between items-center mb-1">
-                            <span class="text-[11px] font-bold text-emerald-800 uppercase"><i class="fa-solid fa-key text-emerald-500 mr-1"></i> Escrituras Cerradas</span>
-                            <span id="badgeEscrituraCount" class="text-[10px] font-bold text-emerald-800 bg-emerald-200 px-2 rounded-full">0 casos</span>
+                            <span class="text-[11px] font-bold text-emerald-800 uppercase flex items-center gap-1.5"><i class="fa-solid fa-key text-emerald-500"></i> Escrituras Cerradas</span>
+                            <div class="flex items-center gap-1.5">
+                                <span id="badgeEscrituraCount" class="text-[10px] font-bold text-emerald-800 bg-emerald-200 px-2 rounded-full">0 casos</span>
+                                <div class="bg-emerald-200 text-emerald-600 rounded-full w-6 h-6 flex items-center justify-center group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white transition"><i class="fa-solid fa-magnifying-glass text-xs"></i></div>
+                            </div>
                         </div>
                         <div class="flex justify-between items-end">
                             <div>
@@ -275,7 +290,7 @@
                 <div class="w-8 h-8 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center font-bold text-base">3</div>
                 <h3 class="text-base font-extrabold text-slate-900">Tasas de Conversión</h3>
             </div>
-
+            
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div class="bg-slate-50 border border-slate-200 p-4 rounded-xl text-center">
                     <div class="text-[10px] font-bold text-slate-500 uppercase mb-1">Captada / Pre-List</div>
@@ -347,7 +362,7 @@
 
         <!-- REPORTS 9 & 10: ESTADOS Y TIPO OP (Exactly 100 math) -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
+            
             <div class="card-wow p-5">
                 <div class="flex items-center space-x-3 mb-4">
                     <div class="w-8 h-8 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center font-bold text-base">9</div>
@@ -358,13 +373,19 @@
                         <canvas id="chartEstado"></canvas>
                     </div>
                     <div class="w-1/2 space-y-2">
-                        <div onclick="openDrillDown('ESTADO', 'Asignado', 'Leads Asignados')" class="bg-blue-50 p-2.5 rounded-lg border border-blue-100 cursor-pointer hover:bg-blue-100 transition">
-                            <div class="text-[10px] font-bold text-blue-800 uppercase">Asignados</div>
-                            <div id="cntAsignado" class="text-xl font-black text-blue-600">0</div>
+                        <div onclick="openDrillDown('ESTADO', 'Asignado', 'Leads Asignados')" class="bg-blue-50 p-2.5 rounded-lg border border-blue-100 cursor-pointer hover:bg-blue-100 transition flex justify-between items-center group">
+                            <div>
+                                <div class="text-[10px] font-bold text-blue-800 uppercase">Asignados</div>
+                                <div id="cntAsignado" class="text-xl font-black text-blue-600">0</div>
+                            </div>
+                            <div class="bg-blue-200 text-blue-500 rounded-full w-7 h-7 flex items-center justify-center group-hover:scale-110 group-hover:bg-blue-500 group-hover:text-white transition"><i class="fa-solid fa-magnifying-glass text-xs"></i></div>
                         </div>
-                        <div onclick="openDrillDown('ESTADO', 'Pendiente Aceptación', 'Leads Pendientes')" class="bg-amber-50 p-2.5 rounded-lg border border-amber-100 cursor-pointer hover:bg-amber-100 transition">
-                            <div class="text-[10px] font-bold text-amber-800 uppercase">Pendientes</div>
-                            <div id="cntPendiente" class="text-xl font-black text-amber-600">0</div>
+                        <div onclick="openDrillDown('ESTADO', 'Pendiente Aceptación', 'Leads Pendientes')" class="bg-amber-50 p-2.5 rounded-lg border border-amber-100 cursor-pointer hover:bg-amber-100 transition flex justify-between items-center group">
+                            <div>
+                                <div class="text-[10px] font-bold text-amber-800 uppercase">Pendientes</div>
+                                <div id="cntPendiente" class="text-xl font-black text-amber-600">0</div>
+                            </div>
+                            <div class="bg-amber-200 text-amber-600 rounded-full w-7 h-7 flex items-center justify-center group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-white transition"><i class="fa-solid fa-magnifying-glass text-xs"></i></div>
                         </div>
                     </div>
                 </div>
@@ -400,7 +421,7 @@
                     <i class="fa-solid fa-xmark text-xl"></i>
                 </button>
             </div>
-
+            
             <div class="bg-slate-50 border-b border-slate-200 px-5 py-3 flex gap-4 text-xs font-semibold">
                 <div class="bg-white px-3 py-1.5 rounded border border-slate-200"><span class="text-slate-400">Total:</span> <span id="drillTotal" class="text-slate-900 font-bold ml-1">0</span></div>
                 <div class="bg-white px-3 py-1.5 rounded border border-slate-200"><span class="text-slate-400">Volumen:</span> <span id="drillVol" class="text-emerald-600 font-bold ml-1">$0</span></div>
@@ -427,7 +448,7 @@
 
     <script>
         const ETAPAS_ORDEN = ["ENTRANTES", "AGENDADAS", "REALIZADAS", "PRE-LISTING", "ACM", "CAPTADAS", "RESERVA", "ESCRITURA"];
-
+        
         const SUCURSALES = ["Sucursal A", "Sucursal B", "Sucursal C", "Sucursal D", "Sucursal E"];
         const AGENTES = [
             { nombre: "Gonzalo Rodríguez", suc: "Sucursal A" }, { nombre: "Sofía Martínez", suc: "Sucursal A" },
@@ -449,7 +470,7 @@
 
             let poolTipos = Array(46).fill("Vender para comprar").concat(Array(32).fill("Tasación")).concat(Array(22).fill("Compra directa"));
             let poolEstados = Array(90).fill("Asignado").concat(Array(10).fill("Pendiente Aceptación"));
-
+            
             poolTipos.sort(() => Math.random() - 0.5);
             poolEstados.sort(() => Math.random() - 0.5);
 
@@ -471,25 +492,25 @@
 
             // ESCRITURA (4)
             for(let i=0; i<4; i++) leads.push(createLead("ESCRITURA", 220000, i, ["AGENDADAS", "REALIZADAS", "PRE-LISTING", "ACM", "CAPTADAS", "RESERVA", "ESCRITURA"]));
-
+            
             // RESERVA (2 más, total 6 llegaron)
             for(let i=0; i<2; i++) leads.push(createLead("RESERVA", 195000, i+2, ["AGENDADAS", "REALIZADAS", "PRE-LISTING", "ACM", "CAPTADAS", "RESERVA"]));
-
+            
             // CAPTADAS (4 más, total 10 llegaron)
             for(let i=0; i<4; i++) leads.push(createLead("CAPTADAS", 180000, i+4, ["AGENDADAS", "REALIZADAS", "PRE-LISTING", "ACM", "CAPTADAS"]));
-
+            
             // ACM (3 más, total 13 llegaron)
             for(let i=0; i<3; i++) leads.push(createLead("ACM", 150000, i+6, ["AGENDADAS", "REALIZADAS", "PRE-LISTING", "ACM"]));
-
+            
             // PRE-LISTING (9 más, total 22 llegaron)
             for(let i=0; i<9; i++) leads.push(createLead("PRE-LISTING", 0, i+8, ["AGENDADAS", "REALIZADAS", "PRE-LISTING"]));
-
+            
             // REALIZADAS (20 más, total 42 llegaron)
             for(let i=0; i<20; i++) leads.push(createLead("REALIZADAS", 0, i+1, ["AGENDADAS", "REALIZADAS"]));
-
+            
             // AGENDADAS (16 más, total 58 llegaron)
             for(let i=0; i<16; i++) leads.push(createLead("AGENDADAS", 0, i+3, ["AGENDADAS"]));
-
+            
             // PERDIDOS / SIN INTERES / NUEVOS (Restantes hasta 100)
             // 15 Soltados
             for(let i=0; i<15; i++) leads.push(createLead("SOLTADO", 0, i+5, []));
@@ -504,7 +525,7 @@
         // INIT & FILTROS
         function initDashboard() {
             allLeads = buildRealDataBuckets();
-
+            
             // Poblar dropdowns
             const sInm = document.getElementById('filterInmobiliaria');
             const sAg = document.getElementById('filterAgente');
@@ -539,7 +560,7 @@
         // RENDER GENERAL
         function renderAll() {
             Chart.defaults.font.family = "'Plus Jakarta Sans', sans-serif";
-
+            
             const embudoData = {};
             ETAPAS_ORDEN.forEach(e => embudoData[e] = 0);
             let soltados = 0, sinInteres = 0;
@@ -566,11 +587,14 @@
             cont.innerHTML = '';
             const bgColors = ['bg-slate-100','bg-slate-200','bg-blue-50','bg-indigo-50','bg-purple-50','bg-fuchsia-50','bg-amber-50','bg-emerald-50'];
             const txtColors = ['text-slate-600','text-slate-700','text-blue-700','text-indigo-700','text-purple-700','text-fuchsia-700','text-amber-700','text-emerald-700'];
-
+            
             ETAPAS_ORDEN.forEach((e, idx) => {
                 cont.innerHTML += `
-                    <div onclick="openDrillDown('ETIQUETA', '${e}', 'Leads en ${e}')" class="${bgColors[idx]} border border-white p-2 rounded-lg text-center cursor-pointer hover:shadow transition">
-                        <div class="text-[9px] font-black uppercase ${txtColors[idx]} truncate">${e}</div>
+                    <div onclick="openDrillDown('ETIQUETA', '${e}', 'Leads en ${e}')" class="${bgColors[idx]} border border-white p-2 rounded-lg text-center cursor-pointer hover:shadow transition relative group overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-white/50 w-6 h-6 rounded-bl-lg flex items-center justify-center opacity-70 group-hover:bg-blue-500 group-hover:text-white group-hover:opacity-100 transition">
+                            <i class="fa-solid fa-magnifying-glass text-[10px]"></i>
+                        </div>
+                        <div class="text-[9px] font-black uppercase ${txtColors[idx]} truncate mt-2">${e}</div>
                         <div class="text-base font-black text-slate-800">${embudoData[e]}</div>
                     </div>
                 `;
@@ -626,7 +650,7 @@
             filteredLeads.forEach(l => {
                 if(!rAg[l.agente]) rAg[l.agente] = {leads:0, esc:0, vol:0};
                 if(!rSuc[l.inmobiliaria]) rSuc[l.inmobiliaria] = {leads:0, esc:0, vol:0};
-
+                
                 rAg[l.agente].leads++; rSuc[l.inmobiliaria].leads++;
                 if(l.historial.includes("ESCRITURA")) {
                     rAg[l.agente].esc++; rAg[l.agente].vol += l.montoUSD || 220000;
@@ -635,10 +659,10 @@
             });
 
             const sortMap = (obj) => Object.entries(obj).sort((a,b) => b[1].vol - a[1].vol);
-
+            
             const htmlAg = sortMap(rAg).map(([k,v]) => `
-                <tr onclick="openDrillDown('AGENTE', '${k}', 'Operaciones de ${k}')" class="cursor-pointer hover:bg-slate-50">
-                    <td class="p-2.5 font-bold text-slate-800">${k}</td>
+                <tr onclick="openDrillDown('AGENTE', '${k}', 'Operaciones de ${k}')" class="cursor-pointer hover:bg-slate-50 group transition">
+                    <td class="p-2.5 font-bold text-slate-800 flex items-center gap-1.5"><div class="bg-slate-100 text-slate-400 group-hover:bg-blue-500 group-hover:text-white rounded w-5 h-5 flex items-center justify-center transition"><i class="fa-solid fa-magnifying-glass text-[9px]"></i></div> ${k}</td>
                     <td class="p-2.5 text-center text-slate-500">${v.leads}</td>
                     <td class="p-2.5 text-center text-emerald-600 font-bold">${v.esc}</td>
                     <td class="p-2.5 text-right font-black text-slate-900">$${(v.vol/1000).toFixed(0)}k</td>
@@ -646,8 +670,8 @@
             document.getElementById('tbodyAgentes').innerHTML = htmlAg;
 
             const htmlSuc = sortMap(rSuc).map(([k,v]) => `
-                <tr onclick="openDrillDown('SUC', '${k}', 'Operaciones de ${k}')" class="cursor-pointer hover:bg-slate-50">
-                    <td class="p-2.5 font-bold text-slate-800">${k}</td>
+                <tr onclick="openDrillDown('SUC', '${k}', 'Operaciones de ${k}')" class="cursor-pointer hover:bg-slate-50 group transition">
+                    <td class="p-2.5 font-bold text-slate-800 flex items-center gap-1.5"><div class="bg-slate-100 text-slate-400 group-hover:bg-blue-500 group-hover:text-white rounded w-5 h-5 flex items-center justify-center transition"><i class="fa-solid fa-magnifying-glass text-[9px]"></i></div> ${k}</td>
                     <td class="p-2.5 text-center text-slate-500">${v.leads}</td>
                     <td class="p-2.5 text-center text-emerald-600 font-bold">${v.esc}</td>
                     <td class="p-2.5 text-right font-black text-slate-900">$${(v.vol/1000).toFixed(0)}k</td>
@@ -673,10 +697,10 @@
             // 10. TIPO OP
             const tOps = {"Vender para comprar":0, "Tasación":0, "Compra directa":0};
             filteredLeads.forEach(l => { if(tOps[l.tipoOperacion]!==undefined) tOps[l.tipoOperacion]++; });
-
+            
             document.getElementById('tipoOpContainer').innerHTML = Object.entries(tOps).map(([k,v]) => `
-                <div class="flex justify-between items-center text-[10px] font-bold bg-slate-50 p-2 rounded border border-slate-100">
-                    <span class="uppercase text-slate-500">${k}</span><span class="text-indigo-600 text-sm font-black">${v}</span>
+                <div onclick="openDrillDown('TIPO_OP', '${k}', 'Operaciones: ${k}')" class="flex justify-between items-center text-[10px] font-bold bg-slate-50 p-2 rounded border border-slate-100 cursor-pointer hover:bg-slate-100 group transition">
+                    <span class="uppercase text-slate-500 flex items-center gap-1.5"><div class="bg-slate-200 text-slate-400 group-hover:bg-indigo-500 group-hover:text-white rounded-full w-5 h-5 flex items-center justify-center transition"><i class="fa-solid fa-magnifying-glass text-[9px]"></i></div> ${k}</span><span class="text-indigo-600 text-sm font-black">${v}</span>
                 </div>
             `).join('');
 
@@ -696,6 +720,7 @@
             else if(tipo==='ESTADO') match = filteredLeads.filter(l => l.estado === valor);
             else if(tipo==='AGENTE') match = filteredLeads.filter(l => l.agente === valor);
             else if(tipo==='SUC') match = filteredLeads.filter(l => l.inmobiliaria === valor);
+            else if(tipo==='TIPO_OP') match = filteredLeads.filter(l => l.tipoOperacion === valor);
 
             let vol = 0;
             match.forEach(l => vol += l.montoUSD || 0);
@@ -715,6 +740,10 @@
             `).join('');
 
             document.getElementById('drillDownModal').classList.remove('hidden');
+        }
+
+        function toggleAuxiliaryDataModal() {
+            alert("Vista de base de datos origen. En producción esto abre la tabla de log parsed.");
         }
 
         window.onload = initDashboard;
