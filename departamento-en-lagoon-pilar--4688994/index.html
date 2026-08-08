@@ -1,0 +1,657 @@
+﻿<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Departamento en Lagoon Pilar | Coldwell Banker Lion Team</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cb: {
+                            navy: '#00205B',
+                            brand: '#00205B', 
+                            orange: '#F97316', /* Naranja estilo Zonaprop */
+                            green: '#25D366'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f5f5; /* Gris neutro exacto ZonaProp */
+            color: #2d3748;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: repeat(2, 195px);
+            gap: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: 240px;
+                gap: 0;
+            }
+            .hide-on-mobile {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased pb-20 md:pb-8">
+
+    <!-- BANNER DE ANUNCIO OFICIAL INSTAGRAM -->
+    <div class="bg-gradient-to-r from-purple-700 via-pink-600 to-orange-500 text-white px-4 py-2 text-xs sm:text-sm font-medium shadow-xs">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            <span class="flex items-center gap-2">
+                <i class="fa-brands fa-instagram text-base"></i>
+                <span><strong>Anuncio Oficial</strong> â€¢ CampaÃ±a directa del Instagram verificado de la oficina</span>
+                <i class="fa-solid fa-circle-check text-emerald-300 text-xs"></i>
+            </span>
+            <span class="hidden md:inline-block text-[11px] opacity-90">@coldwellbanker.lionteam</span>
+        </div>
+    </div>
+
+    <!-- HEADER ESTILO PORTAL -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-40 shadow-xs">
+        <div class="max-w-6xl mx-auto px-4 h-14 sm:h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img src="https://lh3.googleusercontent.com/d/1M_NDJYiOPCIhzgWuCpsv_EZbn7JaWMig=s1200" alt="Coldwell Banker Lion Team" class="h-9 sm:h-11 w-auto object-contain rounded">
+            </div>
+            
+            <div class="flex items-center gap-3 text-xs sm:text-sm font-medium text-gray-600">
+                <span class="hover:text-cb-orange cursor-pointer transition flex items-center gap-1.5 bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-semibold">
+                    <i class="fa-solid fa-share-nodes text-cb-orange"></i> <span class="hidden sm:inline">Compartir</span>
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-3 sm:px-4 py-3 sm:py-4">
+        
+        <!-- BREADCRUMB ESTILO ZONAPROP -->
+        <div class="text-xs text-gray-500 mb-2.5 hidden md:flex items-center gap-1">
+            <a href="#" class="hover:underline">Comprar</a> <span>></span>
+            <a href="#" class="hover:underline">Departamentos</a> <span>></span>
+            <a href="#" class="hover:underline">Countries/B.Cerrado</a> <span>></span>
+            <span class="text-gray-800 font-medium">Pilar</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 relative">
+            
+            <!-- COLUMNA IZQUIERDA: CONTENIDO PRINCIPAL -->
+            <div class="lg:col-span-8 space-y-3.5">
+                
+                <!-- GALERÃA ESTILO MOSAICO -->
+                <div class="rounded-xl overflow-hidden relative gallery-grid cursor-pointer bg-gray-200 shadow-2xs border border-gray-200" onclick="openGallery(0)">
+                    <!-- Imagen Principal -->
+                    <div class="relative h-full row-span-2 group overflow-hidden">
+                        <img id="main-photo" src="https://d1v2p1s05qqabi.cloudfront.net/26091321/1786054891.jpg" alt="Vista principal" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute top-2.5 left-2.5 bg-black/70 text-white text-xs px-2 py-1 rounded flex items-center gap-1.5 md:hidden backdrop-blur-xs">
+                            <i class="fa-regular fa-image"></i> 3 fotos
+                        </div>
+                    </div>
+                    <!-- ImÃ¡genes secundarias -->
+                    <div class="h-full hide-on-mobile group overflow-hidden relative"><img id="photo-1" src="https://d1v2p1s05qqabi.cloudfront.net/26091322/1786054891.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></div>
+                    <div class="h-full hide-on-mobile group overflow-hidden relative">
+                        <img id="photo-2" src="https://d1v2p1s05qqabi.cloudfront.net/26091325/1786054892.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span class="bg-white/95 text-gray-900 font-bold text-[11px] px-2.5 py-1.5 rounded-lg shadow-md flex items-center gap-1 hover:bg-white transition backdrop-blur-xs">
+                                <i class="fa-regular fa-images text-cb-orange"></i> Ver todas
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONTENEDOR BLANCO DE INFORMACIÃ“N -->
+                <div class="bg-white p-5 sm:p-6 rounded-xl shadow-2xs border border-gray-200">
+                    
+                    <!-- INFO RÃPIDA -->
+                    <div class="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm text-gray-700 mb-4 overflow-x-auto no-scrollbar whitespace-nowrap pb-2 font-medium border-b border-gray-100">
+                        <span class="flex items-center gap-2 pr-3 sm:pr-4 border-r border-gray-200">
+                            <i class="fa-solid fa-ruler-combined text-base text-gray-400"></i>
+                            <span>129 mÂ² tot.</span>
+                        </span>
+                        <span class="flex items-center gap-2 pr-3 sm:pr-4 border-r border-gray-200">
+                            <i class="fa-solid fa-expand text-base text-gray-400"></i>
+                            <span>79 mÂ² cub.</span>
+                        </span>
+                        <span class="flex items-center gap-2 pr-3 sm:pr-4 border-r border-gray-200">
+                            <i class="fa-solid fa-door-open text-base text-gray-400"></i>
+                            <span>2 amb.</span>
+                        </span>
+                        <span class="flex items-center gap-2 pr-3 sm:pr-4 border-r border-gray-200">
+                            <i class="fa-solid fa-bed text-base text-gray-400"></i>
+                            <span>1 dorm.</span>
+                        </span>
+                        <span class="flex items-center gap-2 pr-3 sm:pr-4 border-r border-gray-200">
+                            <i class="fa-solid fa-bath text-base text-gray-400"></i>
+                            <span>1 baÃ±o</span>
+                        </span>
+                        <span class="flex items-center gap-2">
+                            <i class="fa-solid fa-car text-base text-gray-400"></i>
+                            <span>1 cochera</span>
+                        </span>
+                    </div>
+
+                    <!-- TÃTULO Y PRECIO -->
+                    <div class="mb-3">
+                        <h1 class="text-xl sm:text-2xl font-extrabold text-gray-900 mb-1.5 leading-snug">
+                            Departamento en Lagoon Pilar
+                        </h1>
+                        <p class="text-gray-600 flex items-center gap-1.5 text-xs sm:text-sm">
+                            <i class="fa-solid fa-location-dot text-cb-orange"></i> 
+                            Lagoon Pilar, Pilar, G.B.A. Zona Norte
+                        </p>
+                    </div>
+
+                    <!-- BLOQUE PRECIO -->
+                    <div class="flex flex-wrap items-center gap-3 py-3 border-y border-gray-100 mb-5">
+                        <div class="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">USD 160.000</div>
+                        <span class="text-xs font-semibold text-gray-600 bg-gray-50 px-2.5 py-1 rounded-md border border-gray-200">
+                            Expensas: $40.000 ARS
+                        </span>
+                    </div>
+
+                    <!-- DESCRIPCIÃ“N -->
+                    <h2 class="text-base sm:text-lg font-bold text-gray-900 mb-2 border-b border-gray-100 pb-1.5">DescripciÃ³n de la propiedad</h2>
+                    <div class="relative mb-5">
+                        <div id="description-content" class="text-gray-600 space-y-2.5 text-xs sm:text-sm leading-relaxed max-h-[130px] overflow-hidden transition-all duration-500 relative">
+                            <p>VENTA DEPARTAMENTO 2 AMBIENTES VISTA A LA LAGUNA, COCHERA, TERRAZA PROPIA, BALCON, LAGOON PILAR</p>
+                            <p>Descubre este exclusivo departamento de 2 ambientes en el prestigioso country cerrado Lagoon Pilar. Ubicado en el Edificio Arena, 3er piso, ofrece un diseÃ±o moderno y funcional, ideal para quienes buscan confort y tranquilidad.</p>
+                            <p>La propiedad cuenta con un amplio y luminoso living comedor, cocina integrada, dormitorio con excelente distribuciÃ³n y placard, un baÃ±o completo y calefacciÃ³n por losa radiante. Su gran protagonista es la increÃ­ble vista abierta a la laguna cristalina tipo playa, que brinda una sensaciÃ³n Ãºnica de tranquilidad y bienestar durante todo el dÃ­a. Gracias a su orientaciÃ³n, recibe abundante luz natural y sol, creando un ambiente cÃ¡lido y acogedor.</p>
+                            <p>AdemÃ¡s, el departamento posee una terraza privada de uso exclusivo, un espacio ideal para disfrutar del verano, organizar reuniones con familiares y amigos, celebrar eventos privados o simplemente relajarse contemplando el entorno. Un verdadero valor agregado que convierte esta propiedad en una oportunidad Ãºnica.</p>
+                            <p>El departamento cuenta con una cochera semi cubierta brindando comodidad y protecciÃ³n para su vehÃ­culo en un entorno cuidado y de excelente mantenimiento.</p>
+                            <p>Lagoon Pilar es un barrio privado que ofrece una amplia gama de servicios y amenities. Fue diseÃ±ado con una Laguna de agua cristalina de 500 metros de largo, en donde podÃ©s realizar distintas actividades nÃ¡uticas, con sectores de playa con reposeras y sombrillas, palmeras y dos amplias bahÃ­as parquizadas. Vivir en Lagoon es estar en la playa todo el aÃ±o. Cuenta con cancha de tenis, fÃºtbol, quincho, juegos para niÃ±os y restaurant bar con vista a la laguna. Posee todos los servicios y seguridad las 24 horas.</p>
+                            <p class="text-[11px] text-gray-400 mt-4 leading-tight">Los metros son aproximados, Comercializado por David Blanco con matrÃ­cula del C.U.C.I.C.B.A. NÂ° 8573, Tomo 2, Folio 20 y Matricula â€“ CMO NÂ°2884 Tomo 6, Folio 62, adherida al Sistema Coldwell Banker Lion Team. C.U.I.T.: 20-32944101-7, Av. Triunvirato 5177 Ciudad AutÃ³noma de Buenos Aires. Â© 2026 Coldwell Banker. Todos los derechos reservados.</p>
+                            
+                            <!-- Degradado para ocultar texto progresivamente -->
+                            <div id="description-overlay" class="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none"></div>
+                        </div>
+                        
+                        <button id="toggle-desc-btn" onclick="toggleDescription()" class="mt-2 text-cb-orange font-bold text-xs sm:text-sm hover:underline flex items-center gap-1 cursor-pointer">
+                            <span>Ver descripciÃ³n completa</span>
+                            <i id="toggle-desc-icon" class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300"></i>
+                        </button>
+                    </div>
+
+                    <!-- CARACTERÃSTICAS -->
+                    <h2 class="text-base sm:text-lg font-bold text-gray-900 mb-3 border-b border-gray-100 pb-1.5">CaracterÃ­sticas principales</h2>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-y-3 text-xs sm:text-sm text-gray-700">
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-check text-cb-orange font-bold"></i> Vista a la Laguna</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-check text-cb-orange font-bold"></i> Terraza Exclusiva</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-check text-cb-orange font-bold"></i> Losa Radiante</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-check text-cb-orange font-bold"></i> Cochera Fija</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-check text-cb-orange font-bold"></i> BalcÃ³n Propio</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-check text-cb-orange font-bold"></i> Amenities de Playa</div>
+                    </div>
+
+                </div>
+
+                <!-- UBICACIÃ“N / MAPA -->
+                <div class="bg-white p-5 sm:p-6 rounded-xl shadow-2xs border border-gray-200">
+                    <h2 class="text-base sm:text-lg font-bold text-gray-900 mb-3 border-b border-gray-100 pb-1.5">UbicaciÃ³n</h2>
+                    <p class="text-gray-600 flex items-center gap-1.5 text-xs sm:text-sm mb-4">
+                        <i class="fa-solid fa-location-dot text-cb-orange"></i> 
+                        Lagoon Pilar, G.B.A. Zona Norte
+                    </p>
+                    <div class="rounded-xl overflow-hidden border border-gray-200">
+                        <iframe
+                            loading="lazy"
+                            width="100%"
+                            height="350"
+                            frameborder="0" style="border:0"
+                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAzl4i4TOOkkn10uXztBAG2e-ayEn2RgIw&q=-34.4122241,-58.8505545" allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- COLUMNA DERECHA / SIDEBAR -->
+            <div class="lg:col-span-4 relative">
+                
+                <div id="contact-form-container" class="sticky top-20 bg-white border border-gray-200 rounded-xl shadow-2xs p-4 sm:p-5 space-y-4">
+                    
+                    <!-- BRANDING AGENCIA & RATING -->
+                    <div class="pb-3 border-b border-gray-100 text-center">
+                        <img src="https://lh3.googleusercontent.com/d/1M_NDJYiOPCIhzgWuCpsv_EZbn7JaWMig=s1200" alt="Coldwell Banker Lion Team" class="w-full max-w-[220px] aspect-square mx-auto rounded-lg object-cover shadow-2xs mb-2 border border-gray-100">
+                        
+                        <div class="flex items-center justify-center gap-1 mt-2">
+                            <div class="text-amber-400 text-xs flex items-center">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <span class="relative inline-block text-gray-300">
+                                    <i class="fa-solid fa-star"></i>
+                                    <span class="absolute top-0 left-0 overflow-hidden text-amber-400 whitespace-nowrap" style="width: 85%;">
+                                        <i class="fa-solid fa-star"></i>
+                                    </span>
+                                </span>
+                            </div>
+                            <span class="text-gray-800 font-bold ml-1 text-[11px] bg-gray-50 px-2 py-0.5 rounded border border-gray-100">4.8 Estrellas</span>
+                        </div>
+                        
+                        <div class="mt-2 bg-gray-50 p-2 rounded-lg border border-gray-200/80">
+                            <p class="text-[11px] font-bold text-gray-800 uppercase tracking-wider flex items-center justify-center gap-1">
+                                <i class="fa-solid fa-shield-halved text-cb-orange text-xs"></i> Respaldo de Confianza
+                            </p>
+                            <p class="text-[10px] text-gray-500 mt-0.5">Oficina Oficial Coldwell Banker Lion Team</p>
+                        </div>
+                    </div>
+
+                    <!-- VIDEO REEL -->
+                    <div class="pb-3 border-b border-gray-100">
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="text-xs font-bold text-gray-800 uppercase tracking-wider flex items-center gap-1.5">
+                                <i class="fa-solid fa-building-flag text-cb-orange"></i> ConocÃ© Nuestra Oficina
+                            </h4>
+                            <span class="text-[10px] font-semibold text-gray-400">Coldwell Banker</span>
+                        </div>
+                        
+                        <div onclick="openVideoModal()" class="relative w-full aspect-[9/16] bg-black rounded-xl overflow-hidden shadow-2xs group cursor-pointer max-h-[340px] mx-auto border border-gray-200">
+                            <img src="../demo-venta-3-ambientes-con-cochera-villa-urquiza--4663004/cb_video_thumbnail.png" alt="Video Promocional Oficina" class="w-full h-full object-cover opacity-85 group-hover:scale-105 group-hover:opacity-100 transition-all duration-300" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80'">
+                            
+                            <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                                <div class="w-11 h-11 bg-white/30 backdrop-blur-md rounded-full flex items-center justify-center group-hover:bg-cb-orange group-hover:scale-110 transition-all duration-300 shadow-md border border-white/40">
+                                    <i class="fa-solid fa-play text-white text-base ml-0.5"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="absolute bottom-2.5 left-2.5 right-2.5 flex justify-center items-center text-white pointer-events-none">
+                                <span class="bg-black/75 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-bold backdrop-blur-xs uppercase tracking-wider flex items-center gap-2 shadow-md">
+                                    <i class="fa-solid fa-circle-play text-cb-orange text-sm sm:text-base"></i> Tocar para reproducir
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FORMULARIO DE CONTACTO -->
+                    <div>
+                        <h3 class="text-sm sm:text-base font-bold text-gray-900 mb-0.5">ContactÃ¡ al anunciante</h3>
+                        <p class="text-xs text-gray-500 mb-3">CompletÃ¡ tus datos para coordinar una visita.</p>
+
+                        <!-- Banner de Errores -->
+                        <div id="form-error-banner" class="hidden bg-red-50 border border-red-200 text-red-700 p-2.5 rounded-lg text-xs mb-3">
+                            <p class="font-bold mb-1"><i class="fa-solid fa-circle-exclamation"></i> Faltan datos obligatorios:</p>
+                            <ul id="error-list" class="list-disc pl-4 space-y-0.5"></ul>
+                        </div>
+
+                        <form id="formularioLead" onsubmit="handleFormSubmit(event)" class="space-y-3" novalidate>
+                            <!-- Campos Ocultos para el webhook -->
+                            <input type="hidden" id="propiedad_origen" value="Lagoon Pilar">
+                            <input type="hidden" id="agencia" value="coldwellbanker">
+
+                            <!-- Campo Nombre -->
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">Nombre y Apellido *</label>
+                                <input type="text" id="nombre" required placeholder="Ej. Juan PÃ©rez" class="w-full px-3 py-2 border border-gray-300 rounded-lg text-xs sm:text-sm focus:outline-none focus:border-cb-orange focus:ring-1 focus:ring-cb-orange transition">
+                            </div>
+
+                            <!-- Campo WhatsApp -->
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">WhatsApp *</label>
+                                <input type="tel" id="whatsapp" required value="54 9 " placeholder="54 9 11 2233 4455" class="w-full px-3 py-2 border border-gray-300 rounded-lg text-xs sm:text-sm focus:outline-none focus:border-cb-orange focus:ring-1 focus:ring-cb-orange transition">
+                                <p class="text-[10px] text-gray-400 mt-1">IngresÃ¡ tu cÃ³digo de Ã¡rea sin el 0 y nÃºmero sin el 15.</p>
+                            </div>
+
+                            <!-- Opciones de SituaciÃ³n -->
+                            <div class="pt-1">
+                                <label class="block text-xs font-semibold text-gray-700 mb-2">Â¿CuÃ¡l es tu situaciÃ³n actual? *</label>
+                                
+                                <div class="space-y-2">
+                                    <!-- OpciÃ³n 1: Compra Directa -->
+                                    <label class="flex items-center p-2 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50 transition">
+                                        <input type="radio" name="search_status" value="Compra Directa" class="w-3.5 h-3.5 text-cb-orange border-gray-300 focus:ring-cb-orange">
+                                        <span class="ml-2 text-xs text-gray-800 font-medium">Compra Directa</span>
+                                    </label>
+
+                                    <!-- OpciÃ³n 2: Vender para comprar -->
+                                    <label class="flex items-start p-2 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50 transition">
+                                        <input type="radio" name="search_status" value="Vender para comprar" class="w-3.5 h-3.5 text-cb-orange border-gray-300 focus:ring-cb-orange mt-0.5">
+                                        <div class="ml-2">
+                                            <span class="block text-xs text-gray-900 font-bold">Vender para comprar</span>
+                                            <span class="block text-[11px] text-cb-orange font-bold mt-0.5">âœ¨ Sos mÃ¡s que bienvenido a visitar el inmueble</span>
+                                        </div>
+                                    </label>
+
+                                    <!-- OpciÃ³n 3: TasaciÃ³n Directa -->
+                                    <label class="flex items-start p-2 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50 transition">
+                                        <input type="radio" name="search_status" value="TasaciÃ³n" class="w-3.5 h-3.5 text-cb-orange border-gray-300 focus:ring-cb-orange mt-0.5">
+                                        <div class="ml-2">
+                                            <span class="block text-xs text-gray-900 font-bold mb-0.5">Â¡Quiero tasar mi propiedad! ðŸ¡</span>
+                                            <span class="block text-[10px] text-gray-500 leading-tight">No me interesa esta propiedad, pero me gustarÃ­a un anÃ¡lisis comparativo de la mÃ­a.</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- PolÃ­ticas -->
+                            <div class="text-[10px] text-gray-500 pt-0.5 flex gap-1.5 items-start">
+                                <input type="checkbox" checked class="mt-0.5" disabled>
+                                <span>Al enviar, acepto los TÃ©rminos y Condiciones y la PolÃ­tica de Privacidad de la oficina.</span>
+                            </div>
+
+                            <!-- Botones Enviar -->
+                            <div class="pt-1">
+                                <button type="submit" class="w-full bg-cb-orange hover:bg-orange-600 text-white font-bold py-2.5 rounded-lg transition duration-200 text-xs sm:text-sm tracking-wide shadow-2xs flex items-center justify-center gap-2">
+                                    <i class="fa-solid fa-user-tie"></i> Un agente se contactarÃ¡ con vos
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- BARRA FLOTANTE MÃ“VIL -->
+    <div id="mobile-floating-bar" class="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-2.5 z-50 shadow-[0_-8px_12px_-3px_rgba(0,0,0,0.05)] flex gap-2 transition-all duration-300 opacity-100">
+        <button onclick="scrollToForm()" class="w-full bg-cb-orange hover:bg-orange-600 text-white font-bold py-2.5 rounded-lg transition text-xs sm:text-sm flex items-center justify-center gap-2 shadow-2xs px-2">
+            <i class="fa-solid fa-user-tie text-base"></i>
+            Un agente de la oficina contactarÃ¡ con vos
+        </button>
+    </div>
+
+    <!-- REFERENCIA DISCRETA DE CAMPAÃ‘A -->
+    <footer class="pb-4">
+        <p style="font-size:10px; color:#999; text-align:center; margin-top:16px;">
+            ref: <span id="refCampana"></span>
+        </p>
+    </footer>
+
+    <!-- MODAL GALERÃA COMPLETA -->
+    <div id="gallery-modal" class="fixed inset-0 z-[60] bg-black hidden items-center justify-center">
+        <button onclick="closeGallery()" class="absolute top-4 right-4 text-white hover:text-gray-300 text-3xl z-[70] p-4">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="w-full h-full flex flex-col justify-center items-center relative">
+            <img id="gallery-current-img" src="" class="max-h-[85vh] max-w-full object-contain">
+            
+            <button onclick="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 text-white bg-black/50 hover:bg-black/80 w-12 h-12 rounded-full flex items-center justify-center text-xl transition">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button onclick="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 text-white bg-black/50 hover:bg-black/80 w-12 h-12 rounded-full flex items-center justify-center text-xl transition">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+            
+            <div class="text-white text-sm mt-4 font-medium tracking-widest">
+                <span id="current-slide-num">1</span> / 3
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL VIDEO REEL -->
+    <div id="video-modal" class="fixed inset-0 z-[60] bg-black/90 backdrop-blur-md hidden items-center justify-center p-4">
+        <button onclick="closeVideoModal()" class="absolute top-4 right-4 text-white hover:text-gray-300 text-3xl z-[70] p-3">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        
+        <div class="w-full max-w-sm aspect-[9/16] bg-black rounded-2xl overflow-hidden shadow-2xl relative border border-gray-800">
+            <video id="reel-video-player" class="w-full h-full object-cover" controls autoplay loop playsinline>
+                <source src="../demo-venta-3-ambientes-con-cochera-villa-urquiza--4663004/video-coldwell-banker.mp4" type="video/mp4">
+                Tu navegador no soporta reproducciÃ³n de video.
+            </video>
+            
+            <div class="absolute top-4 left-4 bg-cb-navy/90 text-white px-3 py-1 rounded-full text-xs font-bold tracking-wider flex items-center gap-1.5 shadow shadow-black/50">
+                <i class="fa-brands fa-instagram text-pink-400 text-sm"></i> @coldwellbanker.lionteam
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL Ã‰XITO -->
+    <div id="success-modal" class="fixed inset-0 z-[70] bg-slate-900/80 backdrop-blur-xs hidden items-center justify-center p-4">
+        <div class="bg-white rounded-2xl p-6 sm:p-8 max-w-md w-full text-center space-y-4 shadow-2xl border border-slate-200">
+            <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-3xl mx-auto">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            
+            <h3 class="text-xl font-bold text-slate-900">Â¡Solicitud Recibida!</h3>
+            
+            <p class="text-sm text-slate-600 leading-relaxed">
+                Los datos fueron enviados correctamente. En breve, un asesor de Coldwell Banker Lion Team se comunicarÃ¡ con vos para brindarte toda la informaciÃ³n y coordinar la visita.
+            </p>
+
+            <button onclick="closeSuccessModal()" class="w-full mt-2 bg-cb-orange hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-xl text-sm transition">
+                Entendido
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwKecPyhYUmkGM9KT7xMfQH3V-75YypizyO5hFW1Di7zRHPgOCwHKdXI3TdSS3WD_tX/exec";
+        const CODIGO_CAMPANA = "Venta-8582056";
+
+        function toggleDescription() {
+            const content = document.getElementById('description-content');
+            const overlay = document.getElementById('description-overlay');
+            const btnText = document.querySelector('#toggle-desc-btn span');
+            const btnIcon = document.getElementById('toggle-desc-icon');
+
+            if (content.classList.contains('max-h-[130px]')) {
+                content.classList.remove('max-h-[130px]');
+                overlay.classList.add('hidden');
+                btnText.innerText = 'Ver menos';
+                btnIcon.classList.add('rotate-180');
+            } else {
+                content.classList.add('max-h-[130px]');
+                overlay.classList.remove('hidden');
+                btnText.innerText = 'Ver descripciÃ³n completa';
+                btnIcon.classList.remove('rotate-180');
+            }
+        }
+
+        const galleryImages = [
+            "https://d1v2p1s05qqabi.cloudfront.net/26091321/1786054891.jpg",
+            "https://d1v2p1s05qqabi.cloudfront.net/26091322/1786054891.jpg",
+            "https://d1v2p1s05qqabi.cloudfront.net/26091325/1786054892.jpg"
+        ];
+
+        const fallbackPhoto = "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80";
+        let currentSlide = 0;
+
+        function scrollToForm() {
+            document.getElementById('contact-form-container').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function openGallery(index = 0) {
+            currentSlide = index;
+            document.getElementById('gallery-modal').classList.remove('hidden');
+            document.getElementById('gallery-modal').classList.add('flex');
+            updateSlideView();
+        }
+
+        function closeGallery() {
+            document.getElementById('gallery-modal').classList.add('hidden');
+            document.getElementById('gallery-modal').classList.remove('flex');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % galleryImages.length;
+            updateSlideView();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + galleryImages.length) % galleryImages.length;
+            updateSlideView();
+        }
+
+        function updateSlideView() {
+            const imgElem = document.getElementById('gallery-current-img');
+            imgElem.onerror = function() { this.src = fallbackPhoto; };
+            imgElem.src = galleryImages[currentSlide];
+            document.getElementById('current-slide-num').innerText = currentSlide + 1;
+        }
+
+        function openVideoModal() {
+            const modal = document.getElementById('video-modal');
+            const video = document.getElementById('reel-video-player');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            if (video) video.play();
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('video-modal');
+            const video = document.getElementById('reel-video-player');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            if (video) video.pause();
+        }
+
+        async function handleFormSubmit(e) {
+            e.preventDefault();
+            const form = e.target;
+            const statusChecked = form.querySelector('input[name="search_status"]:checked');
+            const nameInput = document.getElementById('nombre');
+            const phoneInput = document.getElementById('whatsapp');
+
+            const errorBanner = document.getElementById('form-error-banner');
+            const errorList = document.getElementById('error-list');
+            let missingFields = [];
+
+            errorBanner.classList.add('hidden');
+            nameInput.classList.remove('border-red-500');
+            phoneInput.classList.remove('border-red-500');
+
+            if (!nameInput.value.trim()) {
+                missingFields.push('Nombre y Apellido');
+                nameInput.classList.add('border-red-500');
+            }
+
+            const phoneVal = phoneInput.value.trim();
+            const phoneDigitsOnly = phoneVal.replace(/\D/g, '');
+            const hasLetters = /[a-zA-Z]/.test(phoneVal);
+            const isValidPhone = phoneVal.length > 5 && !hasLetters && phoneDigitsOnly.length >= 10;
+
+            if (!isValidPhone) {
+                missingFields.push('WhatsApp vÃ¡lido (mÃ­n. 10 dÃ­gitos sin letras)');
+                phoneInput.classList.add('border-red-500');
+            }
+
+            if (!statusChecked) {
+                missingFields.push('SituaciÃ³n actual (Elegir una opciÃ³n)');
+            }
+
+            if (missingFields.length > 0) {
+                errorList.innerHTML = missingFields.map(f => `<li>${f}</li>`).join('');
+                errorBanner.classList.remove('hidden');
+                return;
+            }
+
+            const fullFormattedPhone = phoneVal.startsWith('+') ? phoneVal : `+${phoneDigitsOnly}`;
+
+            const payload = {
+                nombre: nameInput.value.trim(),
+                whatsapp: fullFormattedPhone,
+                tipo_operacion: statusChecked.value,
+                propiedad_origen: document.getElementById('propiedad_origen').value,
+                agencia: document.getElementById('agencia').value,
+                campana: CODIGO_CAMPANA
+            };
+
+            try {
+                const btn = form.querySelector('button[type="submit"]');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Enviando...';
+                btn.disabled = true;
+
+                if (WEB_APP_URL && WEB_APP_URL.startsWith('http')) {
+                    await fetch(WEB_APP_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: {
+                            'Content-Type': 'text/plain;charset=utf-8'
+                        },
+                        body: JSON.stringify(payload)
+                     });
+                     console.log('Lead enviado a GuardPerfÂ® / Apps Script:', payload);
+                }
+
+                form.reset();
+                document.getElementById('success-modal').classList.remove('hidden');
+                document.getElementById('success-modal').classList.add('flex');
+                
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+
+            } catch (err) {
+                console.error('Error al enviar la solicitud:', err);
+                const msgBox = document.createElement('div');
+                msgBox.className = "fixed top-4 right-4 bg-red-600 text-white px-4 py-2 rounded shadow-lg text-xs z-[100]";
+                msgBox.innerText = "Hubo un problema de conexiÃ³n. IntentÃ¡ nuevamente.";
+                document.body.appendChild(msgBox);
+                setTimeout(() => msgBox.remove(), 4000);
+            }
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('success-modal').classList.add('hidden');
+            document.getElementById('success-modal').classList.remove('flex');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const refElem = document.getElementById('refCampana');
+            if (refElem) {
+                refElem.innerText = CODIGO_CAMPANA;
+            }
+
+            const images = ['main-photo', 'photo-1', 'photo-2'];
+            images.forEach((id) => {
+                const img = document.getElementById(id);
+                if (img) {
+                    img.onerror = () => { img.src = fallbackPhoto; };
+                }
+            });
+
+            const floatingBar = document.getElementById('mobile-floating-bar');
+            const formContainer = document.getElementById('contact-form-container');
+            if (floatingBar && formContainer) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            floatingBar.classList.add('opacity-0', 'pointer-events-none');
+                            floatingBar.classList.remove('opacity-100');
+                        } else {
+                            floatingBar.classList.remove('opacity-0', 'pointer-events-none');
+                            floatingBar.classList.add('opacity-100');
+                        }
+                    });
+                }, {
+                    threshold: 0.1
+                });
+                observer.observe(formContainer);
+            }
+        });
+    </script>
+</body>
+</html>
+
