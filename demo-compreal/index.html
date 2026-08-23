@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Búsqueda Activa de Comprador Real | M2Marketing Network</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts: Plus Jakarta Sans e Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            slate: '#0f172a',
+                            slateDark: '#020617',
+                            emerald: '#10b981',
+                            emeraldDark: '#059669',
+                            rose: '#ef4444',
+                            amber: '#f59e0b',
+                            blue: '#2563eb'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'soft-xl': '0 20px 40px -15px rgba(15, 23, 42, 0.07)',
+                        'glow-emerald': '0 10px 30px -5px rgba(16, 185, 129, 0.25)',
+                        'glow-amber': '0 10px 25px -5px rgba(245, 158, 11, 0.2)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+        }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .hover-wow {
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+        }
+        .hover-wow:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px -10px rgba(15, 23, 42, 0.08);
+        }
+
+        .pulse-emerald {
+            animation: pulseEmerald 2s infinite;
+        }
+
+        @keyframes pulseEmerald {
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); }
+            70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+    </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2460527884444494');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2460527884444494&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body class="antialiased text-slate-900 pb-20 md:pb-10 selection:bg-emerald-100 selection:text-emerald-800">
+
+    <!-- TOP BANNER DE AUTENTICIDAD Y ANUNCIO OFICIAL CON GRADIENTE FLÚOR -->
+    <div class="bg-gradient-to-r from-purple-700 via-pink-600 to-orange-500 text-white py-2.5 px-4 text-xs font-medium shadow-sm">
+        <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-2">
+            <div class="flex flex-wrap items-center gap-2">
+                <i class="fa-brands fa-instagram text-base"></i>
+                <span><strong>Anuncio Oficial</strong> • Campaña directa desde el Instagram verificado de la oficina</span>
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/20 text-white text-[10px] font-extrabold uppercase tracking-wider">
+                    <i class="fa-solid fa-circle-check text-emerald-300"></i> Búsqueda 100% Verificada
+                </span>
+            </div>
+            <div class="flex items-center gap-2 text-white/90 text-[11px]">
+                <span>Ref: <strong class="text-amber-300 font-mono" id="refCodigo">COMPRADOR-PALERMO-2026</strong></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER CON MARCA E IDENTIDAD LIMPIA -->
+    <header class="bg-white/90 backdrop-blur-md border-b border-slate-200 sticky top-0 z-40 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 h-auto py-3 sm:h-20 flex flex-col sm:flex-row items-center justify-between gap-3">
+            
+            <div class="flex items-center gap-3">
+                <div>
+                    <span class="text-base sm:text-lg font-black text-slate-900 tracking-tight flex items-center gap-1.5">
+                        Búsqueda <strong class="text-rose-600">Activa</strong>
+                    </span>
+                    <span class="text-[10px] text-slate-500 font-bold block -mt-1 uppercase tracking-wider">Comprador Verificado por la Oficina</span>
+                </div>
+            </div>
+
+            <!-- ETIQUETAS EN HEADER (VERIFICADA + COLDWELL BANKER) -->
+            <div class="flex flex-wrap items-center justify-center sm:justify-end gap-2 text-xs">
+                <span class="px-3 py-1.5 rounded-full bg-rose-50 text-rose-800 font-extrabold border border-rose-200 flex items-center gap-1.5 shadow-xs">
+                    <i class="fa-solid fa-shield-check text-rose-600"></i>
+                    <span>Búsqueda Verificada por la Oficina</span>
+                </span>
+                <span class="px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 font-bold border border-slate-200 flex items-center gap-1.5 shadow-xs">
+                    <i class="fa-solid fa-building-circle-check text-blue-600"></i>
+                    <span>Coldwell Banker Lion Team</span>
+                </span>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <main class="max-w-6xl mx-auto px-4 py-6 sm:py-8 space-y-8">
+
+        <!-- BREADCRUMB -->
+        <div class="text-xs text-slate-500 flex items-center gap-1.5 font-medium">
+            <span>Búsquedas Activas</span> <span>/</span>
+            <span>CABA</span> <span>/</span>
+            <span class="text-slate-900 font-extrabold">Palermo / Recoleta / Belgrano</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+            <!-- COLUMNA IZQUIERDA: DETALLES DE LA BÚSQUEDA DEL COMPRADOR (8 Cols) -->
+            <div class="lg:col-span-8 space-y-6">
+
+                <!-- FICHA OFICIAL DE BÚSQUEDA DEL COMPRADOR REAL -->
+                <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6 hover-wow">
+                    
+                    <div class="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-slate-100">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-2xl bg-rose-50 text-rose-600 border border-rose-200 flex items-center justify-center font-black text-xl flex-shrink-0">
+                                <i class="fa-solid fa-user-check"></i>
+                            </div>
+                            <div>
+                                <span class="px-2.5 py-0.5 rounded-md bg-rose-100 text-rose-800 text-[10px] font-black uppercase tracking-wider">
+                                    Búsqueda Verificada
+                                </span>
+                                <h1 class="text-xl sm:text-2xl font-black text-slate-900 mt-1">
+                                    Búsqueda Activa: Depto 3 Ambientes
+                                </h1>
+                            </div>
+                        </div>
+
+                        <div class="text-right">
+                            <span class="text-[10px] text-slate-400 font-bold uppercase block">Presupuesto Aprobado</span>
+                            <span class="text-2xl sm:text-3xl font-black text-emerald-600">USD 240.000 - 310.000</span>
+                        </div>
+                    </div>
+
+                    <!-- REQUISITOS CLAVE EN GRID -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+                        <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-100">
+                            <i class="fa-solid fa-map-location-dot text-rose-500 text-base mb-1"></i>
+                            <span class="text-slate-400 font-bold block text-[10px] uppercase">Zonas Preferentes</span>
+                            <strong class="text-slate-900 font-black">Palermo / Belgrano / Recoleta</strong>
+                        </div>
+                        <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-100">
+                            <i class="fa-solid fa-door-open text-blue-500 text-base mb-1"></i>
+                            <span class="text-slate-400 font-bold block text-[10px] uppercase">Ambientes</span>
+                            <strong class="text-slate-900 font-black">3 a 4 Ambientes (Min 85m²)</strong>
+                        </div>
+                        <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-100">
+                            <i class="fa-solid fa-car text-amber-500 text-base mb-1"></i>
+                            <span class="text-slate-400 font-bold block text-[10px] uppercase">Cochera</span>
+                            <strong class="text-slate-900 font-black">Preferente (No excluyente)</strong>
+                        </div>
+                        <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-100">
+                            <i class="fa-solid fa-wallet text-emerald-500 text-base mb-1"></i>
+                            <span class="text-slate-400 font-bold block text-[10px] uppercase">Forma de Pago</span>
+                            <strong class="text-slate-900 font-black">Efectivo / Fondos Listos</strong>
+                        </div>
+                    </div>
+
+                    <!-- DETALLE EXTENDIDO DE LA BÚSQUEDA -->
+                    <div class="space-y-3 pt-2">
+                        <h2 class="text-base font-extrabold text-slate-900 flex items-center gap-2">
+                            <i class="fa-solid fa-clipboard-list text-rose-600"></i>
+                            <span>Detalle de los Requisitos del Comprador</span>
+                        </h2>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
+                            El cliente se encuentra representado formalmente por nuestro equipo. Dispone de fondos liquidados tras la venta previa de un inmueble y busca concretar la reserva en los próximos 15 a 30 días.
+                        </p>
+
+                        <div class="bg-rose-50/70 p-4 rounded-2xl border border-rose-200 space-y-2">
+                            <span class="text-xs font-black text-rose-900 uppercase tracking-wider flex items-center gap-1.5">
+                                <i class="fa-solid fa-check-double text-rose-600"></i> Requisitos Específicos Priorizados:
+                            </span>
+                            <ul class="text-xs text-slate-700 space-y-1.5 list-disc pl-4 font-semibold">
+                                <li>Luminosidad natural indispensable (orientación frente o contrafrente abierto).</li>
+                                <li>Balcón o terraza aprovechable.</li>
+                                <li>Edificio con mantenimiento prolijo y expensas razonables.</li>
+                                <li>Estado: Apto para habitar o con reformas menores.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- COLUMNA DERECHA: FORMULARIO Y AGENTE RESPONSABLE (4 Cols) -->
+            <div class="lg:col-span-4 space-y-6">
+
+                <!-- TARJETA DEL AGENTE RESPONSABLE -->
+                <div class="bg-white rounded-3xl p-5 border border-slate-200 shadow-sm text-center space-y-3 hover-wow">
+                    <div class="relative w-20 h-20 mx-auto rounded-2xl overflow-hidden border-2 border-emerald-500 shadow-md">
+                        <img src="https://lh3.googleusercontent.com/d/1I5_hlmtZbP-ymujCBYGXWdmJh8N_n4wN" 
+                             alt="Pablo Reina" 
+                             class="w-full h-full object-cover object-top"
+                             onerror="this.onerror=null; this.src='https://placehold.co/150x150/0f172a/ffffff?text=Pablo+Reina';">
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-bold text-slate-400 uppercase block tracking-wider">Agente Responsable de la Búsqueda</span>
+                        <h3 class="font-black text-slate-900 text-base">Pablo Reina</h3>
+                        <p class="text-xs text-slate-500 font-bold">Top Producer • Coldwell Banker Lion Team</p>
+                    </div>
+                    <div class="bg-slate-50 p-2.5 rounded-2xl border border-slate-100 flex items-center justify-center gap-2 text-xs font-bold text-slate-700">
+                        <i class="fa-solid fa-certificate text-amber-500"></i>
+                        <span>Representante Oficial del Comprador</span>
+                    </div>
+                </div>
+
+                <!-- FORMULARIO ULTRA SIMPLIFICADO DIRECCIÓN WHATSAPP -->
+                <div id="formulario" class="bg-white rounded-3xl p-6 border-2 border-emerald-500/80 shadow-xl space-y-4 relative">
+                    
+                    <div class="space-y-1 text-center">
+                        <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 text-[10px] font-black uppercase tracking-wider inline-block">
+                            <i class="fa-brands fa-whatsapp mr-1 text-emerald-600"></i> Contacto Directo
+                        </span>
+                        <h3 class="text-lg font-black text-slate-900">¿Tenés una propiedad compatible?</h3>
+                        <p class="text-xs text-slate-500 font-medium">Ingresá tu nombre y WhatsApp para coordinar directamente con Pablo Reina.</p>
+                    </div>
+
+                    <!-- BANNER DE ERRORES -->
+                    <div id="formErrorBanner" class="hidden bg-rose-50 border border-rose-200 text-rose-800 p-3 rounded-2xl text-xs space-y-1">
+                        <strong class="font-extrabold block"><i class="fa-solid fa-circle-exclamation"></i> Por favor completá los campos:</strong>
+                        <ul id="errorList" class="list-disc pl-4 space-y-0.5 font-medium"></ul>
+                    </div>
+
+                    <form id="formComprador" onsubmit="submitPropertyOffer(event)" class="space-y-3" novalidate>
+                        
+                        <div>
+                            <label class="block text-xs font-extrabold text-slate-700 mb-1">Nombre y Apellido *</label>
+                            <input type="text" id="inputNombre" required placeholder="Ej. Carlos Giménez" class="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 font-medium transition">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-extrabold text-slate-700 mb-1">WhatsApp de Contacto *</label>
+                            <input type="tel" id="inputWhatsapp" required value="54 9 " placeholder="54 9 11 2233 4455" class="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 font-medium transition">
+                        </div>
+
+                        <button type="submit" id="btnSubmitForm" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-black py-3 rounded-xl transition text-xs sm:text-sm tracking-wide shadow-md flex items-center justify-center gap-2 pulse-emerald">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>Coordinar Visita por WhatsApp</span>
+                        </button>
+
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- BARRA FLOTANTE EN MÓVIL -->
+    <div class="lg:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-slate-200 p-3 z-50 shadow-2xl flex gap-2">
+        <a href="#formulario" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold py-3 rounded-xl text-xs text-center flex items-center justify-center gap-2 shadow-md">
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+            <span>Ofrecer mi propiedad por WhatsApp</span>
+        </a>
+    </div>
+
+    <!-- MODAL DE REDIRECCIÓN A WHATSAPP -->
+    <div id="modalExito" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full text-center space-y-4 shadow-2xl border border-slate-200">
+            <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-3xl mx-auto">
+                <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            
+            <h3 class="text-xl font-black text-slate-900">Abriendo WhatsApp...</h3>
+            
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
+                Serás redirigido al chat con <strong class="text-slate-900 font-extrabold">Pablo Reina</strong> para coordinar la evaluación de tu inmueble.
+            </p>
+
+            <a id="linkWhatsappDirecto" href="#" target="_blank" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold py-3 rounded-xl text-xs sm:text-sm transition flex items-center justify-center gap-2">
+                <i class="fa-brands fa-whatsapp text-base"></i>
+                <span>Abrir WhatsApp Ahora</span>
+            </a>
+            
+            <button onclick="cerrarModalExito()" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-2 rounded-xl text-xs transition">
+                Cerrar
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwKecPyhYUmkGM9KT7xMfQH3V-75YypizyO5hFW1Di7zRHPgOCwHKdXI3TdSS3WD_tX/exec";
+        const AGENT_WHATSAPP = "5491135678024"; // Número de WhatsApp oficial de Pablo / Oficina
+
+        async function submitPropertyOffer(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const nombre = document.getElementById('inputNombre');
+            const whatsapp = document.getElementById('inputWhatsapp');
+
+            const errorBanner = document.getElementById('formErrorBanner');
+            const errorList = document.getElementById('errorList');
+            let missing = [];
+
+            errorBanner.classList.add('hidden');
+            [nombre, whatsapp].forEach(i => i.classList.remove('border-rose-500'));
+
+            if (!nombre.value.trim()) {
+                missing.push('Nombre y Apellido');
+                nombre.classList.add('border-rose-500');
+            }
+
+            const phoneVal = whatsapp.value.trim();
+            const digitsOnly = phoneVal.replace(/\D/g, '');
+            if (phoneVal.length < 8 || digitsOnly.length < 8) {
+                missing.push('WhatsApp válido con código de área');
+                whatsapp.classList.add('border-rose-500');
+            }
+
+            if (missing.length > 0) {
+                errorList.innerHTML = missing.map(m => `<li>${m}</li>`).join('');
+                errorBanner.classList.remove('hidden');
+                return;
+            }
+
+            const btn = document.getElementById('btnSubmitForm');
+            const origText = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Conectando...';
+            btn.disabled = true;
+
+            const payload = {
+                nombre: nombre.value.trim(),
+                whatsapp: `+${digitsOnly}`,
+                campana: 'COMPRADOR-REAL-VERIFICADO',
+                origen: 'Landing CompReal WhatsApp'
+            };
+
+            // Armar mensaje precompletado para WhatsApp
+            const mensajeWa = `Hola Pablo, soy ${nombre.value.trim()}. Tengo una propiedad que puede coincidir con la búsqueda activa de comprador (Ref: #CR-9482) y me gustaría evaluar la visita.`;
+            const waUrl = `https://wa.me/${AGENT_WHATSAPP}?text=${encodeURIComponent(mensajeWa)}`;
+
+            try {
+                if (SCRIPT_URL && SCRIPT_URL.startsWith('http')) {
+                    await fetch(SCRIPT_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                        body: JSON.stringify(payload)
+                    });
+                }
+            } catch (err) {
+                console.error("Error al registrar lead:", err);
+            } finally {
+                btn.innerHTML = origText;
+                btn.disabled = false;
+
+                // Setear enlace y abrir modal / redireccionar a WhatsApp
+                document.getElementById('linkWhatsappDirecto').href = waUrl;
+                document.getElementById('modalExito').classList.remove('hidden');
+                document.getElementById('modalExito').classList.add('flex');
+
+                // Abrir directamente en nueva pestaña
+                window.open(waUrl, '_blank');
+                form.reset();
+            }
+        }
+
+        function cerrarModalExito() {
+            document.getElementById('modalExito').classList.add('hidden');
+            document.getElementById('modalExito').classList.remove('flex');
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRM Agéntico Gratis — M2Marketing</title>
+<link rel="icon" href="https://lh3.googleusercontent.com/d/1Yq4YcFxytCooor28U_NwUU3iPFkzw1EV">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* Los mismos valores exactos de la pagina de invitacion que ya esta publicada. No se eligio
+     ningun color nuevo ni ninguna tipografia nueva: se copiaron del archivo real para que la
+     estetica sea la misma y lo unico que cambie sea el largo. */
+  :root{
+    --bg-light:#f8fafc; --bg-white:#ffffff;
+    --text-main:#0f172a; --text-sec:#475569;
+    --blue:#2563eb; --emerald:#10b981; --amber:#f59e0b;
+    --slate-200:#e2e8f0; --slate-900:#0f172a; --slate-950:#020617;
+  }
+  *{box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    margin:0; font-family:'Plus Jakarta Sans',sans-serif;
+    background:var(--bg-light); color:var(--text-main);
+    -webkit-font-smoothing:antialiased;
+    display:flex; flex-direction:column;
+  }
+  .text-gradient{
+    background:linear-gradient(135deg,#2563eb 0%,#7c3aed 50%,#f59e0b 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  header{
+    display:flex; align-items:center; justify-content:center;
+    padding:24px 24px 4px; gap:10px;
+  }
+  header img{height:36px; width:36px; object-fit:cover; border-radius:50%;}
+  header span{font-weight:800; font-size:15px; letter-spacing:.02em;}
+
+  /* El bloque que decide. Todo esto tiene que entrar en una pantalla de telefono sin scrollear:
+     si hay que bajar para encontrar el boton, la pagina volvio a cobrar peaje. */
+  main{
+    flex:1 0 auto;
+    max-width:620px; width:100%; margin:0 auto; padding:18px 24px 8px;
+    text-align:center;
+    display:flex; flex-direction:column; justify-content:center;
+  }
+  .badge{
+    display:inline-block; align-self:center;
+    padding:6px 16px; border-radius:999px;
+    background:#ecfdf5; color:#059669; font-weight:800; font-size:11px;
+    text-transform:uppercase; letter-spacing:.06em; margin-bottom:16px;
+  }
+  h1{
+    font-size:clamp(26px,6vw,40px); font-weight:800; line-height:1.14;
+    letter-spacing:-0.02em; margin:0 0 14px;
+  }
+  .bajada{
+    font-size:15.5px; color:var(--text-sec); font-weight:500; line-height:1.6;
+    max-width:460px; margin:0 auto;
+  }
+
+  /* Tres pruebas, no diecisiete tarjetas. Y sin desplegables a proposito: nada para tocar antes
+     del boton, porque cada cosa que se puede tocar es una cosa que no es el boton. */
+  .pruebas{
+    list-style:none; margin:24px auto 0; padding:0;
+    max-width:430px; text-align:left;
+    display:flex; flex-direction:column; gap:10px;
+  }
+  .pruebas li{
+    background:var(--bg-white); border:1px solid var(--slate-200);
+    border-radius:16px; padding:14px 16px;
+    display:flex; align-items:flex-start; gap:12px;
+    box-shadow:0 1px 2px rgba(15,23,42,.04);
+  }
+  .pruebas .icon{font-size:20px; line-height:1.2; flex-shrink:0;}
+  .pruebas b{display:block; font-size:14px; font-weight:800; margin-bottom:2px;}
+  .pruebas span.txt{font-size:13px; color:var(--text-sec); font-weight:500; line-height:1.5;}
+
+  /* El boton va en el flujo y no flotando: la pagina entra entera, asi que no hace falta que el
+     boton persiga al lector. Se conserva el degradado y el latido de la version actual. */
+  .cta{margin:28px auto 0; display:flex; flex-direction:column; align-items:center; gap:10px;}
+  .cta a{
+    display:flex; align-items:center; gap:10px;
+    background:linear-gradient(135deg,#2563eb 0%,#7c3aed 55%,#f59e0b 100%);
+    color:#fff; text-decoration:none;
+    font-weight:800; font-size:16px;
+    padding:17px 32px; border-radius:999px;
+    box-shadow:0 12px 34px rgba(37,99,235,.4), 0 0 0 1px rgba(255,255,255,.15) inset;
+    transition:transform .15s ease, box-shadow .15s ease;
+    animation:pulse-glow 2.4s ease-in-out infinite;
+  }
+  .cta a:hover{
+    transform:translateY(-3px) scale(1.02);
+    box-shadow:0 18px 42px rgba(37,99,235,.5), 0 0 0 1px rgba(255,255,255,.2) inset;
+  }
+  .cta .dot{
+    width:9px; height:9px; border-radius:999px; background:#fff;
+    box-shadow:0 0 0 4px rgba(255,255,255,.3);
+  }
+  /* La promesa va PEGADA al boton y no adentro: el boton dice que se hace, esto dice que pasa
+     despues de tocarlo. Es la regla de los botones de las landings. */
+  .promesa{font-size:12.5px; color:var(--text-sec); font-weight:600; margin:0;}
+  @keyframes pulse-glow{
+    0%,100%{box-shadow:0 12px 34px rgba(37,99,235,.4), 0 0 0 1px rgba(255,255,255,.15) inset;}
+    50%{box-shadow:0 12px 44px rgba(124,58,237,.55), 0 0 0 1px rgba(255,255,255,.2) inset;}
+  }
+  footer{
+    flex-shrink:0; text-align:center; padding:24px 24px 20px;
+    font-size:11.5px; color:#94a3b8; font-weight:600;
+  }
+  /* En telefono se aprieta todo un poco. El objetivo esta medido y no es estetico: que el boton
+     quede arriba del pliegue incluso descontando la barra del navegador, que en un telefono real
+     se come alrededor de cien pixeles que en la computadora no se ven. */
+  @media (max-width:480px){
+    header{padding:14px 20px 2px;}
+    main{padding:6px 20px 4px;}
+    .badge{margin-bottom:12px;}
+    h1{margin-bottom:12px;}
+    .bajada{font-size:15px;}
+    .pruebas{margin-top:16px; gap:8px;}
+    .pruebas li{padding:12px 14px;}
+    .cta{margin-top:22px;}
+    .cta a{padding:16px 26px; font-size:15px;}
+    footer{padding:16px 20px 14px;}
+  }
+  /* Pantallas cortas de verdad, tipo iPhone SE. Medido: sin esto el boton quedaba tres pixeles
+     abajo del pliegue, que es lo mismo que estar abajo. Se achica lo que no informa, nunca el
+     boton ni las tres pruebas. */
+  @media (max-height:700px){
+    header{padding:10px 20px 0;}
+    header img{height:30px; width:30px;}
+    .badge{margin-bottom:8px; padding:5px 13px; font-size:10px;}
+    h1{font-size:24px; margin-bottom:9px;}
+    .bajada{font-size:14px; line-height:1.5;}
+    .pruebas{margin-top:13px; gap:7px;}
+    .pruebas li{padding:10px 13px;}
+    .pruebas b{font-size:13.5px;}
+    .pruebas span.txt{font-size:12.5px;}
+    .cta{margin-top:17px;}
+    footer{padding:12px 20px 10px;}
+  }
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,"script",
+"https://connect.facebook.net/en_US/fbevents.js");
+fbq("init", "2460527884444494");
+fbq("track", "PageView");
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2460527884444494&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body>
+
+<header>
+  <img src="https://lh3.googleusercontent.com/d/1Yq4YcFxytCooor28U_NwUU3iPFkzw1EV" alt="M2Marketing" onerror="this.style.display='none'">
+  <span>M2MARKETING</span>
+</header>
+
+<main>
+  <span class="badge">100% gratis para agentes inmobiliarios</span>
+  <h1>Un <span class="text-gradient">CRM agéntico</span><br>que trabaja como un asistente de verdad</h1>
+  <p class="bajada">Le hablás como a una persona y hace el trabajo. Sin planillas.</p>
+
+  <ul class="pruebas">
+    <li>
+      <span class="icon">📎</span>
+      <span><b>Pegás diez contratos y hace todo solo</b><span class="txt">De cada reserva saca contacto, mail y cumpleaños, y agenda el aniversario para saludarlo al año. Levantás toda tu cartera vieja de una.</span></span>
+    </li>
+    <li>
+      <span class="icon">🚗</span>
+      <span><b>Lo usás manejando</b><span class="txt">Le hablás y listo. Está pensado para el auto.</span></span>
+    </li>
+    <li>
+      <span class="icon">⏰</span>
+      <span><b>Ningún cliente clavado</b><span class="txt">Te avisa a quién hace rato que no le escribís.</span></span>
+    </li>
+  </ul>
+
+  <div class="cta">
+    <a href="https://chat.whatsapp.com/D4Ck0chkuzbGV2G2q0fnYg" target="_blank" rel="noopener">
+      <span class="dot"></span>
+      Sumate a la comunidad
+    </a>
+    <p class="promesa">Se abre WhatsApp y ya estás adentro. No hay nada que instalar.</p>
+  </div>
+</main>
+
+<footer>M2Marketing · Ingeniería de ventas para inmobiliarias</footer>
+
+</body>
+</html>

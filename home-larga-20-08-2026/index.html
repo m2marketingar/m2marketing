@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metro Cuadrado Marketing | Ingeniería de Ventas e Imagen Inmobiliaria</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Plus Jakarta Sans', sans-serif; }
+
+  /* ---- Degradados fluor de la casa ---- */
+  .text-gradient { background: linear-gradient(135deg,#2563eb 0%,#7c3aed 50%,#f59e0b 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  .btn-fluor { background: linear-gradient(135deg,#0057FF 0%,#00C2FF 100%); box-shadow:0 10px 30px -5px rgba(0,120,255,.5); }
+  .btn-fluor:hover { box-shadow:0 14px 34px -5px rgba(0,120,255,.7); }
+  .btn-ambar { background: linear-gradient(135deg,#f59e0b 0%,#f43f5e 100%); box-shadow:0 10px 30px -5px rgba(245,158,11,.5); }
+  .btn-ambar:hover { box-shadow:0 14px 34px -5px rgba(245,158,11,.7); }
+
+  /* ---- Flameados: fondo radial oscuro + dos orbes desenfocados ---- */
+  .flame { position:relative; overflow:hidden; }
+  .flame .glow-1, .flame .glow-2 { position:absolute; width:520px; height:520px; border-radius:9999px; filter:blur(10px); pointer-events:none; }
+  .flame .glow-1 { top:-140px; left:-100px; }
+  .flame .glow-2 { bottom:-160px; right:-100px; }
+
+  .flame-azul  { background: radial-gradient(circle at 25% 15%, #1e3a8a 0%, #0f172a 55%, #020617 100%); }
+  .flame-azul  .glow-1 { background: radial-gradient(circle, rgba(37,99,235,.35) 0%, transparent 70%); }
+  .flame-azul  .glow-2 { background: radial-gradient(circle, rgba(16,185,129,.22) 0%, transparent 70%); }
+
+  .flame-verde { background: radial-gradient(circle at 25% 15%, #064e3b 0%, #0b1f1a 55%, #020617 100%); }
+  .flame-verde .glow-1 { background: radial-gradient(circle, rgba(16,185,129,.32) 0%, transparent 70%); }
+  .flame-verde .glow-2 { background: radial-gradient(circle, rgba(0,194,255,.24) 0%, transparent 70%); }
+
+  .flame-rosa  { background: radial-gradient(circle at 25% 15%, #4A1D5C 0%, #2E1240 55%, #150A24 100%); }
+  .flame-rosa  .glow-1 { background: radial-gradient(circle, rgba(236,72,153,.30) 0%, transparent 70%); }
+  .flame-rosa  .glow-2 { background: radial-gradient(circle, rgba(124,58,237,.25) 0%, transparent 70%); }
+
+  .flame-ambar { background: radial-gradient(circle at 25% 15%, #92400e 0%, #1c1408 55%, #0a0700 100%); }
+  .flame-ambar .glow-1 { background: radial-gradient(circle, rgba(245,158,11,.32) 0%, transparent 70%); }
+  .flame-ambar .glow-2 { background: radial-gradient(circle, rgba(250,204,21,.22) 0%, transparent 70%); }
+
+  .flame-noche { background: radial-gradient(circle at 50% 0%, #172554 0%, #0b1120 55%, #020617 100%); }
+  .flame-noche .glow-1 { background: radial-gradient(circle, rgba(0,194,255,.28) 0%, transparent 70%); }
+  .flame-noche .glow-2 { background: radial-gradient(circle, rgba(124,58,237,.24) 0%, transparent 70%); }
+
+  /* ---- Biselado de los cuadraditos ---- */
+  .bisel {
+    background: linear-gradient(160deg,#ffffff 0%,#f6f8fb 100%);
+    border: 1px solid rgba(226,232,240,.95);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.95),
+      inset 0 -1.5px 0 rgba(15,23,42,.07),
+      inset 1px 0 0 rgba(255,255,255,.7),
+      0 1px 2px rgba(15,23,42,.05),
+      0 14px 30px -14px rgba(15,23,42,.22);
+  }
+  .bisel-oscuro {
+    background: linear-gradient(160deg, rgba(255,255,255,.10) 0%, rgba(255,255,255,.02) 100%);
+    border: 1px solid rgba(255,255,255,.13);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.22),
+      inset 0 -1.5px 0 rgba(0,0,0,.45),
+      0 20px 44px -22px rgba(0,0,0,.95);
+  }
+
+  .hover-wow { transition: transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s cubic-bezier(.16,1,.3,1); }
+  .hover-wow:hover { transform: translateY(-4px) scale(1.01); }
+  .num { font-variant-numeric: tabular-nums; }
+
+  /* El header fijo no tiene que tapar el título al que saltamos */
+  .anclado { scroll-margin-top: 5.5rem; }
+
+  .reveal { opacity:0; transform:translateY(25px); transition:opacity .6s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1); }
+  .reveal.activo { opacity:1; transform:none; }
+
+  @keyframes latido { 0%,100% { transform:scale(1); opacity:.55 } 50% { transform:scale(1.09); opacity:.15 } }
+  .latido { animation: latido 3.2s ease-in-out infinite; }
+
+  /* ---- EL SWITCH DE PUBLICO ----
+     No se duplica la pagina: se esconde lo que no le corresponde al que esta mirando.
+     Cada bloque conserva su display natural de Tailwind, solo se oculta el del otro. */
+  body.es-of .solo-ag { display:none !important; }
+  body.es-ag .solo-of { display:none !important; }
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2460527884444494');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2460527884444494&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased overflow-x-hidden es-of">
+
+<!-- ============ HEADER BLANCO ============ -->
+<header class="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/80 shadow-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 sm:h-20 gap-3">
+
+      <a href="#top" class="flex items-center gap-2 group flex-shrink-0">
+        <img src="https://lh3.googleusercontent.com/d/1Yq4YcFxytCooor28U_NwUU3iPFkzw1EV"
+             alt="Metro Cuadrado Marketing"
+             class="h-10 sm:h-12 w-auto object-contain rounded-2xl bg-white group-hover:scale-105 transition-transform duration-300"
+             onerror="this.onerror=null;this.src='https://placehold.co/160x50/2563eb/ffffff?text=M2Marketing';">
+      </a>
+
+      <div class="flex items-center justify-center">
+        <div class="relative flex items-center bg-slate-100/90 p-1.5 rounded-full border border-slate-200/90 shadow-inner">
+          <div id="marca-publico" class="absolute top-1.5 bottom-1.5 rounded-full shadow-md transition-all duration-300"></div>
+          <button id="pb-of" onclick="setPublico('of')" class="relative z-10 px-4 sm:px-6 py-1.5 text-xs sm:text-sm transition-all duration-300 select-none cursor-pointer whitespace-nowrap">Inmobiliaria</button>
+          <button id="pb-ag" onclick="setPublico('ag')" class="relative z-10 px-4 sm:px-6 py-1.5 text-xs sm:text-sm transition-all duration-300 select-none cursor-pointer whitespace-nowrap">Agente</button>
+        </div>
+      </div>
+
+      <a href="#precios" class="hidden lg:inline-flex items-center gap-1.5 text-xs font-extrabold text-slate-900 border border-slate-200 rounded-full px-4 py-2 hover:bg-slate-50 transition flex-shrink-0">
+        Ver precios <i class="ph-bold ph-arrow-down"></i>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main class="pt-20 sm:pt-24" id="top">
+
+<!-- ============ HERO ============ -->
+<section class="flame flame-azul px-4 sm:px-6 py-20 sm:py-24">
+  <div class="glow-1"></div><div class="glow-2"></div>
+  <div class="relative z-10 max-w-4xl mx-auto text-center">
+
+    <div class="inline-flex items-center gap-4 bg-white rounded-3xl pl-4 pr-6 py-3.5 shadow-2xl mb-8">
+      <img src="https://lh3.googleusercontent.com/d/1Yq4YcFxytCooor28U_NwUU3iPFkzw1EV"
+           alt="Metro Cuadrado Marketing" class="h-14 sm:h-20 w-auto object-contain rounded-2xl"
+           onerror="this.onerror=null;this.src='https://placehold.co/160x50/2563eb/ffffff?text=M2Marketing';">
+      <span class="text-left leading-tight">
+        <span class="block text-sm sm:text-lg font-black text-slate-900 tracking-tight whitespace-nowrap">Metro Cuadrado Marketing</span>
+        <span class="block text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-gradient">Ingeniería de Ventas e Imagen Inmobiliaria</span>
+      </span>
+    </div>
+
+    <!-- --------- HERO: VERSIÓN INMOBILIARIA --------- -->
+    <div class="solo-of">
+      <div class="flex flex-wrap justify-center items-center gap-2 mb-6">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-400/15 border border-cyan-300/30 text-cyan-200 text-[11px] font-extrabold uppercase tracking-wider">
+          <i class="ph-bold ph-buildings"></i> Esto que estás leyendo es para oficinas inmobiliarias
+        </span>
+        <button onclick="setPublico('ag')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/20 text-slate-300 hover:text-white hover:bg-white/10 text-[11px] font-bold transition cursor-pointer">
+          <i class="ph-bold ph-arrows-left-right"></i> Ver la versión para agentes
+        </button>
+      </div>
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tighter leading-[1.05]">
+        Un área de marketing completa,<br class="hidden sm:block">
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-300 to-blue-400">sin sumar una sola persona a la nómina.</span>
+      </h1>
+      <p class="mt-6 text-base sm:text-lg text-slate-300 font-medium max-w-2xl mx-auto leading-relaxed">
+        Pauta, inteligencia artificial, guardia de respuesta y métricas por aviso, funcionando desde la marca de la oficina.
+        Un solo abono cubre hasta cincuenta agentes: una oficina de cuatro paga lo mismo que una de cuarenta.
+      </p>
+    </div>
+
+    <!-- --------- HERO: VERSIÓN AGENTE --------- -->
+    <div class="solo-ag">
+      <div class="flex flex-wrap justify-center items-center gap-2 mb-6">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-400/15 border border-amber-300/30 text-amber-200 text-[11px] font-extrabold uppercase tracking-wider">
+          <i class="ph-bold ph-users-three"></i> Esto que estás leyendo es para agentes y equipos
+        </span>
+        <button onclick="setPublico('of')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/20 text-slate-300 hover:text-white hover:bg-white/10 text-[11px] font-bold transition cursor-pointer">
+          <i class="ph-bold ph-arrows-left-right"></i> Ver la versión para inmobiliarias
+        </button>
+      </div>
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tighter leading-[1.05]">
+        Tu marketing ya lo pagás vos.<br class="hidden sm:block">
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-orange-300 to-rose-400">La pregunta es si lo pagás solo o entre cuatro.</span>
+      </h1>
+      <p class="mt-6 text-base sm:text-lg text-slate-300 font-medium max-w-2xl mx-auto leading-relaxed">
+        En todo el mundo el marketing personal del agente sale de su parte de la comisión. Eso no lo inventamos nosotros.
+        Lo que sí armamos es la manera de que cuatro compañeros lo compartan, se repartan las consultas y se obliguen entre ellos a producir.
+      </p>
+    </div>
+
+    <div class="mt-9 flex flex-wrap items-center justify-center gap-3">
+      <a href="#precio-rapido" class="btn-fluor solo-of inline-flex py-4 px-8 rounded-full font-extrabold text-white text-sm items-center justify-center gap-3 hover:scale-105 active:scale-95 transition-all">
+        <i class="ph-bold ph-tag text-lg"></i><span>Ver el precio ahora</span>
+      </a>
+      <a href="#precio-rapido" class="btn-ambar solo-ag inline-flex py-4 px-8 rounded-full font-extrabold text-white text-sm items-center justify-center gap-3 hover:scale-105 active:scale-95 transition-all">
+        <i class="ph-bold ph-tag text-lg"></i><span>Ver cuánto sale por cabeza</span>
+      </a>
+      <a href="#caminos" class="bisel-oscuro inline-flex py-4 px-8 rounded-full font-extrabold text-white text-sm items-center justify-center gap-3 hover:scale-105 active:scale-95 transition-all">
+        <i class="ph-bold ph-arrow-down text-lg text-cyan-300"></i><span>Cómo funciona</span>
+      </a>
+    </div>
+
+    <!-- Números: inmobiliaria -->
+    <div class="solo-of mt-14 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto">
+      <div class="bisel-oscuro rounded-2xl p-4"><p class="text-2xl sm:text-3xl font-black text-white num">USD 200</p><p class="text-[10px] sm:text-[11px] text-slate-400 font-bold uppercase tracking-wide mt-1">toda la oficina, por mes</p></div>
+      <div class="bisel-oscuro rounded-2xl p-4"><p class="text-2xl sm:text-3xl font-black text-white num">50</p><p class="text-[10px] sm:text-[11px] text-slate-400 font-bold uppercase tracking-wide mt-1">agentes sin costo extra</p></div>
+      <div class="bisel-oscuro rounded-2xl p-4"><p class="text-2xl sm:text-3xl font-black text-white num">15 min</p><p class="text-[10px] sm:text-[11px] text-slate-400 font-bold uppercase tracking-wide mt-1">máximo para responder</p></div>
+      <div class="bisel-oscuro rounded-2xl p-4"><p class="text-2xl sm:text-3xl font-black text-white num">25%</p><p class="text-[10px] sm:text-[11px] text-slate-400 font-bold uppercase tracking-wide mt-1">de referido a la oficina</p></div>
+    </div>
+
+    <!-- Números: agente -->
+    <div class="solo-ag mt-14 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto">
+      <div class="bisel-oscuro rounded-2xl p-4"><p class="text-2xl sm:text-3xl font-black text-white num">USD 50</p><p class="text-[10px] sm:text-[11px] text-slate-400 font-bold uppercase tracking-wide mt-1">por cabeza, equipo de 4</p></div>
+      <div class="bisel-oscuro rounded-2xl p-4"><p class="text-2xl sm:text-3xl font-black text-white num">2</p><p class="text-[10px] sm:text-[11px] text-slate-400 font-bold uppercase tracking-wide mt-1">agentes mínimo para arrancar</p></div>
+      <div class="bisel-oscuro rounded-2xl p-4"><p class="text-2xl sm:text-3xl font-black text-white num">15 min</p><p class="text-[10px] sm:text-[11px] text-slate-400 font-bold uppercase tracking-wide mt-1">máximo para responder</p></div>
+      <div class="bisel-oscuro rounded-2xl p-4"><p class="text-2xl sm:text-3xl font-black text-white num">+5</p><p class="text-[10px] sm:text-[11px] text-slate-400 font-bold uppercase tracking-wide mt-1">años como agente</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EL PRECIO, DE ENTRADA ============ -->
+<section id="precio-rapido" class="anclado bg-white py-16 px-4 sm:px-6 border-b border-slate-200">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto reveal">
+      <span class="inline-block text-[11px] font-black uppercase tracking-widest text-gradient mb-3">El precio, sin vueltas</span>
+      <h2 class="text-3xl sm:text-4xl font-black tracking-tighter">Te lo decimos ahora, no al final.</h2>
+      <p class="mt-4 text-slate-500 font-medium">Si el número no te cierra, no hace falta que leas veinte pantallas para enterarte.</p>
+    </div>
+
+    <div class="mt-10 grid gap-5">
+      <div class="solo-of bisel rounded-3xl p-7 reveal">
+        <p class="text-[10px] font-black uppercase tracking-widest text-slate-400">Abono base para la oficina</p>
+        <div class="flex items-end gap-3 mt-2">
+          <p class="text-5xl sm:text-6xl font-black tracking-tighter num">USD 200</p>
+          <p class="text-lg font-bold text-slate-300 line-through mb-2 num">400</p>
+          <p class="text-sm font-bold text-slate-400 mb-2">/ mes</p>
+        </div>
+        <p class="mt-2 text-xs font-extrabold text-emerald-600 uppercase tracking-wide">Precio de las tres primeras inmobiliarias · <span class="frase-cupos"></span></p>
+        <p class="mt-4 text-sm text-slate-600 font-medium leading-relaxed">
+          Incluye una campaña por mes a elección, todo el motor de métricas y guardia, y hasta cincuenta agentes.
+          La pauta publicitaria se invierte aparte, desde la cuenta de la propia oficina.
+        </p>
+      </div>
+
+      <div class="solo-ag bisel rounded-3xl p-7 reveal">
+        <p class="text-[10px] font-black uppercase tracking-widest text-slate-400">Equipo de cuatro agentes</p>
+        <div class="flex items-end gap-3 mt-2">
+          <p class="text-5xl sm:text-6xl font-black tracking-tighter num text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-rose-500">USD 50</p>
+          <p class="text-sm font-bold text-slate-400 mb-2">/ mes cada uno</p>
+        </div>
+        <p class="mt-2 text-xs font-extrabold text-emerald-600 uppercase tracking-wide">El abono es de USD 200 y se divide entre los que entran</p>
+        <p class="mt-4 text-sm text-slate-600 font-medium leading-relaxed">
+          Un almuerzo por cabeza al mes. Incluye una campaña, el motor completo y el reparto de consultas por rueda.
+          La pauta publicitaria se invierte aparte, desde la cuenta del equipo.
+        </p>
+      </div>
+
+      <div class="bisel rounded-3xl p-7 reveal border-2 border-dashed border-slate-200">
+        <p class="text-[10px] font-black uppercase tracking-widest text-slate-400">Y aparte del abono, la pauta</p>
+        <div class="flex flex-wrap items-end gap-3 mt-2">
+          <p class="text-4xl sm:text-5xl font-black tracking-tighter num text-slate-900">USD 5</p>
+          <p class="text-sm font-bold text-slate-400 mb-1.5">por día y por campaña, como piso</p>
+        </div>
+        <p class="mt-2 text-xs font-extrabold text-slate-500 uppercase tracking-wide">Esto no lo cobramos nosotros. Lo cobra Meta.</p>
+        <p class="mt-4 text-sm text-slate-600 font-medium leading-relaxed">
+          Sale de tu tarjeta, en tu propia cuenta publicitaria, y vos ves el gasto en tiempo real sin
+          intermediarios. Te lo decimos acá y no en la tercera reunión, porque enterarse tarde de este
+          número es lo que rompe la relación en el mes dos. Con menos que eso el sistema de Meta no
+          junta datos suficientes para aprender y la campaña se te encarece sola.
+        </p>
+        <p class="mt-3 text-sm text-slate-500 font-medium leading-relaxed">
+          Vas a ver agencias que publican un solo número grande con todo mezclado adentro. Suena más
+          simple y es más cómodo para el que vende, pero nunca sabés cuánto es honorario y cuánto es
+          publicidad. Preferimos los dos números separados aunque el total quede más a la vista.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- ---- POR QUE LA PRIMERA CAMPANA CUESTA LO QUE CUESTA ---- -->
+    <div class="mt-8 bisel rounded-3xl p-7 sm:p-9 reveal">
+      <div class="flex flex-col sm:flex-row items-start gap-5">
+        <div class="w-12 h-12 rounded-2xl bg-slate-900 text-white flex items-center justify-center text-2xl shrink-0"><i class="ph-bold ph-wrench"></i></div>
+        <div>
+          <h3 class="text-xl sm:text-2xl font-black tracking-tight">Por qué la primera campaña cuesta lo que cuesta</h3>
+          <p class="mt-3 text-sm text-slate-600 font-medium leading-relaxed">
+            Es la pregunta más justa que nos hacen: si es una campaña sola, ¿por qué vale eso?
+            Porque la primera no es solo la campaña. Antes de que salga el primer aviso hay que dejar
+            armado algo que después no se vuelve a tocar nunca más:
+          </p>
+          <ul class="mt-5 grid sm:grid-cols-2 gap-x-6 gap-y-3 text-sm text-slate-600 font-medium">
+            <li class="flex items-start gap-2.5"><i class="ph-bold ph-check-circle text-emerald-500 text-lg shrink-0 mt-0.5"></i><span>Conectar el Instagram con la página de Facebook, que es donde se traba absolutamente todo el mundo.</span></li>
+            <li class="flex items-start gap-2.5"><i class="ph-bold ph-check-circle text-emerald-500 text-lg shrink-0 mt-0.5"></i><span>Crear o rescatar la cuenta publicitaria y el administrador comercial, a nombre tuyo.</span></li>
+            <li class="flex items-start gap-2.5"><i class="ph-bold ph-check-circle text-emerald-500 text-lg shrink-0 mt-0.5"></i><span>Cargar el medio de pago y dejar la cuenta verificada, sin sorpresas a mitad de campaña.</span></li>
+            <li class="flex items-start gap-2.5"><i class="ph-bold ph-check-circle text-emerald-500 text-lg shrink-0 mt-0.5"></i><span>Enlazar el WhatsApp y probar de verdad que el mensaje llegue a quien tiene que llegar.</span></li>
+            <li class="flex items-start gap-2.5"><i class="ph-bold ph-check-circle text-emerald-500 text-lg shrink-0 mt-0.5"></i><span>Dejar la medición andando, para que el segundo mes no arranque a ciegas como el primero.</span></li>
+            <li class="flex items-start gap-2.5"><i class="ph-bold ph-check-circle text-emerald-500 text-lg shrink-0 mt-0.5"></i><span>Sacarle los ángulos a la propiedad: no es una foto, son varias entradas distintas al mismo inmueble.</span></li>
+            <li class="flex items-start gap-2.5"><i class="ph-bold ph-check-circle text-emerald-500 text-lg shrink-0 mt-0.5"></i><span>Escribir los textos y las variantes que después compiten entre sí para ver cuál gana.</span></li>
+            <li class="flex items-start gap-2.5"><i class="ph-bold ph-check-circle text-emerald-500 text-lg shrink-0 mt-0.5"></i><span>Dejar todo documentado y a tu nombre, para que si mañana te vas, te lo llevás puesto.</span></li>
+          </ul>
+          <p class="mt-5 text-sm text-slate-600 font-medium leading-relaxed">
+            Ese trabajo se hace una vez sola y queda tuyo para siempre. De la segunda campaña en
+            adelante no se vuelve a pagar, y por eso el que se queda es el que más barato termina
+            pagando cada aviso.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <p class="mt-6 text-center text-xs text-slate-400 font-semibold max-w-2xl mx-auto">
+      Los valores no incluyen impuestos. El ciclo mínimo es de tres meses y el primero es pospago: lo abonás a los treinta días, con el sistema ya andando.
+    </p>
+  </div>
+</section>
+
+<!-- ============ CÓMO SE ENTRA ============ -->
+<section id="caminos" class="anclado bg-slate-50 py-20 px-4 sm:px-6 border-b border-slate-200">
+  <div class="max-w-6xl mx-auto">
+
+    <!-- --------- ENTRADA: INMOBILIARIA --------- -->
+    <div class="solo-of">
+      <div class="text-center max-w-2xl mx-auto reveal">
+        <span class="inline-block text-[11px] font-black uppercase tracking-widest text-gradient mb-3">Cómo entra una oficina</span>
+        <h2 class="text-3xl sm:text-4xl font-black tracking-tighter">Vos elegís cuánto banca la oficina<br>y cuánto ponen los agentes.</h2>
+        <p class="mt-4 text-slate-500 font-medium">Hay oficinas que prefieren cubrirlo todo y usarlo como imán para retener gente. Y hay oficinas que prefieren no comprometerse a nada. Los dos casos están contemplados.</p>
+      </div>
+
+      <div class="mt-12 grid md:grid-cols-3 gap-6">
+        <div class="bisel rounded-3xl p-7 hover-wow reveal">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center text-2xl mb-5"><i class="ph-bold ph-buildings"></i></div>
+          <p class="text-[10px] font-black uppercase tracking-widest text-emerald-600">Modelo 1</p>
+          <h3 class="text-xl font-black tracking-tight">Subvención total</h3>
+          <p class="mt-3 text-sm text-slate-600 font-medium leading-relaxed">La oficina cubre el cien por ciento. Ningún agente pone un peso. Es la versión que se usa para retener a los mejores y para sentarse a hablar con los de la competencia.</p>
+        </div>
+        <div class="bisel rounded-3xl p-7 hover-wow reveal">
+          <div class="w-12 h-12 rounded-2xl bg-amber-50 border border-amber-200 text-amber-600 flex items-center justify-center text-2xl mb-5"><i class="ph-bold ph-handshake"></i></div>
+          <p class="text-[10px] font-black uppercase tracking-widest text-amber-600">Modelo 2</p>
+          <h3 class="text-xl font-black tracking-tight">Co-financiado</h3>
+          <p class="mt-3 text-sm text-slate-600 font-medium leading-relaxed">La oficina cubre el abono base con su campaña incluida. Lo que se quiera lanzar de más se parte mitad y mitad con los agentes que participan.</p>
+        </div>
+        <div class="bisel rounded-3xl p-7 hover-wow reveal">
+          <div class="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-200 text-blue-600 flex items-center justify-center text-2xl mb-5"><i class="ph-bold ph-user-focus"></i></div>
+          <p class="text-[10px] font-black uppercase tracking-widest text-blue-600">Modelo 3</p>
+          <h3 class="text-xl font-black tracking-tight">Fondo de agentes</h3>
+          <p class="mt-3 text-sm text-slate-600 font-medium leading-relaxed">La oficina no se compromete a bancar campañas de nadie. Los agentes que quieren más se hacen la vaquita entre ellos. La oficina junta, liquida y cobra su referido.</p>
+        </div>
+      </div>
+
+      <div class="mt-8 bisel rounded-3xl p-7 sm:p-9 reveal">
+        <div class="flex flex-col sm:flex-row items-start gap-5">
+          <div class="w-12 h-12 rounded-2xl bg-slate-900 text-cyan-300 flex items-center justify-center text-2xl shrink-0"><i class="ph-bold ph-receipt"></i></div>
+          <div>
+            <h3 class="text-lg font-black tracking-tight">Elijas el modelo que elijas, la factura es una sola y va a la oficina.</h3>
+            <p class="mt-2 text-sm text-slate-600 font-medium leading-relaxed">
+              Metro Cuadrado Marketing nunca le cobra a un agente por separado ni entra a negociar puertas adentro. Le factura el total a la oficina, y el modelo define únicamente cómo se recupera adentro.
+              Eso mantiene la contabilidad limpia y evita que el bróker quede en el medio de una discusión que no es suya.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- --------- ENTRADA: AGENTE --------- -->
+    <div class="solo-ag">
+      <div class="text-center max-w-2xl mx-auto reveal">
+        <span class="inline-block text-[11px] font-black uppercase tracking-widest text-gradient mb-3">Cómo entra un equipo</span>
+        <h2 class="text-3xl sm:text-4xl font-black tracking-tighter">Juntás dos o tres compañeros<br>y ya está armado.</h2>
+        <p class="mt-4 text-slate-500 font-medium">Compartir el costo del marketing es lo que hacen los equipos inmobiliarios en todo el mundo: se reparten la publicidad, las herramientas y los gastos de operación. Acá es lo mismo, con el sistema atrás.</p>
+      </div>
+
+      <div class="mt-12 grid md:grid-cols-3 gap-6">
+        <div class="bisel rounded-3xl p-7 hover-wow reveal">
+          <div class="w-12 h-12 rounded-2xl bg-amber-50 border border-amber-200 text-amber-600 flex items-center justify-center text-2xl mb-5"><i class="ph-bold ph-users-three"></i></div>
+          <p class="text-[10px] font-black uppercase tracking-widest text-amber-600">Paso 1</p>
+          <h3 class="text-xl font-black tracking-tight">Se juntan</h3>
+          <p class="mt-3 text-sm text-slate-600 font-medium leading-relaxed">Desde dos agentes en adelante. Suele salir solo entre los que ya trabajan cerca y se tienen confianza. Se divide el abono y listo.</p>
+        </div>
+        <div class="bisel rounded-3xl p-7 hover-wow reveal">
+          <div class="w-12 h-12 rounded-2xl bg-amber-50 border border-amber-200 text-amber-600 flex items-center justify-center text-2xl mb-5"><i class="ph-bold ph-map-pin-area"></i></div>
+          <p class="text-[10px] font-black uppercase tracking-widest text-amber-600">Paso 2</p>
+          <h3 class="text-xl font-black tracking-tight">Eligen un barrio</h3>
+          <p class="mt-3 text-sm text-slate-600 font-medium leading-relaxed">Uno solo, bien delimitado. Se graba ahí, se pauta ahí y se repite ahí. La zona empieza a tener dueño recién cuando dejás de saltar de barrio.</p>
+        </div>
+        <div class="bisel rounded-3xl p-7 hover-wow reveal">
+          <div class="w-12 h-12 rounded-2xl bg-amber-50 border border-amber-200 text-amber-600 flex items-center justify-center text-2xl mb-5"><i class="ph-bold ph-arrows-split"></i></div>
+          <p class="text-[10px] font-black uppercase tracking-widest text-amber-600">Paso 3</p>
+          <h3 class="text-xl font-black tracking-tight">Se reparten lo que entra</h3>
+          <p class="mt-3 text-sm text-slate-600 font-medium leading-relaxed">Cada consulta entra al sistema y se asigna por rueda, con hora y nombre. Nadie discute a quién le tocaba, porque está escrito.</p>
+        </div>
+      </div>
+
+      <!-- LO QUE EL AGENTE LE LLEVA AL BRÓKER -->
+      <div class="mt-8 flame flame-noche rounded-3xl p-8 sm:p-10 reveal">
+        <div class="glow-1"></div><div class="glow-2"></div>
+        <div class="relative z-10 max-w-3xl">
+          <span class="inline-block text-[11px] font-black uppercase tracking-widest text-cyan-300 mb-3">Si querés que entre tu oficina</span>
+          <h3 class="text-2xl sm:text-3xl font-black text-white tracking-tighter leading-tight">No le pidas a tu bróker que ponga plata. Llevale plata.</h3>
+          <p class="mt-4 text-slate-300 font-medium leading-relaxed">
+            Un bróker escucha diez veces por semana que le pidan bancar algo, y ya tiene la respuesta preparada. Por eso existe el Modelo 3:
+            la oficina no pone un peso, los agentes que quieren se hacen la vaquita, y la oficina igual se lleva el veinticinco por ciento de referido de cada cierre que salga de la rueda.
+          </p>
+          <p class="mt-3 text-slate-300 font-medium leading-relaxed">
+            Esa conversación no empieza con un pedido. Empieza con un número a favor de él.
+          </p>
+          <div class="mt-6">
+            <a href="https://wa.me/5491135678024?text=Hola,%20soy%20agente%20y%20quiero%20presentarle%20esto%20a%20mi%20oficina.%20%C2%BFMe%20pasan%20c%C3%B3mo%20plantearlo%3F" target="_blank" rel="noopener"
+               class="bisel-oscuro inline-flex py-3.5 px-7 rounded-full font-extrabold text-white text-sm items-center justify-center gap-3 hover:scale-105 active:scale-95 transition-all">
+              <i class="ph-bold ph-paper-plane-tilt text-lg text-cyan-300"></i><span>Pedime cómo plantearlo</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- --------- PUENTE: SE VE EN LOS DOS, Y NO CHOCA CON NADIE --------- -->
+    <div class="mt-8 bisel rounded-3xl p-7 sm:p-8 reveal">
+      <div class="flex flex-col sm:flex-row items-start gap-5">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-600 to-violet-600 text-white flex items-center justify-center text-2xl shrink-0"><i class="ph-bold ph-arrows-in"></i></div>
+        <div>
+          <h3 class="text-lg font-black tracking-tight solo-of">¿Y si el que se entusiasma primero es un agente?</h3>
+          <h3 class="text-lg font-black tracking-tight solo-ag">¿Y si después se quiere sumar la oficina?</h3>
+          <p class="mt-2 text-sm text-slate-600 font-medium leading-relaxed">
+            Mejor para todos, y es el final que más nos gusta. El mismo abono cubre hasta cincuenta agentes, así que cuando entra la oficina el costo por cabeza se desploma
+            y la marca de zona queda a nombre de la casa, no de una persona. Un equipo que arrancó solo se puede absorber en cualquier momento, sin empezar de cero y sin perder el historial.
+          </p>
+          <p class="mt-2 text-sm text-slate-500 font-medium leading-relaxed">
+            No son dos caminos que compiten. Es el mismo camino, empezado en distinto punto.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIAGNÓSTICO ============ -->
+<section class="bg-white py-20 px-4 sm:px-6">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto reveal">
+      <span class="inline-block text-[11px] font-black uppercase tracking-widest text-gradient mb-3">La clave</span>
+      <h2 class="text-3xl sm:text-4xl font-black tracking-tighter">Conectar en el momento exacto.</h2>
+      <p class="mt-4 text-slate-500 font-medium">No hay demanda que falte. Hay demanda que llega y no encuentra a nadie del otro lado.</p>
+    </div>
+    <div class="mt-12 grid sm:grid-cols-3 gap-5">
+      <div class="bisel rounded-2xl p-6 hover-wow reveal">
+        <div class="w-11 h-11 rounded-xl bg-rose-50 border border-rose-200 text-rose-600 flex items-center justify-center text-xl mb-4"><i class="ph-bold ph-clock-countdown"></i></div>
+        <h3 class="font-black text-base tracking-tight">La consulta se enfría en minutos</h3>
+        <p class="mt-2 text-sm text-slate-600 font-medium leading-relaxed">El que pregunta a las nueve de la noche no espera al lunes. Escribe a tres avisos y se queda con el que contesta primero.</p>
+      </div>
+      <div class="bisel rounded-2xl p-6 hover-wow reveal">
+        <div class="w-11 h-11 rounded-xl bg-amber-50 border border-amber-200 text-amber-600 flex items-center justify-center text-xl mb-4"><i class="ph-bold ph-video-camera-slash"></i></div>
+        <h3 class="font-black text-base tracking-tight">Nadie sostiene la cámara solo</h3>
+        <p class="mt-2 text-sm text-slate-600 font-medium leading-relaxed">La prospección de zona nunca falló por la idea. Falló por la ejecución: nadie graba solo tres meses seguidos.</p>
+      </div>
+      <div class="bisel rounded-2xl p-6 hover-wow reveal">
+        <div class="w-11 h-11 rounded-xl bg-blue-50 border border-blue-200 text-blue-600 flex items-center justify-center text-xl mb-4"><i class="ph-bold ph-chart-line-down"></i></div>
+        <h3 class="font-black text-base tracking-tight">Nadie sabe qué está pasando</h3>
+        <p class="mt-2 text-sm text-slate-600 font-medium leading-relaxed">Sin métricas por aviso, no hay manera de distinguir entre una campaña floja y alguien que no está respondiendo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICIO 1: FARMTEAM ============ -->
+<section id="farmteam" class="anclado flame flame-ambar py-20 px-4 sm:px-6">
+  <div class="glow-1"></div><div class="glow-2"></div>
+  <div class="relative z-10 max-w-5xl mx-auto">
+
+    <div class="text-center reveal">
+      <div class="inline-flex items-center gap-3 bg-white rounded-3xl px-6 py-4 shadow-2xl mb-6">
+        <i class="ph-bold ph-users-three text-4xl sm:text-5xl text-transparent bg-clip-text bg-gradient-to-br from-amber-500 to-rose-500"></i>
+        <span class="text-2xl sm:text-4xl font-black tracking-tighter text-slate-900">FarmTeam</span>
+      </div>
+      <p class="text-amber-200 text-[11px] font-black uppercase tracking-widest">Servicio recomendado para empezar</p>
+      <h2 class="mt-4 text-3xl sm:text-5xl font-black text-white tracking-tighter leading-[1.08]">
+        Cuatro agentes, un barrio,<br class="hidden sm:block">
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-rose-400">y la zona pasa a tener dueño.</span>
+      </h2>
+      <p class="mt-5 text-slate-300 font-medium max-w-2xl mx-auto leading-relaxed">
+        Cuatro o cinco agentes del mismo equipo graban juntos un video creativo por barrio, se le mete pauta hiperlocal, y las consultas entrantes se reparten entre ellos por rueda.
+        El que no se anima solo, en grupo se anima. Y se filman entre ellos.
+      </p>
+    </div>
+
+    <div class="mt-12 grid md:grid-cols-3 gap-5">
+      <div class="bisel-oscuro rounded-2xl p-6 reveal">
+        <div class="w-11 h-11 rounded-xl bg-amber-500/15 border border-amber-400/25 text-amber-300 flex items-center justify-center text-xl mb-4"><i class="ph-bold ph-map-pin-area"></i></div>
+        <h3 class="font-black text-white text-base tracking-tight">Marca de zona, no de persona</h3>
+        <p class="mt-2 text-sm text-slate-400 font-medium leading-relaxed">La zona queda a nombre del equipo o de la oficina, nunca de un agente suelto. Si mañana uno se va, la marca se queda.</p>
+      </div>
+      <div class="bisel-oscuro rounded-2xl p-6 reveal">
+        <div class="w-11 h-11 rounded-xl bg-amber-500/15 border border-amber-400/25 text-amber-300 flex items-center justify-center text-xl mb-4"><i class="ph-bold ph-handshake"></i></div>
+        <h3 class="font-black text-white text-base tracking-tight">El compromiso es entre ellos</h3>
+        <p class="mt-2 text-sm text-slate-400 font-medium leading-relaxed">Lo que sostiene la grabación no es la disciplina individual, es no dejar colgados a los compañeros. Ese es todo el truco.</p>
+      </div>
+      <div class="bisel-oscuro rounded-2xl p-6 reveal">
+        <div class="w-11 h-11 rounded-xl bg-amber-500/15 border border-amber-400/25 text-amber-300 flex items-center justify-center text-xl mb-4"><i class="ph-bold ph-arrows-split"></i></div>
+        <h3 class="font-black text-white text-base tracking-tight">Las consultas se reparten por rueda</h3>
+        <p class="mt-2 text-sm text-slate-400 font-medium leading-relaxed">Cada consulta entra al sistema y se asigna por orden. Nadie discute a quién le tocaba: está escrito y medido.</p>
+      </div>
+    </div>
+
+    <!-- CALCULADORA POR CABEZA -->
+    <div class="mt-12 bg-white rounded-3xl p-7 sm:p-10 shadow-2xl reveal">
+      <div class="text-center">
+        <span class="inline-block text-[11px] font-black uppercase tracking-widest text-gradient mb-2">Cuánto le sale a cada uno</span>
+        <h3 class="text-2xl sm:text-3xl font-black tracking-tighter">Movelo y mirá cómo baja.</h3>
+        <p class="mt-2 text-sm text-slate-500 font-medium">Abono de USD 200 con una campaña incluida, dividido entre los que se suman.</p>
+      </div>
+
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-14">
+        <div class="text-center">
+          <p class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-3">Agentes en el equipo</p>
+          <div class="flex items-center gap-4">
+            <button onclick="pasoEquipo(-1)" class="w-11 h-11 rounded-full bisel flex items-center justify-center text-lg font-black text-slate-600 hover:text-slate-900 active:scale-95 transition-all"><i class="ph-bold ph-minus"></i></button>
+            <span id="n-equipo" class="text-5xl font-black tracking-tighter num w-16">4</span>
+            <button onclick="pasoEquipo(1)" class="w-11 h-11 rounded-full bisel flex items-center justify-center text-lg font-black text-slate-600 hover:text-slate-900 active:scale-95 transition-all"><i class="ph-bold ph-plus"></i></button>
+          </div>
+        </div>
+
+        <div class="hidden sm:block w-px h-24 bg-slate-200"></div>
+
+        <div class="text-center">
+          <p class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-3">Le toca a cada uno</p>
+          <p id="val-equipo-cu" class="text-5xl sm:text-6xl font-black tracking-tighter num text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-rose-500">USD 50</p>
+          <p class="text-xs text-slate-400 font-bold mt-1">por mes</p>
+        </div>
+      </div>
+
+      <p id="nota-equipo" class="mt-7 text-center text-xs text-slate-500 font-semibold max-w-lg mx-auto"></p>
+    </div>
+
+    <div class="mt-8 text-center reveal">
+      <a href="https://wa.me/5491135678024?text=Hola,%20queremos%20arrancar%20con%20FarmTeam%20en%20nuestro%20barrio." target="_blank" rel="noopener"
+         class="btn-ambar inline-flex py-4 px-8 rounded-full font-extrabold text-white text-sm items-center justify-center gap-3 hover:scale-105 active:scale-95 transition-all">
+        <i class="ph-bold ph-whatsapp-logo text-xl"></i><span>Armar el equipo y elegir el barrio</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICIO 2: GUARDPERF ============ -->
+<section id="guardperf" class="anclado flame flame-verde py-20 px-4 sm:px-6">
+  <div class="glow-1"></div><div class="glow-2"></div>
+  <div class="relative z-10 max-w-5xl mx-auto">
+
+    <div class="text-center reveal">
+      <div class="inline-flex items-center gap-3 bg-white rounded-3xl px-6 py-4 shadow-2xl mb-6">
+        <i class="ph-bold ph-shield-check text-4xl sm:text-5xl text-transparent bg-clip-text bg-gradient-to-br from-emerald-500 to-cyan-500"></i>
+        <span class="text-2xl sm:text-4xl font-black tracking-tighter text-slate-900">GuardPerf</span>
+      </div>
+      <p class="text-emerald-200 text-[11px] font-black uppercase tracking-widest">Guardia Virtual de Alta Performance</p>
+      <h2 class="mt-4 text-3xl sm:text-5xl font-black text-white tracking-tighter leading-[1.08]">
+        Tu propiedad estrella<br class="hidden sm:block">
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-cyan-400">con guardia de quince minutos.</span>
+      </h2>
+      <p class="mt-5 text-slate-300 font-medium max-w-2xl mx-auto leading-relaxed">
+        La consulta entra por triple canal, se deriva al agente de turno y arranca el reloj. Si no responde en quince minutos, pasa al que sigue. Sin excusas y sin discusión.
+      </p>
+    </div>
+
+    <div class="mt-12 grid md:grid-cols-3 gap-5">
+      <div class="bisel-oscuro rounded-2xl p-6 reveal">
+        <div class="w-11 h-11 rounded-xl bg-emerald-500/15 border border-emerald-400/25 text-emerald-300 flex items-center justify-center text-xl mb-4"><i class="ph-bold ph-timer"></i></div>
+        <h3 class="font-black text-white text-base tracking-tight">Quince minutos, medido</h3>
+        <p class="mt-2 text-sm text-slate-400 font-medium leading-relaxed">No es una promesa, es un reloj. Cada consulta tiene hora de entrada, hora de respuesta y nombre del que respondió.</p>
+      </div>
+      <div class="bisel-oscuro rounded-2xl p-6 reveal">
+        <div class="w-11 h-11 rounded-xl bg-emerald-500/15 border border-emerald-400/25 text-emerald-300 flex items-center justify-center text-xl mb-4"><i class="ph-bold ph-broadcast"></i></div>
+        <h3 class="font-black text-white text-base tracking-tight">Derivación por triple canal</h3>
+        <p class="mt-2 text-sm text-slate-400 font-medium leading-relaxed">La oportunidad no depende de que alguien mire una casilla. Sale por tres vías a la vez hasta que alguien la toma.</p>
+      </div>
+      <div class="bisel-oscuro rounded-2xl p-6 reveal">
+        <div class="w-11 h-11 rounded-xl bg-emerald-500/15 border border-emerald-400/25 text-emerald-300 flex items-center justify-center text-xl mb-4"><i class="ph-bold ph-funnel"></i></div>
+        <h3 class="font-black text-white text-base tracking-tight">Fricción saludable</h3>
+        <p class="mt-2 text-sm text-slate-400 font-medium leading-relaxed">Antes de llegar al agente, el interesado responde lo mínimo. Llega gente real, no curiosos que hacen perder la tarde.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICIO 3: COMPREAL ============ -->
+<section id="compreal" class="anclado flame flame-rosa py-20 px-4 sm:px-6">
+  <div class="glow-1"></div><div class="glow-2"></div>
+  <div class="relative z-10 max-w-5xl mx-auto">
+
+    <div class="text-center reveal">
+      <div class="inline-flex items-center gap-3 bg-white rounded-3xl px-6 py-4 shadow-2xl mb-6">
+        <i class="ph-bold ph-magnifying-glass text-4xl sm:text-5xl text-transparent bg-clip-text bg-gradient-to-br from-fuchsia-500 to-violet-500"></i>
+        <span class="text-2xl sm:text-4xl font-black tracking-tighter text-slate-900">CompReal</span>
+      </div>
+      <p class="text-fuchsia-200 text-[11px] font-black uppercase tracking-widest">Búsquedas Verificadas</p>
+      <h2 class="mt-4 text-3xl sm:text-5xl font-black text-white tracking-tighter leading-[1.08]">
+        Publicás lo que buscás<br class="hidden sm:block">
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-300 to-violet-400">y aparece el que ni pensaba vender.</span>
+      </h2>
+      <p class="mt-5 text-slate-300 font-medium max-w-2xl mx-auto leading-relaxed">
+        En vez de esperar a que el propietario decida publicar, salís a buscarlo con una demanda concreta y verificada. Es el camino más corto al inventario que no está en ningún portal.
+      </p>
+    </div>
+
+    <div class="mt-12 grid md:grid-cols-3 gap-5">
+      <div class="bisel-oscuro rounded-2xl p-6 reveal">
+        <div class="w-11 h-11 rounded-xl bg-fuchsia-500/15 border border-fuchsia-400/25 text-fuchsia-300 flex items-center justify-center text-xl mb-4"><i class="ph-bold ph-seal-check"></i></div>
+        <h3 class="font-black text-white text-base tracking-tight">Búsqueda verificada</h3>
+        <p class="mt-2 text-sm text-slate-400 font-medium leading-relaxed">No se publica una búsqueda inventada. Detrás hay un comprador real con presupuesto y zona definida.</p>
+      </div>
+      <div class="bisel-oscuro rounded-2xl p-6 reveal">
+        <div class="w-11 h-11 rounded-xl bg-fuchsia-500/15 border border-fuchsia-400/25 text-fuchsia-300 flex items-center justify-center text-xl mb-4"><i class="ph-bold ph-house-line"></i></div>
+        <h3 class="font-black text-white text-base tracking-tight">Vendedores fuera del mercado</h3>
+        <p class="mt-2 text-sm text-slate-400 font-medium leading-relaxed">Aparece el propietario que vendería si le llega la oferta correcta, pero que nunca se puso a publicar.</p>
+      </div>
+      <div class="bisel-oscuro rounded-2xl p-6 reveal">
+        <div class="w-11 h-11 rounded-xl bg-fuchsia-500/15 border border-fuchsia-400/25 text-fuchsia-300 flex items-center justify-center text-xl mb-4"><i class="ph-bold ph-sparkle"></i></div>
+        <h3 class="font-black text-white text-base tracking-tight">Experiencia Disney</h3>
+        <p class="mt-2 text-sm text-slate-400 font-medium leading-relaxed">Del primer mensaje a la visita, el interesado siente que lo estaban esperando. Eso es lo que se recuerda y se recomienda.</p>
+      </div>
+    </div>
+
+    <div class="mt-8 bisel-oscuro rounded-3xl p-6 sm:p-7 reveal">
+      <div class="flex flex-col sm:flex-row items-start gap-4">
+        <i class="ph-bold ph-wrench text-3xl text-fuchsia-300 shrink-0"></i>
+        <div>
+          <h3 class="font-black text-white text-base sm:text-lg tracking-tight">¿Y si es una sola búsqueda, por qué cuesta eso?</h3>
+          <p class="mt-2 text-sm text-slate-400 font-medium leading-relaxed">
+            Porque la primera vez no se paga la campaña, se paga dejar la casa en orden: conectar el
+            Instagram con la página, la cuenta publicitaria a tu nombre, el medio de pago, el WhatsApp
+            enlazado y probado, la medición andando y los ángulos de la búsqueda escritos. Eso se hace
+            una vez y no se vuelve a cobrar nunca.
+            <a href="#precio-rapido" class="text-fuchsia-300 font-bold underline decoration-dotted">Está detallado acá arriba</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EL MOTOR ============ -->
+<section id="motor" class="anclado flame flame-noche py-20 px-4 sm:px-6">
+  <div class="glow-1"></div><div class="glow-2"></div>
+  <div class="relative z-10 max-w-6xl mx-auto">
+
+    <div class="text-center max-w-2xl mx-auto reveal">
+      <span class="inline-block text-[11px] font-black uppercase tracking-widest text-cyan-300 mb-3">Lo que no se ve</span>
+      <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tighter leading-tight">La publicidad no llega<br>ni al veinte por ciento del trabajo.</h2>
+      <p class="mt-4 text-slate-400 font-medium">Lo que se contrata es la estructura que hay detrás del aviso. El aviso es la punta.</p>
+    </div>
+
+    <div class="mt-10 max-w-3xl mx-auto reveal">
+      <div class="flex items-center gap-2 text-[11px] font-black uppercase tracking-wider mb-2">
+        <span class="text-cyan-300">Pauta 20%</span>
+        <span class="ml-auto text-slate-400">Ecosistema 80%</span>
+      </div>
+      <div class="h-4 rounded-full overflow-hidden flex bisel-oscuro">
+        <div class="h-full bg-gradient-to-r from-cyan-400 to-blue-500" style="width:20%"></div>
+        <div class="h-full bg-gradient-to-r from-violet-500 to-fuchsia-500" style="width:80%"></div>
+      </div>
+    </div>
+
+    <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="bisel-oscuro rounded-2xl p-5 reveal"><div class="text-cyan-300 text-2xl mb-3"><i class="ph-bold ph-robot"></i></div><h3 class="font-black text-white text-sm">Inteligencia artificial agéntica</h3><p class="mt-1.5 text-xs text-slate-400 font-medium leading-relaxed">Sistemas que auditan, clasifican y derivan solos, sin que nadie mire una pantalla.</p></div>
+      <div class="bisel-oscuro rounded-2xl p-5 reveal"><div class="text-cyan-300 text-2xl mb-3"><i class="ph-bold ph-chart-bar"></i></div><h3 class="font-black text-white text-sm">Métricas por aviso</h3><p class="mt-1.5 text-xs text-slate-400 font-medium leading-relaxed">Cada pieza tiene su número. Se sabe cuál trajo consultas y cuál no, sin opinar.</p></div>
+      <div class="bisel-oscuro rounded-2xl p-5 reveal"><div class="text-cyan-300 text-2xl mb-3"><i class="ph-bold ph-timer"></i></div><h3 class="font-black text-white text-sm">Guardia de quince minutos</h3><p class="mt-1.5 text-xs text-slate-400 font-medium leading-relaxed">Reloj por consulta. Si el agente no responde, pasa al siguiente automáticamente.</p></div>
+      <div class="bisel-oscuro rounded-2xl p-5 reveal"><div class="text-cyan-300 text-2xl mb-3"><i class="ph-bold ph-arrows-split"></i></div><h3 class="font-black text-white text-sm">Rueda de reparto</h3><p class="mt-1.5 text-xs text-slate-400 font-medium leading-relaxed">Las oportunidades se asignan por orden, quedan registradas y no se discuten.</p></div>
+      <div class="bisel-oscuro rounded-2xl p-5 reveal"><div class="text-cyan-300 text-2xl mb-3"><i class="ph-bold ph-target"></i></div><h3 class="font-black text-white text-sm">Pauta hiperlocal</h3><p class="mt-1.5 text-xs text-slate-400 font-medium leading-relaxed">Segmentación por micro-barrio, no por ciudad. Se le habla a la cuadra.</p></div>
+      <div class="bisel-oscuro rounded-2xl p-5 reveal"><div class="text-cyan-300 text-2xl mb-3"><i class="ph-bold ph-browsers"></i></div><h3 class="font-black text-white text-sm">Landings por campaña</h3><p class="mt-1.5 text-xs text-slate-400 font-medium leading-relaxed">Cada pieza aterriza donde tiene que aterrizar, no en la home genérica.</p></div>
+      <div class="bisel-oscuro rounded-2xl p-5 reveal"><div class="text-cyan-300 text-2xl mb-3"><i class="ph-bold ph-graduation-cap"></i></div><h3 class="font-black text-white text-sm">Coaching comercial</h3><p class="mt-1.5 text-xs text-slate-400 font-medium leading-relaxed">Reuniones periódicas con el equipo para corregir lo que los números muestran.</p></div>
+      <div class="bisel-oscuro rounded-2xl p-5 reveal"><div class="text-cyan-300 text-2xl mb-3"><i class="ph-bold ph-file-text"></i></div><h3 class="font-black text-white text-sm">Informes de rendimiento</h3><p class="mt-1.5 text-xs text-slate-400 font-medium leading-relaxed">Se ve qué pasó, sin depender de que te lo cuenten de memoria.</p></div>
+      <div class="bisel-oscuro rounded-2xl p-5 reveal"><div class="text-cyan-300 text-2xl mb-3"><i class="ph-bold ph-image-square"></i></div><h3 class="font-black text-white text-sm">Piezas gráficas</h3><p class="mt-1.5 text-xs text-slate-400 font-medium leading-relaxed">Flyers y placas producidas para cada campaña, listas para publicar.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TODO PASA POR UN SOLO LUGAR ============ -->
+<section class="bg-white py-20 px-4 sm:px-6">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto reveal">
+      <span class="inline-block text-[11px] font-black uppercase tracking-widest text-gradient mb-3">El corazón</span>
+      <h2 class="text-3xl sm:text-5xl font-black tracking-tighter leading-tight">Todo pasa por un solo lugar.</h2>
+      <p class="mt-4 text-slate-500 font-medium solo-of">La oficina al centro, siempre. Nunca cada agente por su lado, porque ahí se diluye la marca y se pierden las consultas.</p>
+      <p class="mt-4 text-slate-500 font-medium solo-ag">El perfil del equipo al centro, siempre. Nunca cada uno por su lado, porque ahí se diluye todo y nadie sabe de dónde salió qué.</p>
+    </div>
+
+    <div class="mt-14 relative">
+      <div class="flex justify-center">
+        <div class="relative">
+          <div class="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500 to-violet-500 latido"></div>
+          <div class="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-white shadow-2xl border border-slate-200 flex flex-col items-center justify-center">
+            <i class="ph-bold ph-buildings text-3xl sm:text-4xl text-transparent bg-clip-text bg-gradient-to-br from-blue-600 to-violet-600"></i>
+            <p class="mt-1 text-[10px] sm:text-xs font-black uppercase tracking-widest text-slate-500 text-center leading-tight solo-of">La marca<br>de la oficina</p>
+            <p class="mt-1 text-[10px] sm:text-xs font-black uppercase tracking-widest text-slate-500 text-center leading-tight solo-ag">La marca<br>del equipo</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="bisel rounded-2xl p-5 hover-wow reveal"><div class="text-blue-600 text-2xl mb-3"><i class="ph-bold ph-instagram-logo"></i></div><h3 class="font-black text-sm tracking-tight">Un solo Instagram</h3><p class="mt-1.5 text-xs text-slate-600 font-medium leading-relaxed">Todo se publica y se verifica desde un único perfil. El que busca, encuentra un lugar, no cinco.</p></div>
+        <div class="bisel rounded-2xl p-5 hover-wow reveal"><div class="text-blue-600 text-2xl mb-3"><i class="ph-bold ph-megaphone"></i></div><h3 class="font-black text-sm tracking-tight">Una sola cuenta publicitaria</h3><p class="mt-1.5 text-xs text-slate-600 font-medium leading-relaxed">La pauta sale de una cuenta verificada. El historial y el aprendizaje quedan ahí, no se pierden.</p></div>
+        <div class="bisel rounded-2xl p-5 hover-wow reveal"><div class="text-blue-600 text-2xl mb-3"><i class="ph-bold ph-video-camera"></i></div><h3 class="font-black text-sm tracking-tight">Videos que se refuerzan</h3><p class="mt-1.5 text-xs text-slate-600 font-medium leading-relaxed">Varios agentes grabando entre ellos producen más piezas, más variadas, y de paso muestran el lugar.</p></div>
+        <div class="bisel rounded-2xl p-5 hover-wow reveal"><div class="text-blue-600 text-2xl mb-3"><i class="ph-bold ph-arrows-in"></i></div><h3 class="font-black text-sm tracking-tight">Las consultas vuelven al centro</h3><p class="mt-1.5 text-xs text-slate-600 font-medium leading-relaxed">Ninguna oportunidad entra por el teléfono personal de nadie. Entra al sistema y se reparte.</p></div>
+        <div class="bisel rounded-2xl p-5 hover-wow reveal"><div class="text-blue-600 text-2xl mb-3"><i class="ph-bold ph-percent"></i></div><h3 class="font-black text-sm tracking-tight">El referido interno</h3><p class="mt-1.5 text-xs text-slate-600 font-medium leading-relaxed">Cada cierre que sale de la rueda deja un 25% para el centro, sin tocar la comisión del captador.</p></div>
+        <div class="bisel rounded-2xl p-5 hover-wow reveal"><div class="text-blue-600 text-2xl mb-3"><i class="ph-bold ph-shield-star"></i></div><h3 class="font-black text-sm tracking-tight">La marca se queda</h3><p class="mt-1.5 text-xs text-slate-600 font-medium leading-relaxed">Si mañana un agente se va, la zona, el perfil y el historial se quedan donde estaban.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRECIOS COMPLETOS ============ -->
+<section id="precios" class="anclado bg-slate-50 py-20 px-4 sm:px-6 border-y border-slate-200">
+  <div class="max-w-5xl mx-auto">
+
+    <div class="text-center max-w-2xl mx-auto reveal">
+      <span class="inline-block text-[11px] font-black uppercase tracking-widest text-gradient mb-3">Precios en detalle</span>
+      <h2 class="text-3xl sm:text-5xl font-black tracking-tighter">Un abono. Una campaña incluida.<br>Elegís cuál.</h2>
+      <p class="mt-4 text-slate-500 font-medium">El mes que no tenés propiedad estrella, usás el abono en prospección de zona o en una búsqueda. No se pierde.</p>
+    </div>
+
+    <div class="mt-12 bisel rounded-3xl p-7 sm:p-10 reveal">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div>
+          <p class="text-[10px] font-black uppercase tracking-widest text-slate-400">Abono base corporativo</p>
+          <div class="flex items-end gap-3 mt-2">
+            <p class="text-5xl sm:text-6xl font-black tracking-tighter num">USD 200</p>
+            <p class="text-lg font-bold text-slate-300 line-through mb-2 num">400</p>
+          </div>
+          <p class="mt-1 text-xs font-extrabold text-emerald-600 uppercase tracking-wide">Precio de las tres primeras inmobiliarias · <span class="frase-cupos"></span></p>
+          <p class="mt-1 text-xs font-bold text-slate-400 solo-ag">Dividido entre cuatro agentes, son USD 50 por cabeza.</p>
+        </div>
+        <div class="w-full sm:w-auto">
+          <a href="#configurador" class="btn-fluor w-full sm:w-auto inline-flex py-4 px-8 rounded-full font-extrabold text-white text-sm items-center justify-center gap-3 hover:scale-105 active:scale-95 transition-all">
+            <i class="ph-bold ph-sliders text-lg"></i><span>Armar mi combinación</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-8 pt-7 border-t border-slate-200 grid sm:grid-cols-3 gap-4">
+        <div class="flex items-start gap-3"><i class="ph-bold ph-check-circle text-emerald-500 text-xl mt-0.5 shrink-0"></i><div><p class="font-black text-sm">Una campaña incluida, a elección</p><p class="text-xs text-slate-500 font-medium mt-0.5">FarmTeam, GuardPerf o CompReal. La elegís vos cada mes.</p></div></div>
+        <div class="flex items-start gap-3"><i class="ph-bold ph-check-circle text-emerald-500 text-xl mt-0.5 shrink-0"></i><div><p class="font-black text-sm">Hasta cincuenta agentes</p><p class="text-xs text-slate-500 font-medium mt-0.5">Una oficina de cuatro y una de cuarenta pagan lo mismo.</p></div></div>
+        <div class="flex items-start gap-3"><i class="ph-bold ph-check-circle text-emerald-500 text-xl mt-0.5 shrink-0"></i><div><p class="font-black text-sm">Todo el motor</p><p class="text-xs text-slate-500 font-medium mt-0.5">Métricas, guardia, rueda, landings, coaching e informes.</p></div></div>
+      </div>
+    </div>
+
+    <div class="mt-6 grid sm:grid-cols-3 gap-5">
+      <div class="bisel rounded-2xl p-6 hover-wow reveal">
+        <div class="flex items-center gap-2 mb-3"><i class="ph-bold ph-users-three text-2xl text-amber-500"></i><h3 class="font-black tracking-tight">FarmTeam</h3></div>
+        <div class="flex items-end gap-2"><p class="text-3xl font-black tracking-tighter num">USD 200</p><p class="text-sm font-bold text-slate-300 line-through mb-1 num">400</p></div>
+        <p class="mt-2 text-xs text-slate-500 font-medium">por zona activa adicional</p>
+      </div>
+      <div class="bisel rounded-2xl p-6 hover-wow reveal">
+        <div class="flex items-center gap-2 mb-3"><i class="ph-bold ph-shield-check text-2xl text-emerald-500"></i><h3 class="font-black tracking-tight">GuardPerf</h3></div>
+        <div class="flex items-end gap-2"><p class="text-3xl font-black tracking-tighter num">USD 200</p><p class="text-sm font-bold text-slate-300 line-through mb-1 num">400</p></div>
+        <p class="mt-2 text-xs text-slate-500 font-medium">por propiedad estrella adicional</p>
+      </div>
+      <div class="bisel rounded-2xl p-6 hover-wow reveal">
+        <div class="flex items-center gap-2 mb-3"><i class="ph-bold ph-magnifying-glass text-2xl text-fuchsia-500"></i><h3 class="font-black tracking-tight">CompReal</h3></div>
+        <div class="flex items-end gap-2"><p class="text-3xl font-black tracking-tighter num">USD 150</p><p class="text-sm font-bold text-slate-300 line-through mb-1 num">300</p></div>
+        <p class="mt-2 text-xs text-slate-500 font-medium">por búsqueda verificada adicional</p>
+      </div>
+    </div>
+
+    <div class="mt-6 grid sm:grid-cols-2 gap-4">
+      <div class="bisel rounded-2xl p-5 reveal"><div class="flex items-start gap-3"><i class="ph-bold ph-megaphone text-xl text-slate-400 mt-0.5 shrink-0"></i><div><p class="font-black text-sm">La pauta publicitaria va siempre aparte</p><p class="text-xs text-slate-500 font-medium mt-1 leading-relaxed">La invierte el cliente desde su propia cuenta verificada. Acá se cobra el servicio, nunca el medio.</p></div></div></div>
+      <div class="bisel rounded-2xl p-5 reveal"><div class="flex items-start gap-3"><i class="ph-bold ph-calendar-check text-xl text-slate-400 mt-0.5 shrink-0"></i><div><p class="font-black text-sm">Ciclo mínimo de tres meses</p><p class="text-xs text-slate-500 font-medium mt-1 leading-relaxed">El primer mes se va en conectar todo y madurar la pauta. Y ese primer mes es pospago.</p></div></div></div>
+      <div class="bisel rounded-2xl p-5 reveal"><div class="flex items-start gap-3"><i class="ph-bold ph-video-camera text-xl text-slate-400 mt-0.5 shrink-0"></i><div><p class="font-black text-sm">Las piezas gráficas van incluidas. El video, no.</p><p class="text-xs text-slate-500 font-medium mt-1 leading-relaxed">Flyers y placas se producen y se entregan listos. El material audiovisual se entrega tal cual se graba: no incluye edición.</p></div></div></div>
+      <div class="bisel rounded-2xl p-5 reveal"><div class="flex items-start gap-3"><i class="ph-bold ph-receipt text-xl text-slate-400 mt-0.5 shrink-0"></i><div><p class="font-black text-sm">Los valores no incluyen impuestos</p><p class="text-xs text-slate-500 font-medium mt-1 leading-relaxed">Consultanos por chat o por teléfono y lo vemos según tu caso, sin sorpresas después.</p></div></div></div>
+    </div>
+
+    <div class="mt-8 flame flame-noche rounded-3xl p-8 sm:p-12 text-center reveal">
+      <div class="glow-1"></div><div class="glow-2"></div>
+      <div class="relative z-10">
+        <i class="ph-bold ph-percent text-4xl sm:text-5xl text-cyan-300"></i>
+        <h3 class="mt-4 text-2xl sm:text-4xl font-black text-white tracking-tighter leading-tight">
+          En los tres modelos rige el 25% de referido interno<br class="hidden sm:block"> a favor de la oficina.
+        </h3>
+        <p class="mt-4 text-slate-300 font-semibold max-w-2xl mx-auto solo-of">
+          El agente captador conserva su comisión intacta. Lo que la oficina pone en campañas vuelve por acá, cierre tras cierre.
+        </p>
+        <p class="mt-4 text-slate-300 font-semibold max-w-2xl mx-auto solo-ag">
+          Tu comisión de captador no se toca. Ese 25% sale de la rueda y va a la casa, que es justamente lo que hace que a tu oficina le convenga que esto exista.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONFIGURADOR ============ -->
+<section id="configurador" class="anclado bg-white py-20 px-4 sm:px-6">
+  <div class="max-w-5xl mx-auto">
+
+    <div class="text-center max-w-2xl mx-auto reveal">
+      <span class="inline-block text-[11px] font-black uppercase tracking-widest text-gradient mb-3">Configurador</span>
+      <h2 class="text-3xl sm:text-4xl font-black tracking-tighter">Armá tu mes y mirá quién paga qué.</h2>
+      <p class="mt-4 text-slate-500 font-medium">Metro Cuadrado Marketing le factura siempre el total a un solo lugar. El modelo define únicamente cómo se recupera puertas adentro.</p>
+    </div>
+
+    <div class="mt-12 bisel rounded-3xl p-6 sm:p-9 reveal">
+
+      <div class="flex flex-col sm:flex-row gap-2 bg-slate-100 p-1.5 rounded-2xl">
+        <button id="btn-total" onclick="setModelo('total')"><i class="ph-bold ph-buildings"></i> Subvención total</button>
+        <button id="btn-cofin" onclick="setModelo('cofin')"><i class="ph-bold ph-handshake"></i> Co-financiado</button>
+        <button id="btn-agentes" onclick="setModelo('agentes')"><i class="ph-bold ph-user-focus"></i> Fondo de agentes</button>
+      </div>
+
+      <div class="mt-6 flex items-start gap-4 bg-slate-50 rounded-2xl p-5 border border-slate-200">
+        <div id="mod-icono"></div>
+        <div>
+          <h3 id="mod-titulo" class="font-black text-base tracking-tight"></h3>
+          <p id="mod-desc" class="mt-1 text-sm text-slate-600 font-medium leading-relaxed"></p>
+        </div>
+      </div>
+
+      <div class="mt-8 space-y-3">
+        <div class="flex items-center justify-between gap-4 p-4 rounded-2xl border border-slate-200">
+          <div class="flex items-center gap-3"><i class="ph-bold ph-users-three text-2xl text-amber-500"></i><div><p class="font-black text-sm">FarmTeam adicional</p><p class="text-xs text-slate-400 font-bold">USD 200 por zona</p></div></div>
+          <div class="flex items-center gap-3"><button onclick="paso('ft',-1)" class="w-9 h-9 rounded-full bisel flex items-center justify-center text-slate-600 active:scale-95 transition"><i class="ph-bold ph-minus"></i></button><span id="n-ft" class="w-7 text-center text-xl font-black num">0</span><button onclick="paso('ft',1)" class="w-9 h-9 rounded-full bisel flex items-center justify-center text-slate-600 active:scale-95 transition"><i class="ph-bold ph-plus"></i></button></div>
+        </div>
+        <div class="flex items-center justify-between gap-4 p-4 rounded-2xl border border-slate-200">
+          <div class="flex items-center gap-3"><i class="ph-bold ph-shield-check text-2xl text-emerald-500"></i><div><p class="font-black text-sm">GuardPerf adicional</p><p class="text-xs text-slate-400 font-bold">USD 200 por propiedad</p></div></div>
+          <div class="flex items-center gap-3"><button onclick="paso('gp',-1)" class="w-9 h-9 rounded-full bisel flex items-center justify-center text-slate-600 active:scale-95 transition"><i class="ph-bold ph-minus"></i></button><span id="n-gp" class="w-7 text-center text-xl font-black num">0</span><button onclick="paso('gp',1)" class="w-9 h-9 rounded-full bisel flex items-center justify-center text-slate-600 active:scale-95 transition"><i class="ph-bold ph-plus"></i></button></div>
+        </div>
+        <div class="flex items-center justify-between gap-4 p-4 rounded-2xl border border-slate-200">
+          <div class="flex items-center gap-3"><i class="ph-bold ph-magnifying-glass text-2xl text-fuchsia-500"></i><div><p class="font-black text-sm">CompReal adicional</p><p class="text-xs text-slate-400 font-bold">USD 150 por búsqueda</p></div></div>
+          <div class="flex items-center gap-3"><button onclick="paso('cr',-1)" class="w-9 h-9 rounded-full bisel flex items-center justify-center text-slate-600 active:scale-95 transition"><i class="ph-bold ph-minus"></i></button><span id="n-cr" class="w-7 text-center text-xl font-black num">0</span><button onclick="paso('cr',1)" class="w-9 h-9 rounded-full bisel flex items-center justify-center text-slate-600 active:scale-95 transition"><i class="ph-bold ph-plus"></i></button></div>
+        </div>
+        <div class="flex items-center justify-between gap-4 p-4 rounded-2xl border border-slate-200 bg-slate-50">
+          <div class="flex items-center gap-3"><i class="ph-bold ph-user-list text-2xl text-slate-500"></i><div><p class="font-black text-sm">Agentes que participan</p><p class="text-xs text-slate-400 font-bold">para dividir lo que ponen ellos</p></div></div>
+          <div class="flex items-center gap-3"><button onclick="paso('ag',-1)" class="w-9 h-9 rounded-full bisel flex items-center justify-center text-slate-600 active:scale-95 transition"><i class="ph-bold ph-minus"></i></button><span id="n-ag" class="w-7 text-center text-xl font-black num">4</span><button onclick="paso('ag',1)" class="w-9 h-9 rounded-full bisel flex items-center justify-center text-slate-600 active:scale-95 transition"><i class="ph-bold ph-plus"></i></button></div>
+        </div>
+      </div>
+
+      <div class="mt-8 pt-7 border-t border-slate-200">
+        <div class="flex items-center justify-between gap-4 text-sm font-bold text-slate-500">
+          <span>Abono base</span><span class="num">USD 200</span>
+        </div>
+        <div class="mt-2 flex items-center justify-between gap-4 text-sm font-bold text-slate-500">
+          <span id="lbl-extras-desc">Solo la estructura base</span>
+          <span class="flex items-center gap-2"><span id="lbl-extras-lista" class="text-slate-300 line-through num">USD 0</span><span id="lbl-extras" class="num text-slate-900">USD 0</span></span>
+        </div>
+        <div class="mt-4 pt-4 border-t border-slate-200 flex items-center justify-between gap-4">
+          <span class="font-black text-base" id="lbl-factura">Le facturamos a la oficina</span>
+          <span id="val-factura" class="text-3xl font-black tracking-tighter num">USD 200</span>
+        </div>
+      </div>
+
+      <div class="mt-8">
+        <p class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-3">Cómo se reparte puertas adentro</p>
+        <div class="h-11 rounded-2xl overflow-hidden flex text-[11px] font-black text-white">
+          <div id="barra-of" class="h-full bg-gradient-to-r from-blue-600 to-violet-600 flex items-center justify-center transition-all duration-500 num"></div>
+          <div id="barra-ag" class="h-full bg-gradient-to-r from-amber-500 to-rose-500 flex items-center justify-center transition-all duration-500 num"></div>
+        </div>
+        <div class="mt-4 grid sm:grid-cols-3 gap-3">
+          <div class="bisel rounded-2xl p-4"><p class="text-[10px] font-black uppercase tracking-widest text-slate-400">Pone la oficina</p><p id="val-of" class="text-2xl font-black tracking-tighter num mt-1">USD 200</p></div>
+          <div id="caja-agentes" class="bisel rounded-2xl p-4 transition-opacity"><p class="text-[10px] font-black uppercase tracking-widest text-slate-400">Ponen los agentes</p><p id="val-ag" class="text-2xl font-black tracking-tighter num mt-1">USD 0</p></div>
+          <div class="bisel rounded-2xl p-4"><p class="text-[10px] font-black uppercase tracking-widest text-slate-400">Le toca a cada uno</p><p id="val-c-u" class="text-2xl font-black tracking-tighter num mt-1">USD 0</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUIÉN ESTÁ DETRÁS ============ -->
+<section class="bg-slate-50 py-20 px-4 sm:px-6 border-y border-slate-200">
+  <div class="max-w-3xl mx-auto text-center reveal">
+    <span class="inline-block text-[11px] font-black uppercase tracking-widest text-gradient mb-3">Quién está detrás</span>
+    <h2 class="text-3xl sm:text-4xl font-black tracking-tighter">No es una agencia que descubrió el rubro.</h2>
+    <p class="mt-5 text-slate-600 font-medium leading-relaxed">
+      Metro Cuadrado Marketing lo lleva alguien que hace más de cinco años trabaja como agente inmobiliario en la Ciudad de Buenos Aires,
+      y que armó todo esto porque lo necesitaba él primero. Cada regla del sistema salió de un problema real:
+      la consulta que se enfrió, el video que nadie grabó, la oportunidad que se perdió porque nadie sabía a quién le tocaba.
+    </p>
+    <p class="mt-4 text-slate-600 font-medium leading-relaxed">
+      Por eso no vas a escuchar promesas de alcance ni de impresiones. Vas a escuchar de tiempos de respuesta, de reparto y de cierres.
+    </p>
+  </div>
+</section>
+
+<!-- ============ PREGUNTAS ============ -->
+<section class="bg-white py-20 px-4 sm:px-6">
+  <div class="max-w-3xl mx-auto">
+    <div class="text-center mb-10 reveal">
+      <span class="inline-block text-[11px] font-black uppercase tracking-widest text-gradient mb-3">Preguntas</span>
+      <h2 class="text-3xl sm:text-4xl font-black tracking-tighter">Lo que siempre nos preguntan.</h2>
+    </div>
+    <div id="faq" class="space-y-3"></div>
+  </div>
+</section>
+
+<!-- ============ CIERRE ============ -->
+<section class="flame flame-azul py-16 px-4 sm:px-6">
+  <div class="glow-1"></div><div class="glow-2"></div>
+  <div class="relative z-10 max-w-4xl mx-auto text-center">
+    <div class="inline-flex items-center gap-4 bg-white rounded-3xl pl-4 pr-6 py-3.5 shadow-2xl mb-8">
+      <img src="https://lh3.googleusercontent.com/d/1Yq4YcFxytCooor28U_NwUU3iPFkzw1EV"
+           alt="Metro Cuadrado Marketing" class="h-14 sm:h-20 w-auto object-contain rounded-2xl"
+           onerror="this.onerror=null;this.src='https://placehold.co/160x50/2563eb/ffffff?text=M2Marketing';">
+      <span class="text-left leading-tight">
+        <span class="block text-sm sm:text-lg font-black text-slate-900 tracking-tight whitespace-nowrap">Metro Cuadrado Marketing</span>
+        <span class="block text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-gradient">Ingeniería de Ventas e Imagen Inmobiliaria</span>
+      </span>
+    </div>
+    <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
+      Una charla de diez minutos<br class="hidden sm:block">
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-500">y sabés si te sirve.</span>
+    </h2>
+    <p class="mt-4 text-sm sm:text-base text-slate-300 font-medium max-w-xl mx-auto">
+      Primero diez minutos para ver dónde estás parado. Si tiene sentido, después nos sentamos con el tablero real y miramos tu zona.
+    </p>
+    <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+      <a href="https://wa.me/5491135678024?text=Hola,%20me%20gustar%C3%ADa%20hablar%20unos%20minutos%20para%20conocer%20los%20servicios%20que%20ofrecen." target="_blank" rel="noopener"
+         class="btn-fluor inline-flex py-4 px-8 rounded-full font-extrabold text-white text-sm items-center justify-center gap-3 hover:scale-105 active:scale-95 transition-all">
+        <i class="ph-bold ph-whatsapp-logo text-xl"></i><span>Escribir por WhatsApp</span>
+      </a>
+      <a href="https://www.instagram.com/m2marketing.ar/" target="_blank" rel="noopener"
+         class="bisel-oscuro inline-flex py-4 px-8 rounded-full font-extrabold text-white text-sm items-center justify-center gap-3 hover:scale-105 active:scale-95 transition-all">
+        <i class="ph-bold ph-instagram-logo text-xl text-fuchsia-300"></i><span>Instagram</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-white py-8 text-center border-t border-slate-200">
+  <p class="text-[11px] text-slate-400 font-bold">Metro Cuadrado Marketing · M2Marketing · Ciudad Autónoma de Buenos Aires</p>
+</footer>
+
+</main>
+
+<script>
+/* ============ SWITCH DE PUBLICO ============
+   No hay dos paginas. Hay una sola que cambia de interlocutor.
+   Se puede entrar directo con #agente o #inmobiliaria, asi el aviso de Meta
+   aterriza ya del lado correcto sin que el visitante tenga que tocar nada. */
+var publico = 'of';
+
+function marcarPublico() {
+  ['pb-of', 'pb-ag'].forEach(function (id) {
+    var esteEsElActivo = (id === (publico === 'of' ? 'pb-of' : 'pb-ag'));
+    document.getElementById(id).className =
+      'relative z-10 px-4 sm:px-6 py-1.5 text-xs sm:text-sm transition-all duration-300 select-none cursor-pointer whitespace-nowrap ' +
+      (esteEsElActivo ? 'font-black text-white' : 'font-medium text-slate-400 hover:text-slate-600');
+  });
+  var marca = document.getElementById('marca-publico');
+  var b = document.getElementById(publico === 'of' ? 'pb-of' : 'pb-ag');
+  marca.style.background = publico === 'of'
+    ? 'linear-gradient(135deg,#0057FF 0%,#00C2FF 100%)'
+    : 'linear-gradient(135deg,#f59e0b 0%,#f43f5e 100%)';
+  marca.style.left = b.offsetLeft + 'px';
+  marca.style.width = b.offsetWidth + 'px';
+}
+
+function setPublico(p) {
+  publico = p;
+  document.body.classList.toggle('es-of', p === 'of');
+  document.body.classList.toggle('es-ag', p === 'ag');
+  document.getElementById('lbl-factura').innerText =
+    p === 'of' ? 'Le facturamos a la oficina' : 'Facturamos a un solo lugar';
+  marcarPublico();
+  pintarPreguntas();
+}
+
+/* Cupos del precio de arranque. Se toca un solo numero, CUPOS_LIBRES, y se pinta solo en
+   toda la pagina: en los dos carteles de precio y adentro de la pregunta frecuente.
+   Mientras esten los tres libres no decimos "quedan tres", que suena a cuenta regresiva
+   inventada: decimos que son solo tres, que es lo que realmente pasa. */
+var CUPOS_TOTAL = 3;
+var CUPOS_LIBRES = 3;
+
+function fraseCupos() {
+  if (CUPOS_LIBRES === CUPOS_TOTAL) return 'son solo tres cupos';
+  return (CUPOS_LIBRES === 1 ? 'queda 1 de ' : 'quedan ' + CUPOS_LIBRES + ' de ') + CUPOS_TOTAL;
+}
+
+function fraseCuposLarga() {
+  return CUPOS_LIBRES === CUPOS_TOTAL
+    ? 'Son tres cupos y todavía están los tres libres.'
+    : 'De los tres, ' + (CUPOS_LIBRES === 1 ? 'queda uno' : 'quedan ' + CUPOS_LIBRES) + '.';
+}
+
+/* ============ CALCULADORA DEL EQUIPO ============ */
+var equipo = 4;
+
+function pasoEquipo(d) {
+  equipo = Math.min(8, Math.max(2, equipo + d));
+  pintarEquipo();
+}
+
+function pintarEquipo() {
+  document.getElementById('n-equipo').innerText = equipo;
+  var cadaUno = Math.round(200 / equipo);
+  document.getElementById('val-equipo-cu').innerText = 'USD ' + cadaUno;
+  var nota;
+  if (equipo === 2) {
+    nota = 'Con dos ya se puede arrancar, aunque la rueda rinde más de cuatro en adelante.';
+  } else if (equipo >= 6) {
+    nota = 'A esta altura conviene que entre la oficina: el mismo abono cubre hasta cincuenta agentes.';
+  } else {
+    nota = 'Un almuerzo por cabeza al mes, y la zona empieza a tener dueño.';
+  }
+  document.getElementById('nota-equipo').innerText = nota;
+}
+
+/* ============ PREGUNTAS, distintas segun quien mira ============ */
+var PREGUNTAS_OF = [
+  ['¿Qué incluye exactamente el abono?',
+   'Una campaña por mes a elección entre FarmTeam, GuardPerf y CompReal, más todo el motor: métricas por aviso, guardia de quince minutos, rueda de reparto, landings, pauta hiperlocal, coaching e informes. Podés cambiar de servicio mes a mes, con una salvedad honesta: FarmTeam es marca de zona y necesita repetirse en el mismo barrio varios meses para que rinda. Los otros dos sí se alternan libremente.'],
+  ['Tenemos cuarenta agentes. ¿Cuánto sale?',
+   'Lo mismo: USD 200. El abono cubre hasta cincuenta agentes sin costo extra por cabeza. Es a propósito, porque lo que se contrata es la estructura, no una licencia por usuario. Una oficina grande es justamente donde más rinde, porque la rueda de reparto tiene con qué trabajar.'],
+  ['¿Y si mis agentes no lo usan?',
+   'Por eso existen los tres modelos de financiación. Si no querés comprometerte a bancarle campañas a nadie, elegís Fondo de Agentes: la oficina paga solo el abono base y el que quiera más se lo paga él. Ninguna oficina queda obligada a mantener a su equipo, y ninguna queda expuesta a que el gasto crezca sin control.'],
+  ['¿Qué pasa si un agente no contesta las consultas?',
+   'Está todo medido, consulta por consulta. Si un agente no responde dentro de los 15 minutos, el sistema le pasa la oportunidad al siguiente sin esperar a nadie. Si el incumplimiento se repite, queda fuera de la rueda de forma automática hasta que se lo reactive. Y cuando esa campaña la financió la oficina, el prospecto desatendido se le factura al agente.'],
+  ['Ya tenemos a alguien de marketing puertas adentro. ¿Sirve igual?',
+   'Sirve distinto. Si ya tenés un área armada y funcionando, probablemente no necesites toda la estructura. En ese caso lo que suele tener sentido es tomar un servicio suelto, GuardPerf para una propiedad estrella o CompReal para una búsqueda concreta, y no el abono completo. Te lo decimos de entrada porque no queremos venderte algo que ya tenés.'],
+  ['¿Los videos vienen editados?',
+   'No. Las piezas gráficas, flyers y placas, se producen y se entregan listas para publicar, y van incluidas. El material audiovisual se entrega tal cual se graba: el servicio no incluye edición de video. Si querés edición, se cotiza aparte.'],
+  ['Si un grupo de mis agentes lo contrata por su cuenta, ¿qué pasa con la oficina?',
+   'Sigue rigiendo el 25% de referido interno a favor de la casa, y la marca de zona se puede pasar a nombre de la oficina cuando ustedes quieran. Es más: si después la oficina entra formalmente, el mismo abono cubre a todo el equipo y a cada agente le baja lo que pone. Un equipo que arrancó solo se absorbe sin empezar de cero y sin perder el historial.'],
+  ['¿Y el precio de fundador hasta cuándo dura?',
+   'Somos nuevos en el mercado y lo decimos de frente: este precio es el de las tres primeras inmobiliarias que entran, porque son las que se arriesgan primero con algo que todavía no tiene veinte casos para mostrar. {CUPOS} No hay reloj en la pantalla ni cuenta regresiva inventada: cuando se ocupen los tres, el abono pasa a USD 400 para el que llegue después, y el tuyo se te mantiene durante los primeros seis meses. El día exacto en que cambia te lo decimos por escrito antes de que firmes, no después. La fecha exacta en que tu abono pasa a valor de lista queda escrita desde el día uno, así no te llevás ninguna sorpresa en el mes siete.']
+];
+
+var PREGUNTAS_AG = [
+  ['Somos un grupo de agentes, ¿podemos contratarlo sin la oficina?',
+   'Sí, y es la forma más fácil de empezar. Desde dos agentes en adelante se arma un equipo, se divide el abono y arrancan por un barrio. Compartir el costo del marketing es exactamente lo que hacen los equipos inmobiliarios en todo el mundo: se reparten la publicidad, las herramientas y los gastos de operación. No hay nada raro en esto.'],
+  ['¿Cuánto pone cada uno?',
+   'El abono es de USD 200 y se divide entre los que entran. Entre cuatro son USD 50 por cabeza al mes, que es un almuerzo. Entre dos son USD 100. Y si en algún momento se suma la oficina, el mismo abono pasa a cubrir hasta cincuenta agentes y a todos les baja.'],
+  ['Quiero presentárselo a mi bróker. ¿Cómo lo planteo?',
+   'No como un pedido de plata, porque esa conversación tu bróker la tiene diez veces por semana y ya tiene la respuesta lista. Planteálo con el Modelo 3: la oficina no pone un peso, los agentes que quieren se hacen la vaquita, y la oficina igual se lleva el 25% de referido de cada cierre que salga de la rueda. Escribinos y te pasamos cómo presentarlo, con los números armados.'],
+  ['¿De quién queda la zona y el perfil?',
+   'Del equipo, nunca de una persona sola. Es a propósito: si mañana alguien se va, la marca de zona, el historial de la cuenta publicitaria y las consultas se quedan donde estaban. Y si más adelante entra la oficina, se pasa a nombre de la casa sin perder nada de lo construido.'],
+  ['¿Qué pasa si uno del grupo no graba nunca?',
+   'Ese es justamente el problema que el formato resuelve. Grabar solo tres meses seguidos no lo sostiene casi nadie; grabar sabiendo que hay tres compañeros esperando, sí. Y el reparto de consultas es por rueda registrada, así que el que no aporta se nota en el número, no en una discusión.'],
+  ['¿Los videos vienen editados?',
+   'No. Las piezas gráficas, flyers y placas, se producen y se entregan listas para publicar, y van incluidas. El material audiovisual se entrega tal cual se graba: el servicio no incluye edición de video. Si querés edición, se cotiza aparte.'],
+  ['¿Cuál es el compromiso mínimo?',
+   'Tres meses. El primer mes se va en conectar el Instagram y la cuenta publicitaria, dejar las landings andando y sacar la pauta de su período de aprendizaje: recién desde el segundo mes los números significan algo. Ese primer mes es pospago, se abona a los treinta días con el sistema ya funcionando. Del segundo en adelante es prepago.'],
+  ['¿Y el precio de fundador hasta cuándo dura?',
+   'Somos nuevos en el mercado y lo decimos de frente: este precio es el de las tres primeras inmobiliarias que entran, porque son las que se arriesgan primero con algo que todavía no tiene veinte casos para mostrar. {CUPOS} No hay reloj en la pantalla ni cuenta regresiva inventada: cuando se ocupen los tres, el abono pasa a USD 400 para el que llegue después, y el tuyo se te mantiene durante los primeros seis meses. El día exacto en que cambia te lo decimos por escrito antes de que firmes, no después. La fecha exacta en que tu abono pasa a valor de lista queda escrita desde el día uno.']
+];
+
+function pintarPreguntas() {
+  var lista = (publico === 'of') ? PREGUNTAS_OF : PREGUNTAS_AG;
+  document.getElementById('faq').innerHTML = lista.map(function (p, i) {
+    p = [p[0], p[1].split('{CUPOS}').join(fraseCuposLarga())];
+    return '<details class="group bisel rounded-2xl overflow-hidden"' + (i === 0 ? ' open' : '') + '>' +
+      '<summary class="cursor-pointer list-none p-5 flex items-center justify-between gap-4">' +
+        '<span class="font-black text-slate-900 text-sm sm:text-base">' + p[0] + '</span>' +
+        '<i class="ph-bold ph-caret-down text-slate-400 group-open:rotate-180 transition-transform shrink-0"></i>' +
+      '</summary>' +
+      '<div class="px-5 pb-5 -mt-1"><p class="text-sm text-slate-600 font-medium leading-relaxed">' + p[1] + '</p></div>' +
+    '</details>';
+  }).join('');
+}
+
+/* ============ CONFIGURADOR ============ */
+var PRECIO = { gp: 200, cr: 150, ft: 200 };
+var LISTA  = { gp: 400, cr: 300, ft: 400 };
+var BASE = 200;
+var estado = { gp: 0, cr: 0, ft: 0, ag: 4 };
+var modelo = 'total';
+
+var TEXTOS = {
+  total: {
+    icono: 'ph-buildings', clase: 'bg-emerald-50 text-emerald-600 border border-emerald-200',
+    titulo: 'Modelo 1: Subvención Total',
+    desc: 'La oficina absorbe el 100% del abono base y de todos los servicios extras. Los agentes no pagan cuota fija. Es el modelo que se usa como imán de reclutamiento y para retener a los mejores.'
+  },
+  cofin: {
+    icono: 'ph-handshake', clase: 'bg-amber-50 text-amber-600 border border-amber-200',
+    titulo: 'Modelo 2: Co-Financiado',
+    desc: 'La oficina cubre el abono base con su campaña incluida. Cualquier servicio extra se parte mitad y mitad entre la oficina y los agentes que participan de la rueda.'
+  },
+  agentes: {
+    icono: 'ph-user-focus', clase: 'bg-blue-50 text-blue-600 border border-blue-200',
+    titulo: 'Modelo 3: Fondo de Agentes',
+    desc: 'La oficina abona solo la base y le deja a su equipo la campaña incluida. Si los agentes quieren lanzar más, se hacen la vaquita entre ellos. La oficina solo junta y liquida, sin comprometerse a nada.'
+  }
+};
+
+function setModelo(m) { modelo = m; pintar(); }
+
+function paso(k, d) {
+  if (k === 'ag') { estado.ag = Math.min(12, Math.max(2, estado.ag + d)); }
+  else { estado[k] = Math.min(9, Math.max(0, estado[k] + d)); }
+  pintar();
+}
+
+function usd(n) { return 'USD ' + n.toLocaleString('es-AR'); }
+
+function pintar() {
+  var apagado = 'flex-1 py-3 px-5 rounded-xl text-xs sm:text-sm font-extrabold transition-all duration-300 flex items-center justify-center gap-2 text-slate-600 hover:text-slate-900';
+  var prendido = 'flex-1 py-3 px-5 rounded-xl text-xs sm:text-sm font-extrabold transition-all duration-300 flex items-center justify-center gap-2 bg-white text-slate-900 shadow-sm border border-slate-200/50';
+  document.getElementById('btn-total').className = modelo === 'total' ? prendido : apagado;
+  document.getElementById('btn-cofin').className = modelo === 'cofin' ? prendido : apagado;
+  document.getElementById('btn-agentes').className = modelo === 'agentes' ? prendido : apagado;
+
+  var t = TEXTOS[modelo];
+  var ic = document.getElementById('mod-icono');
+  ic.innerHTML = '<i class="ph-bold ' + t.icono + '"></i>';
+  ic.className = 'w-10 h-10 rounded-xl flex items-center justify-center text-lg shrink-0 ' + t.clase;
+  document.getElementById('mod-titulo').innerText = t.titulo;
+  document.getElementById('mod-desc').innerText = t.desc;
+
+  document.getElementById('n-gp').innerText = estado.gp;
+  document.getElementById('n-cr').innerText = estado.cr;
+  document.getElementById('n-ft').innerText = estado.ft;
+  document.getElementById('n-ag').innerText = estado.ag;
+
+  var extras = estado.gp * PRECIO.gp + estado.cr * PRECIO.cr + estado.ft * PRECIO.ft;
+  var extrasLista = estado.gp * LISTA.gp + estado.cr * LISTA.cr + estado.ft * LISTA.ft;
+
+  var partes = [];
+  if (estado.ft) partes.push(estado.ft + ' FarmTeam');
+  if (estado.gp) partes.push(estado.gp + ' GuardPerf');
+  if (estado.cr) partes.push(estado.cr + ' CompReal');
+  document.getElementById('lbl-extras-desc').innerText = partes.length ? partes.join(' · ') : 'Solo la estructura base';
+  document.getElementById('lbl-extras').innerText = usd(extras);
+  document.getElementById('lbl-extras-lista').innerText = usd(extrasLista);
+  document.getElementById('val-factura').innerText = usd(BASE + extras);
+
+  var oficina, agentes;
+  if (modelo === 'total') { oficina = BASE + extras; agentes = 0; }
+  else if (modelo === 'cofin') { oficina = BASE + extras / 2; agentes = extras / 2; }
+  else { oficina = BASE; agentes = extras; }
+
+  oficina = Math.round(oficina);
+  agentes = Math.round(agentes);
+  var cadaUno = agentes > 0 ? Math.round(agentes / estado.ag) : 0;
+
+  document.getElementById('val-of').innerText = usd(oficina);
+  document.getElementById('val-ag').innerText = usd(agentes);
+  document.getElementById('val-c-u').innerText = usd(cadaUno);
+
+  var total = oficina + agentes;
+  var pOf = total ? (oficina / total) * 100 : 100;
+  var bOf = document.getElementById('barra-of');
+  var bAg = document.getElementById('barra-ag');
+  bOf.style.width = pOf + '%';
+  bAg.style.width = (100 - pOf) + '%';
+  bOf.innerText = pOf > 18 ? usd(oficina) : '';
+  bAg.innerText = (100 - pOf) > 18 ? usd(agentes) : '';
+  document.getElementById('caja-agentes').style.opacity = agentes > 0 ? '1' : '0.45';
+}
+
+/* ============ ARRANQUE ============ */
+var hash = (window.location.hash || '').toLowerCase();
+/* Arranca en inmobiliaria, que es el publico principal. Con #agente en la direccion
+   entra del lado del agente, para el aviso de Meta y para el link que se reenvia. */
+setPublico(hash.indexOf('agente') >= 0 ? 'ag' : 'of');
+Array.prototype.forEach.call(document.querySelectorAll('.frase-cupos'), function (e) {
+  e.innerText = fraseCupos();
+});
+pintarEquipo();
+pintar();
+window.addEventListener('resize', marcarPublico);
+window.addEventListener('load', marcarPublico);
+
+var obs = new IntersectionObserver(function (entradas) {
+  entradas.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('activo'); obs.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(function (el) { obs.observe(el); });
+</script>
+</body>
+</html>

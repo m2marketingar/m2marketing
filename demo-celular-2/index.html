@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>GuardPerf — Demo aceptar oportunidad</title>
+<style>
+  :root{
+    --bg:#f8fafc; --card:#ffffff; --ink:#0f172a; --ink-soft:#475569; --line:#e2e8f0;
+    --accent:#2563eb; --good:#10b981; --warn:#f59e0b;
+    --email-bg:#1e1e1e; --email-card:#262626; --email-line:#333333;
+  }
+  :root[data-theme="dark"]{ --bg:#0b1220; --card:#111a2c; --ink:#f1f5f9; --ink-soft:#94a3b8; --line:#1e293b; }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){ --bg:#0b1220; --card:#111a2c; --ink:#f1f5f9; --ink-soft:#94a3b8; --line:#1e293b; }
+  }
+  *{box-sizing:border-box;}
+  body{ margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; padding:36px 16px 80px; }
+  .top{ max-width:400px; margin:0 auto 34px; text-align:center; }
+  .eyebrow{ display:inline-block; font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--accent); background:color-mix(in srgb, var(--accent) 12%, transparent); padding:6px 14px; border-radius:999px; margin-bottom:16px; }
+  h1{ font-size:clamp(20px,4vw,28px); font-weight:900; margin:0 0 10px; text-wrap:balance; letter-spacing:-.01em; }
+  .top p{ color:var(--ink-soft); font-size:14.5px; max-width:520px; margin:0 auto; line-height:1.6; }
+
+  .phones{ max-width:400px; margin:0 auto; display:flex; flex-direction:column; gap:20px; align-items:center; }
+  .stepLbl{ font-size:12px; font-weight:800; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.04em; display:flex; align-items:center; gap:8px; }
+  .stepLbl .num{ width:20px; height:20px; border-radius:50%; background:var(--accent); color:#fff; font-size:11px; display:flex; align-items:center; justify-content:center; }
+  .arrowDown{ font-size:20px; color:var(--ink-soft); opacity:.5; }
+
+  .phone{ width:340px; max-width:100%; height:640px; background:#05070c; border-radius:44px; padding:14px; box-shadow:0 30px 60px -20px rgba(2,6,23,.5), 0 0 0 1px rgba(255,255,255,.04) inset; position:relative; }
+  .notch{ position:absolute; top:14px; left:50%; transform:translateX(-50%); width:110px; height:22px; background:#05070c; border-radius:0 0 16px 16px; z-index:5; }
+  .screen{ width:100%; height:100%; background:var(--email-bg); border-radius:32px; overflow-y:auto; overflow-x:hidden; -webkit-overflow-scrolling:touch; }
+
+  .meta{ font-size:10.5px; color:#8b8b8b; padding:34px 22px 14px; border-bottom:1px solid var(--email-line); line-height:1.6; }
+  .meta b{ color:#e5e5e5; }
+  .body{ padding:24px; color:#fff; }
+  h2.greet{ font-size:17px; font-weight:800; margin:0 0 4px; color:#fff; }
+  .lede{ color:#a3a3a3; font-size:12.5px; margin:0 0 20px; line-height:1.5; }
+
+  .card{ background:var(--email-card); border-radius:14px; padding:18px; margin-bottom:20px; }
+  .card .code{ color:#5aa4f5; font-size:10.5px; font-weight:700; }
+  .card .name{ color:#fff; font-size:16px; font-weight:800; margin:4px 0 10px; }
+  .fieldRow{ display:flex; justify-content:space-between; font-size:11.5px; padding:6px 0; border-top:1px solid #333; color:#bbb; }
+  .fieldRow b{ color:#fff; font-weight:700; }
+
+  .btnRow{ text-align:center; margin:22px 0; }
+  .btnGreen{ display:inline-block; background:#00c853; color:#0f172a; font-weight:900; font-size:14px; padding:15px 26px; border-radius:10px; }
+
+  .foot{ border-top:1px solid var(--email-line); margin-top:20px; padding-top:14px; text-align:center; }
+  .foot p{ color:#8b8b8b; font-size:11px; margin:0 0 7px; }
+  .chan a{ font-size:12px; font-weight:700; text-decoration:none; margin:0 5px; }
+  .wa{ color:#25D366; } .ig{ color:#E1306C; } .ph{ color:#5aa4f5; }
+  .warn{ color:#666; font-size:10.5px; margin-top:7px; }
+  .fallback{ margin-top:16px; padding-top:12px; border-top:1px dashed var(--email-line); opacity:.55; }
+  .fallback p{ color:#777; font-size:10px; line-height:1.5; margin:0; }
+
+  /* pantalla de exito */
+  .successScreen{ height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:36px 26px; color:#fff; }
+  .checkWrap{ width:76px; height:76px; border-radius:50%; background:rgba(16,185,129,.14); display:flex; align-items:center; justify-content:center; margin-bottom:22px; }
+  .checkWrap svg{ width:38px; height:38px; }
+  .successScreen h1{ color:#34d399; font-size:22px; margin:0 0 10px; }
+  .successScreen p.msg{ color:#a3a3a3; font-size:13px; line-height:1.6; margin:0 0 26px; max-width:260px; }
+  .recap{ width:100%; background:var(--email-card); border-radius:14px; padding:16px 18px; text-align:left; }
+  .recap .name{ color:#fff; font-size:14px; font-weight:800; margin-bottom:8px; }
+  .recap .row{ display:flex; justify-content:space-between; font-size:11.5px; color:#999; padding:4px 0; }
+  .recap .row b{ color:#ddd; }
+  .waBtn{ margin-top:22px; display:inline-flex; align-items:center; gap:8px; background:#25D366; color:#0f172a; font-weight:800; font-size:13px; padding:13px 22px; border-radius:10px; }
+
+  .note{ max-width:400px; margin:34px auto 0; font-size:12px; color:var(--ink-soft); background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px 16px; line-height:1.6; text-align:center; }
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2460527884444494');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2460527884444494&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body>
+
+  <div class="top">
+    <span class="eyebrow">Demo 2 — datos de ejemplo</span>
+    <h1>Del mail a la oportunidad aceptada</h1>
+    <p>Así se ve cuando entra un cliente nuevo y el agente toca Aceptar, directo, sin pantallas de más en el medio.</p>
+  </div>
+
+  <div class="phones">
+
+    <div class="stepLbl"><span class="num">1</span>Llega el mail</div>
+    <div class="phone"><div class="notch"></div><div class="screen">
+      <div class="meta"><b>Para:</b> carlos.gomez@agente.com<br><b>Asunto:</b> GuardPerf - Nueva Oportunidad Disponible</div>
+      <div class="body">
+        <h2 class="greet">Nueva oportunidad</h2>
+        <p class="lede">Un cliente está interesado ahora mismo. Tenés 15 minutos para aceptar antes de que pase al siguiente agente.</p>
+
+        <div class="card">
+          <div class="code">LEAD-2026-08-08-021</div>
+          <div class="name">Rocío Fernández</div>
+          <div class="fieldRow"><span>Propiedad</span><b>Depto 2 amb. Palermo</b></div>
+          <div class="fieldRow"><span>Operación</span><b>Compra directa</b></div>
+          <div class="fieldRow"><span>Recibido</span><b>hace 2 minutos</b></div>
+        </div>
+
+        <div class="btnRow"><span class="btnGreen">ACEPTAR OPORTUNIDAD</span></div>
+
+        <div class="foot">
+          <p>¿Necesitás hablar con una persona? Estamos disponibles por estos canales:</p>
+          <p class="chan"><a class="wa" href="#">WhatsApp</a>|<a class="ig" href="#">Instagram</a>|<span class="ph">+54 9 11 3567-8024</span></p>
+          <p class="warn">Ante una emergencia, llamanos directamente por teléfono, sin necesidad de escribir antes.</p>
+          <div class="fallback"><p>¿No se abre el botón de arriba? Copiá y pegá este link en el navegador:<br>guardperf.app/aceptar?lead=2026-08-08-021</p></div>
+        </div>
+      </div>
+    </div></div>
+
+    <div class="arrowDown">↓ toca ACEPTAR OPORTUNIDAD ↓</div>
+
+    <div class="stepLbl"><span class="num">2</span>Queda aceptada, al toque</div>
+    <div class="phone"><div class="notch"></div><div class="screen">
+      <div class="successScreen">
+        <div class="checkWrap">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#34d399" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h1>¡Éxito! Oportunidad aceptada.</h1>
+        <p class="msg">Te enviamos los datos del cliente y el botón de contacto directo a tu correo electrónico.</p>
+        <div class="recap">
+          <div class="name">Rocío Fernández</div>
+          <div class="row"><span>Propiedad</span><b>Depto 2 amb. Palermo</b></div>
+          <div class="row"><span>Estado</span><b>Asignado a vos</b></div>
+        </div>
+        <span class="waBtn">Contactar por WhatsApp</span>
+      </div>
+    </div></div>
+
+    <div class="arrowDown">↓ y al toque te llega esto ↓</div>
+
+    <div class="stepLbl"><span class="num">3</span>Mail con los datos completos</div>
+    <div class="phone"><div class="notch"></div><div class="screen">
+      <div class="meta"><b>Para:</b> carlos.gomez@agente.com<br><b>Asunto:</b> GuardPerf - Ya tenés los datos de Rocío Fernández</div>
+      <div class="body">
+        <h2 class="greet">Todo tuyo, Carlos</h2>
+        <p class="lede">Interesado en: <b style="color:#fff;">Depto 2 amb. Palermo</b></p>
+
+        <div class="card">
+          <div class="code">LEAD-2026-08-08-021</div>
+          <div class="name">Rocío Fernández</div>
+          <div class="fieldRow"><span>Teléfono</span><b>+54 9 11 4022-8871</b></div>
+        </div>
+
+        <div class="btnRow"><span class="btnGreen">CONTACTAR POR WHATSAPP</span></div>
+
+        <p style="color:#888; font-size:11px; text-align:center; margin-top:20px;">¿Tuviste alguna novedad con este lead? Respondele a este mail y contanos.</p>
+
+        <div class="foot">
+          <p>¿Necesitás hablar con una persona? Estamos disponibles por estos canales:</p>
+          <p class="chan"><a class="wa" href="#">WhatsApp</a>|<a class="ig" href="#">Instagram</a>|<span class="ph">+54 9 11 3567-8024</span></p>
+          <p class="warn">Ante una emergencia, llamanos directamente por teléfono, sin necesidad de escribir antes.</p>
+        </div>
+      </div>
+    </div></div>
+
+  </div>
+
+  <div class="note">Vista de ejemplo con datos inventados. Los botones son solo demostrativos, no envían ni copian nada real.</div>
+
+</body>
+</html>

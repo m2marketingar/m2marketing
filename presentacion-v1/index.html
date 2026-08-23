@@ -1,0 +1,1792 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Powertalk M2Marketing | Presentación Interactiva</title>
+
+    <!-- Favicon Oficial -->
+    <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/d/1Yq4YcFxytCooor28U_NwUU3iPFkzw1EV">
+    <link rel="apple-touch-icon" href="https://lh3.googleusercontent.com/d/1Yq4YcFxytCooor28U_NwUU3iPFkzw1EV">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#2563eb',
+                            purple: '#7c3aed',
+                            slateDark: '#0f172a',
+                            slateMuted: '#475569',
+                            emerald: '#10b981',
+                            amber: '#f59e0b',
+                            rose: '#ef4444',
+                            roseLight: '#fff1f2'
+                        }
+                    },
+                    boxShadow: {
+                        'soft-xl': '0 25px 50px -12px rgba(15, 23, 42, 0.08)',
+                        'glow-subtle': '0 10px 25px -5px rgba(37, 99, 235, 0.15)',
+                        'glow-emerald': '0 10px 25px -5px rgba(16, 185, 129, 0.2)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden; 
+            background-color: #f8fafc;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.35s ease-in-out, transform 0.35s ease-in-out;
+            transform: translateY(10px) scale(0.99);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem 2rem 5.5rem 2rem;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+            z-index: 10;
+        }
+
+        .slide.active .anim-1 { animation: fadeUp 0.35s forwards; opacity: 0; animation-delay: 0.05s; }
+        .slide.active .anim-2 { animation: fadeUp 0.35s forwards; opacity: 0; animation-delay: 0.12s; }
+        .slide.active .anim-3 { animation: fadeUp 0.35s forwards; opacity: 0; animation-delay: 0.19s; }
+        .slide.active .anim-4 { animation: fadeUp 0.35s forwards; opacity: 0; animation-delay: 0.26s; }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .text-gradient-fluor {
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-gradient-emerald {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .text-gradient-rose {
+            background: linear-gradient(135deg, #ef4444 0%, #f43f5e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hover-wow {
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+        }
+        .hover-wow:hover {
+            transform: translateY(-2px) scale(1.01);
+            box-shadow: 0 12px 24px -8px rgba(15, 23, 42, 0.08);
+        }
+
+        .icon-float {
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        .hover-wow:hover .icon-float {
+            transform: scale(1.15) rotate(3deg);
+        }
+    </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2460527884444494');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2460527884444494&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body class="text-slate-900 font-sans antialiased selection:bg-emerald-100 selection:text-emerald-700">
+
+    <header id="headerLogo" class="absolute top-5 left-6 md:left-10 z-50 transition-opacity duration-300 pointer-events-none opacity-0">
+        <div class="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden bg-white flex items-center justify-center border border-slate-100 shadow-sm">
+            <img src="https://lh3.googleusercontent.com/d/1Yq4YcFxytCooor28U_NwUU3iPFkzw1EV" 
+                 alt="M2Marketing Logo" 
+                 class="w-full h-full object-cover"
+                 onerror="this.onerror=null; this.src='https://placehold.co/100x100/2563eb/ffffff?text=M2M';">
+        </div>
+    </header>
+
+    <div class="absolute bottom-3 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-1.5 w-full max-w-xs px-4">
+        <div class="flex items-center gap-3 bg-white/90 backdrop-blur-md px-3.5 py-1 rounded-full border border-slate-200/90 shadow-sm opacity-70 hover:opacity-100 transition-opacity">
+            <button id="prevBtn" onclick="prevSlide()" class="p-1 rounded-full text-slate-500 hover:text-slate-900 hover:bg-slate-100 disabled:opacity-30 disabled:hover:bg-transparent transition-all">
+                <i class="ph-bold ph-caret-left text-sm"></i>
+            </button>
+            
+            <span class="text-[11px] font-extrabold text-slate-700 tracking-wider">
+                <span id="currentSlideNum">1</span> / <span id="totalSlidesNum"></span>
+            </span>
+
+            <button id="nextBtn" onclick="nextSlide()" class="p-1 rounded-full text-slate-500 hover:text-slate-900 hover:bg-slate-100 disabled:opacity-30 disabled:hover:bg-transparent transition-all">
+                <i class="ph-bold ph-caret-right text-sm"></i>
+            </button>
+        </div>
+
+        <div class="w-full bg-slate-200/80 h-1 rounded-full overflow-hidden shadow-inner">
+            <div id="progressBar" class="bg-blue-600 h-full transition-all duration-300 w-[0%]"></div>
+        </div>
+    </div>
+
+    <main id="presentationContainer" class="w-full h-full relative">
+
+        <!-- DIAPOSITIVA 1: PORTADA -->
+        <section class="slide active">
+            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-12 md:p-14 shadow-2xl border border-slate-200/90 flex flex-col justify-center items-center text-center min-h-[520px] sm:min-h-[560px] relative overflow-hidden">
+                <div class="anim-1 mb-6 sm:mb-8">
+                    <img src="https://lh3.googleusercontent.com/d/1Yq4YcFxytCooor28U_NwUU3iPFkzw1EV" 
+                         alt="M2Marketing Logo" 
+                         class="h-36 sm:h-52 md:h-64 w-auto object-contain mx-auto transition-transform duration-300 hover:scale-105"
+                         onerror="this.onerror=null; this.src='https://placehold.co/500x200/2563eb/ffffff?text=M2Marketing';">
+                </div>
+                <div class="anim-2 max-w-2xl mx-auto space-y-3">
+                    <h1 class="text-3xl sm:text-5xl md:text-6xl font-black text-slate-900 tracking-tight leading-tight">
+                        <span class="text-gradient-fluor">Ingeniería de Ventas</span>
+                    </h1>
+                    <p class="text-base sm:text-xl text-slate-600 font-bold tracking-wide">
+                        Infraestructura Operativa de Prospección
+                    </p>
+                </div>
+                <div class="anim-3 mt-8 sm:mt-10">
+                    <span class="px-4 py-1.5 rounded-full bg-slate-100 text-slate-700 text-xs font-extrabold border border-slate-200 inline-flex items-center gap-2 shadow-sm">
+                        <i class="ph-bold ph-presentation-chart text-blue-600"></i>
+                        <span>Powertalk M2M</span>
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- DIAPOSITIVA 2: PABLO REINA -->
+        <section class="slide">
+            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center my-auto">
+                    <div class="md:col-span-5 flex justify-center items-center pt-2 sm:pt-4">
+                        <div class="w-full max-w-[210px] sm:max-w-[230px] aspect-[9/16] bg-slate-900 rounded-2xl relative overflow-hidden shadow-xl border border-slate-200 group hover-wow">
+                            <img src="https://lh3.googleusercontent.com/d/1I5_hlmtZbP-ymujCBYGXWdmJh8N_n4wN" 
+                                 alt="Pablo - M2Marketing" 
+                                 class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/220x390/0f172a/ffffff?text=Hall+of+Fame';">
+                            <div class="absolute bottom-2 left-2 right-2 bg-slate-950/85 backdrop-blur-md px-2.5 py-1 rounded-xl text-[10px] font-bold text-amber-400 border border-amber-500/30 flex items-center justify-center gap-1.5 shadow-md">
+                                <i class="ph-fill ph-trophy text-amber-400 text-xs"></i>
+                                <span>Hall of Fame</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-7 space-y-6 text-left">
+                        <h2 class="anim-1 text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 leading-tight">
+                            Pablo Reina: <span class="text-gradient-fluor">+5 Años Sector</span>
+                        </h2>
+                        
+                        <div class="anim-2 space-y-3 text-slate-700 text-xs sm:text-sm font-semibold flex flex-col justify-start">
+                            <div class="flex items-center gap-3 bg-slate-50 p-4 rounded-2xl border border-slate-100 hover-wow">
+                                <i class="ph-bold ph-trophy text-amber-500 text-2xl flex-shrink-0 icon-float"></i>
+                                <span class="text-slate-900 font-bold text-base sm:text-lg">Reconocimiento Hall of Fame</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DIAPOSITIVA 3: JUST IN TIME -->
+        <section class="slide">
+            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden">
+                <div class="my-auto space-y-6 text-center">
+                    <div class="anim-1 flex justify-center items-center">
+                        <span class="px-3.5 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-extrabold border border-blue-200 uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
+                            <i class="ph-bold ph-arrows-clockwise text-blue-600"></i> Filosofía Just In Time
+                        </span>
+                    </div>
+
+                    <h2 class="anim-2 text-3xl sm:text-5xl font-black text-slate-900 leading-tight max-w-3xl mx-auto">
+                        Conectar en <span class="text-gradient-fluor">Momento Exacto</span>
+                    </h2>
+
+                    <div class="anim-3 grid grid-cols-1 sm:grid-cols-2 gap-4 text-left max-w-4xl mx-auto">
+                        <div class="bg-rose-50/60 p-5 sm:p-6 rounded-2xl border border-rose-100 space-y-2.5 hover-wow">
+                            <div class="flex items-center gap-2.5 text-rose-700 font-extrabold text-base">
+                                <i class="ph-bold ph-hand-stop text-2xl text-rose-600 icon-float"></i>
+                                <span>Tradicional: Empujar</span>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-700 font-extrabold leading-relaxed">
+                                Contactar gente no preparada.
+                            </p>
+                            <p class="text-xs sm:text-sm text-rose-900 font-bold">
+                                Alto desgaste y rechazo.
+                            </p>
+                        </div>
+
+                        <div class="bg-emerald-50/60 p-5 sm:p-6 rounded-2xl border border-emerald-200 space-y-2.5 hover-wow">
+                            <div class="flex items-center gap-2.5 text-emerald-900 font-extrabold text-base">
+                                <i class="ph-bold ph-lightning text-2xl text-emerald-600 icon-float"></i>
+                                <span>Demanda Real: Jalar</span>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-700 font-extrabold leading-relaxed">
+                                Captar la intención activa.
+                            </p>
+                            <p class="text-xs sm:text-sm text-emerald-950 font-bold">
+                                Máxima autoridad técnica.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2">
+                    <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-extrabold border border-slate-200 flex items-center gap-1.5">
+                        <i class="ph-bold ph-target text-slate-600"></i> Intención Activa
+                    </span>
+                    <span class="px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-extrabold border border-blue-200 flex items-center gap-1.5">
+                        <i class="ph-bold ph-timer text-blue-600"></i> Timing Comercial
+                    </span>
+                    <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-extrabold border border-emerald-200 flex items-center gap-1.5">
+                        <i class="ph-bold ph-check-circle text-emerald-600"></i> Cero Desgaste
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- DIAPOSITIVA 4: EL CLIENTE JALA -->
+        <section class="slide">
+            <div class="max-w-5xl w-full bg-slate-900 text-white rounded-3xl p-8 sm:p-12 md:p-14 shadow-2xl border border-slate-800 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden text-center">
+                
+                <div class="anim-1 flex justify-center items-center">
+                    <span class="px-4 py-1.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 text-xs font-extrabold uppercase tracking-widest flex items-center gap-2 shadow-sm">
+                        <i class="ph-bold ph-arrows-down-up text-emerald-400 text-sm"></i>
+                        <span>Regla de Oro</span>
+                    </span>
+                </div>
+
+                <div class="my-auto space-y-6 max-w-3xl mx-auto">
+                    <h2 class="anim-2 text-4xl sm:text-6xl md:text-7xl font-black text-white tracking-tight leading-tight">
+                        El cliente <span class="text-gradient-fluor">jala.</span>
+                    </h2>
+
+                    <div class="anim-3 bg-slate-950/80 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl max-w-2xl mx-auto space-y-3 hover-wow">
+                        <p class="text-xl sm:text-3xl font-black text-emerald-400 leading-snug">
+                            "Si no jala, no es por acá."
+                        </p>
+                        <p class="text-sm sm:text-base text-slate-300 font-bold leading-relaxed">
+                            Captar únicamente la necesidad real en el momento exacto de decisión.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="anim-4 pt-4 border-t border-slate-800 flex flex-wrap items-center justify-center gap-2.5">
+                    <span class="px-3.5 py-1 rounded-full bg-slate-950 text-white text-xs font-extrabold flex items-center gap-1.5 border border-slate-800 shadow-sm">
+                        <svg viewBox="0 0 100 100" class="w-3.5 h-3.5 text-emerald-400 fill-current">
+                            <rect x="12" y="12" width="76" height="76" rx="22" fill="none" stroke="currentColor" stroke-width="12"/>
+                            <path d="M 20 80 L 68 32 M 45 32 L 68 32 L 68 55" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        </svg>
+                        <span>Guard<strong class="text-emerald-400">Perf</strong></span>
+                    </span>
+
+                    <span class="px-3.5 py-1 rounded-full bg-slate-800 text-slate-300 text-xs font-extrabold border border-slate-700 flex items-center gap-1.5">
+                        <i class="ph-bold ph-user-check text-blue-400"></i> Comprador Real
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- DIAPOSITIVA 5: DOS METODOLOGÍAS -->
+        <section class="slide">
+            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-12 md:p-14 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden text-center">
+                
+                <div class="anim-1 flex justify-center items-center">
+                    <span class="px-4 py-1.5 rounded-full bg-slate-100 text-slate-700 text-xs font-extrabold uppercase tracking-wider flex items-center gap-2 border border-slate-200 shadow-sm">
+                        <i class="ph-bold ph-squares-four text-blue-600"></i>
+                        <span>Estructura Metodológica</span>
+                    </span>
+                </div>
+
+                <div class="my-auto space-y-8 max-w-3xl mx-auto">
+                    <h2 class="anim-2 text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                        Dos Metodologías <span class="text-gradient-fluor">Pilar</span>
+                    </h2>
+
+                    <div class="anim-3 grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto pt-2">
+                        
+                        <div class="bg-slate-900 text-white p-6 sm:p-8 rounded-3xl border border-slate-800 shadow-xl hover-wow flex flex-col items-center justify-center space-y-3.5 group">
+                            <div class="px-4 py-2.5 rounded-2xl bg-slate-950 text-white text-base sm:text-lg font-black flex items-center gap-2 border border-slate-800 shadow-md">
+                                <svg viewBox="0 0 100 100" class="w-5 h-5 text-emerald-400 fill-current">
+                                    <rect x="12" y="12" width="76" height="76" rx="22" fill="none" stroke="currentColor" stroke-width="12"/>
+                                    <path d="M 20 80 L 68 32 M 45 32 L 68 32 L 68 55" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                </svg>
+                                <span>Guard<strong class="text-emerald-400">Perf</strong></span>
+                            </div>
+                            <p class="text-xs text-slate-400 font-extrabold tracking-wide">
+                                Guardia Virtual de Performance
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-900 text-white p-6 sm:p-8 rounded-3xl border border-slate-800 shadow-xl hover-wow flex flex-col items-center justify-center space-y-3.5 group">
+                            <div class="px-4 py-2.5 rounded-2xl bg-slate-950 text-white text-base sm:text-lg font-black flex items-center gap-2 border border-rose-500/30 shadow-md">
+                                <svg viewBox="0 0 100 100" class="w-5 h-5 text-rose-400 fill-current">
+                                    <rect x="12" y="12" width="76" height="76" rx="22" fill="none" stroke="currentColor" stroke-width="12"/>
+                                    <circle cx="50" cy="40" r="16" fill="none" stroke="currentColor" stroke-width="10"/>
+                                    <path d="M 22 80 C 22 62, 35 56, 50 56 C 65 56, 78 62, 78 80" stroke="currentColor" stroke-width="10" stroke-linecap="round" fill="none"/>
+                                </svg>
+                                <span>Comp<strong class="text-rose-400">Real</strong></span>
+                            </div>
+                            <p class="text-xs text-slate-400 font-extrabold tracking-wide">
+                                Comprador Real Calificado
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2.5">
+                    <span class="px-3.5 py-1 rounded-full bg-slate-900 text-white text-xs font-extrabold flex items-center gap-1.5 border border-slate-800 shadow-sm">
+                        <svg viewBox="0 0 100 100" class="w-3.5 h-3.5 text-emerald-400 fill-current">
+                            <rect x="12" y="12" width="76" height="76" rx="22" fill="none" stroke="currentColor" stroke-width="12"/>
+                            <path d="M 20 80 L 68 32 M 45 32 L 68 32 L 68 55" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        </svg>
+                        <span>Guard<strong class="text-emerald-400">Perf</strong></span>
+                    </span>
+
+                    <span class="px-3.5 py-1 rounded-full bg-slate-900 text-white text-xs font-extrabold flex items-center gap-1.5 border border-rose-500/30 shadow-sm">
+                        <svg viewBox="0 0 100 100" class="w-3.5 h-3.5 text-rose-400 fill-current">
+                            <rect x="12" y="12" width="76" height="76" rx="22" fill="none" stroke="currentColor" stroke-width="12"/>
+                            <circle cx="50" cy="40" r="16" fill="none" stroke="currentColor" stroke-width="10"/>
+                            <path d="M 22 80 C 22 62, 35 56, 50 56 C 65 56, 78 62, 78 80" stroke="currentColor" stroke-width="10" stroke-linecap="round" fill="none"/>
+                        </svg>
+                        <span>Comp<strong class="text-rose-400">Real</strong></span>
+                    </span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DIAPOSITIVA 6: INMOBILIARIA CENTRO -->
+        <section class="slide">
+            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden text-center">
+                
+                <div class="anim-1 flex justify-center items-center">
+                    <span class="px-4 py-1.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 text-xs font-extrabold uppercase tracking-wider flex items-center gap-2 shadow-sm">
+                        <i class="ph-bold ph-buildings text-blue-600"></i>
+                        <span>Estructura Institucional</span>
+                    </span>
+                </div>
+
+                <div class="my-auto space-y-6 max-w-4xl mx-auto w-full">
+                    <div class="space-y-2">
+                        <h2 class="anim-2 text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                            La Inmobiliaria es el <span class="text-gradient-fluor">Centro del Ecosistema</span>
+                        </h2>
+                    </div>
+
+                    <div class="anim-3 grid grid-cols-1 md:grid-cols-3 gap-6 items-center justify-center pt-2 max-w-3xl mx-auto relative">
+                        
+                        <!-- Tarjeta Izquierda (max 5 palabras) -->
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 hover-wow text-center space-y-2 z-0 relative">
+                            <div class="w-10 h-10 mx-auto rounded-xl bg-blue-100 flex items-center justify-center text-blue-600">
+                                <i class="ph-bold ph-magnet text-xl"></i>
+                            </div>
+                            <h3 class="font-extrabold text-slate-900 text-sm">Atracción Institucional</h3>
+                            <p class="text-xs text-slate-600 font-extrabold">Flujo constante de leads seguros.</p>
+                        </div>
+
+                        <!-- Núcleo Inmobiliario (Ícono grande, sin fondo negro) -->
+                        <div class="p-4 flex flex-col items-center justify-center space-y-3 group z-10 relative transform scale-105">
+                            <i class="ph-fill ph-house-line text-[6rem] text-blue-600 drop-shadow-xl group-hover:scale-110 transition-transform duration-300"></i>
+                            <div class="space-y-1">
+                                <h3 class="text-base font-black text-slate-900 uppercase tracking-wider">MARCA CENTRAL</h3>
+                                <p class="text-xs font-extrabold text-blue-600">Patrimonio del Broker</p>
+                            </div>
+                        </div>
+
+                        <!-- Tarjeta Derecha (max 5 palabras) -->
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 hover-wow text-center space-y-2 z-0 relative">
+                            <div class="w-10 h-10 mx-auto rounded-xl bg-emerald-100 flex items-center justify-center text-emerald-600">
+                                <i class="ph-bold ph-handshake text-xl"></i>
+                            </div>
+                            <h3 class="font-extrabold text-slate-900 text-sm">Retención de Agentes</h3>
+                            <p class="text-xs text-slate-600 font-extrabold">Fidelización por infraestructura propia.</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2.5">
+                    <span class="px-3.5 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-extrabold border border-slate-200 flex items-center gap-1.5">
+                        <i class="ph-bold ph-shield-check text-blue-600"></i> Control Total
+                    </span>
+                    <span class="px-3.5 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-extrabold border border-blue-200 flex items-center gap-1.5">
+                        <i class="ph-bold ph-lock-key text-blue-600"></i> Patrimonio Propio
+                    </span>
+                    <span class="px-3.5 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-extrabold border border-emerald-200 flex items-center gap-1.5">
+                        <i class="ph-bold ph-users text-emerald-600"></i> Alta Fidelización
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- DIAPOSITIVA 7: PROPIEDAD BOMBA -->
+        <section class="slide">
+            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden text-center">
+                
+                <div class="anim-1 flex justify-center items-center">
+                    <span class="px-4 py-1.5 rounded-full bg-rose-50 text-rose-700 border border-rose-200 text-xs font-extrabold uppercase tracking-wider flex items-center gap-2 shadow-sm">
+                        <i class="ph-bold ph-fire text-rose-600"></i>
+                        <span>El Combustible del Sistema</span>
+                    </span>
+                </div>
+
+                <div class="my-auto space-y-6 max-w-4xl mx-auto w-full">
+                    <div class="space-y-2">
+                        <h2 class="anim-2 text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                            La Propiedad <span class="text-gradient-fluor">Bomba</span>
+                        </h2>
+                        <p class="anim-2 text-xs sm:text-sm font-bold text-slate-500 uppercase tracking-wider">
+                            Impulsada por Meta
+                        </p>
+                    </div>
+
+                    <div class="anim-3 flex flex-wrap items-center justify-center gap-3 pt-2">
+                        <span class="px-4 py-2 rounded-xl bg-slate-50 border border-slate-200 text-sm font-extrabold text-slate-700 shadow-sm flex items-center gap-2 hover-wow cursor-default">
+                            <i class="ph-bold ph-tag text-blue-500 text-lg"></i> Precio Mercado
+                        </span>
+                        <span class="px-4 py-2 rounded-xl bg-slate-50 border border-slate-200 text-sm font-extrabold text-slate-700 shadow-sm flex items-center gap-2 hover-wow cursor-default">
+                            <i class="ph-bold ph-map-pin-line text-rose-500 text-lg"></i> Zona Caliente
+                        </span>
+                        <span class="px-4 py-2 rounded-xl bg-slate-50 border border-slate-200 text-sm font-extrabold text-slate-700 shadow-sm flex items-center gap-2 hover-wow cursor-default">
+                            <i class="ph-bold ph-key text-amber-500 text-lg"></i> Deshabitada
+                        </span>
+                        <span class="px-4 py-2 rounded-xl bg-slate-50 border border-slate-200 text-sm font-extrabold text-slate-700 shadow-sm flex items-center gap-2 hover-wow cursor-default">
+                            <i class="ph-bold ph-buildings text-emerald-500 text-lg"></i> Cerca Oficina
+                        </span>
+                    </div>
+
+                    <div class="anim-4 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto pt-4">
+                        <div class="bg-blue-50/60 p-5 rounded-2xl border border-blue-100 hover-wow flex flex-col items-center text-center space-y-2">
+                            <i class="ph-bold ph-trend-down text-3xl text-blue-600 icon-float"></i>
+                            <h3 class="font-black text-slate-900 text-base">Costo por Lead</h3>
+                            <p class="text-xs font-bold text-slate-600">Se desploma drásticamente.</p>
+                        </div>
+                        <div class="bg-emerald-50/60 p-5 rounded-2xl border border-emerald-100 hover-wow flex flex-col items-center text-center space-y-2">
+                            <i class="ph-bold ph-users text-3xl text-emerald-600 icon-float"></i>
+                            <h3 class="font-black text-slate-900 text-base">Comprador 2 Puntas</h3>
+                            <p class="text-xs font-bold text-slate-600">Negocio redondo para agentes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2">
+                    <span class="px-3.5 py-1 rounded-full bg-slate-900 text-white text-xs font-extrabold flex items-center gap-1.5 border border-slate-800 shadow-sm">
+                        <svg viewBox="0 0 100 100" class="w-3.5 h-3.5 text-emerald-400 fill-current">
+                            <rect x="12" y="12" width="76" height="76" rx="22" fill="none" stroke="currentColor" stroke-width="12"/>
+                            <path d="M 20 80 L 68 32 M 45 32 L 68 32 L 68 55" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        </svg>
+                        <span>Guard<strong class="text-emerald-400">Perf</strong></span>
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- DIAPOSITIVA 8: EL MOTOR DE META ADS -->
+        <section class="slide">
+            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden text-center">
+                
+                <div class="anim-1 flex justify-center items-center">
+                    <span class="px-4 py-1.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 text-xs font-extrabold uppercase tracking-wider flex items-center gap-2 shadow-sm">
+                        <i class="ph-bold ph-broadcast text-blue-600"></i>
+                        <span>Atracción Hiperlocal</span>
+                    </span>
+                </div>
+
+                <div class="my-auto space-y-6 max-w-3xl mx-auto">
+                    <h2 class="anim-2 text-4xl sm:text-6xl font-black text-slate-900 tracking-tight leading-tight pt-4">
+                        Meta: Nuestro <span class="text-gradient-fluor">Gran Aliado</span>
+                    </h2>
+
+                    <p class="anim-3 text-sm sm:text-base text-slate-600 font-bold leading-relaxed max-w-xl mx-auto">
+                        Motor central de ventas masivas.
+                    </p>
+
+                    <div class="anim-3 grid grid-cols-1 sm:grid-cols-3 gap-3 text-center max-w-3xl mx-auto pt-2">
+                        <div class="bg-blue-50/60 p-4 rounded-2xl border border-blue-200/90 hover-wow flex flex-col items-center justify-center space-y-1.5">
+                            <i class="ph-bold ph-instagram-logo text-2xl text-purple-600 icon-float"></i>
+                            <span class="text-xs font-black text-slate-900">Pauta Radio 20 Cuadras</span>
+                        </div>
+                        <div class="bg-emerald-50/60 p-4 rounded-2xl border border-emerald-200/90 hover-wow flex flex-col items-center justify-center space-y-1.5">
+                            <i class="ph-bold ph-target text-2xl text-emerald-600 icon-float"></i>
+                            <span class="text-xs font-black text-slate-900">Píxel de Intención Activa</span>
+                        </div>
+                        <div class="bg-amber-50/60 p-4 rounded-2xl border border-amber-200/90 hover-wow flex flex-col items-center justify-center space-y-1.5">
+                            <i class="ph-bold ph-shield-check text-2xl text-amber-600 icon-float"></i>
+                            <span class="text-xs font-black text-slate-900">Enfoque Quirúrgico Medible</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2.5">
+                    <span class="px-3.5 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-extrabold border border-blue-200 flex items-center gap-1.5 shadow-sm">
+                        <i class="ph-bold ph-broadcast text-blue-600"></i> Pauta Digital
+                    </span>
+                    <span class="px-3.5 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-extrabold border border-emerald-200 flex items-center gap-1.5 shadow-sm">
+                        <i class="ph-bold ph-map-pin-line text-emerald-600"></i> Geofenced
+                    </span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DIAPOSITIVA 9: 5 VARIANTES ESQUELÉTICAS PURAS -->
+        <section class="slide">
+            <div class="max-w-5xl w-full bg-white rounded-3xl p-6 sm:p-10 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden">
+                
+                <div class="anim-1 flex justify-center items-center">
+                    <span class="px-4 py-1.5 rounded-full bg-amber-50 text-amber-800 border border-amber-200 text-xs font-extrabold uppercase tracking-wider flex items-center gap-2 shadow-sm">
+                        <i class="ph-bold ph-megaphone text-amber-600"></i>
+                        <span>Anuncio Hiperlocal • Variantes de Pauta</span>
+                    </span>
+                </div>
+
+                <!-- 5 Tarjetas esqueléticas minimalistas -->
+                <div class="anim-2 my-auto grid grid-cols-2 sm:grid-cols-5 gap-3.5 max-w-4xl mx-auto w-full pt-2">
+                    
+                    <!-- Flyer Skeleton 1 -->
+                    <div class="bg-white rounded-2xl p-3 border border-slate-200 shadow-md flex flex-col space-y-2.5 hover-wow group">
+                        <div class="w-full aspect-[4/3] bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-xl relative overflow-hidden flex items-center justify-center border border-blue-100">
+                            <div class="w-8 h-8 rounded-full bg-white/60 flex items-center justify-center border border-white">
+                                <i class="ph-bold ph-image text-blue-400 text-sm"></i>
+                            </div>
+                        </div>
+                        <div class="space-y-1.5 py-1">
+                            <div class="h-2 w-full bg-slate-200 rounded-full"></div>
+                            <div class="h-1.5 w-3/4 bg-slate-100 rounded-full"></div>
+                            <div class="h-1.5 w-1/2 bg-slate-100 rounded-full"></div>
+                        </div>
+                        <div class="pt-2 mt-auto flex items-center justify-between border-t border-slate-50">
+                            <div class="h-2.5 w-10 bg-blue-500/80 rounded-md"></div>
+                            <div class="h-1.5 w-3 bg-slate-200 rounded-full"></div>
+                        </div>
+                    </div>
+
+                    <!-- Flyer Skeleton 2 -->
+                    <div class="bg-slate-50/50 rounded-2xl p-3 border border-slate-200 shadow-md flex flex-col space-y-2.5 hover-wow group">
+                        <div class="w-full aspect-[4/3] bg-gradient-to-br from-amber-50 to-amber-100/50 rounded-xl relative overflow-hidden flex items-center justify-center border border-amber-100">
+                            <div class="w-8 h-8 rounded-full bg-white/60 flex items-center justify-center border border-white">
+                                <i class="ph-bold ph-house-line text-amber-400 text-sm"></i>
+                            </div>
+                        </div>
+                        <div class="space-y-1.5 py-1">
+                            <div class="h-2 w-5/6 bg-slate-200 rounded-full"></div>
+                            <div class="h-1.5 w-full bg-slate-100 rounded-full"></div>
+                            <div class="h-1.5 w-2/3 bg-slate-100 rounded-full"></div>
+                        </div>
+                        <div class="pt-2 mt-auto flex items-center justify-between border-t border-slate-50">
+                            <div class="h-2.5 w-12 bg-amber-500/80 rounded-md"></div>
+                            <div class="h-1.5 w-3 bg-slate-200 rounded-full"></div>
+                        </div>
+                    </div>
+
+                    <!-- Flyer Skeleton 3 -->
+                    <div class="bg-white rounded-2xl p-3 border border-slate-200 shadow-md flex flex-col space-y-2.5 hover-wow group">
+                        <div class="w-full aspect-[4/3] bg-gradient-to-br from-emerald-50 to-emerald-100/50 rounded-xl relative overflow-hidden flex items-center justify-center border border-emerald-100">
+                            <div class="w-8 h-8 rounded-full bg-white/60 flex items-center justify-center border border-white">
+                                <i class="ph-bold ph-buildings text-emerald-400 text-sm"></i>
+                            </div>
+                        </div>
+                        <div class="space-y-1.5 py-1">
+                            <div class="h-2 w-full bg-slate-200 rounded-full"></div>
+                            <div class="h-1.5 w-1/2 bg-slate-100 rounded-full"></div>
+                            <div class="h-1.5 w-4/5 bg-slate-100 rounded-full"></div>
+                        </div>
+                        <div class="pt-2 mt-auto flex items-center justify-between border-t border-slate-50">
+                            <div class="h-2.5 w-14 bg-emerald-500/80 rounded-md"></div>
+                            <div class="h-1.5 w-3 bg-slate-200 rounded-full"></div>
+                        </div>
+                    </div>
+
+                    <!-- Flyer Skeleton 4 -->
+                    <div class="bg-slate-50/50 rounded-2xl p-3 border border-slate-200 shadow-md flex flex-col space-y-2.5 hover-wow group">
+                        <div class="w-full aspect-[4/3] bg-gradient-to-br from-purple-50 to-purple-100/50 rounded-xl relative overflow-hidden flex items-center justify-center border border-purple-100">
+                            <div class="w-8 h-8 rounded-full bg-white/60 flex items-center justify-center border border-white">
+                                <i class="ph-bold ph-sparkle text-purple-400 text-sm"></i>
+                            </div>
+                        </div>
+                        <div class="space-y-1.5 py-1">
+                            <div class="h-2 w-3/4 bg-slate-200 rounded-full"></div>
+                            <div class="h-1.5 w-full bg-slate-100 rounded-full"></div>
+                            <div class="h-1.5 w-1/2 bg-slate-100 rounded-full"></div>
+                        </div>
+                        <div class="pt-2 mt-auto flex items-center justify-between border-t border-slate-50">
+                            <div class="h-2.5 w-11 bg-purple-500/80 rounded-md"></div>
+                            <div class="h-1.5 w-3 bg-slate-200 rounded-full"></div>
+                        </div>
+                    </div>
+
+                    <!-- Flyer Skeleton 5 -->
+                    <div class="bg-white rounded-2xl p-3 border border-slate-200 shadow-md flex flex-col space-y-2.5 hover-wow group col-span-2 sm:col-span-1">
+                        <div class="w-full aspect-[4/3] bg-gradient-to-br from-rose-50 to-rose-100/50 rounded-xl relative overflow-hidden flex items-center justify-center border border-rose-100">
+                            <div class="w-8 h-8 rounded-full bg-white/60 flex items-center justify-center border border-white">
+                                <i class="ph-bold ph-lightning text-rose-400 text-sm"></i>
+                            </div>
+                        </div>
+                        <div class="space-y-1.5 py-1">
+                            <div class="h-2 w-full bg-slate-200 rounded-full"></div>
+                            <div class="h-1.5 w-2/3 bg-slate-100 rounded-full"></div>
+                            <div class="h-1.5 w-3/4 bg-slate-100 rounded-full"></div>
+                        </div>
+                        <div class="pt-2 mt-auto flex items-center justify-between border-t border-slate-50">
+                            <div class="h-2.5 w-10 bg-rose-500/80 rounded-md"></div>
+                            <div class="h-1.5 w-3 bg-slate-200 rounded-full"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="anim-4 pt-4 mt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2">
+                    <span class="px-3.5 py-1 rounded-full bg-slate-900 text-white text-xs font-extrabold flex items-center gap-1.5 border border-slate-800 shadow-sm">
+                        <svg viewBox="0 0 100 100" class="w-3.5 h-3.5 text-emerald-400 fill-current">
+                            <rect x="12" y="12" width="76" height="76" rx="22" fill="none" stroke="currentColor" stroke-width="12"/>
+                            <path d="M 20 80 L 68 32 M 45 32 L 68 32 L 68 55" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        </svg>
+                        <span>Guard<strong class="text-emerald-400">Perf</strong></span>
+                    </span>
+                    <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-extrabold border border-slate-200 flex items-center gap-1.5">
+                        <i class="ph-bold ph-layers text-amber-600"></i> Variantes de Pauta
+                    </span>
+                    <span class="px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-extrabold border border-amber-200 flex items-center gap-1.5">
+                        <i class="ph-bold ph-test-tube text-amber-600"></i> A/B Testing
+                    </span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DIAPOSITIVA 10: METODOLOGÍA GUARDPERF -->
+        <section class="slide">
+            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden text-center">
+                
+                <div class="anim-1 flex justify-center items-center">
+                    <span class="px-4 py-1.5 rounded-full bg-slate-900 text-white text-xs font-extrabold flex items-center gap-2 border border-slate-800 shadow-sm">
+                        <svg viewBox="0 0 100 100" class="w-4 h-4 text-emerald-400 fill-current">
+                            <rect x="12" y="12" width="76" height="76" rx="22" fill="none" stroke="currentColor" stroke-width="12"/>
+                            <path d="M 20 80 L 68 32 M 45 32 L 68 32 L 68 55" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        </svg>
+                        <span>Metodología Guard<strong class="text-emerald-400">Perf</strong></span>
+                    </span>
+                </div>
+
+                <div class="my-auto space-y-6 max-w-3xl mx-auto">
+                    <h2 class="anim-2 text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                        Guardia Virtual <span class="text-gradient-emerald">Alta Performance</span>
+                    </h2>
+
+                    <p class="anim-3 text-sm sm:text-base text-slate-600 font-bold leading-relaxed max-w-xl mx-auto">
+                        Respuesta ágil sin desgaste.
+                    </p>
+
+                    <div class="anim-3 grid grid-cols-1 sm:grid-cols-3 gap-3 text-center max-w-3xl mx-auto pt-2">
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/90 hover-wow flex flex-col items-center justify-center space-y-1.5">
+                            <i class="ph-bold ph-map-pin-line text-2xl text-blue-600 icon-float"></i>
+                            <span class="text-xs font-black text-slate-900">Cobertura Radio 20 Cuadras</span>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/90 hover-wow flex flex-col items-center justify-center space-y-1.5">
+                            <i class="ph-bold ph-timer text-2xl text-emerald-600 icon-float"></i>
+                            <span class="text-xs font-black text-slate-900">Respuesta Menor 15 Minutos</span>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/90 hover-wow flex flex-col items-center justify-center space-y-1.5">
+                            <i class="ph-bold ph-cpu text-2xl text-purple-600 icon-float"></i>
+                            <span class="text-xs font-black text-slate-900">Auditoría por IA Total</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2">
+                    <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-extrabold border border-slate-200 flex items-center gap-1.5">
+                        <i class="ph-bold ph-shield-check text-emerald-600"></i> Guardia Virtual
+                    </span>
+                    <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-extrabold border border-emerald-200 flex items-center gap-1.5">
+                        <i class="ph-bold ph-clock text-emerald-600"></i> SLA 15m
+                    </span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DIAPOSITIVA 11: TABLERO DE CONTROL Y KPIS -->
+        <section class="slide">
+            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden text-center">
+                
+                <div class="anim-1 flex justify-center items-center">
+                    <span class="px-4 py-1.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 text-xs font-extrabold uppercase tracking-wider flex items-center gap-2 shadow-sm">
+                        <i class="ph-bold ph-chart-bar text-blue-600"></i>
+                        <span>Tablero de Control</span>
+                    </span>
+                </div>
+
+                <div class="my-auto space-y-6 max-w-4xl mx-auto w-full">
+                    <div class="space-y-2">
+                        <h2 class="anim-2 text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                            Medición <span class="text-gradient-fluor">Total y Adaptativa</span>
+                        </h2>
+                        <p class="anim-2 text-xs sm:text-sm font-bold text-slate-500 uppercase tracking-wider">
+                            Control Gerencial por KPIs
+                        </p>
+                    </div>
+
+                    <!-- Layout Exclusivo de Gráficos de Crecimiento Minimalistas -->
+                    <div class="anim-3 grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2 max-w-3xl mx-auto">
+                        
+                        <!-- Gráfico 1: Área de Crecimiento -->
+                        <div class="bg-slate-900 text-white p-4.5 rounded-2xl border border-slate-800 shadow-xl flex flex-col justify-between hover-wow group">
+                            <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                                <span class="text-[11px] font-extrabold text-slate-300">Tendencia de Captación</span>
+                                <span class="text-[10px] font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">+38%</span>
+                            </div>
+                            <div class="h-24 w-full my-3 flex items-end justify-between px-1">
+                                <svg viewBox="0 0 100 45" class="w-full h-full overflow-visible">
+                                    <path d="M 0 40 Q 25 30, 50 20 T 100 5 L 100 45 L 0 45 Z" fill="url(#gradBlueNew2)" opacity="0.35"/>
+                                    <path d="M 0 40 Q 25 30, 50 20 T 100 5" fill="none" stroke="#2563eb" stroke-width="3.5" stroke-linecap="round"/>
+                                    <defs>
+                                        <linearGradient id="gradBlueNew2" x1="0" y1="0" x2="0" y2="1">
+                                            <stop offset="0%" stop-color="#2563eb"/>
+                                            <stop offset="100%" stop-color="#0f172a"/>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- Gráfico 2: Columnas de Crecimiento -->
+                        <div class="bg-slate-900 text-white p-4.5 rounded-2xl border border-slate-800 shadow-xl flex flex-col justify-between hover-wow group">
+                            <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                                <span class="text-[11px] font-extrabold text-slate-300">Rendimiento por Agente</span>
+                                <span class="text-[10px] font-bold text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded-full border border-blue-500/20">USD</span>
+                            </div>
+                            <div class="h-24 w-full my-3 flex items-end justify-between gap-2 px-3">
+                                <div class="w-full bg-blue-500/30 rounded-t-md h-[35%] group-hover:h-[40%] transition-all"></div>
+                                <div class="w-full bg-blue-500/50 rounded-t-md h-[55%] group-hover:h-[60%] transition-all"></div>
+                                <div class="w-full bg-blue-500/70 rounded-t-md h-[75%] group-hover:h-[80%] transition-all"></div>
+                                <div class="w-full bg-amber-400 rounded-t-md h-[90%] group-hover:h-[95%] transition-all"></div>
+                                <div class="w-full bg-emerald-400 rounded-t-md h-[100%] transition-all"></div>
+                            </div>
+                        </div>
+
+                        <!-- Gráfico 3: Curva de Conversión -->
+                        <div class="bg-slate-900 text-white p-4.5 rounded-2xl border border-slate-800 shadow-xl flex flex-col justify-between hover-wow group">
+                            <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                                <span class="text-[11px] font-extrabold text-slate-300">Tasa de Conversión</span>
+                                <span class="text-[10px] font-bold text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded-full border border-purple-500/20">Funnel</span>
+                            </div>
+                            <div class="h-24 w-full my-3 flex items-center justify-center px-1">
+                                <svg viewBox="0 0 100 45" class="w-full h-full overflow-visible">
+                                    <path d="M 0 12 Q 30 38, 60 15 T 100 8" fill="none" stroke="#f59e0b" stroke-width="3" stroke-linecap="round"/>
+                                    <path d="M 0 30 Q 35 8, 70 32 T 100 18" fill="none" stroke="#10b981" stroke-width="2.5" stroke-dasharray="4" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2.5">
+                    <span class="px-3.5 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-extrabold border border-blue-200 flex items-center gap-1.5 shadow-sm">
+                        <i class="ph-bold ph-gauge text-blue-600"></i> KPIs Inmobiliarios
+                    </span>
+                    <span class="px-3.5 py-1 rounded-full bg-slate-900 text-white text-xs font-extrabold border border-slate-800 flex items-center gap-1.5 shadow-sm">
+                        <i class="ph-bold ph-desktop text-amber-400"></i> Medición Adaptativa
+                    </span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DIAPOSITIVA 12: EMPRESA AGÉNTICA -->
+        <section class="slide">
+            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden text-center">
+                
+                <div class="anim-1 flex justify-center items-center">
+                    <span class="px-4 py-1.5 rounded-full bg-slate-900 text-white text-xs font-extrabold uppercase tracking-wider flex items-center gap-1.5 border border-slate-800 shadow-sm">
+                        <i class="ph-bold ph-cpu text-emerald-400"></i>
+                        <span>Modelo Operativo</span>
+                    </span>
+                </div>
+
+                <div class="my-auto space-y-6 max-w-4xl mx-auto">
+                    <h2 class="anim-2 text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                        Empresa <span class="text-gradient-fluor">Agéntica + Humanos</span>
+                    </h2>
+
+                    <div class="anim-3 grid grid-cols-1 sm:grid-cols-2 gap-5 text-left max-w-3xl mx-auto">
+                        <div class="bg-rose-50/60 p-5 sm:p-6 rounded-2xl border border-rose-200 space-y-2.5 hover-wow">
+                            <div class="flex items-center gap-2 text-rose-700 font-extrabold text-base">
+                                <i class="ph-bold ph-x-circle text-2xl text-rose-600 icon-float"></i>
+                                <span>NO ES software frío</span>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-700 font-extrabold leading-relaxed">
+                                Las apps no venden.
+                            </p>
+                        </div>
+
+                        <div class="bg-emerald-50/60 p-5 sm:p-6 rounded-2xl border border-emerald-200 space-y-2.5 hover-wow">
+                            <div class="flex items-center gap-2 text-emerald-950 font-extrabold text-base">
+                                <i class="ph-bold ph-check-circle text-2xl text-emerald-600 icon-float"></i>
+                                <span>SÍ ES equipo agéntico</span>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-700 font-extrabold leading-relaxed">
+                                IA abarata el marketing.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2.5">
+                    <span class="px-3.5 py-1 rounded-full bg-slate-900 text-white text-xs font-extrabold flex items-center gap-1.5 border border-slate-800 shadow-sm">
+                        <i class="ph-bold ph-users-three text-blue-400"></i> Equipo Interdisciplinario
+                    </span>
+                    <span class="px-3.5 py-1 rounded-full bg-emerald-50 text-emerald-900 text-xs font-extrabold border border-emerald-200 flex items-center gap-1.5 shadow-sm">
+                        <i class="ph-bold ph-sparkle text-emerald-600"></i> IA Agéntica
+                    </span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DIAPOSITIVA 13: PILAR HUMANO -->
+        <section class="slide">
+            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden text-center">
+                
+                <div class="anim-1 flex justify-center items-center">
+                    <span class="px-4 py-1.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 text-xs font-extrabold uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
+                        <i class="ph-bold ph-chats text-blue-600"></i>
+                        <span>Pilar Humano</span>
+                    </span>
+                </div>
+
+                <div class="my-auto space-y-6 max-w-3xl mx-auto">
+                    <h2 class="anim-2 text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                        Feedback Humano <span class="text-gradient-fluor">en Red</span>
+                    </h2>
+
+                    <p class="anim-3 text-sm sm:text-base text-slate-600 font-bold leading-relaxed max-w-xl mx-auto">
+                        Innovación constante compartida.
+                    </p>
+
+                    <div class="anim-3 grid grid-cols-1 sm:grid-cols-3 gap-3 text-center max-w-3xl mx-auto pt-2">
+                        <div class="bg-blue-50/60 p-4 rounded-2xl border border-blue-200/90 hover-wow flex flex-col items-center justify-center space-y-1.5">
+                            <i class="ph-bold ph-headset text-2xl text-blue-600 icon-float"></i>
+                            <span class="text-xs font-black text-slate-900">Relación Humana Fluida</span>
+                        </div>
+                        <div class="bg-emerald-50/60 p-4 rounded-2xl border border-emerald-200/90 hover-wow flex flex-col items-center justify-center space-y-1.5">
+                            <i class="ph-bold ph-lightning text-2xl text-emerald-600 icon-float"></i>
+                            <span class="text-xs font-black text-slate-900">Implementación Flash Inmediata</span>
+                        </div>
+                        <div class="bg-purple-50/60 p-4 rounded-2xl border border-purple-200/90 hover-wow flex flex-col items-center justify-center space-y-1.5">
+                            <i class="ph-bold ph-globe-hemisphere-west text-2xl text-purple-600 icon-float"></i>
+                            <span class="text-xs font-black text-slate-900">Red CABA y Argentina</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2.5">
+                    <span class="px-3.5 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-extrabold border border-blue-200 flex items-center gap-1.5 shadow-sm">
+                        <i class="ph-bold ph-chats text-blue-600"></i> Feedback Directo
+                    </span>
+                    <span class="px-3.5 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-extrabold border border-emerald-200 flex items-center gap-1.5 shadow-sm">
+                        <i class="ph-bold ph-arrows-clockwise text-emerald-600"></i> Evolución Continua
+                    </span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DIAPOSITIVA 14: LANDING SIMULADA -->
+        <section class="slide">
+            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden text-center">
+                
+                <div class="anim-1 flex justify-center items-center pb-2">
+                    <span class="px-4 py-1.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 text-xs font-extrabold uppercase tracking-wider flex items-center gap-2 shadow-sm">
+                        <i class="ph-bold ph-browser text-blue-600"></i>
+                        <span>Ecosistema Propio • Experiencia de Usuario Familiar</span>
+                    </span>
+                </div>
+
+                <div class="anim-2 my-auto w-full max-w-4xl mx-auto bg-white rounded-2xl border border-slate-200 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col mt-4 relative">
+                    
+                    <!-- Etiqueta Propiedad Estrella DERECHA (Sticker elegante) -->
+                    <div class="absolute top-4 left-4 bg-gradient-to-r from-amber-400 to-amber-500 text-white px-3 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-wider shadow-md flex items-center gap-1 z-50">
+                        <i class="ph-fill ph-star"></i> Propiedad Estrella
+                    </div>
+
+                    <!-- Navbar simulada -->
+                    <div class="h-10 border-b border-slate-100 flex items-center px-5 justify-between bg-slate-50/80 rounded-t-2xl">
+                        <div class="flex gap-2 items-center">
+                            <div class="h-1.5 w-12 bg-slate-300 rounded-full"></div>
+                            <i class="ph-bold ph-caret-right text-slate-300 text-[10px]"></i>
+                            <div class="h-1.5 w-16 bg-slate-300 rounded-full"></div>
+                            <i class="ph-bold ph-caret-right text-slate-300 text-[10px]"></i>
+                            <div class="h-1.5 w-20 bg-blue-400 rounded-full"></div>
+                        </div>
+                        <div class="h-6 w-20 bg-white border border-slate-200 rounded-md flex items-center justify-center gap-1 shadow-sm">
+                            <i class="ph-bold ph-share-network text-slate-400 text-[10px]"></i>
+                            <div class="h-1.5 w-8 bg-slate-200 rounded-full"></div>
+                        </div>
+                    </div>
+
+                    <!-- Contenido principal -->
+                    <div class="flex flex-col md:flex-row p-5 gap-6 h-[340px] rounded-b-2xl overflow-hidden">
+                        
+                        <!-- Columna Izquierda (Galería + Info) -->
+                        <div class="flex-1 flex flex-col gap-5">
+                            <!-- Galería (1 grande, 4 chicas) -->
+                            <div class="grid grid-cols-4 grid-rows-2 gap-2 h-44 rounded-xl overflow-hidden">
+                                <div class="col-span-2 row-span-2 bg-blue-50/60 border border-blue-100 flex items-center justify-center group relative overflow-hidden">
+                                    <i class="ph-bold ph-image text-blue-200 text-4xl group-hover:scale-110 transition-transform relative z-10"></i>
+                                    <!-- Destellos visuales sutiles -->
+                                    <i class="ph-fill ph-sparkle text-amber-300/40 text-2xl absolute top-4 right-4"></i>
+                                    <i class="ph-fill ph-sparkle text-amber-200/50 text-sm absolute bottom-6 left-6"></i>
+                                </div>
+                                <div class="col-span-1 row-span-1 bg-slate-50 border border-slate-100 flex items-center justify-center"><i class="ph-bold ph-image text-slate-200 text-xl"></i></div>
+                                <div class="col-span-1 row-span-1 bg-slate-50 border border-slate-100 flex items-center justify-center"><i class="ph-bold ph-image text-slate-200 text-xl"></i></div>
+                                <div class="col-span-1 row-span-1 bg-slate-50 border border-slate-100 flex items-center justify-center"><i class="ph-bold ph-image text-slate-200 text-xl"></i></div>
+                                <div class="col-span-1 row-span-1 bg-slate-50 border border-slate-100 flex items-center justify-center relative">
+                                    <div class="absolute bottom-1 right-1 bg-white/95 border border-slate-200 px-1.5 py-0.5 rounded text-[8px] font-bold text-slate-700 flex items-center gap-1 shadow-sm">
+                                        <i class="ph-bold ph-images text-[8px]"></i> Fotos
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Detalles -->
+                            <div class="space-y-4 px-1 text-left flex-1 flex flex-col justify-end">
+                                <div class="flex items-center gap-5 border-b border-slate-100 pb-3">
+                                    <div class="flex items-center gap-1.5"><i class="ph-bold ph-arrows-out text-slate-400 text-sm"></i><div class="h-2 w-12 bg-slate-300 rounded-full"></div></div>
+                                    <div class="flex items-center gap-1.5"><i class="ph-bold ph-bed text-slate-400 text-sm"></i><div class="h-2 w-14 bg-slate-300 rounded-full"></div></div>
+                                    <div class="flex items-center gap-1.5"><i class="ph-bold ph-bathtub text-slate-400 text-sm"></i><div class="h-2 w-10 bg-slate-300 rounded-full"></div></div>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="h-5 w-4/5 bg-slate-800 rounded-md"></div>
+                                    <div class="flex items-center gap-1.5"><i class="ph-bold ph-map-pin text-amber-500 text-xs"></i><div class="h-2 w-1/2 bg-slate-300 rounded-full"></div></div>
+                                    <div class="h-7 w-1/3 bg-slate-900 rounded-md mt-1"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Columna Derecha (Sidebar) -->
+                        <div class="w-full md:w-[220px] flex flex-col gap-4">
+                            <!-- Tarjeta Inmobiliaria -->
+                            <div class="bg-white border border-slate-200 rounded-xl p-4 flex flex-col items-center text-center space-y-3 shadow-sm hover-wow">
+                                <div class="w-14 h-14 bg-slate-900 rounded-xl flex items-center justify-center text-white font-black text-xs shadow-inner">
+                                    <i class="ph-bold ph-buildings text-2xl text-blue-400"></i>
+                                </div>
+                                <div class="flex gap-0.5 text-amber-400 text-xs">
+                                    <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                                </div>
+                                <div class="w-full bg-slate-50 border border-slate-100 py-1.5 rounded text-[9px] font-bold text-slate-500">
+                                    Respaldo de Confianza
+                                </div>
+                                <div class="w-full h-9 bg-emerald-500 rounded-lg flex items-center justify-center gap-2 text-white shadow-md hover:bg-emerald-600 transition-colors cursor-pointer mt-1">
+                                    <i class="ph-bold ph-whatsapp text-lg"></i>
+                                    <div class="h-2 w-16 bg-white/90 rounded-full"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Video / Conoce la oficina -->
+                            <div class="flex-1 bg-slate-50 border border-slate-200 rounded-xl flex flex-col relative overflow-hidden group hover-wow cursor-pointer">
+                                <div class="p-2 border-b border-slate-100 flex items-center justify-between">
+                                    <div class="h-1.5 w-16 bg-slate-300 rounded-full"></div>
+                                </div>
+                                <div class="flex-1 flex items-center justify-center relative">
+                                    <div class="w-10 h-10 rounded-full bg-white/90 shadow-sm flex items-center justify-center text-slate-800 z-10 group-hover:scale-110 transition-transform">
+                                        <i class="ph-fill ph-play text-sm ml-1"></i>
+                                    </div>
+                                    <div class="absolute bottom-3 left-0 w-full flex justify-center z-10">
+                                        <div class="h-2 w-24 bg-white/90 rounded-full border border-slate-200"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="anim-4 pt-4 mt-2 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2">
+                    <span class="px-3.5 py-1 rounded-full bg-slate-900 text-white text-xs font-extrabold flex items-center gap-1.5 border border-slate-800 shadow-sm">
+                        <svg viewBox="0 0 100 100" class="w-3.5 h-3.5 text-emerald-400 fill-current">
+                            <rect x="12" y="12" width="76" height="76" rx="22" fill="none" stroke="currentColor" stroke-width="12"/>
+                            <path d="M 20 80 L 68 32 M 45 32 L 68 32 L 68 55" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        </svg>
+                        <span>Guard<strong class="text-emerald-400">Perf</strong></span>
+                    </span>
+                    <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-extrabold border border-slate-200 flex items-center gap-1.5">
+                        <i class="ph-bold ph-layout text-blue-600"></i> Disposición Intuitiva
+                    </span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DIAPOSITIVA 15: COMPREAL TESIS CENTRAL -->
+        <section class="slide">
+            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden text-center">
+                
+                <div class="anim-1 flex justify-center items-center">
+                    <span class="px-4 py-1.5 rounded-full bg-slate-900 text-white text-xs font-extrabold flex items-center gap-2 border border-rose-500/30 shadow-sm">
+                        <svg viewBox="0 0 100 100" class="w-4 h-4 text-rose-400 fill-current">
+                            <rect x="12" y="12" width="76" height="76" rx="22" fill="none" stroke="currentColor" stroke-width="12"/>
+                            <circle cx="50" cy="40" r="16" fill="none" stroke="currentColor" stroke-width="10"/>
+                            <path d="M 22 80 C 22 62, 35 56, 50 56 C 65 56, 78 62, 78 80" stroke="currentColor" stroke-width="10" stroke-linecap="round" fill="none"/>
+                        </svg>
+                        <span>Metodología Comp<strong class="text-rose-400">Real</strong></span>
+                    </span>
+                </div>
+
+                <div class="my-auto space-y-6 max-w-4xl mx-auto">
+                    <h2 class="anim-2 text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                        De Anzuelo a <span class="text-gradient-rose">Verdad Institucional</span>
+                    </h2>
+
+                    <div class="anim-3 grid grid-cols-1 sm:grid-cols-2 gap-5 text-left max-w-3xl mx-auto pt-2">
+                        <div class="bg-slate-50 p-5 sm:p-6 rounded-2xl border border-slate-200 space-y-2.5 hover-wow opacity-75">
+                            <div class="flex items-center gap-2 text-slate-500 font-extrabold text-base">
+                                <i class="ph-bold ph-x-circle text-2xl text-slate-400 icon-float"></i>
+                                <span>NO Hacemos</span>
+                            </div>
+                            <p class="text-sm text-slate-700 font-black">Falso "tengo comprador".</p>
+                            <p class="text-xs text-slate-500 font-bold">Destruye reputación del agente.</p>
+                        </div>
+
+                        <div class="bg-rose-50/60 p-5 sm:p-6 rounded-2xl border border-rose-200 space-y-2.5 hover-wow">
+                            <div class="flex items-center gap-2 text-rose-950 font-extrabold text-base">
+                                <i class="ph-bold ph-check-circle text-2xl text-rose-600 icon-float"></i>
+                                <span>SÍ Hacemos</span>
+                            </div>
+                            <p class="text-sm text-slate-800 font-black">Búsqueda institucional y verificada.</p>
+                            <p class="text-xs text-rose-800 font-bold">Abre puertas herméticamente cerradas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2.5">
+                    <span class="px-3.5 py-1 rounded-full bg-slate-900 text-white text-xs font-extrabold flex items-center gap-1.5 border border-rose-500/30 shadow-sm">
+                        <svg viewBox="0 0 100 100" class="w-3.5 h-3.5 text-rose-400 fill-current">
+                            <rect x="12" y="12" width="76" height="76" rx="22" fill="none" stroke="currentColor" stroke-width="12"/>
+                            <circle cx="50" cy="40" r="16" fill="none" stroke="currentColor" stroke-width="10"/>
+                            <path d="M 22 80 C 22 62, 35 56, 50 56 C 65 56, 78 62, 78 80" stroke="currentColor" stroke-width="10" stroke-linecap="round" fill="none"/>
+                        </svg>
+                        <span>Comp<strong class="text-rose-400">Real</strong></span>
+                    </span>
+                    <span class="px-3.5 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-extrabold border border-slate-200 flex items-center gap-1.5">
+                        <i class="ph-bold ph-shield-check text-rose-600"></i> Respaldo de Marca
+                    </span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DIAPOSITIVA 16: COMPREAL FICHA Y RESPALDO -->
+        <section class="slide">
+            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden text-center">
+                
+                <div class="anim-1 flex justify-center items-center">
+                    <span class="px-4 py-1.5 rounded-full bg-rose-50 text-rose-700 border border-rose-200 text-xs font-extrabold uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
+                        <i class="ph-bold ph-identification-card text-rose-600"></i>
+                        <span>Respaldo Corporativo</span>
+                    </span>
+                </div>
+
+                <div class="my-auto space-y-6 max-w-4xl mx-auto w-full">
+                    <h2 class="anim-2 text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                        Ficha Técnica <span class="text-gradient-rose">Hiperespecífica</span>
+                    </h2>
+
+                    <div class="anim-3 bg-slate-900 rounded-2xl p-6 border border-slate-800 shadow-xl max-w-2xl mx-auto text-left space-y-4 hover-wow">
+                        <div class="flex items-center justify-between border-b border-slate-700 pb-3">
+                            <span class="text-xs font-black text-rose-400 bg-rose-500/10 px-2.5 py-1 rounded-md border border-rose-500/20">BÚSQUEDA VERIFICADA</span>
+                            <span class="text-[10px] font-mono text-slate-400">REF: C-PAL-2026</span>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="space-y-1">
+                                <span class="text-[10px] font-bold text-slate-500 uppercase">Presupuesto Aprobado</span>
+                                <div class="text-sm font-black text-white">Rango exacto y real.</div>
+                            </div>
+                            <div class="space-y-1">
+                                <span class="text-[10px] font-bold text-slate-500 uppercase">Estado de Fondos</span>
+                                <div class="text-sm font-black text-emerald-400 flex items-center gap-1"><i class="ph-bold ph-check-circle"></i> Líquidos post-venta.</div>
+                            </div>
+                            <div class="space-y-1 col-span-2">
+                                <span class="text-[10px] font-bold text-slate-500 uppercase">Requisitos Técnicos</span>
+                                <div class="text-sm font-black text-slate-300">Ubicación y características inflexibles.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2.5">
+                    <span class="px-3.5 py-1 rounded-full bg-slate-900 text-white text-xs font-extrabold flex items-center gap-1.5 border border-rose-500/30 shadow-sm">
+                        <svg viewBox="0 0 100 100" class="w-3.5 h-3.5 text-rose-400 fill-current">
+                            <rect x="12" y="12" width="76" height="76" rx="22" fill="none" stroke="currentColor" stroke-width="12"/>
+                            <circle cx="50" cy="40" r="16" fill="none" stroke="currentColor" stroke-width="10"/>
+                            <path d="M 22 80 C 22 62, 35 56, 50 56 C 65 56, 78 62, 78 80" stroke="currentColor" stroke-width="10" stroke-linecap="round" fill="none"/>
+                        </svg>
+                        <span>Comp<strong class="text-rose-400">Real</strong></span>
+                    </span>
+                    <span class="px-3.5 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-extrabold border border-slate-200 flex items-center gap-1.5 shadow-sm">
+                        <i class="ph-bold ph-magnifying-glass text-rose-600"></i> Transparencia Total
+                    </span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DIAPOSITIVA 17: COMPREAL MATRIZ ESCENARIOS -->
+        <section class="slide">
+            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden text-center">
+                
+                <div class="anim-1 flex justify-center items-center">
+                    <span class="px-4 py-1.5 rounded-full bg-rose-50 text-rose-700 border border-rose-200 text-xs font-extrabold uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
+                        <i class="ph-bold ph-chart-line-up text-rose-600"></i>
+                        <span>Conversión Comercial</span>
+                    </span>
+                </div>
+
+                <div class="my-auto space-y-6 max-w-5xl mx-auto w-full">
+                    <h2 class="anim-2 text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                        Matriz de <span class="text-gradient-rose">Tres Escenarios</span>
+                    </h2>
+                    
+                    <p class="anim-3 text-sm text-slate-600 font-bold">Toda visita genera alta rentabilidad.</p>
+
+                    <div class="anim-3 grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+                        <!-- Escenario A -->
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 hover-wow flex flex-col items-center space-y-2 text-center">
+                            <div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 mb-1"><i class="ph-bold ph-handshake text-lg"></i></div>
+                            <h3 class="font-black text-slate-900 text-sm">Match Perfecto</h3>
+                            <p class="text-xs font-extrabold text-slate-600">Cierre de doble punta (7%).</p>
+                        </div>
+                        
+                        <!-- Escenario B -->
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 hover-wow flex flex-col items-center space-y-2 text-center">
+                            <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mb-1"><i class="ph-bold ph-star text-lg"></i></div>
+                            <h3 class="font-black text-slate-900 text-sm">Match Humano Presencial</h3>
+                            <p class="text-xs font-extrabold text-slate-600">Captación por trato excepcional.</p>
+                        </div>
+
+                        <!-- Escenario C -->
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 hover-wow flex flex-col items-center space-y-2 text-center">
+                            <div class="w-10 h-10 rounded-full bg-rose-100 flex items-center justify-center text-rose-600 mb-1"><i class="ph-bold ph-users-three text-lg"></i></div>
+                            <h3 class="font-black text-slate-900 text-sm">Fuerza de Red</h3>
+                            <p class="text-xs font-extrabold text-slate-600">Colegas llevan compradores reales.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2.5">
+                    <span class="px-3.5 py-1 rounded-full bg-slate-900 text-white text-xs font-extrabold flex items-center gap-1.5 border border-rose-500/30 shadow-sm">
+                        <svg viewBox="0 0 100 100" class="w-3.5 h-3.5 text-rose-400 fill-current">
+                            <rect x="12" y="12" width="76" height="76" rx="22" fill="none" stroke="currentColor" stroke-width="12"/>
+                            <circle cx="50" cy="40" r="16" fill="none" stroke="currentColor" stroke-width="10"/>
+                            <path d="M 22 80 C 22 62, 35 56, 50 56 C 65 56, 78 62, 78 80" stroke="currentColor" stroke-width="10" stroke-linecap="round" fill="none"/>
+                        </svg>
+                        <span>Comp<strong class="text-rose-400">Real</strong></span>
+                    </span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DIAPOSITIVA 18: COMPREAL SOFTWARE MATCH -->
+        <section class="slide">
+            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden text-center">
+                
+                <div class="anim-1 flex justify-center items-center">
+                    <span class="px-4 py-1.5 rounded-full bg-rose-50 text-rose-700 border border-rose-200 text-xs font-extrabold uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
+                        <i class="ph-bold ph-code text-rose-600"></i>
+                        <span>Módulo Tecnológico</span>
+                    </span>
+                </div>
+
+                <div class="my-auto space-y-6 max-w-4xl mx-auto w-full">
+                    <h2 class="anim-2 text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                        Software <span class="text-gradient-rose">CompReal Match</span>
+                    </h2>
+
+                    <!-- Representación Visual Abstracta -->
+                    <div class="anim-3 h-28 w-full max-w-lg mx-auto flex items-center justify-center relative my-4">
+                        <div class="absolute w-full h-0.5 bg-slate-100 top-1/2 -translate-y-1/2 z-0"></div>
+                        <div class="flex items-center justify-between w-full z-10 px-8">
+                            <div class="w-14 h-14 bg-white rounded-2xl border-2 border-slate-200 shadow-md flex items-center justify-center text-slate-400 hover-wow"><i class="ph-bold ph-user text-xl"></i></div>
+                            <div class="w-20 h-20 bg-rose-50 rounded-2xl border-2 border-rose-200 shadow-lg flex items-center justify-center text-rose-500 hover-wow"><i class="ph-bold ph-arrows-merge text-3xl"></i></div>
+                            <div class="w-14 h-14 bg-white rounded-2xl border-2 border-slate-200 shadow-md flex items-center justify-center text-slate-400 hover-wow"><i class="ph-bold ph-house-line text-xl"></i></div>
+                        </div>
+                    </div>
+
+                    <div class="anim-3 grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+                        <div class="bg-transparent space-y-1">
+                            <h3 class="font-black text-slate-900 text-sm">Base Central</h3>
+                            <p class="text-xs font-extrabold text-slate-500">De compradores verificados.</p>
+                        </div>
+                        <div class="bg-transparent space-y-1">
+                            <h3 class="font-black text-slate-900 text-sm">Cruce Inmediato</h3>
+                            <p class="text-xs font-extrabold text-slate-500">Algoritmo de red interna.</p>
+                        </div>
+                        <div class="bg-transparent space-y-1">
+                            <h3 class="font-black text-slate-900 text-sm">Cero Celos</h3>
+                            <p class="text-xs font-extrabold text-slate-500">Potencia trabajo en equipo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2.5">
+                    <span class="px-3.5 py-1 rounded-full bg-slate-900 text-white text-xs font-extrabold flex items-center gap-1.5 border border-rose-500/30 shadow-sm">
+                        <svg viewBox="0 0 100 100" class="w-3.5 h-3.5 text-rose-400 fill-current">
+                            <rect x="12" y="12" width="76" height="76" rx="22" fill="none" stroke="currentColor" stroke-width="12"/>
+                            <circle cx="50" cy="40" r="16" fill="none" stroke="currentColor" stroke-width="10"/>
+                            <path d="M 22 80 C 22 62, 35 56, 50 56 C 65 56, 78 62, 78 80" stroke="currentColor" stroke-width="10" stroke-linecap="round" fill="none"/>
+                        </svg>
+                        <span>Comp<strong class="text-rose-400">Real</strong></span>
+                    </span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DIAPOSITIVA 19: FLYWHEEL / CÍRCULO VIRTUOSO -->
+        <section class="slide">
+            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden text-center">
+                
+                <div class="anim-1 flex justify-center items-center">
+                    <span class="px-4 py-1.5 rounded-full bg-slate-900 text-white text-xs font-extrabold uppercase tracking-wider flex items-center gap-1.5 shadow-sm border border-slate-800">
+                        <i class="ph-bold ph-infinity text-blue-400"></i>
+                        <span>Ecosistema Perfecto</span>
+                    </span>
+                </div>
+
+                <div class="my-auto space-y-8 max-w-4xl mx-auto w-full">
+                    <h2 class="anim-2 text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                        El Círculo <span class="text-gradient-fluor">Virtuoso Total</span>
+                    </h2>
+
+                    <div class="anim-3 grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                        <!-- Mitad GuardPerf -->
+                        <div class="bg-slate-900 p-6 rounded-3xl border border-slate-800 shadow-xl flex flex-col items-center justify-center space-y-3 hover-wow relative">
+                            <i class="ph-bold ph-arrows-clockwise text-emerald-400 text-3xl opacity-20 absolute top-4 right-4"></i>
+                            <div class="px-4 py-1.5 rounded-full bg-slate-950 text-white text-xs font-black flex items-center gap-1.5 border border-slate-800 shadow-sm">
+                                <svg viewBox="0 0 100 100" class="w-3.5 h-3.5 text-emerald-400 fill-current">
+                                    <rect x="12" y="12" width="76" height="76" rx="22" fill="none" stroke="currentColor" stroke-width="12"/>
+                                    <path d="M 20 80 L 68 32 M 45 32 L 68 32 L 68 55" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                </svg>
+                                <span>Guard<strong class="text-emerald-400">Perf</strong></span>
+                            </div>
+                            <p class="text-sm font-extrabold text-slate-300">Vende y genera liquidez.</p>
+                        </div>
+                        
+                        <!-- Mitad CompReal -->
+                        <div class="bg-slate-900 p-6 rounded-3xl border border-slate-800 shadow-xl flex flex-col items-center justify-center space-y-3 hover-wow relative">
+                            <i class="ph-bold ph-arrows-clockwise text-rose-400 text-3xl opacity-20 absolute top-4 left-4"></i>
+                            <div class="px-4 py-1.5 rounded-full bg-slate-950 text-white text-xs font-black flex items-center gap-1.5 border border-rose-500/30 shadow-sm">
+                                <svg viewBox="0 0 100 100" class="w-3.5 h-3.5 text-rose-400 fill-current">
+                                    <rect x="12" y="12" width="76" height="76" rx="22" fill="none" stroke="currentColor" stroke-width="12"/>
+                                    <circle cx="50" cy="40" r="16" fill="none" stroke="currentColor" stroke-width="10"/>
+                                    <path d="M 22 80 C 22 62, 35 56, 50 56 C 65 56, 78 62, 78 80" stroke="currentColor" stroke-width="10" stroke-linecap="round" fill="none"/>
+                                </svg>
+                                <span>Comp<strong class="text-rose-400">Real</strong></span>
+                            </div>
+                            <p class="text-sm font-extrabold text-slate-300">Compra y capta stock.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2.5">
+                    <span class="px-3.5 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-extrabold border border-slate-200 flex items-center gap-1.5 shadow-sm">
+                        <i class="ph-bold ph-rocket-launch text-blue-600"></i> Crecimiento Infinito
+                    </span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DIAPOSITIVA 20: MODELO B2B DIRECTO -->
+        <section class="slide">
+            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden text-center">
+                
+                <div class="anim-1 flex justify-center items-center">
+                    <span class="px-4 py-1.5 rounded-full bg-blue-50 text-blue-700 text-xs font-extrabold uppercase tracking-wider flex items-center gap-1.5 border border-blue-200 shadow-sm">
+                        <i class="ph-bold ph-briefcase text-blue-600"></i>
+                        <span>Esquema Financiero B2B</span>
+                    </span>
+                </div>
+
+                <div class="my-auto space-y-6 max-w-4xl mx-auto flex flex-col items-center justify-center w-full">
+                    <h2 class="anim-2 text-4xl sm:text-6xl md:text-7xl font-black text-slate-900 tracking-tight leading-tight">
+                        Modelo B2B <span class="text-gradient-fluor">Corporativo Directo</span>
+                    </h2>
+
+                    <div class="anim-3 mt-6">
+                        <span class="text-slate-400 font-extrabold uppercase tracking-widest text-lg md:text-xl">
+                            Esquema de Precios
+                        </span>
+                    </div>
+                </div>
+
+                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2.5">
+                    <span class="px-3.5 py-1 rounded-full bg-slate-900 text-white text-xs font-extrabold flex items-center gap-1.5 border border-slate-800 shadow-sm">
+                        <i class="ph-bold ph-handshake text-blue-400"></i> Relación Directa Broker
+                    </span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DIAPOSITIVA 21: ABONO BASE -->
+        <section class="slide">
+            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden text-center">
+                
+                <div class="anim-1 flex justify-center items-center">
+                    <span class="px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-xs font-extrabold uppercase tracking-wider flex items-center gap-1.5 border border-emerald-200 shadow-sm">
+                        <i class="ph-bold ph-credit-card text-emerald-600"></i>
+                        <span>Inversión Activa</span>
+                    </span>
+                </div>
+
+                <div class="my-auto space-y-6 max-w-4xl mx-auto w-full">
+                    <div class="space-y-2">
+                        <h2 class="anim-2 text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                            Abono Base <span class="text-gradient-emerald">Institucional</span>
+                        </h2>
+                        <div class="anim-2 flex flex-col items-center justify-center gap-1 mt-2">
+                            <span class="text-lg sm:text-xl font-bold text-slate-400 line-through decoration-rose-500 decoration-2">USD 600</span>
+                            <span class="text-2xl sm:text-3xl font-black text-emerald-600 bg-emerald-50 px-5 py-1.5 rounded-full border border-emerald-200 shadow-sm">USD 300 Final</span>
+                        </div>
+                    </div>
+
+                    <div class="anim-3 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto pt-2">
+                        <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 text-left flex items-center gap-4 hover-wow group">
+                            <div class="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center border border-emerald-500/20 text-emerald-400">
+                                <svg viewBox="0 0 100 100" class="w-6 h-6 fill-current"><rect x="12" y="12" width="76" height="76" rx="22" fill="none" stroke="currentColor" stroke-width="12"/><path d="M 20 80 L 68 32 M 45 32 L 68 32 L 68 55" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-sm font-black text-white">Incluye 1 GuardPerf</h3>
+                                <p class="text-xs font-bold text-slate-400">Campaña de propiedad estrella.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 text-left flex items-center gap-4 hover-wow group">
+                            <div class="w-12 h-12 bg-rose-500/10 rounded-xl flex items-center justify-center border border-rose-500/20 text-rose-400">
+                                <svg viewBox="0 0 100 100" class="w-6 h-6 fill-current"><rect x="12" y="12" width="76" height="76" rx="22" fill="none" stroke="currentColor" stroke-width="12"/><circle cx="50" cy="40" r="16" fill="none" stroke="currentColor" stroke-width="10"/><path d="M 22 80 C 22 62, 35 56, 50 56 C 65 56, 78 62, 78 80" stroke="currentColor" stroke-width="10" stroke-linecap="round" fill="none"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-sm font-black text-white">Incluye 1 CompReal</h3>
+                                <p class="text-xs font-bold text-slate-400">Búsqueda verificada oficial.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2.5">
+                    <span class="px-3.5 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-extrabold border border-slate-200 flex items-center gap-1.5">
+                        <i class="ph-bold ph-tag text-slate-600"></i> Tarifa Ultra Bonificada
+                    </span>
+                    <span class="px-3.5 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-extrabold border border-emerald-200 flex items-center gap-1.5">
+                        <i class="ph-bold ph-check-circle text-emerald-600"></i> El sistema se paga solo.
+                    </span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DIAPOSITIVA 22: INFRAESTRUCTURA INCLUIDA -->
+        <section class="slide">
+            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden text-center">
+                
+                <div class="anim-1 flex justify-center items-center">
+                    <span class="px-4 py-1.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 text-xs font-extrabold uppercase tracking-wider flex items-center gap-2 shadow-sm">
+                        <i class="ph-bold ph-package text-blue-600"></i>
+                        <span>Todo Incluido</span>
+                    </span>
+                </div>
+
+                <div class="my-auto space-y-6 max-w-4xl mx-auto w-full">
+                    <h2 class="anim-2 text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                        Infraestructura por <span class="text-gradient-fluor">USD 300</span>
+                    </h2>
+
+                    <!-- Banner Objeción "Lo hago yo" -->
+                    <div class="anim-2 max-w-xl mx-auto bg-slate-900 rounded-xl p-3 border border-slate-800 flex flex-wrap items-center justify-center gap-3 shadow-md mt-2">
+                        <i class="ph-bold ph-info text-blue-400 text-lg"></i>
+                        <span class="text-white text-xs sm:text-sm font-black">
+                            Pauta digital: <strong class="text-rose-400">25%</strong>
+                        </span>
+                        <span class="text-slate-600">|</span>
+                        <span class="text-white text-xs sm:text-sm font-black">
+                            Infraestructura oculta: <strong class="text-emerald-400">75%</strong>
+                        </span>
+                    </div>
+
+                    <div class="anim-3 grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto pt-2">
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 text-left space-y-3 hover-wow">
+                            <div class="flex items-center gap-2 text-sm font-black text-slate-800"><i class="ph-fill ph-check-circle text-emerald-500 text-xl"></i> 1 Campaña GuardPerf Estrella</div>
+                            <div class="flex items-center gap-2 text-sm font-black text-slate-800"><i class="ph-fill ph-check-circle text-emerald-500 text-xl"></i> 1 Búsqueda CompReal Verificada</div>
+                            <div class="flex items-center gap-2 text-sm font-black text-slate-800"><i class="ph-fill ph-check-circle text-emerald-500 text-xl"></i> Pauta Hiperlocal Geolocalizada</div>
+                            <div class="flex items-center gap-2 text-sm font-black text-slate-800"><i class="ph-fill ph-check-circle text-emerald-500 text-xl"></i> Múltiples Variantes A/B Testing</div>
+                            <div class="flex items-center gap-2 text-sm font-black text-slate-800"><i class="ph-fill ph-check-circle text-emerald-500 text-xl"></i> Guardia Virtual SLA 15m</div>
+                        </div>
+
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 text-left space-y-3 hover-wow">
+                            <div class="flex items-center gap-2 text-sm font-black text-slate-800"><i class="ph-fill ph-check-circle text-emerald-500 text-xl"></i> Plataforma CompReal Match</div>
+                            <div class="flex items-center gap-2 text-sm font-black text-slate-800"><i class="ph-fill ph-check-circle text-emerald-500 text-xl"></i> Tablero de Control KPIs</div>
+                            <div class="flex items-center gap-2 text-sm font-black text-slate-800"><i class="ph-fill ph-check-circle text-emerald-500 text-xl"></i> Auditoría Inteligencia Artificial</div>
+                            <div class="flex items-center gap-2 text-sm font-black text-slate-800"><i class="ph-fill ph-check-circle text-emerald-500 text-xl"></i> Remoción Agentes Inactivos</div>
+                            <div class="flex items-center gap-2 text-sm font-black text-slate-800"><i class="ph-fill ph-check-circle text-emerald-500 text-xl"></i> Coaching Comercial Continuo</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2.5">
+                    <span class="px-3.5 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-extrabold border border-emerald-200 flex items-center gap-1.5 shadow-sm">
+                        <i class="ph-bold ph-rocket-launch text-emerald-600"></i> Valor real incalculable.
+                    </span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DIAPOSITIVA 23: PIEZAS ADICIONALES -->
+        <section class="slide">
+            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden text-center">
+                
+                <div class="anim-1 flex justify-center items-center">
+                    <span class="px-4 py-1.5 rounded-full bg-blue-50 text-blue-700 text-xs font-extrabold uppercase tracking-wider flex items-center gap-1.5 border border-blue-200 shadow-sm">
+                        <i class="ph-bold ph-plus-circle text-blue-600"></i>
+                        <span>Expansión de Cartera</span>
+                    </span>
+                </div>
+
+                <div class="my-auto space-y-6 max-w-4xl mx-auto w-full">
+                    <div class="space-y-2">
+                        <h2 class="anim-2 text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                            Piezas <span class="text-gradient-fluor">Adicionales</span>
+                        </h2>
+                        <p class="anim-2 text-xs sm:text-sm font-bold text-slate-500 uppercase tracking-wider">
+                            Escala a medida
+                        </p>
+                    </div>
+
+                    <div class="anim-3 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto pt-2">
+                        <!-- GuardPerf Adicional -->
+                        <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 text-left flex flex-col gap-3 hover-wow group">
+                            <div class="flex items-center justify-between">
+                                <div class="w-10 h-10 bg-emerald-500/10 rounded-xl flex items-center justify-center border border-emerald-500/20 text-emerald-400">
+                                    <svg viewBox="0 0 100 100" class="w-5 h-5 fill-current"><rect x="12" y="12" width="76" height="76" rx="22" fill="none" stroke="currentColor" stroke-width="12"/><path d="M 20 80 L 68 32 M 45 32 L 68 32 L 68 55" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                                </div>
+                                <div class="flex flex-col items-end">
+                                    <span class="text-xs font-bold text-slate-500 line-through decoration-rose-500 decoration-2">USD 300</span>
+                                    <span class="text-xl font-black text-emerald-400">USD 150</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-sm font-black text-white">Propiedad Estrella Extra</h3>
+                                <p class="text-xs font-bold text-slate-400">Activa otra campaña GuardPerf.</p>
+                            </div>
+                        </div>
+
+                        <!-- CompReal Adicional -->
+                        <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 text-left flex flex-col gap-3 hover-wow group">
+                            <div class="flex items-center justify-between">
+                                <div class="w-10 h-10 bg-rose-500/10 rounded-xl flex items-center justify-center border border-rose-500/20 text-rose-400">
+                                    <svg viewBox="0 0 100 100" class="w-5 h-5 fill-current"><rect x="12" y="12" width="76" height="76" rx="22" fill="none" stroke="currentColor" stroke-width="12"/><circle cx="50" cy="40" r="16" fill="none" stroke="currentColor" stroke-width="10"/><path d="M 22 80 C 22 62, 35 56, 50 56 C 65 56, 78 62, 78 80" stroke="currentColor" stroke-width="10" stroke-linecap="round" fill="none"/></svg>
+                                </div>
+                                <div class="flex flex-col items-end">
+                                    <span class="text-xs font-bold text-slate-500 line-through decoration-rose-500 decoration-2">USD 200</span>
+                                    <span class="text-xl font-black text-rose-400">USD 100</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-sm font-black text-white">Búsqueda Verificada Extra</h3>
+                                <p class="text-xs font-bold text-slate-400">Activa otra campaña CompReal.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2.5">
+                    <span class="px-3.5 py-1 rounded-full bg-slate-900 text-white text-xs font-extrabold flex items-center gap-1.5 border border-slate-800 shadow-sm">
+                        <i class="ph-bold ph-tag text-amber-400"></i> Tarifas 50% OFF Permanente
+                    </span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DIAPOSITIVA 24: FINANCIAMIENTO Y MODELOS -->
+        <section class="slide">
+            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden text-center">
+                
+                <div class="anim-1 flex justify-center items-center">
+                    <span class="px-4 py-1.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 text-xs font-extrabold uppercase tracking-wider flex items-center gap-2 shadow-sm">
+                        <i class="ph-bold ph-money text-blue-600"></i>
+                        <span>Flexibilidad Financiera</span>
+                    </span>
+                </div>
+
+                <div class="my-auto space-y-6 max-w-4xl mx-auto w-full">
+                    <h2 class="anim-2 text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                        Tres Modelos de <span class="text-gradient-fluor">Inversión Interna</span>
+                    </h2>
+
+                    <div class="anim-3 grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+                        <!-- Modelo 1 -->
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 hover-wow flex flex-col items-center text-center space-y-2">
+                            <i class="ph-bold ph-buildings text-2xl text-blue-600 icon-float"></i>
+                            <h3 class="font-black text-slate-900 text-sm">Subvención Total</h3>
+                            <p class="text-xs font-extrabold text-slate-500">Oficina absorbe 100% del costo.</p>
+                        </div>
+                        
+                        <!-- Modelo 2 -->
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 hover-wow flex flex-col items-center text-center space-y-2">
+                            <i class="ph-bold ph-handshake text-2xl text-amber-500 icon-float"></i>
+                            <h3 class="font-black text-slate-900 text-sm">Modelo Híbrido</h3>
+                            <p class="text-xs font-extrabold text-slate-500">División 50/50 oficina y agentes.</p>
+                        </div>
+                        
+                        <!-- Modelo 3 -->
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 hover-wow flex flex-col items-center text-center space-y-2">
+                            <i class="ph-bold ph-users text-2xl text-emerald-600 icon-float"></i>
+                            <h3 class="font-black text-slate-900 text-sm">Fondo de Agentes</h3>
+                            <p class="text-xs font-extrabold text-slate-500">Agentes financian campañas extra.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2.5">
+                    <span class="px-4 py-1.5 rounded-full bg-emerald-500/15 text-emerald-700 text-xs font-extrabold border border-emerald-300 flex items-center gap-1.5 shadow-sm">
+                        <i class="ph-bold ph-check-circle text-emerald-600"></i> 25% de Referido para Oficina.
+                    </span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DIAPOSITIVA 25: SLA Y PENALIZACIONES -->
+        <section class="slide">
+            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden text-center">
+                
+                <div class="anim-1 flex justify-center items-center">
+                    <span class="px-4 py-1.5 rounded-full bg-rose-50 text-rose-700 border border-rose-200 text-xs font-extrabold uppercase tracking-wider flex items-center gap-2 shadow-sm">
+                        <i class="ph-bold ph-warning text-rose-600"></i>
+                        <span>SLA y Penalizaciones</span>
+                    </span>
+                </div>
+
+                <div class="my-auto space-y-6 max-w-4xl mx-auto w-full">
+                    <h2 class="anim-2 text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                        Monitoreo de <span class="text-gradient-rose">Alta Performance</span>
+                    </h2>
+
+                    <div class="anim-3 grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 hover-wow flex flex-col items-center text-center space-y-2">
+                            <i class="ph-bold ph-timer text-2xl text-blue-600 icon-float"></i>
+                            <h3 class="font-black text-slate-900 text-sm">Respuesta Inmediata</h3>
+                            <p class="text-xs font-extrabold text-slate-500">Atención ágil en minutos.</p>
+                        </div>
+                        
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 hover-wow flex flex-col items-center text-center space-y-2">
+                            <i class="ph-bold ph-user-minus text-2xl text-rose-600 icon-float"></i>
+                            <h3 class="font-black text-slate-900 text-sm">Remoción Automática</h3>
+                            <p class="text-xs font-extrabold text-slate-500">Inactivos quedan fuera del flujo.</p>
+                        </div>
+                        
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 hover-wow flex flex-col items-center text-center space-y-2">
+                            <i class="ph-bold ph-shield-check text-2xl text-amber-600 icon-float"></i>
+                            <h3 class="font-black text-slate-900 text-sm">Auditoría Retroactiva</h3>
+                            <p class="text-xs font-extrabold text-slate-500">Protege inversión de la gerencia.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2.5">
+                    <span class="px-3.5 py-1 rounded-full bg-slate-900 text-white text-xs font-extrabold flex items-center gap-1.5 border border-slate-800 shadow-sm">
+                        <i class="ph-bold ph-target text-blue-400"></i> Máxima Eficiencia Comercial
+                    </span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DIAPOSITIVA 26: VANGUARDIA Y RED (NUEVA) -->
+        <section class="slide">
+            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-slate-200/90 flex flex-col justify-between min-h-[520px] sm:min-h-[560px] relative overflow-hidden text-center">
+                
+                <div class="anim-1 flex justify-center items-center">
+                    <span class="px-4 py-1.5 rounded-full bg-purple-50 text-purple-700 border border-purple-200 text-xs font-extrabold uppercase tracking-wider flex items-center gap-2 shadow-sm">
+                        <i class="ph-bold ph-radar text-purple-600"></i>
+                        <span>Vanguardia Inmobiliaria</span>
+                    </span>
+                </div>
+
+                <div class="my-auto space-y-6 max-w-4xl mx-auto w-full">
+                    <h2 class="anim-2 text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                        Evolución en <span class="text-gradient-fluor">Tiempo Real</span>
+                    </h2>
+
+                    <div class="anim-3 grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 hover-wow flex flex-col items-center text-center space-y-2">
+                            <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mb-1"><i class="ph-bold ph-arrows-clockwise text-xl"></i></div>
+                            <h3 class="font-black text-slate-900 text-sm">Mercado Mutante</h3>
+                            <p class="text-xs font-extrabold text-slate-500">Hoy funciona, mañana no.</p>
+                        </div>
+                        
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 hover-wow flex flex-col items-center text-center space-y-2">
+                            <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 mb-1"><i class="ph-bold ph-network text-xl"></i></div>
+                            <h3 class="font-black text-slate-900 text-sm">Red Inter-Oficinas</h3>
+                            <p class="text-xs font-extrabold text-slate-500">Retroalimentación masiva constante.</p>
+                        </div>
+                        
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 hover-wow flex flex-col items-center text-center space-y-2">
+                            <div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-amber-500 mb-1"><i class="ph-bold ph-lightbulb text-xl"></i></div>
+                            <h3 class="font-black text-slate-900 text-sm">Primicia Táctica</h3>
+                            <p class="text-xs font-extrabold text-slate-500">Detectamos e implementamos primero.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="anim-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2.5">
+                    <span class="px-3.5 py-1 rounded-full bg-slate-900 text-white text-xs font-extrabold flex items-center gap-1.5 border border-slate-800 shadow-sm">
+                        <i class="ph-bold ph-rocket-launch text-emerald-400"></i> Siempre un paso adelante.
+                    </span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DIAPOSITIVA 27: CIERRE -->
+        <section class="slide">
+            <div class="max-w-5xl w-full bg-white rounded-3xl p-8 sm:p-12 md:p-14 border border-slate-200/90 flex flex-col justify-center items-center text-center min-h-[520px] sm:min-h-[560px] relative overflow-hidden">
+                <div class="anim-1 mb-8">
+                    <!-- Logo sin sombreados feos, fondo completamente blanco -->
+                    <img src="https://lh3.googleusercontent.com/d/1Yq4YcFxytCooor28U_NwUU3iPFkzw1EV" 
+                         alt="M2Marketing Logo" 
+                         class="h-40 sm:h-56 md:h-72 w-auto object-contain mx-auto transition-transform duration-500 hover:scale-105"
+                         onerror="this.onerror=null; this.src='https://placehold.co/500x200/2563eb/ffffff?text=M2Marketing';">
+                </div>
+                <div class="anim-2 max-w-2xl mx-auto space-y-4">
+                    <h1 class="text-4xl sm:text-6xl font-black text-slate-900 tracking-tight leading-tight">
+                        ¿Comenzamos la <span class="text-gradient-fluor">Evolución?</span>
+                    </h1>
+                </div>
+                <div class="anim-3 mt-10">
+                    <span class="px-6 py-2.5 rounded-full bg-slate-900 text-white text-sm font-extrabold border border-slate-800 inline-flex items-center gap-2 shadow-lg hover-wow cursor-pointer">
+                        <i class="ph-bold ph-rocket-launch text-emerald-400"></i>
+                        <span>Ingeniería de Ventas Total</span>
+                    </span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        const progressBar = document.getElementById('progressBar');
+        const currentSlideNum = document.getElementById('currentSlideNum');
+        const totalSlidesNum = document.getElementById('totalSlidesNum');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const headerLogo = document.getElementById('headerLogo');
+
+        totalSlidesNum.textContent = totalSlides;
+
+        function updateSlidePosition() {
+            slides.forEach((slide, index) => {
+                if (index === currentSlide) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+
+            currentSlideNum.textContent = currentSlide + 1;
+            const progressPercent = ((currentSlide + 1) / totalSlides) * 100;
+            progressBar.style.width = `${progressPercent}%`;
+
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === totalSlides - 1;
+
+            if (currentSlide > 0) {
+                headerLogo.classList.remove('opacity-0');
+                headerLogo.classList.add('opacity-100');
+            } else {
+                headerLogo.classList.remove('opacity-100');
+                headerLogo.classList.add('opacity-0');
+            }
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateSlidePosition();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateSlidePosition();
+            }
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                prevSlide();
+            }
+        });
+
+        updateSlidePosition();
+    </script>
+</body>
+</html>

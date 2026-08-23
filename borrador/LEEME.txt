@@ -1,0 +1,12 @@
+Carpeta reservada para borradores publicados en una URL real de GitHub Pages.
+
+Sigue sin uso activo. El canal por defecto para previsualizar sigue siendo preview.html
+(instantaneo, sin espera de indexacion). Esta carpeta solo se usa cuando Pablo pida
+explicitamente publicar un borrador real aca, por ejemplo para compartirle un link a un
+cliente, con la frase pasa el borrador a GitHub o subi el borrador de GitHub.
+
+Ver la CONSTITUCION M2M para el detalle completo de esta regla.
+
+Hasta el 20-08-2026 este renglon mandaba a un documento llamado "Reglas de Usuario
+Compartidas - Claude y Antigravity". Ese es el nombre viejo del mismo documento y ya no
+existe: quien lo buscara asi no iba a encontrar nada. Lo encontro la inspeccion de ese dia.

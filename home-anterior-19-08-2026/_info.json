@@ -1,0 +1,9 @@
+{
+  "empresa": "M2Marketing",
+  "descripcion": "La home que estuvo en la raiz de m2marketing.app hasta el 19/08/2026. Se guarda entera, sin tocarle una coma, el dia que la raiz pasa a ser la pagina de dos publicos. No se borra nada: si hay que volver atras, se copia este index.html a la raiz y listo.",
+  "estado": "archivo",
+  "ultima_actualizacion": "19/08/2026",
+  "historial": [
+    "19/08/2026: se archiva aca al reemplazar la raiz por la pagina de dos publicos, por decision de Pablo."
+  ]
+}

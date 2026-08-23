@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>GuardPerf — Demo mail semanal de agentes</title>
+<style>
+  :root{
+    --bg:#f8fafc; --card:#ffffff; --ink:#0f172a; --ink-soft:#475569; --line:#e2e8f0;
+    --accent:#2563eb; --good:#10b981; --warn:#f59e0b; --danger:#ef4444;
+    --email-bg:#1e1e1e; --email-card:#262626; --email-muted:#8b8b8b; --email-line:#333333;
+  }
+  :root[data-theme="dark"]{ --bg:#0b1220; --card:#111a2c; --ink:#f1f5f9; --ink-soft:#94a3b8; --line:#1e293b; }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){ --bg:#0b1220; --card:#111a2c; --ink:#f1f5f9; --ink-soft:#94a3b8; --line:#1e293b; }
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    padding:36px 16px 80px;
+  }
+  .top{ max-width:400px; margin:0 auto 34px; text-align:center; }
+  .eyebrow{ display:inline-block; font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--accent); background:color-mix(in srgb, var(--accent) 12%, transparent); padding:6px 14px; border-radius:999px; margin-bottom:16px; }
+  h1{ font-size:clamp(22px,4vw,32px); font-weight:900; margin:0 0 10px; text-wrap:balance; letter-spacing:-.01em; }
+  .top p{ color:var(--ink-soft); font-size:15px; max-width:560px; margin:0 auto; line-height:1.6; }
+
+  .phones{ max-width:400px; margin:0 auto; display:flex; flex-direction:column; gap:56px; align-items:center; }
+  .phoneCol{ display:flex; flex-direction:column; align-items:center; gap:12px; width:340px; max-width:100%; }
+  .agentLbl{ font-size:12px; font-weight:800; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.04em; }
+
+  .phone{ width:340px; max-width:100%; height:680px; background:#05070c; border-radius:44px; padding:14px; box-shadow:0 30px 60px -20px rgba(2,6,23,.5), 0 0 0 1px rgba(255,255,255,.04) inset; position:relative; }
+  .notch{ position:absolute; top:14px; left:50%; transform:translateX(-50%); width:110px; height:22px; background:#05070c; border-radius:0 0 16px 16px; z-index:5; }
+  .screen{ width:100%; height:100%; background:var(--email-bg); border-radius:32px; overflow-y:auto; overflow-x:hidden; -webkit-overflow-scrolling:touch; scrollbar-width:thin; }
+  .screen::-webkit-scrollbar{ width:4px; }
+  .screen::-webkit-scrollbar-thumb{ background:#3a3a3a; border-radius:4px; }
+
+  .meta{ font-size:10.5px; color:#8b8b8b; padding:34px 22px 14px; border-bottom:1px solid var(--email-line); line-height:1.6; }
+  .meta b{ color:#e5e5e5; }
+  .body{ padding:22px; color:#fff; }
+  h2.greet{ font-size:17px; font-weight:800; margin:0 0 4px; color:#fff; }
+  .lede{ color:#a3a3a3; font-size:12.5px; margin:0 0 18px; line-height:1.5; }
+
+  .btnRow{ text-align:center; margin:18px 0 24px; }
+  .btn{ display:inline-block; background:var(--accent); color:#fff; font-weight:800; font-size:13px; padding:13px 22px; border-radius:10px; border:none; cursor:pointer; font-family:inherit; transition:transform .1s ease, background .15s ease; }
+  .btn:active, .btn.pressed{ transform:scale(.96); background:#1d4ed8; }
+  .btn:focus-visible{ outline:2px solid #93c5fd; outline-offset:2px; }
+  .btnHint{ color:#777; font-size:10.5px; margin-top:8px; line-height:1.5; }
+
+  .section-lbl{ font-size:11px; color:var(--good); text-transform:uppercase; letter-spacing:.05em; font-weight:800; margin:0 0 10px; }
+  .lead{ background:var(--email-card); border-radius:10px; padding:12px 13px; margin-bottom:8px; }
+  .lead .code{ color:#5aa4f5; font-size:10.5px; font-weight:700; font-variant-numeric:tabular-nums; }
+  .lead .name{ color:#fff; font-size:13.5px; font-weight:800; margin:3px 0 5px; }
+  .lead .hist{ color:#999; font-size:11px; line-height:1.5; margin:0; }
+
+  .muted-block{ margin-top:24px; opacity:.6; }
+  .muted-block .lbl{ color:#888; font-size:9.5px; text-transform:uppercase; letter-spacing:.05em; margin-bottom:6px; font-weight:800; }
+  .muted-row{ display:flex; justify-content:space-between; color:#8f8f8f; font-size:10.5px; padding:3px 0; font-variant-numeric:tabular-nums; }
+  .solt{ margin-top:24px; padding-top:14px; border-top:1px solid var(--email-line); opacity:.5; }
+  .solt .lbl{ color:#777; font-size:9.5px; text-transform:uppercase; letter-spacing:.05em; margin-bottom:6px; font-weight:800; }
+  .solt-row{ color:#777; font-size:10.5px; padding:2px 0; font-variant-numeric:tabular-nums; }
+
+  .foot{ border-top:1px solid var(--email-line); margin-top:22px; padding-top:14px; text-align:center; }
+  .foot p{ color:#8b8b8b; font-size:11px; margin:0 0 7px; }
+  .chan a{ font-size:12px; font-weight:700; text-decoration:none; margin:0 5px; }
+  .wa{ color:#25D366; } .ig{ color:#E1306C; } .ph{ color:#5aa4f5; }
+  .warn{ color:#666; font-size:10.5px; margin-top:7px; }
+  .fallback{ margin-top:16px; padding-top:12px; border-top:1px dashed var(--email-line); }
+  .fallback p{ color:#777; font-size:10px; line-height:1.5; margin:0 0 4px; }
+  .fallback code{ color:#5aa4f5; font-size:10px; word-break:break-all; }
+
+  .note{ max-width:920px; margin:34px auto 0; font-size:12.5px; color:var(--ink-soft); background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px 18px; line-height:1.6; }
+  .note b{ color:var(--ink); }
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2460527884444494');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2460527884444494&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body>
+
+  <div class="top">
+    <span class="eyebrow">Demo — datos de ejemplo</span>
+    <h1>Así le llega el mail semanal a cada agente</h1>
+    <p>Un solo botón para responder hablando en vez de escribiendo. Historial visible para el que prefiere leer y listo. Todo en un mail, no uno por cliente.</p>
+  </div>
+
+  <div class="phones">
+
+    <div class="phoneCol">
+      <span class="agentLbl">Carlos Gómez · CBRE-Norte</span>
+      <div class="phone"><div class="notch"></div><div class="screen">
+        <div class="meta"><b>Para:</b> carlos.gomez@agente.com<br><b>Responder a:</b> staffpabloreina@gmail.com<br><b>Asunto:</b> GuardPerf - Tus leads de esta semana [CBRE-Norte]</div>
+        <div class="body">
+          <h2 class="greet">Hola Carlos</h2>
+          <p class="lede">Te pedimos, por favor, completar esta info.</p>
+
+          <div class="btnRow">
+            <button type="button" class="btn" onclick="simularCopiado(this)">Copiá esta info y pegala en tu IA favorita</button>
+            <p class="btnHint">(si usás Spark, también podés pedirle que responda directamente el mail)</p>
+          </div>
+
+          <p class="section-lbl">¿Podés contarnos novedades de estos 8?</p>
+          <div class="lead"><div class="code">LEAD-2026-07-20-014</div><div class="name">Familia Gómez</div><p class="hist">27/07 mostraste el depto, les gustó mucho. 03/08 estaban evaluando, dijeron que respondían esa semana. ¿Qué pasó después?</p></div>
+          <div class="lead"><div class="code">LEAD-2026-08-01-009</div><div class="name">Beatriz Colombo</div><p class="hist">01/08 primer contacto. Todavía no coordinaste la muestra.</p></div>
+          <div class="lead"><div class="code">LEAD-2026-07-10-002</div><div class="name">Martín Ibáñez</div><p class="hist">10/07 hizo una oferta 5% debajo del precio. 17/07 seguían negociando. ¿Se cerró?</p></div>
+          <div class="lead"><div class="code">LEAD-2026-07-15-007</div><div class="name">Ramón Iturbe</div><p class="hist">15/07 pidió más fotos por WhatsApp. Sin respuesta desde entonces.</p></div>
+          <div class="lead"><div class="code">LEAD-2026-08-04-011</div><div class="name">Cintia Paredes</div><p class="hist">04/08 coordinaron videollamada, quedó en confirmar día de visita.</p></div>
+          <div class="lead"><div class="code">LEAD-2026-06-28-006</div><div class="name">Familia Segovia</div><p class="hist">28/06 reservó seña. 05/07 esperando turno de escribanía.</p></div>
+          <div class="lead"><div class="code">LEAD-2026-07-22-013</div><div class="name">Walter Núñez</div><p class="hist">22/07 mostraste el depto. Dijo que lo iba a pensar con la familia.</p></div>
+          <div class="lead"><div class="code">LEAD-2026-08-06-002</div><div class="name">Antonia Reyes</div><p class="hist">Todavía no hay notas de este lead. Contanos cómo arrancó el contacto.</p></div>
+
+          <div class="muted-block">
+            <div class="lbl">Para que tengas en cuenta</div>
+            <div class="muted-row"><span>Sofía Blanco</span><span>desde 20/08</span></div>
+            <div class="muted-row"><span>Ezequiel Ortiz</span><span>desde 25/08</span></div>
+            <div class="muted-row"><span>Familia Duarte</span><span>desde 28/08</span></div>
+            <div class="muted-row"><span>Valentina Cruz</span><span>desde 01/09</span></div>
+            <div class="muted-row"><span>Gastón Molina</span><span>desde 05/09</span></div>
+            <div class="muted-row"><span>Rocío Ferreyra</span><span>desde 08/09</span></div>
+            <div class="muted-row"><span>Nicolás Suárez</span><span>desde 12/09</span></div>
+            <div class="muted-row"><span>Camila Rojas</span><span>desde 15/09</span></div>
+            <div class="muted-row"><span>Tomás Aguirre</span><span>desde 20/09</span></div>
+            <div class="muted-row"><span>Familia Vidal</span><span>desde 30/09</span></div>
+          </div>
+
+          <div class="solt">
+            <div class="lbl">Leads que soltaste</div>
+            <div class="solt-row">Lucía Ríos — 22/06 — sin interés</div>
+            <div class="solt-row">Nahuel Díaz — 03/06 — no calificaba</div>
+            <div class="solt-row">Familia Ponce — 29/05 — eligió otra zona</div>
+            <div class="solt-row">Ramiro Vega — 20/05 — no respondió</div>
+            <div class="solt-row">Agustina Luna — 10/05 — presupuesto insuficiente</div>
+            <div class="solt-row">Bruno Acosta — 02/05 — compró en otra inmobiliaria</div>
+            <div class="solt-row">Familia Torres — 25/04 — pausó la búsqueda</div>
+            <div class="solt-row">Yamila Correa — 15/04 — sin interés</div>
+            <div class="solt-row">Federico Núñez — 08/04 — no calificaba</div>
+            <div class="solt-row">Milagros Peña — 30/03 — cambió de decisión</div>
+          </div>
+
+          <div class="foot">
+            <p>¿Necesitás hablar con una persona? Estamos disponibles por estos canales:</p>
+            <p class="chan"><a class="wa" href="#">WhatsApp</a>|<a class="ig" href="#">Instagram</a>|<span class="ph">+54 9 11 3567-8024</span></p>
+            <p class="warn">Ante una emergencia, llamanos directamente por teléfono, sin necesidad de escribir antes.</p>
+            <div class="fallback">
+              <p>¿No se abre el botón de arriba? Copiá y pegá este link en el navegador:</p>
+              <code>guardperf.app/copiar?lead=carlos-gomez&amp;semana=2026-08-08</code>
+            </div>
+          </div>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="phoneCol">
+      <span class="agentLbl">Fernanda Ríos · CBRE-Norte</span>
+      <div class="phone"><div class="notch"></div><div class="screen">
+        <div class="meta"><b>Para:</b> fernanda.rios@agente.com<br><b>Responder a:</b> staffpabloreina@gmail.com<br><b>Asunto:</b> GuardPerf - Tus leads de esta semana [CBRE-Norte]</div>
+        <div class="body">
+          <h2 class="greet">Hola Fernanda</h2>
+          <p class="lede">Te pedimos, por favor, completar esta info.</p>
+
+          <div class="btnRow">
+            <button type="button" class="btn" onclick="simularCopiado(this)">Copiá esta info y pegala en tu IA favorita</button>
+            <p class="btnHint">(si usás Spark, también podés pedirle que responda directamente el mail)</p>
+          </div>
+
+          <p class="section-lbl">¿Podés contarnos novedades de estos 8?</p>
+          <div class="lead"><div class="code">LEAD-2026-08-03-005</div><div class="name">Diego y Sole</div><p class="hist">03/08 coordinaron visita para el sábado 09/08. ¿Se hizo?</p></div>
+          <div class="lead"><div class="code">LEAD-2026-06-25-021</div><div class="name">Roberto Paz</div><p class="hist">25/06 reservó. 02/07 turno en escribanía para el 15/08. ¿Se escrituró?</p></div>
+          <div class="lead"><div class="code">LEAD-2026-07-28-011</div><div class="name">Familia Cano</div><p class="hist">Sin novedades desde el 28/07.</p></div>
+          <div class="lead"><div class="code">LEAD-2026-07-19-004</div><div class="name">Lorena Aquino</div><p class="hist">19/07 hizo una oferta. 26/07 seguían negociando el precio.</p></div>
+          <div class="lead"><div class="code">LEAD-2026-08-05-008</div><div class="name">Familia Zárate</div><p class="hist">05/08 primer contacto por WhatsApp, todavía sin muestra coordinada.</p></div>
+          <div class="lead"><div class="code">LEAD-2026-07-08-003</div><div class="name">Hernán Villalba</div><p class="hist">08/07 mostraste la casa. 15/07 dijo que quería una segunda visita.</p></div>
+          <div class="lead"><div class="code">LEAD-2026-06-30-017</div><div class="name">Micaela Roldán</div><p class="hist">30/06 reservó seña. 08/07 esperando turno de escribanía.</p></div>
+          <div class="lead"><div class="code">LEAD-2026-08-06-006</div><div class="name">Gabriel Ponce</div><p class="hist">Todavía no hay notas de este lead. Contanos cómo arrancó el contacto.</p></div>
+
+          <div class="muted-block">
+            <div class="lbl">Para que tengas en cuenta</div>
+            <div class="muted-row"><span>Agustín Vera</span><span>desde 19/08</span></div>
+            <div class="muted-row"><span>Familia Ledesma</span><span>desde 22/08</span></div>
+            <div class="muted-row"><span>Paula Miranda</span><span>desde 26/08</span></div>
+            <div class="muted-row"><span>Ignacio Quiroga</span><span>desde 30/08</span></div>
+            <div class="muted-row"><span>Familia Estévez</span><span>desde 03/09</span></div>
+            <div class="muted-row"><span>Brenda Salas</span><span>desde 07/09</span></div>
+            <div class="muted-row"><span>Marcos Funes</span><span>desde 11/09</span></div>
+            <div class="muted-row"><span>Julieta Campos</span><span>desde 14/09</span></div>
+            <div class="muted-row"><span>Emiliano Godoy</span><span>desde 18/09</span></div>
+            <div class="muted-row"><span>Familia Ríos</span><span>desde 25/09</span></div>
+          </div>
+
+          <div class="solt">
+            <div class="lbl">Leads que soltaste</div>
+            <div class="solt-row">Cecilia Bravo — 18/06 — sin interés</div>
+            <div class="solt-row">Rodrigo Pereyra — 30/05 — no respondió</div>
+            <div class="solt-row">Familia Ojeda — 22/05 — eligió otra zona</div>
+            <div class="solt-row">Antonella Ríos — 14/05 — presupuesto insuficiente</div>
+            <div class="solt-row">Maximiliano Soto — 05/05 — compró en otra inmobiliaria</div>
+            <div class="solt-row">Familia Benítez — 28/04 — pausó la búsqueda</div>
+            <div class="solt-row">Daniela Roldán — 20/04 — sin interés</div>
+            <div class="solt-row">Franco Medina — 12/04 — no calificaba</div>
+            <div class="solt-row">Familia Escobar — 04/04 — cambió de decisión</div>
+            <div class="solt-row">Carolina Wagner — 27/03 — no calificaba</div>
+          </div>
+
+          <div class="foot">
+            <p>¿Necesitás hablar con una persona? Estamos disponibles por estos canales:</p>
+            <p class="chan"><a class="wa" href="#">WhatsApp</a>|<a class="ig" href="#">Instagram</a>|<span class="ph">+54 9 11 3567-8024</span></p>
+            <p class="warn">Ante una emergencia, llamanos directamente por teléfono, sin necesidad de escribir antes.</p>
+            <div class="fallback">
+              <p>¿No se abre el botón de arriba? Copiá y pegá este link en el navegador:</p>
+              <code>guardperf.app/copiar?lead=fernanda-rios&amp;semana=2026-08-08</code>
+            </div>
+          </div>
+        </div>
+      </div></div>
+    </div>
+
+  </div>
+
+  <script>
+    function simularCopiado(btn) {
+      btn.classList.add('pressed');
+      const textoOriginal = btn.innerText;
+      btn.innerText = '¡Copiado!';
+      setTimeout(function () {
+        btn.classList.remove('pressed');
+        btn.innerText = textoOriginal;
+      }, 900);
+    }
+  </script>
+
+</body>
+</html>

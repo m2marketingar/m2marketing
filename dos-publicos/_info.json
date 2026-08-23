@@ -1,0 +1,11 @@
+{
+  "empresa": "M2Marketing",
+  "descripcion": "Pagina de servicios con dos publicos en una sola pagina. Un unico switch, arriba de todo dentro del header, dice Inmobiliaria y Agente y cambia el interlocutor completo: titulo, precios, como se entra, como se factura y las preguntas frecuentes. No hay pagina intermedia ni banda de aviso: entra directo en la version de inmobiliaria, que es el publico principal. Con #agente en la direccion entra del lado del agente, para el aviso de Meta y para el link que reenvia un agente por WhatsApp. Los tres servicios, FarmTeam, GuardPerf y CompReal, ya no tienen botonera propia: se ven al bajar, diferenciados por color y por seccion. Suma el precio de entrada antes de todo lo demas, la pauta publicitaria declarada aparte del abono con su propio numero, el bloque de por que la primera campana cuesta lo que cuesta (puesta en marcha), y el precio de arranque acotado a las tres primeras inmobiliarias con los cupos a la vista.",
+  "estado": "activa",
+  "ultima_actualizacion": "19/08/2026",
+  "historial": [
+    "19/08/2026: se crea a partir de la pagina de un solo publico. Motivo: hablarles a la oficina y al agente a la vez sonaba a acusar a la inmobiliaria de no querer invertir. La pagina raiz queda intacta.",
+    "19/08/2026: se saca la banda de publico de arriba y el selector de los tres servicios. Queda un solo switch en toda la pagina, Inmobiliaria primero y Agente despues, dentro del header. Motivo, decision de Pablo: los servicios estan bien diferenciados mas abajo, dos switches al mismo tiempo confundian. La pagina raiz sigue intacta.",
+    "19/08/2026: los cupos pasan a tres y se pintan solos desde un unico numero, CUPOS_LIBRES. Mientras esten los tres libres dice 'son solo tres cupos', sin cuenta regresiva inventada; cuando entra el primero pasa sola a 'quedan 2 de 3'. La pregunta frecuente ya no tiene el numero escrito a mano. Mismo dia: esta pagina pasa a ser tambien la raiz del dominio, y la home anterior queda archivada en home-anterior-19-08-2026."
+  ]
+}

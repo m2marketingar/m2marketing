@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metro Cuadrado Marketing | Compradores sin depender de los portales</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Plus Jakarta Sans', sans-serif; }
+
+  /* ---- Degradados fluor de la casa ---- */
+  .text-gradient { background: linear-gradient(135deg,#2563eb 0%,#7c3aed 50%,#f59e0b 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  .btn-fluor { background: linear-gradient(135deg,#0057FF 0%,#00C2FF 100%); box-shadow:0 10px 30px -5px rgba(0,120,255,.5); }
+  .btn-fluor:hover { box-shadow:0 14px 34px -5px rgba(0,120,255,.7); }
+  .btn-ambar { background: linear-gradient(135deg,#f59e0b 0%,#f43f5e 100%); box-shadow:0 10px 30px -5px rgba(245,158,11,.5); }
+  .btn-ambar:hover { box-shadow:0 14px 34px -5px rgba(245,158,11,.7); }
+
+  /* ---- Flameados: fondo radial oscuro + dos orbes desenfocados ---- */
+  .flame { position:relative; overflow:hidden; }
+  .flame .glow-1, .flame .glow-2 { position:absolute; width:520px; height:520px; border-radius:9999px; filter:blur(10px); pointer-events:none; }
+  .flame .glow-1 { top:-140px; left:-100px; }
+  .flame .glow-2 { bottom:-160px; right:-100px; }
+
+  .flame-noche { background: radial-gradient(circle at 50% 0%, #172554 0%, #0b1120 55%, #020617 100%); }
+  .flame-noche .glow-1 { background: radial-gradient(circle, rgba(0,194,255,.28) 0%, transparent 70%); }
+  .flame-noche .glow-2 { background: radial-gradient(circle, rgba(124,58,237,.24) 0%, transparent 70%); }
+
+  .flame-ambar { background: radial-gradient(circle at 50% 0%, #92400e 0%, #1c1408 55%, #0a0700 100%); }
+  .flame-ambar .glow-1 { background: radial-gradient(circle, rgba(245,158,11,.32) 0%, transparent 70%); }
+  .flame-ambar .glow-2 { background: radial-gradient(circle, rgba(250,204,21,.22) 0%, transparent 70%); }
+
+  /* ---- Biselado de los cuadraditos ---- */
+  .bisel {
+    background: linear-gradient(160deg,#ffffff 0%,#f6f8fb 100%);
+    border: 1px solid rgba(226,232,240,.95);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.95),
+      inset 0 -1.5px 0 rgba(15,23,42,.07),
+      inset 1px 0 0 rgba(255,255,255,.7),
+      0 1px 2px rgba(15,23,42,.05),
+      0 14px 30px -14px rgba(15,23,42,.22);
+  }
+  .bisel-oscuro {
+    background: linear-gradient(160deg, rgba(255,255,255,.10) 0%, rgba(255,255,255,.02) 100%);
+    border: 1px solid rgba(255,255,255,.13);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.22),
+      inset 0 -1.5px 0 rgba(0,0,0,.45),
+      0 20px 44px -22px rgba(0,0,0,.95);
+  }
+
+  .hover-wow { transition: transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s cubic-bezier(.16,1,.3,1); }
+  .hover-wow:hover { transform: translateY(-4px) scale(1.01); }
+  .num { font-variant-numeric: tabular-nums; }
+
+  .reveal { opacity:0; transform:translateY(25px); transition:opacity .6s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1); }
+  .reveal.activo { opacity:1; transform:none; }
+
+  @keyframes latido { 0%,100% { transform:scale(1); opacity:.55 } 50% { transform:scale(1.09); opacity:.15 } }
+  .latido { animation: latido 3.2s ease-in-out infinite; }
+
+  /* ---- EL SWITCH DE PUBLICO ----
+     No se duplica la pagina: se esconde lo que no le corresponde al que esta mirando.
+     Cada bloque conserva su display natural de Tailwind, solo se oculta el del otro. */
+  body.es-of .solo-ag { display:none !important; }
+  body.es-ag .solo-of { display:none !important; }
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2460527884444494');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2460527884444494&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+
+<body class="bg-slate-50 text-slate-900 antialiased overflow-x-hidden es-of">
+
+<!-- ============ HEADER BLANCO ============ -->
+<header class="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/80 shadow-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 sm:h-20 gap-3">
+
+      <a href="#top" class="flex items-center gap-2 group flex-shrink-0">
+        <img src="https://lh3.googleusercontent.com/d/1Yq4YcFxytCooor28U_NwUU3iPFkzw1EV"
+             alt="Metro Cuadrado Marketing"
+             class="h-10 sm:h-12 w-auto object-contain rounded-2xl bg-white group-hover:scale-105 transition-transform duration-300"
+             onerror="this.onerror=null;this.src='https://placehold.co/160x50/2563eb/ffffff?text=M2Marketing';">
+      </a>
+
+      <div class="flex items-center justify-center">
+        <div class="relative flex items-center bg-slate-100/90 p-1.5 rounded-full border border-slate-200/90 shadow-inner">
+          <div id="marca-publico" class="absolute top-1.5 bottom-1.5 rounded-full shadow-md transition-all duration-300"></div>
+          <button id="pb-of" onclick="setPublico('of')" class="relative z-10 px-4 sm:px-6 py-1.5 text-xs sm:text-sm transition-all duration-300 select-none cursor-pointer whitespace-nowrap">Inmobiliaria</button>
+          <button id="pb-ag" onclick="setPublico('ag')" class="relative z-10 px-4 sm:px-6 py-1.5 text-xs sm:text-sm transition-all duration-300 select-none cursor-pointer whitespace-nowrap">Agente</button>
+        </div>
+      </div>
+
+      <a href="#hablar" class="hidden lg:inline-flex items-center gap-1.5 text-xs font-extrabold text-slate-900 border border-slate-200 rounded-full px-4 py-2 hover:bg-slate-50 transition flex-shrink-0">
+        Hablar <i class="ph-bold ph-whatsapp-logo"></i>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ LO PRIMERO QUE SE VE ============
+     Es el unico bloque que la mayoria va a leer entero. Por eso no tiene nada mas
+     que quien sos, que hacemos y el boton. -->
+<section class="flame flame-noche solo-of pt-28 sm:pt-36 pb-20 sm:pb-28 px-4">
+  <div class="glow-1 latido"></div><div class="glow-2 latido"></div>
+  <div class="relative max-w-3xl mx-auto text-center">
+    <p class="text-[11px] sm:text-xs font-black tracking-[.2em] text-cyan-300 uppercase mb-5">Para inmobiliarias</p>
+    <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white leading-[1.05]">
+      Te conseguimos compradores<br class="hidden sm:block"> <span class="text-gradient">sin depender de los portales.</span>
+    </h1>
+    <p class="mt-6 text-lg sm:text-xl text-slate-300 font-medium max-w-xl mx-auto">
+      Publicidad y páginas propias para tus propiedades. Las consultas te llegan con nombre, teléfono y hora.
+    </p>
+    <div class="mt-9">
+      <a href="https://wa.me/5491135678024?text=Hola,%20tengo%20una%20inmobiliaria%20y%20quiero%20saber%20c%C3%B3mo%20funciona"
+         class="btn-fluor hover-wow inline-flex items-center gap-2.5 text-white font-black text-base sm:text-lg rounded-full px-9 py-4">
+        <i class="ph-fill ph-whatsapp-logo text-2xl"></i> Escribinos por WhatsApp
+      </a>
+      <p class="mt-4 text-sm text-slate-400 font-semibold">Te contesta Pablo. Diez minutos y sabés si te sirve.</p>
+    </div>
+  </div>
+</section>
+
+<section class="flame flame-ambar solo-ag pt-28 sm:pt-36 pb-20 sm:pb-28 px-4">
+  <div class="glow-1 latido"></div><div class="glow-2 latido"></div>
+  <div class="relative max-w-3xl mx-auto text-center">
+    <p class="text-[11px] sm:text-xs font-black tracking-[.2em] text-amber-300 uppercase mb-5">Para agentes</p>
+    <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white leading-[1.05]">
+      Te conseguimos compradores<br class="hidden sm:block"> <span class="text-gradient">sin depender de los portales.</span>
+    </h1>
+    <p class="mt-6 text-lg sm:text-xl text-slate-300 font-medium max-w-xl mx-auto">
+      Publicidad y una página propia para tu propiedad. Las consultas te llegan a vos, con nombre, teléfono y hora.
+    </p>
+    <div class="mt-9">
+      <a href="https://wa.me/5491135678024?text=Hola,%20soy%20agente%20y%20quiero%20saber%20c%C3%B3mo%20funciona"
+         class="btn-ambar hover-wow inline-flex items-center gap-2.5 text-white font-black text-base sm:text-lg rounded-full px-9 py-4">
+        <i class="ph-fill ph-whatsapp-logo text-2xl"></i> Escribinos por WhatsApp
+      </a>
+      <p class="mt-4 text-sm text-slate-400 font-semibold">Te contesta Pablo. Diez minutos y sabés si te sirve.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ LAS TRES COSAS QUE HACEMOS ============
+     Una linea cada una. El nombre propio va chiquito abajo, porque el nombre no
+     explica nada y la frase si. -->
+<section class="py-16 sm:py-20 px-4 bg-slate-50">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-center text-2xl sm:text-3xl font-black tracking-tight mb-10">Hacemos tres cosas.</h2>
+    <div class="grid md:grid-cols-3 gap-5">
+
+      <div class="bisel hover-wow rounded-3xl p-6 reveal">
+        <i class="ph-fill ph-map-pin-area text-3xl text-blue-600"></i>
+        <p class="mt-3 font-black text-lg leading-snug">Salimos a buscar en tu zona.</p>
+        <p class="mt-2 text-slate-600 font-medium text-[15px] leading-relaxed">
+          Tu equipo graba un video por mes. Nosotros ponemos la publicidad y las páginas, y repartimos las consultas entre los agentes.
+        </p>
+        <p class="mt-3 text-[11px] font-black tracking-widest text-slate-400 uppercase">FarmTeam</p>
+      </div>
+
+      <div class="bisel hover-wow rounded-3xl p-6 reveal">
+        <i class="ph-fill ph-timer text-3xl text-emerald-600"></i>
+        <p class="mt-3 font-black text-lg leading-snug">Tu propiedad estrella, contestada en quince minutos.</p>
+        <p class="mt-2 text-slate-600 font-medium text-[15px] leading-relaxed">
+          La consulta que espera media hora se fue a otro lado. Montamos la guardia para que eso no pase.
+        </p>
+        <p class="mt-3 text-[11px] font-black tracking-widest text-slate-400 uppercase">GuardPerf</p>
+      </div>
+
+      <div class="bisel hover-wow rounded-3xl p-6 reveal">
+        <i class="ph-fill ph-magnifying-glass text-3xl text-violet-600"></i>
+        <p class="mt-3 font-black text-lg leading-snug">Publicás lo que buscás, no lo que tenés.</p>
+        <p class="mt-2 text-slate-600 font-medium text-[15px] leading-relaxed">
+          Sale el aviso de la búsqueda de un comprador y aparece el que ni pensaba vender.
+        </p>
+        <p class="mt-3 text-[11px] font-black tracking-widest text-slate-400 uppercase">CompReal</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ EL PRECIO, SOLO DEL LADO DE LA OFICINA ============
+     Del lado del agente no va precio: se le factura a la oficina y ponerle un numero
+     delante le hace creer que lo paga el. -->
+<section class="solo-of py-16 sm:py-20 px-4 bg-white border-y border-slate-200">
+  <div class="max-w-xl mx-auto text-center">
+    <p class="text-sm font-black tracking-widest text-slate-400 uppercase">Precio de arranque</p>
+    <p class="mt-4 flex items-end justify-center gap-3">
+      <span class="text-slate-400 line-through text-2xl font-bold num">400</span>
+      <span class="text-6xl sm:text-7xl font-black tracking-tight num">200</span>
+      <span class="text-xl font-black text-slate-500 mb-2">USD / mes</span>
+    </p>
+    <p class="mt-5 text-slate-600 font-medium text-[15px] leading-relaxed">
+      Son solo tres cupos, porque hoy no puedo atender más de tres oficinas a la vez.
+      El precio te queda quieto tres meses.
+    </p>
+    <p class="mt-4 text-slate-500 font-medium text-sm leading-relaxed">
+      La publicidad va aparte y la ponés vos, desde tu propia cuenta. Nosotros ponemos el ecosistema, nunca el medio.
+    </p>
+  </div>
+</section>
+
+<section class="solo-ag py-16 sm:py-20 px-4 bg-white border-y border-slate-200">
+  <div class="max-w-xl mx-auto text-center">
+    <p class="text-sm font-black tracking-widest text-slate-400 uppercase">Cómo se contrata</p>
+    <p class="mt-4 text-2xl sm:text-3xl font-black tracking-tight leading-snug">
+      Esto se arma con tu oficina, no de a uno.
+    </p>
+    <p class="mt-5 text-slate-600 font-medium text-[15px] leading-relaxed">
+      Le facturamos siempre a la oficina, y cómo se reparte puertas adentro lo deciden ustedes.
+      Escribinos igual: te decimos cómo plantearlo para que salga bien.
+    </p>
+  </div>
+</section>
+
+
+<!-- ============ QUIENES SOMOS, EN DOS LINEAS ============ -->
+<section class="py-14 px-4 bg-slate-50">
+  <div class="max-w-xl mx-auto text-center">
+    <p class="text-lg sm:text-xl font-black tracking-tight leading-snug">
+      No somos una agencia que acaba de descubrir el rubro.
+    </p>
+    <p class="mt-3 text-slate-600 font-medium text-[15px] leading-relaxed">
+      Pablo Reina vendió propiedades durante años antes de hacer esto. Conoce el problema desde adentro.
+    </p>
+  </div>
+</section>
+
+
+<!-- ============ EL CIERRE ============ -->
+<section id="hablar" class="flame flame-noche py-16 sm:py-20 px-4">
+  <div class="glow-1 latido"></div><div class="glow-2 latido"></div>
+  <div class="relative max-w-xl mx-auto text-center">
+    <h2 class="text-3xl sm:text-4xl font-black tracking-tight text-white leading-tight">
+      Una charla de diez minutos y sabés si te sirve.
+    </h2>
+    <div class="mt-8">
+      <a href="https://wa.me/5491135678024?text=Hola,%20me%20gustar%C3%ADa%20hablar%20diez%20minutos"
+         class="btn-fluor hover-wow inline-flex items-center gap-2.5 text-white font-black text-base sm:text-lg rounded-full px-9 py-4">
+        <i class="ph-fill ph-whatsapp-logo text-2xl"></i> Escribinos por WhatsApp
+      </a>
+      <p class="mt-4 text-sm text-slate-400 font-semibold">Sin formulario. Te contesta Pablo.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-white py-8 text-center border-t border-slate-200">
+  <p class="text-[11px] text-slate-400 font-bold">Metro Cuadrado Marketing · M2Marketing · Ciudad Autónoma de Buenos Aires</p>
+</footer>
+
+</main>
+
+<script>
+/* ============ SWITCH DE PUBLICO ============
+   No hay dos paginas. Hay una sola que cambia de interlocutor.
+   Se puede entrar directo con #agente o #inmobiliaria, asi el aviso de Meta
+   aterriza ya del lado correcto sin que el visitante tenga que tocar nada. */
+var publico = 'of';
+
+function marcarPublico() {
+  ['pb-of', 'pb-ag'].forEach(function (id) {
+    var esteEsElActivo = (id === (publico === 'of' ? 'pb-of' : 'pb-ag'));
+    document.getElementById(id).className =
+      'relative z-10 px-4 sm:px-6 py-1.5 text-xs sm:text-sm transition-all duration-300 select-none cursor-pointer whitespace-nowrap ' +
+      (esteEsElActivo ? 'font-black text-white' : 'font-medium text-slate-400 hover:text-slate-600');
+  });
+  var marca = document.getElementById('marca-publico');
+  var b = document.getElementById(publico === 'of' ? 'pb-of' : 'pb-ag');
+  marca.style.background = publico === 'of'
+    ? 'linear-gradient(135deg,#0057FF 0%,#00C2FF 100%)'
+    : 'linear-gradient(135deg,#f59e0b 0%,#f43f5e 100%)';
+  marca.style.left = b.offsetLeft + 'px';
+  marca.style.width = b.offsetWidth + 'px';
+}
+
+function setPublico(p) {
+  publico = p;
+  document.body.classList.toggle('es-of', p === 'of');
+  document.body.classList.toggle('es-ag', p === 'ag');
+  marcarPublico();
+}
+
+/* Si la direccion termina en #agente, se entra ya del lado del agente. */
+if ((location.hash || '').toLowerCase().indexOf('agente') >= 0) {
+  setPublico('ag');
+} else {
+  marcarPublico();
+}
+window.addEventListener('resize', marcarPublico);
+
+/* Aparecido suave de los cuadraditos al bajar. */
+var mirador = new IntersectionObserver(function (entradas) {
+  entradas.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('activo'); });
+}, { threshold: .15 });
+document.querySelectorAll('.reveal').forEach(function (el) { mirador.observe(el); });
+</script>
+
+</body>
+</html>

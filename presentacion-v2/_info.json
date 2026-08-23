@@ -1,0 +1,10 @@
+{
+  "empresa": "M2Marketing",
+  "descripcion": "Presentacion interactiva Powertalk de M2Marketing, version 2. Misma estetica y mismo contenido que presentacion-v1 de la lamina 1 a la 18, sin un solo cambio. Suma tres laminas nuevas de FarmTeam, el tercer servicio de prospeccion de zona en equipo, entre la 18 y el Circulo Virtuoso. El Circulo Virtuoso pasa de dos servicios a tres. Precios actualizados al esquema de cliente fundador: abono base 400 tachado a 200 incluyendo 1 GuardPerf, GuardPerf adicional 400 a 200, CompReal 300 a 150, FarmTeam 400 a 200, con el 50 por ciento de descuento acotado a los primeros 6 meses. CompReal salio del abono base y pasa a ser servicio aparte. Total 30 laminas.",
+  "estado": "activa",
+  "ultima_actualizacion": "19/08/2026",
+  "historial": [
+    "18/08/2026: se crea la version 2 copiando presentacion-v1 y sumando FarmTeam mas la nueva estructura de precios de cliente fundador. La version 1 queda intacta.",
+    "19/08/2026, antes de la reunion: tres arreglos de texto, ninguna lamina nueva. La lamina 25 dejaba entender que la pauta estaba incluida en los USD 200 (decia Todo Incluido y abajo Pauta digital 25%): ahora aclara que ese 25 es reparto de trabajo y que la inversion publicitaria se paga aparte desde la cuenta de la oficina. La lamina 24 cambia Precio Cliente Fundador por Precio de las tres primeras inmobiliarias y suma el cupo, para que coincida con la web. La lamina 26 suma las condiciones que la presentacion no declaraba: pauta aparte, ciclo minimo de tres meses con el primero pospago, valores sin impuestos, y el recargo del 20% por transferencia o factura formal con la aclaracion de que no es el IVA."
+  ]
+}
